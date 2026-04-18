@@ -99,6 +99,19 @@ label,
   line-height: 1.45;
 }
 
+@media (min-width: 1025px) {
+  body.single-post.has-sidebar:not(.has-left-sidebar) .content-container {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 26%);
+    column-gap: clamp(1.5rem, 2vw, 2.25rem);
+  }
+
+  body.single-post .entry-content,
+  body.single-post .single-content,
+  body.single-post .wp-block-post-content {
+    max-width: 78ch;
+  }
+}
+
 @media (max-width: 782px) {
   body,
   .editor-styles-wrapper {
