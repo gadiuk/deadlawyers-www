@@ -52,6 +52,7 @@ th {
   line-height: 1.52;
 }
 
+/* Force jobs-like title font on www over Kadence heading presets. */
 h1,
 h2,
 h3,
@@ -59,23 +60,30 @@ h4,
 h5,
 h6,
 .wp-block-heading,
+.wp-block-post-title,
 .entry-title,
+.entry-hero h1,
+.entry-hero .entry-title,
 .site-title {
-  font-family: var(--dls-font-heading);
+  font-family: var(--dls-font-heading) !important;
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
 h1,
-.entry-title {
+.entry-title,
+.wp-block-post-title {
+  font-weight: 700 !important;
   line-height: 1.12;
 }
 
 h2 {
+  font-weight: 700 !important;
   line-height: 1.2;
 }
 
 h3 {
+  font-weight: 600 !important;
   line-height: 1.26;
 }
 
@@ -119,7 +127,8 @@ label,
   }
 
   h1,
-  .entry-title {
+  .entry-title,
+  .wp-block-post-title {
     line-height: 1.15;
   }
 
