@@ -1,0 +1,2895 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-14 20:06+0100\n"
+"PO-Revision-Date: 2019-03-14 20:08+0100\n"
+"Last-Translator: totalsuite <supporttotalsuite.net>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../src\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__;esc_html_e;_n;_x;_ex;_nx;_n:1,2;"
+"esc_attr__;esc_attr_e;i18n\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Admin/Ajax/Dashboard.php:66
+#, fuzzy
+#| msgid "Invalid Sidebar ID."
+msgid "Invalid key or email."
+msgstr "サイドバーIDが無効です。"
+
+#: Admin/Ajax/Dashboard.php:135
+msgid "Invalid access token."
+msgstr ""
+
+#: Admin/Ajax/Entries.php:65
+msgid "Invalid Poll ID"
+msgstr "無効な投票ID"
+
+#: Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "モジュールがインストールされました。"
+
+#: Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "モジュールがダウンロードされインストールされました。"
+
+#: Admin/Ajax/Modules.php:110
+msgid "Module updated."
+msgstr "モジュールが更新されました。"
+
+#: Admin/Ajax/Modules.php:124
+msgid "Module uninstalled."
+msgstr "モジュールがアンインストールされました。"
+
+#: Admin/Ajax/Modules.php:138
+msgid "Module activated."
+msgstr "モジュールが起動しました。"
+
+#: Admin/Ajax/Modules.php:152
+msgid "Module deactivated."
+msgstr "モジュールが無効化されました。"
+
+#: Admin/Ajax/Options.php:45
+msgid "Saved."
+msgstr "保存されました。"
+
+#: Admin/Ajax/Options.php:57
+msgid "Purged."
+msgstr "削除されました。"
+
+#: Admin/Ajax/Options.php:68
+msgid "Plugin is not supported."
+msgstr "プラグインはサポートされていません。"
+
+#: Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "投票IDが無効です。"
+
+#: Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "ウィジェットが正常に追加されました。"
+
+#: Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "サイドバーIDが無効です。"
+
+#: Admin/Bootstrap.php:42 Admin/Bootstrap.php:43
+#: Admin/Dashboard/views/index.php:3
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: Admin/Bootstrap.php:47 Admin/Bootstrap.php:48
+#: Admin/Dashboard/views/overview.php:28 Admin/Entries/views/index.php:2
+#: Admin/Poll/Editor.php:331 Admin/Poll/Listing.php:81
+#: Admin/Poll/Listing.php:160 Admin/Privacy/Policy.php:151
+msgid "Entries"
+msgstr "エントリー"
+
+#: Admin/Bootstrap.php:52 Admin/Bootstrap.php:53
+#: Admin/Insights/views/index.php:2 Admin/Poll/Editor.php:330
+#: Admin/Poll/Listing.php:161
+msgid "Insights"
+msgstr "インサイト"
+
+#: Admin/Bootstrap.php:57 Admin/Log/views/index.php:2 Admin/Poll/Editor.php:335
+#: Admin/Poll/Listing.php:82 Admin/Poll/Listing.php:165
+msgid "Log"
+msgstr "ログ"
+
+#: Admin/Bootstrap.php:58
+msgid "Logs"
+msgstr "ログ"
+
+#: Admin/Bootstrap.php:62 Admin/Bootstrap.php:63
+#: Admin/Modules/Templates/views/index.php:3 Admin/Modules/views/index.php:8
+#: Admin/Poll/Editor.php:281 Admin/Poll/views/design/sidebar.php:11
+msgid "Templates"
+msgstr "テンプレート"
+
+#: Admin/Bootstrap.php:67 Admin/Bootstrap.php:68
+#: Admin/Modules/Extensions/views/index.php:3 Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "拡張機能"
+
+#: Admin/Bootstrap.php:72 Admin/Bootstrap.php:73
+#: Admin/Options/views/index.php:2 Admin/Poll/views/form/field.php:156
+msgid "Options"
+msgstr "オプション"
+
+#: Admin/Bootstrap.php:364
+#, fuzzy
+#| msgid ""
+#| "TotalPoll is part of <a href=\"https://totalsuite.net/\" target=\"_blank"
+#| "\">TotalSuite</a>, a suite of plugins that takes <a href=\"https://"
+#| "wordpress.org/\" target=\"_blank\">WordPress</a> to the next level."
+msgid ""
+"{{product}} is part of <a href=\"{{totalsuite}}\" target=\"_blank"
+"\">TotalSuite</a>, a suite of robust and maintained plugins for WordPress."
+msgstr ""
+"TotalPollは、<a href=\"https://totalsuite.net/\" target=\"_blank\"> "
+"TotalSuite </a>の一部です。これは、<a href = \"https://wordpress.org/\" "
+"target = \"_ blank\"> WordPress </a>を次のレベルに設定する一連のプラグインで"
+"す。"
+
+#: Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "製品が認証されました！"
+
+#: Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "更新中です。"
+
+#: Admin/Dashboard/views/activation.php:12
+msgid "Activation code"
+msgstr "アクティベーションコード"
+
+#: Admin/Dashboard/views/activation.php:18
+msgid "Licensed to"
+msgstr ""
+
+#: Admin/Dashboard/views/activation.php:27
+#, php-format
+msgid "Product activation for %s"
+msgstr "％s の製品認証"
+
+#: Admin/Dashboard/views/activation.php:28
+#, fuzzy
+#| msgid ""
+#| "Open <a href=\"https://codecanyon.net/downloads\">downloads page</a>, "
+#| "find the product, click \"Download\" then select on \"License certificate "
+#| "& purchase code (text)\"."
+msgid ""
+"Open <a target=\"_blank\" href=\"https://codecanyon.net/downloads"
+"\">downloads page</a>, find the product, click \"Download\" then select on "
+"\"License certificate & purchase code (text)\"."
+msgstr ""
+"<a href=\"https://codecanyon.net/downloads\">ダウンロードページ</a>を開き、製"
+"品を見つけて「ダウンロード」をクリックし、「ライセンス証明書と購入コード（テ"
+"キスト）」を選択します。"
+
+#: Admin/Dashboard/views/activation.php:34
+msgid "Activating"
+msgstr "有効化"
+
+#: Admin/Dashboard/views/activation.php:34 Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "有効にする"
+
+#: Admin/Dashboard/views/credits.php:4 Admin/Dashboard/views/index.php:20
+msgid "Credits"
+msgstr "クレジット"
+
+#: Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr "TotalPollはこれらのプロジェクトと貢献者のおかげで可能になりました。"
+
+#: Admin/Dashboard/views/index.php:7
+msgid "Overview"
+msgstr "概要"
+
+#: Admin/Dashboard/views/index.php:11
+msgid "Get started"
+msgstr "始める"
+
+#: Admin/Dashboard/views/index.php:14
+msgid "What's new"
+msgstr "最新情報"
+
+#: Admin/Dashboard/views/index.php:17
+msgid "Support"
+msgstr "サポート"
+
+#: Admin/Dashboard/views/index.php:23
+msgid "Activation"
+msgstr "認証"
+
+#: Admin/Dashboard/views/index.php:26
+msgid "My Account"
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:66
+msgid "Simple yet Powerful Plugins for WordPress"
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:67
+msgid ""
+"A suite of robust, maintained and secure plugins for WordPress that helps "
+"you generate more value for your business."
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:78
+msgid "Get Started"
+msgstr "始める"
+
+#: Admin/Dashboard/views/my-account.php:8
+msgid "Account Linked!"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:9
+msgid "Your account has been linked successfully."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:12
+msgid "Linked account"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:21
+msgid "Your TotalSuite Account"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:22
+msgid "Link your account purchases using an access token."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:25
+msgid "Access Token"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Linking..."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Connect"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:30
+msgid "Get Access Token"
+msgstr ""
+
+#: Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "最初のアンケートを作成しましょう。"
+
+#: Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "アンケートはまだありません。"
+
+#: Admin/Dashboard/views/overview.php:8 Poll/PostType.php:122
+msgid "Create Poll"
+msgstr "アンケートを作成する"
+
+#: Admin/Dashboard/views/overview.php:14 Admin/Poll/views/choices/choice.php:19
+#: Admin/Poll/views/form/field.php:20
+msgid "Untitled"
+msgstr "無題"
+
+#: Admin/Dashboard/views/overview.php:16 Admin/Poll/Listing.php:188
+msgid "Live"
+msgstr "ライブ"
+
+#: Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "保留"
+
+#: Admin/Dashboard/views/overview.php:24 Admin/Options/Page.php:67
+#: Admin/Poll/Listing.php:80 Admin/Poll/views/choices/choice.php:64
+#: Admin/Poll/views/choices/choice.php:68
+#: Admin/Poll/views/settings/choices/sort.php:15
+#: Admin/Poll/views/settings/results/sort.php:15 Admin/Privacy/Policy.php:97
+msgid "Votes"
+msgstr "投票"
+
+#: Admin/Dashboard/views/sidebar.php:9 Admin/Dashboard/views/sidebar.php:21
+msgid "Translate"
+msgstr "翻訳"
+
+#: Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"TotalPollをご自身の言語に翻訳して、ストアから無料でアイテムを手に入れることが"
+"できます。"
+
+#: Admin/Dashboard/views/sidebar.php:28
+msgid "Stay in the loop"
+msgstr "ループに留まる"
+
+#: Admin/Dashboard/views/sidebar.php:29
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"新機能、製品、お得な情報、さらにストアで使える<strong>10％割引</strong>に関す"
+"る最新情報をお届けします。"
+
+#: Admin/Dashboard/views/sidebar.php:32
+msgid "Your email"
+msgstr "あなたのメール"
+
+#: Admin/Dashboard/views/sidebar.php:34
+msgid "Subscribe"
+msgstr "会員登録する"
+
+#: Admin/Dashboard/views/sidebar.php:38
+msgid "Follow us"
+msgstr "フォローする"
+
+#: Admin/Dashboard/views/sidebar.php:64
+msgid "Spread the word"
+msgstr "口コミを広める"
+
+#: Admin/Dashboard/views/sidebar.php:65
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"<a href=\"https://codecanyon.net/downloads/\">レビューを投稿</a>してくださ"
+"い。 また、TotalPollについてツイートすると、ストアから無料アイテムを獲得する"
+"チャンスを得られます！"
+
+#: Admin/Dashboard/views/sidebar.php:71
+msgid "Tweet"
+msgstr "ツイート"
+
+#: Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "何かお困りですか？"
+
+#: Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "知識ベースで詳細な回答とチュートリアルを検索してください。"
+
+#: Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "キーワードを入力してください"
+
+#: Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "検索する"
+
+#: Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "コミュニティサポート"
+
+#: Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "TotalSuiteコミュニティに参加して回答を求める。"
+
+#: Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "フォーラムにアクセスする"
+
+#: Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "カスタマーサポート"
+
+#: Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "サポートチームがお手伝いします。"
+
+#: Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "チケットを送る"
+
+#: Admin/Dashboard/views/support.php:37
+#, fuzzy
+#| msgid "VIP Support"
+msgid "Instant Support"
+msgstr "VIP サポート"
+
+#: Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "お急ぎですか？大丈夫、私たちがついています！"
+
+#: Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "もっと知る"
+
+#: Admin/Entries/Page.php:48 Admin/Log/Page.php:73
+#: Admin/Poll/views/choices/choice.php:34
+#: Admin/Poll/views/choices/choices.php:164
+#: Admin/Poll/views/choices/choices.php:221 Admin/Poll/views/form/field.php:96
+msgid "HTML"
+msgstr "HTML"
+
+#: Admin/Entries/Page.php:49 Admin/Log/Page.php:74
+msgid "CSV"
+msgstr ""
+
+#: Admin/Entries/Page.php:50 Admin/Log/Page.php:75
+msgid "JSON"
+msgstr ""
+
+#: Admin/Entries/views/index.php:12 Admin/Insights/views/index.php:9
+msgid "Please select a poll"
+msgstr "アンケートを選択してください"
+
+#: Admin/Entries/views/index.php:16 Admin/Insights/views/index.php:13
+#: Admin/Log/views/index.php:16
+msgid "From"
+msgstr "から"
+
+#: Admin/Entries/views/index.php:18 Admin/Insights/views/index.php:15
+#: Admin/Log/views/index.php:18
+msgid "To"
+msgstr "へ"
+
+#: Admin/Entries/views/index.php:30 Admin/Insights/views/index.php:19
+#: Admin/Log/views/index.php:30
+msgid "Clear"
+msgstr "クリア"
+
+#: Admin/Entries/views/index.php:33 Admin/Insights/views/index.php:22
+#: Admin/Log/views/index.php:33
+msgid "Apply"
+msgstr "適用する"
+
+#: Admin/Entries/views/index.php:42 Admin/Log/Page.php:50
+#: Admin/Poll/Listing.php:83 Admin/Privacy/Policy.php:113
+msgid "Date"
+msgstr "日付"
+
+#: Admin/Entries/views/index.php:51 Admin/Log/views/index.php:77
+#, fuzzy
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "何もない。 Nada. Niente. Nickts. Rien."
+
+#: Admin/Entries/views/index.php:61 Admin/Log/views/index.php:86
+#: Poll/Renderer.php:252
+msgid "Previous"
+msgstr "前へ"
+
+#: Admin/Entries/views/index.php:63 Admin/Log/views/index.php:87
+#: Poll/Renderer.php:253
+msgid "Next"
+msgstr "次へ"
+
+#: Admin/Entries/views/index.php:67 Admin/Log/views/index.php:91
+msgid "Download as"
+msgstr "次のようにダウンロード"
+
+#: Admin/Log/Page.php:48 Admin/Privacy/Policy.php:109
+msgid "Status"
+msgstr "ステータス"
+
+#: Admin/Log/Page.php:49
+msgid "Action"
+msgstr "アクション"
+
+#: Admin/Log/Page.php:51 Admin/Poll/views/settings/vote/frequency.php:19
+#: Admin/Poll/views/settings/vote/limitations.php:116
+#: Admin/Privacy/Policy.php:101
+msgid "IP"
+msgstr "IP"
+
+#: Admin/Log/Page.php:52
+msgid "Browser"
+msgstr "ブラウザー"
+
+#: Admin/Log/Page.php:53 Poll/PostType.php:121
+msgid "Poll"
+msgstr "アンケート"
+
+#: Admin/Log/Page.php:54
+msgid "User name"
+msgstr "ユーザーネーム"
+
+#: Admin/Log/Page.php:55
+msgid "User ID"
+msgstr "ユーザーID"
+
+#: Admin/Log/Page.php:56
+msgid "User login"
+msgstr "ユーザーログイン"
+
+#: Admin/Log/Page.php:57
+msgid "User email"
+msgstr "ユーザーメール"
+
+#: Admin/Log/Page.php:58
+msgid "Details"
+msgstr "詳細"
+
+#: Admin/Modules/Extensions/views/index.php:4
+#: Admin/Modules/Templates/views/index.php:4
+#: Admin/Poll/views/choices/choice-audio.php:37
+#: Admin/Poll/views/choices/choice-audio.php:59
+#: Admin/Poll/views/choices/choice-image.php:31
+#: Admin/Poll/views/choices/choice-video.php:43
+#: Admin/Poll/views/choices/choice-video.php:68
+msgid "Upload"
+msgstr "アップロード"
+
+#: Admin/Modules/Extensions/views/index.php:9
+#: Admin/Modules/Templates/views/index.php:9
+#, fuzzy
+#| msgid "Install"
+msgid "Installed"
+msgstr "インストール"
+
+#: Admin/Modules/Extensions/views/index.php:12
+#: Admin/Modules/Templates/views/index.php:12
+msgid "Store"
+msgstr ""
+
+#: Admin/Modules/Extensions/views/index.php:16
+#: Admin/Modules/Templates/views/index.php:16
+msgid "Refresh"
+msgstr ""
+
+#: Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "モジュール"
+
+#: Admin/Modules/views/index.php:5 Admin/Modules/views/install.php:21
+#: Admin/Modules/views/manager.php:30
+msgid "Install"
+msgstr "インストール"
+
+#: Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr ""
+"テンプレートまたは拡張子が.zip形式の場合は、ここにアップロードしてインストー"
+"ルできます。"
+
+#: Admin/Modules/views/install.php:18
+#, fuzzy
+#| msgid "Browser"
+msgid "Browse"
+msgstr "ブラウザー"
+
+#: Admin/Modules/views/manager.php:21
+#: Admin/Poll/views/design/tabs/templates.php:25
+msgid "By"
+msgstr "よって"
+
+#: Admin/Modules/views/manager.php:35
+#, fuzzy
+#| msgid "Get Quote"
+msgid "Get it"
+msgstr "見積もりを入手"
+
+#: Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "更新"
+
+#: Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "アンインストール"
+
+#: Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "無効にする"
+
+#: Admin/Modules/views/manager.php:64
+#: Admin/Poll/views/design/tabs/templates.php:27
+msgid "Version"
+msgstr "バージョン"
+
+#: Admin/Options/Page.php:72 Poll/Model.php:791 Poll/Model.php:912
+#: Poll/Model.php:973
+#, fuzzy, php-format
+#| msgid "%s Vote"
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "％s投票"
+
+#: Admin/Options/Page.php:73
+#, php-format
+msgid "%s Votes"
+msgstr "％s 投票"
+
+#: Admin/Options/Page.php:79
+msgid "Buttons"
+msgstr "ボタン"
+
+#: Admin/Options/Page.php:84
+msgid "Previous page"
+msgstr "前のページ"
+
+#: Admin/Options/Page.php:89
+msgid "Next page"
+msgstr "次のページ"
+
+#: Admin/Options/Page.php:94 Admin/Poll/Editor.php:239
+#: Admin/Poll/Editor.php:254 Poll/Form.php:235 Widgets/Poll.php:84
+msgid "Results"
+msgstr "結果"
+
+#: Admin/Options/Page.php:99 Admin/Poll/Editor.php:224
+#: Admin/Poll/Editor.php:252 Poll/Form.php:247 Widgets/Poll.php:83
+msgid "Vote"
+msgstr "投票"
+
+#: Admin/Options/Page.php:104
+msgid "Back"
+msgstr "戻る"
+
+#: Admin/Options/Page.php:109
+msgid "Proceed"
+msgstr "進む"
+
+#: Admin/Options/Page.php:115
+msgid "Errors"
+msgstr "エラー"
+
+#: Admin/Options/Page.php:121
+msgid "You cannot vote again in this poll."
+msgstr "この投票にもう一度投票することはできません。"
+
+#: Admin/Options/Page.php:127
+msgid "You have to vote for at least one choice."
+msgstr "少なくとも1つの選択肢に投票してください。"
+
+#: Admin/Options/Page.php:128
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "少なくとも ％d 個の選択肢に投票してください。"
+
+#: Admin/Options/Page.php:134
+msgid "You cannot vote for more than one choice."
+msgstr "複数の選択肢に投票することはできません。"
+
+#: Admin/Options/Page.php:135
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "％d 個以上の選択肢に投票することはできません。"
+
+#: Admin/Options/Page.php:141
+msgid "You have entered an invalid captcha code."
+msgstr "無効なキャプチャコードを入力しました。"
+
+#: Admin/Options/Page.php:147
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "定数を超えたため投票できません。"
+
+#: Admin/Options/Page.php:153
+msgid "You cannot see results before voting."
+msgstr "投票する前に結果を見ることはできません。"
+
+#: Admin/Options/Page.php:159
+msgid "You cannot vote because this poll has not started yet."
+msgstr "このアンケートはまだ開始されていないため投票できません。"
+
+#: Admin/Options/Page.php:165
+msgid "You cannot vote because this poll has expired."
+msgstr "投票期限が切れたため投票できません。"
+
+#: Admin/Options/Page.php:171
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "お住いの地域ではこのアンケートがは利用できないため投票できません。"
+
+#: Admin/Options/Page.php:177
+msgid "You cannot vote because you have insufficient rights."
+msgstr "権限が不十分なため投票できません。"
+
+#: Admin/Options/Page.php:183
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"ゲストであるため投票できません。<a href=\"%s\">サインイン</a>または<a href="
+"\"%s\">登録</a>してください。"
+
+#: Admin/Options/Page.php:189
+msgid "Voting via links has been disabled for this poll."
+msgstr "このアンケートでは、リンクによる投票は無効になっています。"
+
+#: Admin/Options/Page.php:195 Admin/Poll/views/form/field.php:93
+msgid "Validations"
+msgstr "検証"
+
+#: Admin/Options/Page.php:200
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}}は有効なメールアドレスである必要があります。"
+
+#: Admin/Options/Page.php:205
+msgid "{{label}} must be filled."
+msgstr "{{label}}は記入必須です。"
+
+#: Admin/Options/Page.php:210
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}}はサポートされている範囲内にありません。"
+
+#: Admin/Options/Page.php:215 Poll/Form.php:89
+msgid "{{label}} has been used before."
+msgstr "{{label}}は以前使用されました。"
+
+#: Admin/Options/Page.php:220
+msgid "{{label}} is not accepted."
+msgstr "{{label}}は容認されません。"
+
+#: Admin/Options/Page.php:225
+msgid "{{label}} does not allow this value."
+msgstr "{{label}}はこの値を許可しません。"
+
+#: Admin/Options/Page.php:252
+msgid "General"
+msgstr "概要"
+
+#: Admin/Options/Page.php:253
+msgid "Performance"
+msgstr "動作"
+
+#: Admin/Options/Page.php:254
+msgid "Services"
+msgstr "サービス"
+
+#: Admin/Options/Page.php:255
+msgid "Sharing"
+msgstr "シェア"
+
+#: Admin/Options/Page.php:256 Admin/Poll/Editor.php:286
+msgid "Advanced"
+msgstr "高度"
+
+#: Admin/Options/Page.php:257 Admin/Poll/Editor.php:259
+msgid "Notifications"
+msgstr "通知"
+
+#: Admin/Options/Page.php:258
+msgid "Expressions"
+msgstr "表現"
+
+#: Admin/Options/Page.php:259
+msgid "Migration"
+msgstr "移行"
+
+#: Admin/Options/Page.php:260
+msgid "Import & Export"
+msgstr "インポート＆エクスポート"
+
+#: Admin/Options/Page.php:261
+msgid "Debug"
+msgstr "修正"
+
+#: Admin/Options/views/tabs/advanced.php:7
+msgid "Always embed CSS with HTML."
+msgstr "CSSには常にHTMLを埋め込みます。"
+
+#: Admin/Options/views/tabs/advanced.php:10
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr ""
+"このオプションは、WordPressが標準のファイルシステムで実行されていない場合に便"
+"利です。"
+
+#: Admin/Options/views/tabs/advanced.php:17
+msgid "Render full poll when listed in polls archive."
+msgstr "アンケートリストがアーカイブにある場合、全てのアンケートを表示します。"
+
+#: Admin/Options/views/tabs/advanced.php:20
+msgid "This option will render all polls instead of showing titles only."
+msgstr ""
+"このオプションは、タイトルだけを表示するのではなく、アンケートの全てを表示し"
+"ます。"
+
+#: Admin/Options/views/tabs/advanced.php:27
+msgid "Disable polls archive."
+msgstr "アンケートアーカイブを無効にします。"
+
+#: Admin/Options/views/tabs/advanced.php:35
+msgid "Remove all data on uninstall."
+msgstr "アンインストール時にすべてのデータを削除します。"
+
+#: Admin/Options/views/tabs/advanced.php:38
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr ""
+"注意喚起！ これにより、オプション、キャッシュファイル、アンケートなどの"
+"TotalPollデータがすべて削除されます。"
+
+#: Admin/Options/views/tabs/debug.php:19
+#, fuzzy
+#| msgid "Downloads"
+msgid "Download"
+msgstr "ダウンロード"
+
+#: Admin/Options/views/tabs/general.php:7
+msgid "Structured Data"
+msgstr "構造化データ"
+
+#: Admin/Options/views/tabs/general.php:10
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"<a href=\"https://developers.google.com/search/docs/guides/intro-structured-"
+"data\" target=\"_blank\">構造化データ</a>の実装を通じて検索エンジンの外観を改"
+"善します。"
+
+#: Admin/Options/views/tabs/import-export.php:7
+msgid "Import data"
+msgstr "データのインポート"
+
+#: Admin/Options/views/tabs/import-export.php:10
+msgid "Export data"
+msgstr "データのエクスポート"
+
+#: Admin/Options/views/tabs/import-export.php:13
+msgid "Export settings"
+msgstr "設定をエクスポート"
+
+#: Admin/Options/views/tabs/import-export.php:17
+#, fuzzy
+#| msgid "TotalPoll uses standard WordPress import mechanism."
+msgid "TotalPoll uses standard WordPress import/export mechanism."
+msgstr "TotalPollは、標準のWordPressインポートメカニズムを使用しています。"
+
+#: Admin/Options/views/tabs/import-export.php:23
+msgid "Drag and drop settings file or copy then paste its content here."
+msgstr ""
+
+#: Admin/Options/views/tabs/import-export.php:27
+msgid "Import settings"
+msgstr "設定をインポート"
+
+#: Admin/Options/views/tabs/import-export.php:28
+#, fuzzy
+#| msgid "Import settings"
+msgid "Importing"
+msgstr "設定をインポート"
+
+#: Admin/Options/views/tabs/import-export.php:29
+#, fuzzy
+#| msgid "Import data"
+msgid "Imported"
+msgstr "データのインポート"
+
+#: Admin/Options/views/tabs/migration.php:13
+msgid "No polls to migrate."
+msgstr "移行するアンケートがありません。"
+
+#: Admin/Options/views/tabs/migration.php:14
+msgid "Polls migrated successfully."
+msgstr "アンケートが正常に移行されました。"
+
+#: Admin/Options/views/tabs/migration.php:15
+msgid "Polls to migrate."
+msgstr "移行するアンケート"
+
+#: Admin/Options/views/tabs/migration.php:28 Admin/Poll/views/editor.php:15
+msgid "Migrate"
+msgstr "移行する"
+
+#: Admin/Options/views/tabs/notifications.php:4
+msgid "Poll title: {{title}}"
+msgstr "アンケートタイトル: {{title}}"
+
+#: Admin/Options/views/tabs/notifications.php:5
+msgid "Choices: {{choices}}"
+msgstr "選択: {{choices}}"
+
+#: Admin/Options/views/tabs/notifications.php:6
+msgid "User IP: {{ip}}"
+msgstr "ユーザーIP: {{ip}}"
+
+#: Admin/Options/views/tabs/notifications.php:7
+msgid "User browser: {{browser}}"
+msgstr "ユーザーブラウザー: {{browser}}"
+
+#: Admin/Options/views/tabs/notifications.php:8
+msgid "Vote date: {{date}}"
+msgstr "投票日: {{date}}"
+
+#: Admin/Options/views/tabs/notifications.php:12 Admin/Poll/Listing.php:79
+#: Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "タイトル"
+
+#: Admin/Options/views/tabs/notifications.php:18
+msgid "Plain text body"
+msgstr "テキスト形式本文"
+
+#: Admin/Options/views/tabs/notifications.php:24
+msgid "HTML template"
+msgstr "HTML テンプレート"
+
+#: Admin/Options/views/tabs/performance.php:7
+msgid "Asynchronous loading"
+msgstr "非同期ロード"
+
+#: Admin/Options/views/tabs/performance.php:10
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr "これはキャッシュメカニズムとプラグインを回避したい場合に便利です。"
+
+#: Admin/Options/views/tabs/performance.php:17
+msgid "Full checks on page load."
+msgstr "ページの読み込みを細かくチェックします。"
+
+#: Admin/Options/views/tabs/performance.php:20
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr ""
+"TotalPollが頻繁にデータベースにヒットするため、サーバーに負荷がかかる可能性が"
+"あります。"
+
+#: Admin/Options/views/tabs/performance.php:26
+msgid "Clear cache"
+msgstr "キャッシュの消去"
+
+#: Admin/Options/views/tabs/performance.php:27
+#, fuzzy
+#| msgid "Clear"
+msgid "Clearing"
+msgstr "クリア"
+
+#: Admin/Options/views/tabs/performance.php:28
+#, fuzzy
+#| msgid "Clear"
+msgid "Cleared"
+msgstr "クリア"
+
+#: Admin/Options/views/tabs/services.php:6
+msgid "reCaptcha by Google"
+msgstr "GoogleによるreCaptcha "
+
+#: Admin/Options/views/tabs/services.php:14
+msgid "Site key"
+msgstr "サイトキー"
+
+#: Admin/Options/views/tabs/services.php:22
+msgid "Site secret"
+msgstr "サイトシークレット"
+
+#: Admin/Options/views/tabs/services.php:30
+msgid "Enable invisible captcha."
+msgstr "見えないキャプチャを有効にする。"
+
+#: Admin/Options/views/tabs/sharing.php:9
+msgid "Twitter"
+msgstr "Twitter"
+
+#: Admin/Options/views/tabs/sharing.php:19
+msgid "Facebook"
+msgstr "Facebook"
+
+#: Admin/Options/views/tabs/sharing.php:29
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: Admin/Poll/Editor.php:170
+msgid "Are you sure?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:171 Admin/Poll/views/choices/choice-audio.php:43
+#: Admin/Poll/views/choices/choice-video.php:50
+#: Admin/Poll/views/questions/question.php:65
+msgid "Yes"
+msgstr "はい"
+
+#: Admin/Poll/Editor.php:172 Admin/Poll/views/choices/choice-audio.php:46
+#: Admin/Poll/views/choices/choice-video.php:54
+#: Admin/Poll/views/questions/question.php:64
+msgid "No"
+msgstr "いいえ"
+
+#: Admin/Poll/Editor.php:173
+msgid "Done"
+msgstr ""
+
+#: Admin/Poll/Editor.php:174
+msgid "Do you want to receive notifications from TotalPoll?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:175
+msgid "Unfortunately, your browser does not support push notifications."
+msgstr ""
+
+#: Admin/Poll/Editor.php:176
+msgid ""
+"ATTENTION! Overriding votes is not reversible. Are you sure you want to "
+"override votes?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:203
+msgid "Questions"
+msgstr "質問"
+
+#: Admin/Poll/Editor.php:204 Admin/Poll/views/form/fields.php:31
+#: Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "フィールド"
+
+#: Admin/Poll/Editor.php:205 Admin/Poll/views/questions/question.php:24
+msgid "Settings"
+msgstr "設定"
+
+#: Admin/Poll/Editor.php:206
+msgid "Design"
+msgstr "デザイン"
+
+#: Admin/Poll/Editor.php:207
+msgid "Integration"
+msgstr "統合"
+
+#: Admin/Poll/Editor.php:208
+msgid "Translations"
+msgstr "翻訳"
+
+#: Admin/Poll/Editor.php:227
+msgid "Limitations"
+msgstr "制限"
+
+#: Admin/Poll/Editor.php:228
+msgid "Frequency"
+msgstr "頻度"
+
+#: Admin/Poll/Editor.php:232 Admin/Poll/views/questions/question.php:80
+#: Admin/Poll/views/questions/questions.php:25
+msgid "Choices"
+msgstr "選択肢"
+
+#: Admin/Poll/Editor.php:235 Admin/Poll/Editor.php:242
+msgid "Sort"
+msgstr "分類"
+
+#: Admin/Poll/Editor.php:243
+msgid "Visibility"
+msgstr "可視"
+
+#: Admin/Poll/Editor.php:244
+msgid "Format"
+msgstr "形式"
+
+#: Admin/Poll/Editor.php:248 Admin/Poll/views/questions/question.php:3
+#: Admin/Poll/views/settings/content/thankyou.php:4
+#: Admin/Poll/views/settings/content/welcome.php:4
+#: Admin/Poll/views/translations/index.php:55
+msgid "Content"
+msgstr "コンテンツ"
+
+#: Admin/Poll/Editor.php:251
+msgid "Welcome"
+msgstr "ようこそ"
+
+#: Admin/Poll/Editor.php:253
+msgid "Thank you"
+msgstr "ありがとうございます"
+
+#: Admin/Poll/Editor.php:257 Admin/Poll/views/translations/index.php:108
+msgid "SEO"
+msgstr "検索エンジン最適化"
+
+#: Admin/Poll/Editor.php:262 Admin/Poll/Editor.php:312
+#: Admin/Poll/views/form/field.php:193 Admin/Poll/views/form/fields.php:16
+msgid "Email"
+msgstr "電子メール"
+
+#: Admin/Poll/Editor.php:263
+msgid "Push"
+msgstr "プッシュ"
+
+#: Admin/Poll/Editor.php:264
+msgid "WebHook"
+msgstr "WebHook（通知システム）"
+
+#: Admin/Poll/Editor.php:267
+msgid "Customization"
+msgstr "カスタマイズ"
+
+#: Admin/Poll/Editor.php:282
+msgid "Layout"
+msgstr "レイアウト"
+
+#: Admin/Poll/Editor.php:283
+msgid "Colors"
+msgstr "色"
+
+#: Admin/Poll/Editor.php:284 Admin/Poll/views/choices/choice.php:30
+#: Admin/Poll/views/choices/choices.php:148
+#: Admin/Poll/views/choices/choices.php:197 Admin/Poll/views/form/field.php:31
+#: Admin/Poll/views/form/fields.php:143
+msgid "Text"
+msgstr "テキスト"
+
+#: Admin/Poll/Editor.php:288
+#, fuzzy
+#| msgid "Templates"
+msgid "Template Settings"
+msgstr "テンプレート"
+
+#: Admin/Poll/Editor.php:289
+msgid "Behaviours"
+msgstr "動作"
+
+#: Admin/Poll/Editor.php:290
+msgid "Effects"
+msgstr "効果"
+
+#: Admin/Poll/Editor.php:291
+msgid "Custom CSS"
+msgstr "カスタム CSS"
+
+#: Admin/Poll/Editor.php:308
+msgid "Shortcode"
+msgstr "ショートコード"
+
+#: Admin/Poll/Editor.php:308 Admin/Poll/Editor.php:309
+msgid "WordPress feature"
+msgstr "WordPress 特徴"
+
+#: Admin/Poll/Editor.php:309
+msgid "Widget"
+msgstr "ウィジェット"
+
+#: Admin/Poll/Editor.php:310
+msgid "Direct link"
+msgstr "直接リンク"
+
+#: Admin/Poll/Editor.php:310
+msgid "Standard link"
+msgstr "標準リンク"
+
+#: Admin/Poll/Editor.php:311
+msgid "Embed"
+msgstr "埋め込む"
+
+#: Admin/Poll/Editor.php:311
+msgid "External inclusion"
+msgstr "外部参入"
+
+#: Admin/Poll/Editor.php:312
+msgid "Vote links"
+msgstr "投票リンク"
+
+#: Admin/Poll/Listing.php:190
+msgid "Offline"
+msgstr "オフライン"
+
+#: Admin/Poll/views/choices/choice-audio.php:23
+#: Admin/Poll/views/choices/choice-html.php:12
+#: Admin/Poll/views/choices/choice-image.php:18
+#: Admin/Poll/views/choices/choice-text.php:11
+#: Admin/Poll/views/choices/choice-video.php:26
+#: Admin/Poll/views/form/field.php:118
+#: Admin/Poll/views/settings/choices/sort.php:20
+#: Admin/Poll/views/settings/results/sort.php:20
+msgid "Label"
+msgstr "ラベル"
+
+#: Admin/Poll/views/choices/choice-audio.php:25
+#: Admin/Poll/views/choices/choice-html.php:14
+#: Admin/Poll/views/choices/choice-image.php:20
+#: Admin/Poll/views/choices/choice-text.php:12
+#: Admin/Poll/views/choices/choice-video.php:28
+msgid "Choice label"
+msgstr "選択ラベル"
+
+#: Admin/Poll/views/choices/choice-audio.php:30
+msgid "Audio URL"
+msgstr "音声URL"
+
+#: Admin/Poll/views/choices/choice-audio.php:32
+msgid "Full size audio URL"
+msgstr "フルサイズ音声URL"
+
+#: Admin/Poll/views/choices/choice-audio.php:41
+#: Admin/Poll/views/choices/choice-video.php:47
+msgid "Import information from {{provider}}?"
+msgstr ""
+
+#: Admin/Poll/views/choices/choice-audio.php:52
+#: Admin/Poll/views/choices/choice-image.php:36
+#: Admin/Poll/views/choices/choice-video.php:60
+msgid "Thumbnail URL"
+msgstr "サムネイルURL"
+
+#: Admin/Poll/views/choices/choice-audio.php:54
+#: Admin/Poll/views/choices/choice-image.php:38
+#: Admin/Poll/views/choices/choice-video.php:62
+msgid "Thumbnail image URL"
+msgstr "サムネイル画像URL"
+
+#: Admin/Poll/views/choices/choice-audio.php:63
+#: Admin/Poll/views/choices/choice-image.php:43
+#: Admin/Poll/views/choices/choice-video.php:72
+msgid "Available sizes"
+msgstr "使用可能なサイズ"
+
+#: Admin/Poll/views/choices/choice-image.php:25
+msgid "Image URL"
+msgstr "画像URL"
+
+#: Admin/Poll/views/choices/choice-image.php:27
+msgid "Full size image URL"
+msgstr "フルサイズ画像URL"
+
+#: Admin/Poll/views/choices/choice-video.php:34
+msgid "Video URL"
+msgstr "動画URL"
+
+#: Admin/Poll/views/choices/choice-video.php:36
+msgid "Full size video URL"
+msgstr "フルサイズ動画URL"
+
+#: Admin/Poll/views/choices/choice.php:31
+#: Admin/Poll/views/choices/choices.php:152
+#: Admin/Poll/views/choices/choices.php:203
+msgid "Image"
+msgstr "画像"
+
+#: Admin/Poll/views/choices/choice.php:32
+#: Admin/Poll/views/choices/choices.php:156
+#: Admin/Poll/views/choices/choices.php:209
+msgid "Video"
+msgstr "動画"
+
+#: Admin/Poll/views/choices/choice.php:33
+#: Admin/Poll/views/choices/choices.php:160
+#: Admin/Poll/views/choices/choices.php:215
+msgid "Audio"
+msgstr "音声"
+
+#: Admin/Poll/views/choices/choice.php:75
+#: Admin/Poll/views/design/sidebar.php:25
+msgid "Reset"
+msgstr "リセット"
+
+#: Admin/Poll/views/choices/choice.php:120 Admin/Poll/views/form/field.php:66
+#: Admin/Poll/views/form/field.php:256
+#: Admin/Poll/views/questions/questions.php:31
+#: Admin/Poll/views/settings/vote/limitations.php:142
+msgid "Delete"
+msgstr "削除"
+
+#: Admin/Poll/views/choices/choices.php:3
+msgid "Drop to add"
+msgstr ""
+
+#: Admin/Poll/views/choices/choices.php:26 Admin/Poll/views/form/fields.php:50
+msgid "Collapse"
+msgstr "折り畳む"
+
+#: Admin/Poll/views/choices/choices.php:37 Admin/Poll/views/form/fields.php:59
+msgid "Expand"
+msgstr "展開する"
+
+#: Admin/Poll/views/choices/choices.php:59 Admin/Poll/views/form/fields.php:68
+msgid "Bulk"
+msgstr "容量"
+
+#: Admin/Poll/views/choices/choices.php:70
+msgid "Shuffle"
+msgstr "シャッフル"
+
+#: Admin/Poll/views/choices/choices.php:81
+msgid "Random Votes"
+msgstr "ランダム投票"
+
+#: Admin/Poll/views/choices/choices.php:103
+msgid "Filter"
+msgstr "フィルター"
+
+#: Admin/Poll/views/choices/choices.php:114 Admin/Poll/views/form/fields.php:88
+msgid "Delete All"
+msgstr "全て削除する"
+
+#: Admin/Poll/views/choices/choices.php:125
+msgid "Reset Votes"
+msgstr "投票をリセット"
+
+#: Admin/Poll/views/choices/choices.php:139
+msgid "One choice per line."
+msgstr "1行に1つの選択肢。"
+
+#: Admin/Poll/views/choices/choices.php:141
+#: Admin/Poll/views/form/fields.php:110
+#: Admin/Poll/views/integration/widget.php:19
+msgid "Insert"
+msgstr "挿入"
+
+#: Admin/Poll/views/choices/choices.php:170
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr ""
+"まだ選択肢はありません。 以下のボタンをクリックしていくつか追加してください。"
+
+#: Admin/Poll/views/choices/choices.php:188
+#: Admin/Poll/views/form/fields.php:127
+#: Admin/Poll/views/questions/questions.php:49
+msgid "Move here"
+msgstr "ここに移動"
+
+#: Admin/Poll/views/design/index.php:51 Admin/Poll/views/design/index.php:196
+msgid "Font family"
+msgstr "フォント系"
+
+#: Admin/Poll/views/design/index.php:59 Admin/Poll/views/design/index.php:204
+msgid "Font size"
+msgstr "フォントサイズ"
+
+#: Admin/Poll/views/design/index.php:65 Admin/Poll/views/design/index.php:210
+msgid "Line height"
+msgstr "行の高さ"
+
+#: Admin/Poll/views/design/index.php:73 Admin/Poll/views/design/index.php:218
+msgid "Align"
+msgstr "調整する"
+
+#: Admin/Poll/views/design/index.php:77 Admin/Poll/views/design/index.php:97
+#: Admin/Poll/views/design/index.php:222 Admin/Poll/views/design/index.php:273
+msgid "Inherit"
+msgstr "継承する"
+
+#: Admin/Poll/views/design/index.php:80 Admin/Poll/views/design/index.php:126
+#: Admin/Poll/views/design/index.php:225 Admin/Poll/views/design/index.php:321
+msgid "Right"
+msgstr "右"
+
+#: Admin/Poll/views/design/index.php:83 Admin/Poll/views/design/index.php:228
+msgid "Center"
+msgstr "真ん中"
+
+#: Admin/Poll/views/design/index.php:86 Admin/Poll/views/design/index.php:140
+#: Admin/Poll/views/design/index.php:231 Admin/Poll/views/design/index.php:333
+msgid "Left"
+msgstr "左"
+
+#: Admin/Poll/views/design/index.php:92 Admin/Poll/views/design/index.php:237
+msgid "Transform"
+msgstr "変換する"
+
+#: Admin/Poll/views/design/index.php:100 Admin/Poll/views/design/index.php:242
+msgid "Normal"
+msgstr "標準"
+
+#: Admin/Poll/views/design/index.php:103 Admin/Poll/views/design/index.php:245
+msgid "UPPERCASE"
+msgstr "大文字入力"
+
+#: Admin/Poll/views/design/index.php:106 Admin/Poll/views/design/index.php:248
+msgid "lowercase"
+msgstr "小文字入力"
+
+#: Admin/Poll/views/design/index.php:109 Admin/Poll/views/design/index.php:251
+msgid "Capitalize"
+msgstr "大文字で書く"
+
+#: Admin/Poll/views/design/index.php:119 Admin/Poll/views/design/index.php:315
+msgid "Top"
+msgstr "上部"
+
+#: Admin/Poll/views/design/index.php:133 Admin/Poll/views/design/index.php:327
+msgid "Bottom"
+msgstr "下部"
+
+#: Admin/Poll/views/design/index.php:261
+msgid "Width"
+msgstr "幅"
+
+#: Admin/Poll/views/design/index.php:269
+msgid "Style"
+msgstr "スタイル"
+
+#: Admin/Poll/views/design/index.php:276
+#: Admin/Poll/views/design/tabs/advanced-effects.php:10
+msgid "None"
+msgstr "ない"
+
+#: Admin/Poll/views/design/index.php:279
+msgid "Solid"
+msgstr "実線の"
+
+#: Admin/Poll/views/design/index.php:282
+msgid "Double"
+msgstr "ダブル"
+
+#: Admin/Poll/views/design/index.php:285
+msgid "Dashed"
+msgstr "破線の"
+
+#: Admin/Poll/views/design/index.php:288
+msgid "Dotted"
+msgstr "点の"
+
+#: Admin/Poll/views/design/index.php:291
+msgid "Groove"
+msgstr "グルーヴ"
+
+#: Admin/Poll/views/design/index.php:294
+msgid "Hidden"
+msgstr "非表示"
+
+#: Admin/Poll/views/design/index.php:297
+msgid "Ridge"
+msgstr "頂上部"
+
+#: Admin/Poll/views/design/index.php:305
+msgid "Radius"
+msgstr "半径"
+
+#: Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "アクティブなテンプレート"
+
+#: Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "チェンジ"
+
+#: Admin/Poll/views/design/sidebar.php:21
+#, fuzzy
+#| msgid "Customization"
+msgid "Customize"
+msgstr "カスタマイズ"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "ページ全体を再ロードすることなく、インプレースを読み込みます。"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "投票の提出後にスクロールアップ"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:10
+#, fuzzy
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "投票を送信した後、スクロールしてビューポート投票します。"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:13
+msgid "One-click vote"
+msgstr "ワンクリック投票"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:15
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "ユーザーは選択肢を直接クリックして投票することができます。"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:18
+msgid "Question by question"
+msgstr "質問による質問"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:20
+msgid "Display questions one by one."
+msgstr "質問を1つずつ表示します。"
+
+#: Admin/Poll/views/design/tabs/advanced-custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "ここに独自のCSSを追加する"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:4
+msgid "Transition"
+msgstr "移行"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:15
+msgid "Fade"
+msgstr "弱まる"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:20
+msgid "Slide"
+msgstr "減る"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:29
+msgid "Animation duration"
+msgstr "アニメーションの時間"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:30
+msgid "Animation and transition duration"
+msgstr "アニメーションと移行の時間"
+
+#: Admin/Poll/views/design/tabs/colors.php:2
+#: Admin/Poll/views/design/tabs/colors.php:12
+msgid "Primary"
+msgstr "一番目"
+
+#: Admin/Poll/views/design/tabs/colors.php:3
+#: Admin/Poll/views/design/tabs/colors.php:39
+msgid "Secondary"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:4
+#: Admin/Poll/views/design/tabs/colors.php:66
+msgid "Accent"
+msgstr "特徴"
+
+#: Admin/Poll/views/design/tabs/colors.php:5
+#: Admin/Poll/views/design/tabs/colors.php:93
+msgid "Gray"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:6
+msgid "Dark"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:16
+#, fuzzy
+#| msgid "Primary color"
+msgid "Primary (Contrast)"
+msgstr "主なカラー"
+
+#: Admin/Poll/views/design/tabs/colors.php:20
+#, fuzzy
+#| msgid "Primary"
+msgid "Primary (Light)"
+msgstr "一番目"
+
+#: Admin/Poll/views/design/tabs/colors.php:24
+#, fuzzy
+#| msgid "Primary color (hover)"
+msgid "Primary (Lighter)"
+msgstr "主な入り（ホバー）"
+
+#: Admin/Poll/views/design/tabs/colors.php:28
+#, fuzzy
+#| msgid "Primary color"
+msgid "Primary (Dark)"
+msgstr "主なカラー"
+
+#: Admin/Poll/views/design/tabs/colors.php:32
+#, fuzzy
+#| msgid "Primary border"
+msgid "Primary (Darker)"
+msgstr "主なボーダー"
+
+#: Admin/Poll/views/design/tabs/colors.php:43
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Contrast)"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:47
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Light)"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:51
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Lighter)"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:55
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Dark)"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:59
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Darker)"
+msgstr "第二の"
+
+#: Admin/Poll/views/design/tabs/colors.php:70
+msgid "Accent (Contrast)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:74
+#, fuzzy
+#| msgid "Accent"
+msgid "Accent (Light)"
+msgstr "特徴"
+
+#: Admin/Poll/views/design/tabs/colors.php:78
+msgid "Accent (Lighter)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:82
+#, fuzzy
+#| msgid "Accent"
+msgid "Accent (Dark)"
+msgstr "特徴"
+
+#: Admin/Poll/views/design/tabs/colors.php:86
+msgid "Accent (Darker)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:97
+msgid "Gray (Contrast)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:101
+msgid "Gray (Light)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:105
+msgid "Gray (Lighter)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:109
+msgid "Gray (Dark)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:113
+msgid "Gray (Darker)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:120
+msgid "Dark (Body Text)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "行ごとの選択肢"
+
+#: Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "行ごとの質問"
+
+#: Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "最大幅"
+
+#: Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "溝"
+
+#: Admin/Poll/views/design/tabs/layout.php:21
+#, fuzzy
+#| msgid "Radius"
+msgid "Border Radius"
+msgstr "半径"
+
+#: Admin/Poll/views/design/tabs/templates.php:9
+#: Admin/Poll/views/design/tabs/templates.php:35
+#, fuzzy
+#| msgid "User ID"
+msgid "Use"
+msgstr "ユーザーID"
+
+#: Admin/Poll/views/design/tabs/templates.php:10
+#: Admin/Poll/views/design/tabs/templates.php:36
+#, fuzzy
+#| msgid "Activate"
+msgid "Active"
+msgstr "有効にする"
+
+#: Admin/Poll/views/design/tabs/templates.php:14
+#: Admin/Poll/views/design/tabs/templates.php:44
+msgid "Customized Template"
+msgstr "カスタマイズされたテンプレート"
+
+#: Admin/Poll/views/design/tabs/templates.php:49
+msgid "Customization service"
+msgstr "カスタマイズサービス"
+
+#: Admin/Poll/views/design/tabs/templates.php:63
+msgid "Get Quote"
+msgstr "見積もりを入手"
+
+#: Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "タイポグラフィ"
+
+#: Admin/Poll/views/editor.php:14
+msgid ""
+"This poll has been created using an older version of TotalPoll, please "
+"migrate it."
+msgstr ""
+
+#: Admin/Poll/views/editor.php:87
+msgid "Switch to advanced"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:32 Admin/Poll/views/form/fields.php:144
+msgid "Textarea"
+msgstr "テキストエリア"
+
+#: Admin/Poll/views/form/field.php:33 Admin/Poll/views/form/fields.php:145
+msgid "Select"
+msgstr "選択"
+
+#: Admin/Poll/views/form/field.php:34 Admin/Poll/views/form/fields.php:146
+msgid "Checkbox"
+msgstr "チェックボックス"
+
+#: Admin/Poll/views/form/field.php:35 Admin/Poll/views/form/fields.php:147
+#, fuzzy
+msgid "Radio"
+msgstr "ラジオ"
+
+#: Admin/Poll/views/form/field.php:36
+msgid "Required"
+msgstr "必須の"
+
+#: Admin/Poll/views/form/field.php:90
+msgid "Basic"
+msgstr "基本"
+
+#: Admin/Poll/views/form/field.php:120
+msgid "Field label"
+msgstr "フィールドラベル"
+
+#: Admin/Poll/views/form/field.php:129
+msgid "Name"
+msgstr "名前"
+
+#: Admin/Poll/views/form/field.php:131
+msgid "Field name"
+msgstr "フィールド名"
+
+#: Admin/Poll/views/form/field.php:139
+msgid "Default value"
+msgstr "デフォルト値"
+
+#: Admin/Poll/views/form/field.php:141 Admin/Poll/views/form/field.php:144
+msgid "Field default value"
+msgstr "フィールドのデフォルト値"
+
+#: Admin/Poll/views/form/field.php:148
+msgid "Default value per line."
+msgstr "1行あたりのデフォルト値。"
+
+#: Admin/Poll/views/form/field.php:158
+msgid "option_key:Option label"
+msgstr "option_key：選択ラベル"
+
+#: Admin/Poll/views/form/field.php:161
+msgid "Option per line."
+msgstr "一行につき選択"
+
+#: Admin/Poll/views/form/field.php:164
+msgid "Option format is \"option : label\""
+msgstr "選択形式は \"option：label\"です。"
+
+#: Admin/Poll/views/form/field.php:174
+msgid "Allow multiple values"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:184
+msgid "Filled (required)"
+msgstr "記入必須"
+
+#: Admin/Poll/views/form/field.php:202
+msgid "Unique"
+msgstr "他に存在しない唯一の"
+
+#: Admin/Poll/views/form/field.php:203
+msgid "This field value must be unique in entries table."
+msgstr ""
+"このフィールド値は、エントリテーブル内で他に存在しない唯一のものである必要が"
+"あります。"
+
+#: Admin/Poll/views/form/field.php:212
+msgid "Filter by list"
+msgstr "リストで絞り込む"
+
+#: Admin/Poll/views/form/field.php:222
+#: Admin/Poll/views/settings/vote/limitations.php:115
+msgid "Type"
+msgstr "タイプ"
+
+#: Admin/Poll/views/form/field.php:225
+msgid "Value"
+msgstr "値"
+
+#: Admin/Poll/views/form/field.php:235
+#: Admin/Poll/views/settings/vote/limitations.php:124
+msgid "Allow"
+msgstr "許可する"
+
+#: Admin/Poll/views/form/field.php:238
+#: Admin/Poll/views/settings/vote/limitations.php:125
+msgid "Deny"
+msgstr "認めない"
+
+#: Admin/Poll/views/form/field.php:243
+msgid "* means wildcard."
+msgstr "* はワイルド・カードを意味します。"
+
+#: Admin/Poll/views/form/field.php:267
+msgid "Add new value"
+msgstr "新しい値を加える"
+
+#: Admin/Poll/views/form/field.php:281
+msgid "Regular Expression"
+msgstr "正規表現"
+
+#: Admin/Poll/views/form/field.php:287
+msgid "Expression"
+msgstr "表現"
+
+#: Admin/Poll/views/form/field.php:288
+msgid "Run user input against a regular expression."
+msgstr "正規表現に対してユーザー入力を実行します。"
+
+#: Admin/Poll/views/form/field.php:293
+msgid "Must be a valid regular expression."
+msgstr "有効な正規表現でなければなりません。"
+
+#: Admin/Poll/views/form/field.php:298
+msgid "Error message"
+msgstr "エラーメッセージ"
+
+#: Admin/Poll/views/form/field.php:299
+msgid "This message will be shown if the validation failed."
+msgstr "このメッセージは、検証に失敗した場合に表示されます。"
+
+#: Admin/Poll/views/form/field.php:304
+msgid "{{label}} for a field label."
+msgstr "フィールドラベルは{{label}}。"
+
+#: Admin/Poll/views/form/field.php:309
+msgid "Comparison"
+msgstr "比較"
+
+#: Admin/Poll/views/form/field.php:313
+msgid "Must match"
+msgstr "一致している必要があります"
+
+#: Admin/Poll/views/form/field.php:317
+msgid "Must not match"
+msgstr "一致していない"
+
+#: Admin/Poll/views/form/field.php:322
+msgid "Modifiers"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:325
+msgid "Case Insensitive"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:328
+msgid "Multiline"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:331
+#, fuzzy
+#| msgid "Customer Support"
+msgid "Unicode Support"
+msgstr "カスタマーサポート"
+
+#: Admin/Poll/views/form/field.php:340
+msgid "Field CSS classes"
+msgstr "フィールドCSSクラス"
+
+#: Admin/Poll/views/form/field.php:342
+msgid "Field classes"
+msgstr "フィールドクラス"
+
+#: Admin/Poll/views/form/field.php:349
+msgid "Template"
+msgstr "テンプレート"
+
+#: Admin/Poll/views/form/field.php:351
+msgid "Field template"
+msgstr "フィールドテンプレート"
+
+#: Admin/Poll/views/form/field.php:356
+msgid "full column"
+msgstr "全列"
+
+#: Admin/Poll/views/form/field.php:360
+msgid "1/2 column"
+msgstr "1/2 列"
+
+#: Admin/Poll/views/form/field.php:364
+msgid "1/3 column"
+msgstr "1/3 列"
+
+#: Admin/Poll/views/form/field.php:368
+msgid "{{label}} for field label."
+msgstr "フィールドラベルは{{label}}。"
+
+#: Admin/Poll/views/form/field.php:371
+msgid "{{errors}} for field errors."
+msgstr "フィールドエラーは{{エラー}}。"
+
+#: Admin/Poll/views/form/field.php:374
+msgid "{{field}} for field input."
+msgstr "フィールド入力用は{{field}}。"
+
+#: Admin/Poll/views/form/fields.php:12
+msgid "Preset"
+msgstr "プリセット"
+
+#: Admin/Poll/views/form/fields.php:14
+msgid "First name"
+msgstr "名前"
+
+#: Admin/Poll/views/form/fields.php:15
+msgid "Last name"
+msgstr "苗字"
+
+#: Admin/Poll/views/form/fields.php:17
+msgid "Phone"
+msgstr "電話"
+
+#: Admin/Poll/views/form/fields.php:18
+msgid "Gender"
+msgstr "性別"
+
+#: Admin/Poll/views/form/fields.php:19
+msgid "Country"
+msgstr "国"
+
+#: Admin/Poll/views/form/fields.php:20
+msgid "Agreement"
+msgstr "同意"
+
+#: Admin/Poll/views/form/fields.php:109
+msgid "One field per line."
+msgstr "一行に一つのフィールド"
+
+#: Admin/Poll/views/form/fields.php:114
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr ""
+"カスタム欄はまだありません。 以下のボタンをクリックして追加してください。"
+
+#: Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "電子メールテンプレートを準備する"
+
+#: Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr "電子メールテンプレートに質問と選択肢を準備することから始めます。"
+
+#: Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "選択肢のリンクを調整する"
+
+#: Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "次のリストから選択肢をコピーして貼り付けてください："
+
+#: Admin/Poll/views/integration/email.php:41
+#: Admin/Poll/views/questions/questions.php:22
+msgid "Question"
+msgstr "質問"
+
+#: Admin/Poll/views/integration/email.php:51
+#: Admin/Poll/views/integration/embed.php:18
+#: Admin/Poll/views/integration/link.php:17
+#: Admin/Poll/views/integration/shortcode.php:18
+#: Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "コピー"
+
+#: Admin/Poll/views/integration/email.php:64
+#: Admin/Poll/views/integration/embed.php:42
+#: Admin/Poll/views/integration/link.php:41
+#: Admin/Poll/views/integration/shortcode.php:48
+#: Admin/Poll/views/integration/widget.php:31
+msgid "Preview"
+msgstr "プレビュー"
+
+#: Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr "テストメールを自分宛に送信し、アンケート機能をテストします。"
+
+#: Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "コードをコピー"
+
+#: Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "まず、次のHTMLコードをコピーします。"
+
+#: Admin/Poll/views/integration/embed.php:29
+msgid "Paste the code"
+msgstr "コードを貼り付け"
+
+#: Admin/Poll/views/integration/embed.php:32
+msgid "Paste the copied code into an HTML page."
+msgstr "コピーしたコードをHTMLページに貼り付けます。"
+
+#: Admin/Poll/views/integration/embed.php:45
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr "コードを貼り付けたページを開き、アンケート機能をテストします。"
+
+#: Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "リンクをコピー"
+
+#: Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "まず、次のリンクをコピーします。"
+
+#: Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "リンクを貼り付け"
+
+#: Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr "コピーしたリンクをページや投稿のように貼り付けます。"
+
+#: Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr "リンクを貼り付けたページを開き、アンケート機能をテストします。"
+
+#: Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "ショートコードをコピー"
+
+#: Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "まず次のショートコードをコピーします。"
+
+#: Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "ショートコードを貼り付け"
+
+#: Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr ""
+"コピーしたショートコードを、ページや投稿などのショートコードをサポートする領"
+"域に貼り付けます。"
+
+#: Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr "ショートコードを貼り付けたページを開き、アンケート機能をテストします。"
+
+#: Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "サイドバーに追加"
+
+#: Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr "先ず、利用可能なサイドバーの1つにこのアンケートを追加します："
+
+#: Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "サイドバーを選択"
+
+#: Admin/Poll/views/integration/widget.php:20
+#, fuzzy
+#| msgid "Insert"
+msgid "Inserted"
+msgstr "挿入"
+
+#: Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr "サイドバーが同じで、アンケート機能をテストしているページを開きます。"
+
+#: Admin/Poll/views/loading.php:3
+msgid "Loading..."
+msgstr ""
+
+#: Admin/Poll/views/questions/question.php:37
+#, fuzzy
+#| msgid "You must vote for at least {{minimum}} choice."
+#| msgid_plural "You must vote for at least {{minimum}} choices."
+msgid "User must vote at least for {{minimum}} choice(s)."
+msgstr "少なくとも{{minimum}}の選択肢に投票してください。"
+
+#: Admin/Poll/views/questions/question.php:50
+#, fuzzy
+#| msgid "You can vote for up to {{maximum}} choice."
+#| msgid_plural "You can vote for up to {{maximum}} choices."
+msgid "User can vote for up to {{maximum}} choice(s)."
+msgstr "最大{{maximum}}まで投票することができます。"
+
+#: Admin/Poll/views/questions/question.php:61
+msgid "Allow custom choice (other field)."
+msgstr ""
+
+#: Admin/Poll/views/questions/question.php:66
+msgid "Yes, but hide it until reviewed below."
+msgstr ""
+
+#: Admin/Poll/views/questions/questions.php:45
+msgid "New Question"
+msgstr "新しい質問"
+
+#: Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "選択肢を並べ替える"
+
+#: Admin/Poll/views/settings/choices/sort.php:10
+#: Admin/Poll/views/settings/results/sort.php:10
+msgid "Position"
+msgstr "ポジション"
+
+#: Admin/Poll/views/settings/choices/sort.php:25
+#: Admin/Poll/views/settings/results/sort.php:25
+msgid "Random"
+msgstr "ランダム"
+
+#: Admin/Poll/views/settings/choices/sort.php:34
+#: Admin/Poll/views/settings/results/sort.php:34
+msgid "Direction"
+msgstr "方向"
+
+#: Admin/Poll/views/settings/choices/sort.php:40
+#: Admin/Poll/views/settings/results/sort.php:40
+msgid "Descending"
+msgstr "下向きの"
+
+#: Admin/Poll/views/settings/choices/sort.php:45
+#: Admin/Poll/views/settings/results/sort.php:45
+msgid "Ascending"
+msgstr "上向きの"
+
+#: Admin/Poll/views/settings/content/results.php:4
+#: Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "上に"
+
+#: Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "このコンテンツは結果の上に表示されます。"
+
+#: Admin/Poll/views/settings/content/results.php:14
+#: Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "下に"
+
+#: Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "このコンテンツは結果の下に表示されます。"
+
+#: Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "このコンテンツは質問と選択肢の上に表示されます。"
+
+#: Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "このコンテンツは質問と選択肢の下に表示されます。"
+
+#: Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "カスタマイズ？<br>私たちがついています！"
+
+#: Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr ""
+"カスタム機能が必要な場合はお知らせください。喜んでお手伝いをいたします！"
+
+#: Admin/Poll/views/settings/customization/index.php:21
+msgid "Get a quote"
+msgstr "見積もりを入手"
+
+#: Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "受信者の電子メール"
+
+# Send notification
+# お知らせを送る
+#
+# when a new vote has been casted.
+# 新しい投票が投じられたら
+#: Admin/Poll/views/settings/notifications/email.php:11
+#: Admin/Poll/views/settings/notifications/push.php:24
+#: Admin/Poll/views/settings/notifications/webhook.php:50
+#, fuzzy
+msgid "Send notification when"
+msgstr "お知らせを送る"
+
+#: Admin/Poll/views/settings/notifications/email.php:16
+#: Admin/Poll/views/settings/notifications/push.php:29
+#: Admin/Poll/views/settings/notifications/webhook.php:55
+#, fuzzy
+msgid "New vote has been casted"
+msgstr "新しい投票が投じられたら"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "OneSignalアプリID"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "入手"
+
+#: Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "OneSignal API キー"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "このURLは次の本文でHTTP POSTを受け取ります"
+
+#: Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "投票フォーマット"
+
+#: Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "投票方法"
+
+#: Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "投票数は{{votes}}。"
+
+#: Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "投票率は{{vote Percentage}}。"
+
+#: Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "{{votesWithLabel}}ラベルのある投票の場合。"
+
+#: Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "{{votesTotal}}総投票数。"
+
+#: Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "{{votesTotalWithLabel}}はラベル付きの投票総数。"
+
+#: Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "結果を並べ替える"
+
+#: Admin/Poll/views/settings/results/visibility.php:8
+msgid "Show results for voters and non-voters"
+msgstr "投票者と非投票者の結果を表示する"
+
+#: Admin/Poll/views/settings/results/visibility.php:17
+msgid "Show results for voters only"
+msgstr "投票者のみの結果を表示"
+
+#: Admin/Poll/views/settings/results/visibility.php:26
+msgid "Hide results"
+msgstr "結果を隠す"
+
+#: Admin/Poll/views/settings/results/visibility.php:34
+msgid "Hidden results message"
+msgstr "非表示の結果メッセージ"
+
+#: Admin/Poll/views/settings/results/visibility.php:44
+msgid "Until quota is reached"
+msgstr "定数に達するまで"
+
+#: Admin/Poll/views/settings/results/visibility.php:51
+msgid "Until end date is reached"
+msgstr "終了日に達するまで"
+
+#: Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "記述"
+
+#: Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "残りの文字"
+
+#: Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "テンプレート変数"
+
+#: Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "投票タイトルは{{title}}。"
+
+#: Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}}はウェブサイトのタイトル。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "に基づいてブロック"
+
+#: Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "投票の限界を超えてブロックする方法。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Cookies"
+
+#: Admin/Poll/views/settings/vote/frequency.php:25
+msgid "Authenticated user"
+msgstr "認証されたユーザー"
+
+#: Admin/Poll/views/settings/vote/frequency.php:33
+msgid "Votes per session"
+msgstr "セッションごとの投票数"
+
+#: Admin/Poll/views/settings/vote/frequency.php:35
+msgid "How many times can the user vote using the same session."
+msgstr "ユーザーが同じセッションを使用して何回投票できますか。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:44
+msgid "Votes per user"
+msgstr "ユーザーあたりの投票数"
+
+#: Admin/Poll/views/settings/vote/frequency.php:46
+msgid "How many times can the authenticated user vote."
+msgstr "認証されたユーザーは何回投票できますか。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:55
+msgid "Votes per IP"
+msgstr "IPあたりの投票数"
+
+#: Admin/Poll/views/settings/vote/frequency.php:57
+msgid "How many times can the user vote using the same IP."
+msgstr "ユーザーが同じIPを使用して何回投票できますか。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:66
+msgid "Timeout (seconds)"
+msgstr "タイムアウト（秒）"
+
+#: Admin/Poll/views/settings/vote/frequency.php:68
+msgid "The time period before the user can vote again."
+msgstr "ユーザーが再び投票できるまでの期間。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:74
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr ""
+"この期間を過ぎると、ユーザーは再び投票することができます。 恒久的に投票をロッ"
+"クするには、値に0を使用します。"
+
+#: Admin/Poll/views/settings/vote/frequency.php:77
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr ""
+"注意喚起！ データベースには永続的なレコードが埋め込まれ、全体のパフォーマンス"
+"に影響を与える可能性があります。"
+
+#: Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "期間"
+
+#: Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "開始日"
+
+#: Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "この日に達する前に、投票は終了します。"
+
+#: Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "終了日"
+
+#: Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "この日に達した後に、投票は終了します。"
+
+#: Admin/Poll/views/settings/vote/limitations.php:44
+msgid "Membership"
+msgstr "メンバーシップ"
+
+#: Admin/Poll/views/settings/vote/limitations.php:53
+msgid "Required membership roles"
+msgstr "必要なメンバーシップの役割"
+
+#: Admin/Poll/views/settings/vote/limitations.php:55
+msgid "The membership types that can vote."
+msgstr "投票できるメンバーシップタイプ。"
+
+#: Admin/Poll/views/settings/vote/limitations.php:65
+msgid "Hold Control/Command for multiple selection."
+msgstr "複数選択にはコントロールキーを押しながらコマンド"
+
+#: Admin/Poll/views/settings/vote/limitations.php:76
+msgid "Quota"
+msgstr "定数"
+
+#: Admin/Poll/views/settings/vote/limitations.php:85
+msgid "Number of votes"
+msgstr "投票数"
+
+#: Admin/Poll/views/settings/vote/limitations.php:87
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "投票数が達成された後の投票は受け入れられません。"
+
+#: Admin/Poll/views/settings/vote/limitations.php:103
+msgid "Region (IP based)"
+msgstr "地域（IPベース）"
+
+#: Admin/Poll/views/settings/vote/limitations.php:153
+msgid "Add new rule"
+msgstr "新しいルールを加える"
+
+#: Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "オリジナル"
+
+#: Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "言語選択"
+
+#: Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "質問#{{$index+1}}"
+
+#: Admin/Privacy/Policy.php:105
+msgid "Useragent"
+msgstr "ユーザーエージェント"
+
+#: Entry/Repository.php:136
+msgid "poll_id and fields are required"
+msgstr ""
+
+#: Entry/Repository.php:140 Log/Repository.php:155
+msgid "date must be a DateTime object"
+msgstr ""
+
+#: Entry/Repository.php:155 Log/Repository.php:173
+msgid "Unable to insert the entry."
+msgstr "エントリーを挿入できません。"
+
+#: Entry/Repository.php:187 Entry/Repository.php:255 Log/Repository.php:204
+#: Log/Repository.php:320
+msgid "No conditions were specified"
+msgstr "条件が指定されていません"
+
+#: Limitations/Membership.php:28
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "続行するには、これらの役割の一員でなければなりません：％s 。"
+
+#: Limitations/Membership.php:38
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr ""
+"続行するには、<a href=\"%s\">ログイン</a>するか<a href=\"%s\">登録</a>してく"
+"ださい。"
+
+#: Limitations/Period.php:28
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "この投票はまだ開始されていません（％s 残っています）。"
+
+#: Limitations/Period.php:40
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "この投票は終了しました（％s 以降）。"
+
+#: Limitations/Period.php:51
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "％y 年"
+
+#: Limitations/Period.php:53
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m 月"
+
+#: Limitations/Period.php:55
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d 日"
+
+#: Limitations/Period.php:57
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h 時間"
+
+#: Limitations/Period.php:59
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i 分"
+
+#: Limitations/Period.php:61
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s 秒"
+
+#: Limitations/Quota.php:22
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "この投票は終了しました（投票定数を超えました）。"
+
+#: Limitations/Region.php:29
+msgid "This poll is not available in your region."
+msgstr "このアンケートはあなたの地域では利用できません。"
+
+#: Log/Repository.php:151
+msgid "poll_id and action are required"
+msgstr ""
+
+#: Poll/Commands/CountVote.php:123
+msgid "All questions must be answered."
+msgstr "すべての質問に答えてください。"
+
+#: Poll/Commands/CountVote.php:130
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "少なくとも{{minimum}}の選択肢に投票してください。"
+
+#: Poll/Commands/CountVote.php:133
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "最大{{maximum}}まで投票することができます。"
+
+#: Poll/Commands/CountVote.php:142
+msgid "Unknown choice. Please try again."
+msgstr "不明な選択。 もう一度お試しください。"
+
+#: Poll/Commands/CountVote.php:152
+msgid "Something went wrong. Please try again."
+msgstr "不具合があります。もう一度やり直してください"
+
+#: Poll/Form.php:212
+msgid "Continue to vote"
+msgstr "投票を続ける"
+
+#: Poll/Form.php:223
+msgid "Continue to results"
+msgstr "結果に進む"
+
+#: Poll/Form.php:259
+msgid "Back to vote"
+msgstr "投票に戻る"
+
+#: Poll/Form.php:347
+msgid "Other"
+msgstr ""
+
+#: Poll/PostType.php:71
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "アンケートが更新されました。 <a href=\"%s\">アンケートを表示</a>"
+
+#: Poll/PostType.php:72
+msgid "Custom field updated."
+msgstr "カスタムフィールドが更新されました。"
+
+#: Poll/PostType.php:73
+msgid "Custom field deleted."
+msgstr "カスタムフィールドが削除されました。"
+
+#: Poll/PostType.php:74
+msgid "Poll updated."
+msgstr "アンケートが更新されました。"
+
+#: Poll/PostType.php:75
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "アンケートが ％s から改訂版に復元されました"
+
+#: Poll/PostType.php:76
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "アンケートが公開されました。 <a href=\"%s\">アンケートを表示</a>"
+
+#: Poll/PostType.php:77
+msgid "Poll saved."
+msgstr "アンケートが保存されました。"
+
+#: Poll/PostType.php:78
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"アンケートが提出されました。 <a target=\"_blank\" href=\"%s\">投票のプレ"
+"ビュー</a>"
+
+#: Poll/PostType.php:80
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"アンケート予定時間：<strong>％1$s</strong> <a target=\"_blank\" href=\"%2$s"
+"\">アンケートのプレビュー</a>"
+
+#: Poll/PostType.php:81
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: Poll/PostType.php:82
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"アンケートの下書きが更新されました。 <a target=\"_blank\" href=\"%s\">アン"
+"ケートのプレビュー</a>"
+
+#: Poll/PostType.php:120 Poll/PostType.php:126
+msgid "Polls"
+msgstr "アンケート"
+
+#: Poll/PostType.php:123 Poll/PostType.php:125
+msgid "New Poll"
+msgstr "新しいアンケート"
+
+#: Poll/PostType.php:124
+msgid "Edit Poll"
+msgstr "アンケートを編集する"
+
+#: Poll/PostType.php:127
+msgid "View Poll"
+msgstr "アンケートを見る"
+
+#: Poll/PostType.php:128
+msgid "Search Polls"
+msgstr "アンケートの検索をする"
+
+#: Poll/PostType.php:129
+msgid "No polls found"
+msgstr "アンケートが見つかりません"
+
+#: Poll/PostType.php:130
+msgid "No polls found in Trash"
+msgstr "ゴミ箱にアンケートが見つかりません"
+
+#: Poll/PostType.php:131
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: Poll/PostType.php:155
+#, fuzzy
+#| msgctxt "slug"
+#| msgid "polls"
+msgid "polls"
+msgstr "アンケート"
+
+#: Poll/Renderer.php:254
+msgid "of"
+msgstr ""
+
+#: Restrictions/IPAddress.php:43 Restrictions/LoggedInUser.php:47
+#: Restrictions/Restriction.php:76
+msgid "You cannot vote again."
+msgstr "もう一度投票することはできません。"
+
+#: Shortcodes/Poll.php:20
+msgid "Could not load the poll."
+msgstr "アンケートを読み込めませんでした。"
+
+#: Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "TotalPoll最新のアンケートウィジェット"
+
+#: Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll]最新のアンケート"
+
+#: Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "TotalPollアンケートウィジェット"
+
+#: Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] アンケート"
+
+#: Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "アンケート："
+
+#: Widgets/Poll.php:81
+msgid "Screen:"
+msgstr "スクリーン："
+
+#~ msgid "Yet another powerful plugin."
+#~ msgstr "さらに別の強力なプラグイン。"
+
+#~ msgid "https://totalpoll.com"
+#~ msgstr "https://totalpoll.com"
+
+#~ msgid "TotalSuite"
+#~ msgstr "TotalSuite"
+
+#~ msgid "http://totalsuite.net"
+#~ msgstr "http://totalsuite.net"
+
+#~ msgid "Padding"
+#~ msgstr "余白"
+
+#~ msgid "Together is Better"
+#~ msgstr "一緒の方が良い"
+
+#~ msgid "Google+"
+#~ msgstr "Google+"
+
+#~ msgid "TotalPoll uses standard WordPress export mechanism."
+#~ msgstr ""
+#~ "TotalPollは、標準のWordPressエクスポートメカニズムを使用しています。"
+
+#~ msgid "Migrated"
+#~ msgstr "移行された"
+
+#~ msgid "Migrating"
+#~ msgstr "移行している"
+
+#~ msgid ""
+#~ "TotalPoll requires PHP 5.4+ and WordPress 4.0+ to function properly. "
+#~ "Please contact your host to upgrade PHP and WordPress. TotalPoll has been "
+#~ "auto-deactivated."
+#~ msgstr ""
+#~ "TotalPollのご使用にはPHP 5.4+とWordPress 4.0+が正常に機能する必要がありま"
+#~ "す。 PHPとWordPressをアップグレードするには、ホストに連絡してください。 "
+#~ "TotalPollは自動的に無効化されました。"
+
+#~ msgctxt "slug"
+#~ msgid "poll"
+#~ msgstr "アンケート"
+
+#~ msgid "After checkout"
+#~ msgstr "チェックアウト後"
+
+#~ msgid "This poll will be shown to customer after checkout"
+#~ msgstr "この投票は、チェックアウト後にお客様に表示されます"
+
+#~ msgid "Redirect"
+#~ msgstr "出力先を変更する"
+
+#~ msgid "Redirect to this URL after vote:"
+#~ msgstr "投票後、このURLに出力先を変更する："
+
+#~ msgid "REST API"
+#~ msgstr "REST API"
+
+#~ msgid "License key is invalid. Please double check and try again."
+#~ msgstr "ライセンスキーが無効です。 ご確認の上もう一度お試しください。"
+
+#~ msgid "Migrated."
+#~ msgstr "移動しました。"
+
+#~ msgid "Elements"
+#~ msgstr "要素"
+
+#~ msgid "Background"
+#~ msgstr "背景"
+
+#~ msgid "Color"
+#~ msgstr "色"
+
+#~ msgid "Border"
+#~ msgstr "ボーダー"
+
+#~ msgid "Background (Hover)"
+#~ msgstr "背景（ホバー）"
+
+#~ msgid "Color (Hover)"
+#~ msgstr "色 (Hover)"
+
+#~ msgid "Border (Hover)"
+#~ msgstr "ボーダー (ホバー)"
+
+#~ msgid "Background (Checked)"
+#~ msgstr "背景（チェック）"
+
+#~ msgid "Color (Checked)"
+#~ msgstr "色（チェック）"
+
+#~ msgid "Border (Checked)"
+#~ msgstr "ボーダー（チェック）"
+
+#~ msgid "Background (Start)"
+#~ msgstr "背景（開始）"
+
+#~ msgid "Background (End)"
+#~ msgstr "背景（終了）"
+
+#~ msgid "Height"
+#~ msgstr "高さ"
+
+#~ msgid "Background (error)"
+#~ msgstr "背景（エラー）"
+
+#~ msgid "Color (error)"
+#~ msgstr "色（エラー）"
+
+#~ msgid "Background (hover)"
+#~ msgstr "背景（ホバー）\n"
+
+#~ msgid "Color (hover)"
+#~ msgstr "色（ホバー）"
+
+#~ msgid "Border (hover)"
+#~ msgstr "ボーダー（ホバー）"
+
+#~ msgid "Primary background"
+#~ msgstr "主な背景"
+
+#~ msgid "Primary background (hover)"
+#~ msgstr "主な背景（ホバー）"
+
+#~ msgid "Primary border (hover)"
+#~ msgstr "主なボーダー（ホバー）"
+
+#~ msgid "Get poll object"
+#~ msgstr "アンケートのオブジェクトを取得する"
+
+#~ msgid "Start by getting the poll object from this URL:"
+#~ msgstr "まず、このURLからアンケートのオブジェクトを取得します。"
+
+#~ msgid "Cast a vote"
+#~ msgstr "投票を行う"
+
+#~ msgid "You can cast a vote by sending a POST request to the following URL:"
+#~ msgstr "次のURLにPOSTリクエストを送信して投票を行うことができます："
+
+#~ msgid ""
+#~ "Open the page which you have used these API endpoints in and test poll "
+#~ "functionality."
+#~ msgstr ""
+#~ "これらのAPIエンドポイントを使用したページを開き、アンケート機能をテストし"
+#~ "ます。"
+
+#~ msgid "REST API are available only in WordPress 4.4"
+#~ msgstr "REST APIはWordPress 4.4でのみ利用可能です"
+
+#~ msgid "Take your website to the next level"
+#~ msgstr "あなたのウェブサイトを次のレベルへ"
+
+#~ msgid ""
+#~ "Get started with TotalSuite to take your website to the next level with "
+#~ "feature-rich premium products."
+#~ msgstr ""
+#~ "TotalSuiteを使い豊富な機能を備えたプレミアム製品でWebサイトを次のレベルに"
+#~ "引き上げましょう。"
+
+#~ msgid "Welcome to TotalPoll!"
+#~ msgstr "ようこそ TotalPollへ！"
+
+#~ msgid ""
+#~ "TotalPoll's user interface was built with you in mind! You can create a "
+#~ "poll in less than a minute."
+#~ msgstr ""
+#~ "TotalPollのユーザーインターフェースは、すべてのユーザーが使いやすいように"
+#~ "構築されました！ 1分以内にアンケートを作成することができます。"
+
+#~ msgid "New features"
+#~ msgstr "新機能"
+
+#~ msgid ""
+#~ "TotalPoll 4.0 brings a lot of new features like multiple questions, live "
+#~ "preview and insights."
+#~ msgstr ""
+#~ "TotalPoll 4.0は、多種多様な質問、ライブプレビュー、インサイトのような多く"
+#~ "の新機能をもたらします。"
+
+#~ msgid ""
+#~ "TotalPoll is now part of <a href=\"https://totalsuite.net/\">TotalSuite</"
+#~ "a> that brings essential tools in a robust suite."
+#~ msgstr ""
+#~ "TotalPollは、安定したパッケージソフトに不可欠なツールをもたらす<a href="
+#~ "\"https://totalsuite.net/\"> TotalSuite </a>に含まれています。"
+
+#~ msgid "Visual Learner?"
+#~ msgstr "動画を観ますか？"
+
+#~ msgid ""
+#~ "Here is a playlist of 5 videos that covers the main tasks to start your "
+#~ "journey with TotalPoll."
+#~ msgstr ""
+#~ "TotalPollで旅を始めるための主要なタスクをカバーする5つの動画プレイリストが"
+#~ "あります。"
+
+#~ msgid "Create your first poll"
+#~ msgstr "最初のアンケートを作成する"
+
+#~ msgid "Settings overview"
+#~ msgstr "設定の概要"
+
+#~ msgid "Design customization"
+#~ msgstr "デザインのカスタマイズ"
+
+#~ msgid "Publish"
+#~ msgstr "公開する"
+
+#~ msgid "Buy"
+#~ msgstr "購入する"

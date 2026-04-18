@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle name="PublishPress Authors Pro">
+  <domain name="publishpress-authors-pro">
+    <project name="PublishPress Authors Pro" slug="publishpress-authors-pro">
+      <target>
+        <directory>languages</directory>
+      </target>
+      <template>
+        <file>languages/publishpress-authors-pro.pot</file>
+      </template>
+    </project>
+  </domain>
+  <domain name="publishpress-authors">
+    <project name="PublishPress Authors" slug="publishpress-authors">
+      <source>
+        <directory>lib/vendor/publishpress/publishpress-authors</directory>
+      </source>
+      <target>
+        <directory>lib/vendor/publishpress/publishpress-authors/languages</directory>
+      </target>
+      <template>
+        <file>lib/vendor/publishpress/publishpress-authors/languages/publishpress-authors.pot</file>
+      </template>
+    </project>
+  </domain>
+  <exclude>
+    <directory>vendor</directory>
+  </exclude>
+</bundle>

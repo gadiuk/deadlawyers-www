@@ -1,0 +1,101 @@
+#totalpoll-troubleshooter .page-title-action[disabled], #totalpoll-troubleshooter .page-title-action[disabled]:hover, #totalpoll-troubleshooter .page-title-action[disabled]:focus {
+  background: #f1f1f1;
+  color: #cccccc;
+  border-color: #cccccc;
+  cursor: not-allowed;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-tests {
+  position: relative;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-tests:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: #dddddd;
+  top: 0;
+  bottom: 0;
+}
+body.is-ltr #totalpoll-troubleshooter .totalpoll-troubleshooter-tests:before {
+  left: 20px;
+}
+
+body.is-rtl #totalpoll-troubleshooter .totalpoll-troubleshooter-tests:before {
+  right: 20px;
+}
+
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 12px 0;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-status {
+  margin: 2px 18px 0 12px;
+  width: 10px;
+  height: 10px;
+  border: 4px solid #f1f1f1;
+  border-radius: 50%;
+  background: #cccccc;
+  transition: 0.25s all ease-in;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-body {
+  flex: 1;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.3333333333rem;
+  transition: 0.25s all ease-in;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-description {
+  font-size: 12px;
+  color: #999999;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-actions {
+  margin-top: 0.5rem;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test p {
+  margin: 0 0 0.5rem;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test p:last-child {
+  margin-bottom: 0;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-errors {
+  border-left: 4px solid #f44336;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  margin: 5px 0 15px;
+  padding: 12px;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test-warnings {
+  border-left: 4px solid #ef6c00;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  margin: 5px 0 15px;
+  padding: 12px;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.running .totalpoll-troubleshooter-test-status {
+  background: #0073aa;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.running .totalpoll-troubleshooter-test-name {
+  color: #0073aa;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.errors .totalpoll-troubleshooter-test-status {
+  background: #f44336;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.errors .totalpoll-troubleshooter-test-name {
+  color: #f44336;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.warnings .totalpoll-troubleshooter-test-status {
+  background: #ef6c00;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.warnings .totalpoll-troubleshooter-test-name {
+  color: #ef6c00;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.done .totalpoll-troubleshooter-test-status {
+  background: #00AA7B;
+}
+#totalpoll-troubleshooter .totalpoll-troubleshooter-test.done .totalpoll-troubleshooter-test-name {
+  color: #00AA7B;
+}

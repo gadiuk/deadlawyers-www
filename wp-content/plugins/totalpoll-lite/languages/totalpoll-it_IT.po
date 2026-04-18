@@ -1,0 +1,2906 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-14 19:55+0100\n"
+"PO-Revision-Date: 2019-03-14 20:06+0100\n"
+"Last-Translator: totalsuite <supporttotalsuite.net>\n"
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: Admin/Ajax/Dashboard.php:66
+#, fuzzy
+#| msgid "Invalid Sidebar ID."
+msgid "Invalid key or email."
+msgstr "Sidebar ID non valida."
+
+#: Admin/Ajax/Dashboard.php:135
+msgid "Invalid access token."
+msgstr ""
+
+#: Admin/Ajax/Entries.php:65
+msgid "Invalid Poll ID"
+msgstr "Poll ID non valido"
+
+#: Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "Modulo installato."
+
+#: Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "Modulo scaricato e installato."
+
+#: Admin/Ajax/Modules.php:110
+msgid "Module updated."
+msgstr "Modulo aggiornato."
+
+#: Admin/Ajax/Modules.php:124
+msgid "Module uninstalled."
+msgstr "Modulo disinstallato."
+
+#: Admin/Ajax/Modules.php:138
+msgid "Module activated."
+msgstr "Modulo attivato."
+
+#: Admin/Ajax/Modules.php:152
+msgid "Module deactivated."
+msgstr "Modulo disattivato."
+
+#: Admin/Ajax/Options.php:45
+msgid "Saved."
+msgstr "Salvato."
+
+#: Admin/Ajax/Options.php:57
+msgid "Purged."
+msgstr "Pulito."
+
+#: Admin/Ajax/Options.php:68
+msgid "Plugin is not supported."
+msgstr "Il plugin non è supportato."
+
+#: Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "Poll ID non valido."
+
+#: Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "Widget aggiunto con successo."
+
+#: Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "Sidebar ID non valida."
+
+#: Admin/Bootstrap.php:42 Admin/Bootstrap.php:43
+#: Admin/Dashboard/views/index.php:3
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: Admin/Bootstrap.php:47 Admin/Bootstrap.php:48
+#: Admin/Dashboard/views/overview.php:28 Admin/Entries/views/index.php:2
+#: Admin/Poll/Editor.php:331 Admin/Poll/Listing.php:81
+#: Admin/Poll/Listing.php:160 Admin/Privacy/Policy.php:151
+msgid "Entries"
+msgstr "Voci"
+
+#: Admin/Bootstrap.php:52 Admin/Bootstrap.php:53
+#: Admin/Insights/views/index.php:2 Admin/Poll/Editor.php:330
+#: Admin/Poll/Listing.php:161
+msgid "Insights"
+msgstr "Insights"
+
+#: Admin/Bootstrap.php:57 Admin/Log/views/index.php:2 Admin/Poll/Editor.php:335
+#: Admin/Poll/Listing.php:82 Admin/Poll/Listing.php:165
+msgid "Log"
+msgstr "Log"
+
+#: Admin/Bootstrap.php:58
+msgid "Logs"
+msgstr "Logs"
+
+#: Admin/Bootstrap.php:62 Admin/Bootstrap.php:63
+#: Admin/Modules/Templates/views/index.php:3 Admin/Modules/views/index.php:8
+#: Admin/Poll/Editor.php:281 Admin/Poll/views/design/sidebar.php:11
+msgid "Templates"
+msgstr "Modelli"
+
+#: Admin/Bootstrap.php:67 Admin/Bootstrap.php:68
+#: Admin/Modules/Extensions/views/index.php:3 Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "Estensioni"
+
+#: Admin/Bootstrap.php:72 Admin/Bootstrap.php:73
+#: Admin/Options/views/index.php:2 Admin/Poll/views/form/field.php:156
+msgid "Options"
+msgstr "Opzioni"
+
+#: Admin/Bootstrap.php:364
+#, fuzzy
+#| msgid ""
+#| "TotalPoll is part of <a href=\"https://totalsuite.net/\" target=\"_blank"
+#| "\">TotalSuite</a>, a suite of plugins that takes <a href=\"https://"
+#| "wordpress.org/\" target=\"_blank\">WordPress</a> to the next level."
+msgid ""
+"{{product}} is part of <a href=\"{{totalsuite}}\" target=\"_blank"
+"\">TotalSuite</a>, a suite of robust and maintained plugins for WordPress."
+msgstr ""
+"TotalPoll fa parte di <a href=\"https://totalsuite.net/\" target=\"_blank"
+"\">TotalSuite</a>, un pacchetto di plugins che porta <a href=\"https://"
+"wordpress.org/\" target=\"_blank\">WordPress</a> ad un livello superiore."
+
+#: Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "Prodotto attivato!"
+
+#: Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "Stai ora ricevendo aggiornamenti."
+
+#: Admin/Dashboard/views/activation.php:12
+msgid "Activation code"
+msgstr "Codice di attivazione"
+
+#: Admin/Dashboard/views/activation.php:18
+msgid "Licensed to"
+msgstr ""
+
+#: Admin/Dashboard/views/activation.php:27
+#, php-format
+msgid "Product activation for %s"
+msgstr "Attivazione del prodotto per %s"
+
+#: Admin/Dashboard/views/activation.php:28
+#, fuzzy
+#| msgid ""
+#| "Open <a href=\"https://codecanyon.net/downloads\">downloads page</a>, "
+#| "find the product, click \"Download\" then select on \"License certificate "
+#| "& purchase code (text)\"."
+msgid ""
+"Open <a target=\"_blank\" href=\"https://codecanyon.net/downloads"
+"\">downloads page</a>, find the product, click \"Download\" then select on "
+"\"License certificate & purchase code (text)\"."
+msgstr ""
+"Apri la <a href=\"https://codecanyon.net/downloads\">pagina di download</a>, "
+"trova il prodotto, fai clic su \"Download\", quindi seleziona \"License "
+"certificate & purchase code (text)\"."
+
+#: Admin/Dashboard/views/activation.php:34
+msgid "Activating"
+msgstr "Attivazione"
+
+#: Admin/Dashboard/views/activation.php:34 Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "Attivare"
+
+#: Admin/Dashboard/views/credits.php:4 Admin/Dashboard/views/index.php:20
+msgid "Credits"
+msgstr "Crediti"
+
+#: Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr ""
+"TotalPoll è stato reso possibile grazie a questi progetti e contributori."
+
+#: Admin/Dashboard/views/index.php:7
+msgid "Overview"
+msgstr "Panoramica"
+
+#: Admin/Dashboard/views/index.php:11
+msgid "Get started"
+msgstr "Inizia"
+
+#: Admin/Dashboard/views/index.php:14
+msgid "What's new"
+msgstr "Cosa c'è di nuovo"
+
+#: Admin/Dashboard/views/index.php:17
+msgid "Support"
+msgstr "Supporto"
+
+#: Admin/Dashboard/views/index.php:23
+msgid "Activation"
+msgstr "Attivazione"
+
+#: Admin/Dashboard/views/index.php:26
+msgid "My Account"
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:66
+msgid "Simple yet Powerful Plugins for WordPress"
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:67
+msgid ""
+"A suite of robust, maintained and secure plugins for WordPress that helps "
+"you generate more value for your business."
+msgstr ""
+
+#: Admin/Dashboard/views/index.php:78
+msgid "Get Started"
+msgstr "Inizia"
+
+#: Admin/Dashboard/views/my-account.php:8
+msgid "Account Linked!"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:9
+msgid "Your account has been linked successfully."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:12
+msgid "Linked account"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:21
+msgid "Your TotalSuite Account"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:22
+msgid "Link your account purchases using an access token."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:25
+msgid "Access Token"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Linking..."
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Connect"
+msgstr ""
+
+#: Admin/Dashboard/views/my-account.php:30
+msgid "Get Access Token"
+msgstr ""
+
+#: Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "È il momento di creare la tua prima votazione."
+
+#: Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "Non ci sono ancora votazioni."
+
+#: Admin/Dashboard/views/overview.php:8 Poll/PostType.php:122
+msgid "Create Poll"
+msgstr "Crea votazione"
+
+#: Admin/Dashboard/views/overview.php:14 Admin/Poll/views/choices/choice.php:19
+#: Admin/Poll/views/form/field.php:20
+msgid "Untitled"
+msgstr "Senza titolo"
+
+#: Admin/Dashboard/views/overview.php:16 Admin/Poll/Listing.php:188
+msgid "Live"
+msgstr "In tempo reale"
+
+#: Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "In sospeso"
+
+#: Admin/Dashboard/views/overview.php:24 Admin/Options/Page.php:67
+#: Admin/Poll/Listing.php:80 Admin/Poll/views/choices/choice.php:64
+#: Admin/Poll/views/choices/choice.php:68
+#: Admin/Poll/views/settings/choices/sort.php:15
+#: Admin/Poll/views/settings/results/sort.php:15 Admin/Privacy/Policy.php:97
+msgid "Votes"
+msgstr "Voti"
+
+#: Admin/Dashboard/views/sidebar.php:9 Admin/Dashboard/views/sidebar.php:21
+msgid "Translate"
+msgstr "Tradurre"
+
+#: Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"Aiutaci a tradurre TotalPoll nella tua lingua e ricevi gratuitamente un "
+"articolo dal nostro negozio."
+
+#: Admin/Dashboard/views/sidebar.php:28
+msgid "Stay in the loop"
+msgstr "Rimani in contatto"
+
+#: Admin/Dashboard/views/sidebar.php:29
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"Ricevi le ultime notizie su nuove funzionalità, prodotti e offerte più uno "
+"<strong>sconto del 10%</strong> da utilizzare nel nostro negozio!"
+
+#: Admin/Dashboard/views/sidebar.php:32
+msgid "Your email"
+msgstr "La tua email"
+
+#: Admin/Dashboard/views/sidebar.php:34
+msgid "Subscribe"
+msgstr "Sottoscrivi"
+
+#: Admin/Dashboard/views/sidebar.php:38
+msgid "Follow us"
+msgstr "Seguici"
+
+#: Admin/Dashboard/views/sidebar.php:64
+msgid "Spread the word"
+msgstr "Spargi la voce"
+
+#: Admin/Dashboard/views/sidebar.php:65
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"Prendi in considerazione <a href=\"https://codecanyon.net/downloads/\">di "
+"lasciare una recensione</a>. Potresti vincere un articolo gratuito sul "
+"nostro negozio twittando su TotalPoll!"
+
+#: Admin/Dashboard/views/sidebar.php:71
+msgid "Tweet"
+msgstr "Tweet"
+
+#: Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "Come possiamo aiutarti?"
+
+#: Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "Cerca nella nostra knowledge base per risposte dettagliate e tutorial."
+
+#: Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "Inserisci alcune parole chiave"
+
+#: Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "Cerca"
+
+#: Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "Community di supporto"
+
+#: Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "Unisciti e chiedi aiuto alla community di TotalSuite."
+
+#: Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "Visita i forum"
+
+#: Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "Servizio Clienti"
+
+#: Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "Il nostro team di supporto è qui per aiutarti."
+
+#: Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "Invia ticket"
+
+#: Admin/Dashboard/views/support.php:37
+#, fuzzy
+#| msgid "VIP Support"
+msgid "Instant Support"
+msgstr "Supporto VIP"
+
+#: Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "Hai fretta? Siamo accanto a te!"
+
+#: Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "Per saperne di più"
+
+#: Admin/Entries/Page.php:48 Admin/Log/Page.php:73
+#: Admin/Poll/views/choices/choice.php:34
+#: Admin/Poll/views/choices/choices.php:164
+#: Admin/Poll/views/choices/choices.php:221 Admin/Poll/views/form/field.php:96
+msgid "HTML"
+msgstr "HTML"
+
+#: Admin/Entries/Page.php:49 Admin/Log/Page.php:74
+msgid "CSV"
+msgstr ""
+
+#: Admin/Entries/Page.php:50 Admin/Log/Page.php:75
+msgid "JSON"
+msgstr ""
+
+#: Admin/Entries/views/index.php:12 Admin/Insights/views/index.php:9
+msgid "Please select a poll"
+msgstr "Per favore seleziona una votazione"
+
+#: Admin/Entries/views/index.php:16 Admin/Insights/views/index.php:13
+#: Admin/Log/views/index.php:16
+msgid "From"
+msgstr "Da"
+
+#: Admin/Entries/views/index.php:18 Admin/Insights/views/index.php:15
+#: Admin/Log/views/index.php:18
+msgid "To"
+msgstr "A"
+
+#: Admin/Entries/views/index.php:30 Admin/Insights/views/index.php:19
+#: Admin/Log/views/index.php:30
+msgid "Clear"
+msgstr "Cancella"
+
+#: Admin/Entries/views/index.php:33 Admin/Insights/views/index.php:22
+#: Admin/Log/views/index.php:33
+msgid "Apply"
+msgstr "Applica"
+
+#: Admin/Entries/views/index.php:42 Admin/Log/Page.php:50
+#: Admin/Poll/Listing.php:83 Admin/Privacy/Policy.php:113
+msgid "Date"
+msgstr "Data"
+
+#: Admin/Entries/views/index.php:51 Admin/Log/views/index.php:77
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "Nothing. Nada. Niente. Nichts. Rien."
+
+#: Admin/Entries/views/index.php:61 Admin/Log/views/index.php:86
+#: Poll/Renderer.php:252
+msgid "Previous"
+msgstr "Precedente"
+
+#: Admin/Entries/views/index.php:63 Admin/Log/views/index.php:87
+#: Poll/Renderer.php:253
+msgid "Next"
+msgstr "Successivo"
+
+#: Admin/Entries/views/index.php:67 Admin/Log/views/index.php:91
+msgid "Download as"
+msgstr "Scarica come"
+
+#: Admin/Log/Page.php:48 Admin/Privacy/Policy.php:109
+msgid "Status"
+msgstr "Stato"
+
+#: Admin/Log/Page.php:49
+msgid "Action"
+msgstr "Azione"
+
+#: Admin/Log/Page.php:51 Admin/Poll/views/settings/vote/frequency.php:19
+#: Admin/Poll/views/settings/vote/limitations.php:116
+#: Admin/Privacy/Policy.php:101
+msgid "IP"
+msgstr "IP"
+
+#: Admin/Log/Page.php:52
+msgid "Browser"
+msgstr "Browser"
+
+#: Admin/Log/Page.php:53 Poll/PostType.php:121
+msgid "Poll"
+msgstr "Votazione"
+
+#: Admin/Log/Page.php:54
+msgid "User name"
+msgstr "Nome utente"
+
+#: Admin/Log/Page.php:55
+msgid "User ID"
+msgstr "ID utente"
+
+#: Admin/Log/Page.php:56
+msgid "User login"
+msgstr "Login utente"
+
+#: Admin/Log/Page.php:57
+msgid "User email"
+msgstr "Email utente"
+
+#: Admin/Log/Page.php:58
+msgid "Details"
+msgstr "Dettagli"
+
+#: Admin/Modules/Extensions/views/index.php:4
+#: Admin/Modules/Templates/views/index.php:4
+#: Admin/Poll/views/choices/choice-audio.php:37
+#: Admin/Poll/views/choices/choice-audio.php:59
+#: Admin/Poll/views/choices/choice-image.php:31
+#: Admin/Poll/views/choices/choice-video.php:43
+#: Admin/Poll/views/choices/choice-video.php:68
+msgid "Upload"
+msgstr "Carica"
+
+#: Admin/Modules/Extensions/views/index.php:9
+#: Admin/Modules/Templates/views/index.php:9
+#, fuzzy
+#| msgid "Install"
+msgid "Installed"
+msgstr "Installa"
+
+#: Admin/Modules/Extensions/views/index.php:12
+#: Admin/Modules/Templates/views/index.php:12
+msgid "Store"
+msgstr ""
+
+#: Admin/Modules/Extensions/views/index.php:16
+#: Admin/Modules/Templates/views/index.php:16
+msgid "Refresh"
+msgstr ""
+
+#: Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "Moduli"
+
+#: Admin/Modules/views/index.php:5 Admin/Modules/views/install.php:21
+#: Admin/Modules/views/manager.php:30
+msgid "Install"
+msgstr "Installa"
+
+#: Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr ""
+"Se hai un modello o un'estensione in formato .zip puoi installarlo "
+"caricandolo qui."
+
+#: Admin/Modules/views/install.php:18
+#, fuzzy
+#| msgid "Browser"
+msgid "Browse"
+msgstr "Browser"
+
+#: Admin/Modules/views/manager.php:21
+#: Admin/Poll/views/design/tabs/templates.php:25
+msgid "By"
+msgstr "Da"
+
+#: Admin/Modules/views/manager.php:35
+#, fuzzy
+#| msgid "Get Quote"
+msgid "Get it"
+msgstr "Ottieni un preventivo"
+
+#: Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "Aggiornare"
+
+#: Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "Disinstallare"
+
+#: Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "Disattivare"
+
+#: Admin/Modules/views/manager.php:64
+#: Admin/Poll/views/design/tabs/templates.php:27
+msgid "Version"
+msgstr "Versione"
+
+#: Admin/Options/Page.php:72 Poll/Model.php:791 Poll/Model.php:912
+#: Poll/Model.php:973
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "%s Voto"
+msgstr[1] "%s Voti"
+
+#: Admin/Options/Page.php:73
+#, php-format
+msgid "%s Votes"
+msgstr "%s Voti"
+
+#: Admin/Options/Page.php:79
+msgid "Buttons"
+msgstr "Bottoni"
+
+#: Admin/Options/Page.php:84
+msgid "Previous page"
+msgstr "Pagina precedente"
+
+#: Admin/Options/Page.php:89
+msgid "Next page"
+msgstr "Pagina successiva"
+
+#: Admin/Options/Page.php:94 Admin/Poll/Editor.php:239
+#: Admin/Poll/Editor.php:254 Poll/Form.php:235 Widgets/Poll.php:84
+msgid "Results"
+msgstr "Risultati"
+
+#: Admin/Options/Page.php:99 Admin/Poll/Editor.php:224
+#: Admin/Poll/Editor.php:252 Poll/Form.php:247 Widgets/Poll.php:83
+msgid "Vote"
+msgstr "Vota"
+
+#: Admin/Options/Page.php:104
+msgid "Back"
+msgstr "Indietro"
+
+#: Admin/Options/Page.php:109
+msgid "Proceed"
+msgstr "Procedi"
+
+#: Admin/Options/Page.php:115
+msgid "Errors"
+msgstr "Errori"
+
+#: Admin/Options/Page.php:121
+msgid "You cannot vote again in this poll."
+msgstr "Non puoi votare nuovamente in questa votazione."
+
+#: Admin/Options/Page.php:127
+msgid "You have to vote for at least one choice."
+msgstr "Devi scegliere di votare almeno una delle opzioni."
+
+#: Admin/Options/Page.php:128
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "Devi scegliere di votare almeno %d delle opzioni."
+
+#: Admin/Options/Page.php:134
+msgid "You cannot vote for more than one choice."
+msgstr "Non puoi scegliere più di un'opzione."
+
+#: Admin/Options/Page.php:135
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "Non puoi scegliere più di %d opzioni."
+
+#: Admin/Options/Page.php:141
+msgid "You have entered an invalid captcha code."
+msgstr "Hai inserito un captcha non valido."
+
+#: Admin/Options/Page.php:147
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "Non puoi votare perché la quota è stata superata."
+
+#: Admin/Options/Page.php:153
+msgid "You cannot see results before voting."
+msgstr "Non puoi visualizzare i risultati prima del voto."
+
+#: Admin/Options/Page.php:159
+msgid "You cannot vote because this poll has not started yet."
+msgstr "Non puoi votare perché questa votazione non è ancora iniziata."
+
+#: Admin/Options/Page.php:165
+msgid "You cannot vote because this poll has expired."
+msgstr "Non puoi votare perché questa votazione è terminata."
+
+#: Admin/Options/Page.php:171
+msgid "You cannot vote because this poll is not available in your region."
+msgstr ""
+"Non puoi votare perché questa votazione non è disponibile nella tua regione."
+
+#: Admin/Options/Page.php:177
+msgid "You cannot vote because you have insufficient rights."
+msgstr "Non puoi votare perché non hai i permessi necessari."
+
+#: Admin/Options/Page.php:183
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"Non puoi votare perché non hai eseguito l'accesso al sito. Per favore "
+"effettua il <a href=\"%s\">login</a> o <a href=\"%s\">registrati</a>."
+
+#: Admin/Options/Page.php:189
+msgid "Voting via links has been disabled for this poll."
+msgstr "Il voto via link è stato disabilitato per questa votazione."
+
+#: Admin/Options/Page.php:195 Admin/Poll/views/form/field.php:93
+msgid "Validations"
+msgstr "Convalide"
+
+#: Admin/Options/Page.php:200
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}} deve essere un indirizzo email valido."
+
+#: Admin/Options/Page.php:205
+msgid "{{label}} must be filled."
+msgstr "{{label}} deve essere compilato."
+
+#: Admin/Options/Page.php:210
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}} non è entro l'intervallo contemplato."
+
+#: Admin/Options/Page.php:215 Poll/Form.php:89
+msgid "{{label}} has been used before."
+msgstr "{{label}} è stato usato prima."
+
+#: Admin/Options/Page.php:220
+msgid "{{label}} is not accepted."
+msgstr "{{label}} non è accettato."
+
+#: Admin/Options/Page.php:225
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} non consente questo valore."
+
+#: Admin/Options/Page.php:252
+msgid "General"
+msgstr "Generale"
+
+#: Admin/Options/Page.php:253
+msgid "Performance"
+msgstr "Performance"
+
+#: Admin/Options/Page.php:254
+msgid "Services"
+msgstr "Servizi"
+
+#: Admin/Options/Page.php:255
+msgid "Sharing"
+msgstr "Condivisione"
+
+#: Admin/Options/Page.php:256 Admin/Poll/Editor.php:286
+msgid "Advanced"
+msgstr "Avanzato"
+
+#: Admin/Options/Page.php:257 Admin/Poll/Editor.php:259
+msgid "Notifications"
+msgstr "Notifiche"
+
+#: Admin/Options/Page.php:258
+msgid "Expressions"
+msgstr "Espressioni"
+
+#: Admin/Options/Page.php:259
+msgid "Migration"
+msgstr "Migrazione"
+
+#: Admin/Options/Page.php:260
+msgid "Import & Export"
+msgstr "Importa ed esporta"
+
+#: Admin/Options/Page.php:261
+msgid "Debug"
+msgstr "Debug"
+
+#: Admin/Options/views/tabs/advanced.php:7
+msgid "Always embed CSS with HTML."
+msgstr "Incorpora sempre i CSS con HTML."
+
+#: Admin/Options/views/tabs/advanced.php:10
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr ""
+"Questa opzione potrebbe essere utile quando WordPress non è in esecuzione su "
+"file system standard."
+
+#: Admin/Options/views/tabs/advanced.php:17
+msgid "Render full poll when listed in polls archive."
+msgstr ""
+"Presenta la votazione completa quando elencata nell'archivio delle votazioni."
+
+#: Admin/Options/views/tabs/advanced.php:20
+msgid "This option will render all polls instead of showing titles only."
+msgstr ""
+"Questa opzione presenterà tutte le votazioni invece di mostrare solo i "
+"titoli."
+
+#: Admin/Options/views/tabs/advanced.php:27
+msgid "Disable polls archive."
+msgstr "Disabilita l'archivio delle votazioni."
+
+#: Admin/Options/views/tabs/advanced.php:35
+msgid "Remove all data on uninstall."
+msgstr "Rimuovi tutti i dati con la disinstallazione."
+
+#: Admin/Options/views/tabs/advanced.php:38
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr ""
+"Attenzione! Questo rimuoverà tutti i dati di TotalPoll inclusi opzioni, file "
+"di cache e votazioni."
+
+#: Admin/Options/views/tabs/debug.php:19
+#, fuzzy
+#| msgid "Downloads"
+msgid "Download"
+msgstr "Download"
+
+#: Admin/Options/views/tabs/general.php:7
+msgid "Structured Data"
+msgstr "Dati strutturati"
+
+#: Admin/Options/views/tabs/general.php:10
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"Migliora il tuo aspetto sui motori di ricerca attraverso l'implementazione "
+"dei <a href=\"https://developers.google.com/search/docs/guides/intro-"
+"structured-data\" target=\"_blank\">dati strutturati</a>."
+
+#: Admin/Options/views/tabs/import-export.php:7
+msgid "Import data"
+msgstr "Importa dati"
+
+#: Admin/Options/views/tabs/import-export.php:10
+msgid "Export data"
+msgstr "Esporta dati"
+
+#: Admin/Options/views/tabs/import-export.php:13
+msgid "Export settings"
+msgstr "Esporta impostazioni"
+
+#: Admin/Options/views/tabs/import-export.php:17
+#, fuzzy
+#| msgid "TotalPoll uses standard WordPress import mechanism."
+msgid "TotalPoll uses standard WordPress import/export mechanism."
+msgstr "TotalPoll utilizza la funzione di importazione standard di WordPress."
+
+#: Admin/Options/views/tabs/import-export.php:23
+msgid "Drag and drop settings file or copy then paste its content here."
+msgstr ""
+
+#: Admin/Options/views/tabs/import-export.php:27
+msgid "Import settings"
+msgstr "Importa impostazioni"
+
+#: Admin/Options/views/tabs/import-export.php:28
+#, fuzzy
+#| msgid "Import settings"
+msgid "Importing"
+msgstr "Importa impostazioni"
+
+#: Admin/Options/views/tabs/import-export.php:29
+#, fuzzy
+#| msgid "Import data"
+msgid "Imported"
+msgstr "Importa dati"
+
+#: Admin/Options/views/tabs/migration.php:13
+msgid "No polls to migrate."
+msgstr "Nessuna votazione da migrare."
+
+#: Admin/Options/views/tabs/migration.php:14
+msgid "Polls migrated successfully."
+msgstr "Votazioni migrate con successo."
+
+#: Admin/Options/views/tabs/migration.php:15
+msgid "Polls to migrate."
+msgstr "Votazioni da migrare."
+
+#: Admin/Options/views/tabs/migration.php:28 Admin/Poll/views/editor.php:15
+msgid "Migrate"
+msgstr "Migrare"
+
+#: Admin/Options/views/tabs/notifications.php:4
+msgid "Poll title: {{title}}"
+msgstr "Titolo votazione: {{title}}"
+
+#: Admin/Options/views/tabs/notifications.php:5
+msgid "Choices: {{choices}}"
+msgstr "Scelte: {{choices}}"
+
+#: Admin/Options/views/tabs/notifications.php:6
+msgid "User IP: {{ip}}"
+msgstr "IP utente: {{ip}}"
+
+#: Admin/Options/views/tabs/notifications.php:7
+msgid "User browser: {{browser}}"
+msgstr "Browser utente: {{browser}}"
+
+#: Admin/Options/views/tabs/notifications.php:8
+msgid "Vote date: {{date}}"
+msgstr "Data votazione: {{date}}"
+
+#: Admin/Options/views/tabs/notifications.php:12 Admin/Poll/Listing.php:79
+#: Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "Titolo"
+
+#: Admin/Options/views/tabs/notifications.php:18
+msgid "Plain text body"
+msgstr "Corpo del testo normale"
+
+#: Admin/Options/views/tabs/notifications.php:24
+msgid "HTML template"
+msgstr "Modello HTML"
+
+#: Admin/Options/views/tabs/performance.php:7
+msgid "Asynchronous loading"
+msgstr "Caricamento asincrono"
+
+#: Admin/Options/views/tabs/performance.php:10
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr ""
+"Questo può essere utile quando si desidera bypassare plugin e funzioni di "
+"cache."
+
+#: Admin/Options/views/tabs/performance.php:17
+msgid "Full checks on page load."
+msgstr "Controlli completi sul caricamento della pagina."
+
+#: Admin/Options/views/tabs/performance.php:20
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr ""
+"Questo potrebbe sovraccaricare il tuo server perché TotalPoll utilizzerà "
+"frequentemente il database."
+
+#: Admin/Options/views/tabs/performance.php:26
+msgid "Clear cache"
+msgstr "Cancella la cache"
+
+#: Admin/Options/views/tabs/performance.php:27
+#, fuzzy
+#| msgid "Clear"
+msgid "Clearing"
+msgstr "Cancella"
+
+#: Admin/Options/views/tabs/performance.php:28
+#, fuzzy
+#| msgid "Clear"
+msgid "Cleared"
+msgstr "Cancella"
+
+#: Admin/Options/views/tabs/services.php:6
+msgid "reCaptcha by Google"
+msgstr "reCaptcha by Google"
+
+#: Admin/Options/views/tabs/services.php:14
+msgid "Site key"
+msgstr "Site key"
+
+#: Admin/Options/views/tabs/services.php:22
+msgid "Site secret"
+msgstr "Site secret"
+
+#: Admin/Options/views/tabs/services.php:30
+msgid "Enable invisible captcha."
+msgstr "Abilita captcha invisibile."
+
+#: Admin/Options/views/tabs/sharing.php:9
+msgid "Twitter"
+msgstr "Twitter"
+
+#: Admin/Options/views/tabs/sharing.php:19
+msgid "Facebook"
+msgstr "Facebook"
+
+#: Admin/Options/views/tabs/sharing.php:29
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: Admin/Poll/Editor.php:170
+msgid "Are you sure?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:171 Admin/Poll/views/choices/choice-audio.php:43
+#: Admin/Poll/views/choices/choice-video.php:50
+#: Admin/Poll/views/questions/question.php:65
+msgid "Yes"
+msgstr "Sì"
+
+#: Admin/Poll/Editor.php:172 Admin/Poll/views/choices/choice-audio.php:46
+#: Admin/Poll/views/choices/choice-video.php:54
+#: Admin/Poll/views/questions/question.php:64
+msgid "No"
+msgstr "No"
+
+#: Admin/Poll/Editor.php:173
+msgid "Done"
+msgstr ""
+
+#: Admin/Poll/Editor.php:174
+msgid "Do you want to receive notifications from TotalPoll?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:175
+msgid "Unfortunately, your browser does not support push notifications."
+msgstr ""
+
+#: Admin/Poll/Editor.php:176
+msgid ""
+"ATTENTION! Overriding votes is not reversible. Are you sure you want to "
+"override votes?"
+msgstr ""
+
+#: Admin/Poll/Editor.php:203
+msgid "Questions"
+msgstr "Domande"
+
+#: Admin/Poll/Editor.php:204 Admin/Poll/views/form/fields.php:31
+#: Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "Campi"
+
+#: Admin/Poll/Editor.php:205 Admin/Poll/views/questions/question.php:24
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: Admin/Poll/Editor.php:206
+msgid "Design"
+msgstr "Design"
+
+#: Admin/Poll/Editor.php:207
+msgid "Integration"
+msgstr "Integrazione"
+
+#: Admin/Poll/Editor.php:208
+msgid "Translations"
+msgstr "Traduzioni"
+
+#: Admin/Poll/Editor.php:227
+msgid "Limitations"
+msgstr "Limitazioni"
+
+#: Admin/Poll/Editor.php:228
+msgid "Frequency"
+msgstr "Frequenza"
+
+#: Admin/Poll/Editor.php:232 Admin/Poll/views/questions/question.php:80
+#: Admin/Poll/views/questions/questions.php:25
+msgid "Choices"
+msgstr "Scelte"
+
+#: Admin/Poll/Editor.php:235 Admin/Poll/Editor.php:242
+msgid "Sort"
+msgstr "Ordina"
+
+#: Admin/Poll/Editor.php:243
+msgid "Visibility"
+msgstr "Visibilità"
+
+#: Admin/Poll/Editor.php:244
+msgid "Format"
+msgstr "Formato"
+
+#: Admin/Poll/Editor.php:248 Admin/Poll/views/questions/question.php:3
+#: Admin/Poll/views/settings/content/thankyou.php:4
+#: Admin/Poll/views/settings/content/welcome.php:4
+#: Admin/Poll/views/translations/index.php:55
+msgid "Content"
+msgstr "Contenuto"
+
+#: Admin/Poll/Editor.php:251
+msgid "Welcome"
+msgstr "Benvenuto"
+
+#: Admin/Poll/Editor.php:253
+msgid "Thank you"
+msgstr "Grazie"
+
+#: Admin/Poll/Editor.php:257 Admin/Poll/views/translations/index.php:108
+msgid "SEO"
+msgstr "SEO"
+
+#: Admin/Poll/Editor.php:262 Admin/Poll/Editor.php:312
+#: Admin/Poll/views/form/field.php:193 Admin/Poll/views/form/fields.php:16
+msgid "Email"
+msgstr "Email"
+
+#: Admin/Poll/Editor.php:263
+msgid "Push"
+msgstr "Push"
+
+#: Admin/Poll/Editor.php:264
+msgid "WebHook"
+msgstr "Webhook"
+
+#: Admin/Poll/Editor.php:267
+msgid "Customization"
+msgstr "Personalizzazione"
+
+#: Admin/Poll/Editor.php:282
+msgid "Layout"
+msgstr "Layout"
+
+#: Admin/Poll/Editor.php:283
+msgid "Colors"
+msgstr "Colori"
+
+#: Admin/Poll/Editor.php:284 Admin/Poll/views/choices/choice.php:30
+#: Admin/Poll/views/choices/choices.php:148
+#: Admin/Poll/views/choices/choices.php:197 Admin/Poll/views/form/field.php:31
+#: Admin/Poll/views/form/fields.php:143
+msgid "Text"
+msgstr "Testo"
+
+#: Admin/Poll/Editor.php:288
+#, fuzzy
+#| msgid "Templates"
+msgid "Template Settings"
+msgstr "Modelli"
+
+#: Admin/Poll/Editor.php:289
+msgid "Behaviours"
+msgstr "Comportamenti"
+
+#: Admin/Poll/Editor.php:290
+msgid "Effects"
+msgstr "Effetti"
+
+#: Admin/Poll/Editor.php:291
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+#: Admin/Poll/Editor.php:308
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: Admin/Poll/Editor.php:308 Admin/Poll/Editor.php:309
+msgid "WordPress feature"
+msgstr "Funzione WordPress"
+
+#: Admin/Poll/Editor.php:309
+msgid "Widget"
+msgstr "Widget"
+
+#: Admin/Poll/Editor.php:310
+msgid "Direct link"
+msgstr "Link diretto"
+
+#: Admin/Poll/Editor.php:310
+msgid "Standard link"
+msgstr "Link standard"
+
+#: Admin/Poll/Editor.php:311
+msgid "Embed"
+msgstr "Incorporare"
+
+#: Admin/Poll/Editor.php:311
+msgid "External inclusion"
+msgstr "Inclusione esterna"
+
+#: Admin/Poll/Editor.php:312
+msgid "Vote links"
+msgstr "Vota i link"
+
+#: Admin/Poll/Listing.php:190
+msgid "Offline"
+msgstr "Disconnesso"
+
+#: Admin/Poll/views/choices/choice-audio.php:23
+#: Admin/Poll/views/choices/choice-html.php:12
+#: Admin/Poll/views/choices/choice-image.php:18
+#: Admin/Poll/views/choices/choice-text.php:11
+#: Admin/Poll/views/choices/choice-video.php:26
+#: Admin/Poll/views/form/field.php:118
+#: Admin/Poll/views/settings/choices/sort.php:20
+#: Admin/Poll/views/settings/results/sort.php:20
+msgid "Label"
+msgstr "Etichetta"
+
+#: Admin/Poll/views/choices/choice-audio.php:25
+#: Admin/Poll/views/choices/choice-html.php:14
+#: Admin/Poll/views/choices/choice-image.php:20
+#: Admin/Poll/views/choices/choice-text.php:12
+#: Admin/Poll/views/choices/choice-video.php:28
+msgid "Choice label"
+msgstr "Opzioni etichetta"
+
+#: Admin/Poll/views/choices/choice-audio.php:30
+msgid "Audio URL"
+msgstr "URL audio"
+
+#: Admin/Poll/views/choices/choice-audio.php:32
+msgid "Full size audio URL"
+msgstr "URL audio a dimensione piena"
+
+#: Admin/Poll/views/choices/choice-audio.php:41
+#: Admin/Poll/views/choices/choice-video.php:47
+msgid "Import information from {{provider}}?"
+msgstr ""
+
+#: Admin/Poll/views/choices/choice-audio.php:52
+#: Admin/Poll/views/choices/choice-image.php:36
+#: Admin/Poll/views/choices/choice-video.php:60
+msgid "Thumbnail URL"
+msgstr "URL miniatura"
+
+#: Admin/Poll/views/choices/choice-audio.php:54
+#: Admin/Poll/views/choices/choice-image.php:38
+#: Admin/Poll/views/choices/choice-video.php:62
+msgid "Thumbnail image URL"
+msgstr "URL immagine miniatura"
+
+#: Admin/Poll/views/choices/choice-audio.php:63
+#: Admin/Poll/views/choices/choice-image.php:43
+#: Admin/Poll/views/choices/choice-video.php:72
+msgid "Available sizes"
+msgstr "Misure disponibili"
+
+#: Admin/Poll/views/choices/choice-image.php:25
+msgid "Image URL"
+msgstr "URL immagine"
+
+#: Admin/Poll/views/choices/choice-image.php:27
+msgid "Full size image URL"
+msgstr "URL immagine a dimensione intera"
+
+#: Admin/Poll/views/choices/choice-video.php:34
+msgid "Video URL"
+msgstr "Video URL"
+
+#: Admin/Poll/views/choices/choice-video.php:36
+msgid "Full size video URL"
+msgstr "URL video a dimensione piena"
+
+#: Admin/Poll/views/choices/choice.php:31
+#: Admin/Poll/views/choices/choices.php:152
+#: Admin/Poll/views/choices/choices.php:203
+msgid "Image"
+msgstr "Immagine"
+
+#: Admin/Poll/views/choices/choice.php:32
+#: Admin/Poll/views/choices/choices.php:156
+#: Admin/Poll/views/choices/choices.php:209
+msgid "Video"
+msgstr "Video"
+
+#: Admin/Poll/views/choices/choice.php:33
+#: Admin/Poll/views/choices/choices.php:160
+#: Admin/Poll/views/choices/choices.php:215
+msgid "Audio"
+msgstr "Audio"
+
+#: Admin/Poll/views/choices/choice.php:75
+#: Admin/Poll/views/design/sidebar.php:25
+msgid "Reset"
+msgstr "Resetta"
+
+#: Admin/Poll/views/choices/choice.php:120 Admin/Poll/views/form/field.php:66
+#: Admin/Poll/views/form/field.php:256
+#: Admin/Poll/views/questions/questions.php:31
+#: Admin/Poll/views/settings/vote/limitations.php:142
+msgid "Delete"
+msgstr "Cancella"
+
+#: Admin/Poll/views/choices/choices.php:3
+msgid "Drop to add"
+msgstr ""
+
+#: Admin/Poll/views/choices/choices.php:26 Admin/Poll/views/form/fields.php:50
+msgid "Collapse"
+msgstr "Riduci"
+
+#: Admin/Poll/views/choices/choices.php:37 Admin/Poll/views/form/fields.php:59
+msgid "Expand"
+msgstr "Espandi"
+
+#: Admin/Poll/views/choices/choices.php:59 Admin/Poll/views/form/fields.php:68
+msgid "Bulk"
+msgstr "Blocco"
+
+#: Admin/Poll/views/choices/choices.php:70
+msgid "Shuffle"
+msgstr "Mescola"
+
+#: Admin/Poll/views/choices/choices.php:81
+msgid "Random Votes"
+msgstr "Voti casuali"
+
+#: Admin/Poll/views/choices/choices.php:103
+msgid "Filter"
+msgstr "Filtra"
+
+#: Admin/Poll/views/choices/choices.php:114 Admin/Poll/views/form/fields.php:88
+msgid "Delete All"
+msgstr "Cancella tutto"
+
+#: Admin/Poll/views/choices/choices.php:125
+msgid "Reset Votes"
+msgstr "Resetta i voti"
+
+#: Admin/Poll/views/choices/choices.php:139
+msgid "One choice per line."
+msgstr "Una scelta per riga."
+
+#: Admin/Poll/views/choices/choices.php:141
+#: Admin/Poll/views/form/fields.php:110
+#: Admin/Poll/views/integration/widget.php:19
+msgid "Insert"
+msgstr "Inserisci"
+
+#: Admin/Poll/views/choices/choices.php:170
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr ""
+"Ancora nessuna scelta. Aggiungine alcune facendo clic sui pulsanti qui sotto."
+
+#: Admin/Poll/views/choices/choices.php:188
+#: Admin/Poll/views/form/fields.php:127
+#: Admin/Poll/views/questions/questions.php:49
+msgid "Move here"
+msgstr "Spostare qui"
+
+#: Admin/Poll/views/design/index.php:51 Admin/Poll/views/design/index.php:196
+msgid "Font family"
+msgstr "Famiglia di font"
+
+#: Admin/Poll/views/design/index.php:59 Admin/Poll/views/design/index.php:204
+msgid "Font size"
+msgstr "Dimensione del font"
+
+#: Admin/Poll/views/design/index.php:65 Admin/Poll/views/design/index.php:210
+msgid "Line height"
+msgstr "Altezza della linea"
+
+#: Admin/Poll/views/design/index.php:73 Admin/Poll/views/design/index.php:218
+msgid "Align"
+msgstr "Allinea"
+
+#: Admin/Poll/views/design/index.php:77 Admin/Poll/views/design/index.php:97
+#: Admin/Poll/views/design/index.php:222 Admin/Poll/views/design/index.php:273
+msgid "Inherit"
+msgstr "Eredita"
+
+#: Admin/Poll/views/design/index.php:80 Admin/Poll/views/design/index.php:126
+#: Admin/Poll/views/design/index.php:225 Admin/Poll/views/design/index.php:321
+msgid "Right"
+msgstr "Destra"
+
+#: Admin/Poll/views/design/index.php:83 Admin/Poll/views/design/index.php:228
+msgid "Center"
+msgstr "Centro"
+
+#: Admin/Poll/views/design/index.php:86 Admin/Poll/views/design/index.php:140
+#: Admin/Poll/views/design/index.php:231 Admin/Poll/views/design/index.php:333
+msgid "Left"
+msgstr "Sinistra"
+
+#: Admin/Poll/views/design/index.php:92 Admin/Poll/views/design/index.php:237
+msgid "Transform"
+msgstr "Trasforma"
+
+#: Admin/Poll/views/design/index.php:100 Admin/Poll/views/design/index.php:242
+msgid "Normal"
+msgstr "Normale"
+
+#: Admin/Poll/views/design/index.php:103 Admin/Poll/views/design/index.php:245
+msgid "UPPERCASE"
+msgstr "MAIUSCOLE"
+
+#: Admin/Poll/views/design/index.php:106 Admin/Poll/views/design/index.php:248
+msgid "lowercase"
+msgstr "minuscole"
+
+#: Admin/Poll/views/design/index.php:109 Admin/Poll/views/design/index.php:251
+msgid "Capitalize"
+msgstr "Iniziale maiuscola"
+
+#: Admin/Poll/views/design/index.php:119 Admin/Poll/views/design/index.php:315
+msgid "Top"
+msgstr "Superiore"
+
+#: Admin/Poll/views/design/index.php:133 Admin/Poll/views/design/index.php:327
+msgid "Bottom"
+msgstr "Inferiore"
+
+#: Admin/Poll/views/design/index.php:261
+msgid "Width"
+msgstr "Larghezza"
+
+#: Admin/Poll/views/design/index.php:269
+msgid "Style"
+msgstr "Stile"
+
+#: Admin/Poll/views/design/index.php:276
+#: Admin/Poll/views/design/tabs/advanced-effects.php:10
+msgid "None"
+msgstr "Niente"
+
+#: Admin/Poll/views/design/index.php:279
+msgid "Solid"
+msgstr "Solido"
+
+#: Admin/Poll/views/design/index.php:282
+msgid "Double"
+msgstr "Doppio"
+
+#: Admin/Poll/views/design/index.php:285
+msgid "Dashed"
+msgstr "Tratteggiato"
+
+#: Admin/Poll/views/design/index.php:288
+msgid "Dotted"
+msgstr "Punteggiato"
+
+#: Admin/Poll/views/design/index.php:291
+msgid "Groove"
+msgstr "Incavato"
+
+#: Admin/Poll/views/design/index.php:294
+msgid "Hidden"
+msgstr "Nascosto"
+
+#: Admin/Poll/views/design/index.php:297
+msgid "Ridge"
+msgstr "In rilievo"
+
+#: Admin/Poll/views/design/index.php:305
+msgid "Radius"
+msgstr "Radius"
+
+#: Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "Modello attivo"
+
+#: Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "Cambia"
+
+#: Admin/Poll/views/design/sidebar.php:21
+#, fuzzy
+#| msgid "Customization"
+msgid "Customize"
+msgstr "Personalizzazione"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "Carica la votazione sul posto senza ricaricare l'intera pagina."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "Scorre verso l'alto dopo l'invio del voto"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:10
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "Scorri verso l'alto all'area della votazione dopo l'invio di un voto."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:13
+msgid "One-click vote"
+msgstr "Voto con un clic"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:15
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "L'utente potrà votare cliccando direttamente sulla scelta."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:18
+msgid "Question by question"
+msgstr "Domanda per argomento"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:20
+msgid "Display questions one by one."
+msgstr "Mostra le domande una per una."
+
+#: Admin/Poll/views/design/tabs/advanced-custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "Aggiungi il tuo CSS qui"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:4
+msgid "Transition"
+msgstr "Transizione"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:15
+msgid "Fade"
+msgstr "Dissolvenza"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:20
+msgid "Slide"
+msgstr "Slide"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:29
+msgid "Animation duration"
+msgstr "Durata dell'animazione"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:30
+msgid "Animation and transition duration"
+msgstr "Animazione e durata della transizione"
+
+#: Admin/Poll/views/design/tabs/colors.php:2
+#: Admin/Poll/views/design/tabs/colors.php:12
+msgid "Primary"
+msgstr "Principale"
+
+#: Admin/Poll/views/design/tabs/colors.php:3
+#: Admin/Poll/views/design/tabs/colors.php:39
+msgid "Secondary"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:4
+#: Admin/Poll/views/design/tabs/colors.php:66
+msgid "Accent"
+msgstr "Accento"
+
+#: Admin/Poll/views/design/tabs/colors.php:5
+#: Admin/Poll/views/design/tabs/colors.php:93
+msgid "Gray"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:6
+msgid "Dark"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:16
+#, fuzzy
+#| msgid "Primary color"
+msgid "Primary (Contrast)"
+msgstr "Colore principale"
+
+#: Admin/Poll/views/design/tabs/colors.php:20
+#, fuzzy
+#| msgid "Primary"
+msgid "Primary (Light)"
+msgstr "Principale"
+
+#: Admin/Poll/views/design/tabs/colors.php:24
+#, fuzzy
+#| msgid "Primary color (hover)"
+msgid "Primary (Lighter)"
+msgstr "Colore principale (hover)"
+
+#: Admin/Poll/views/design/tabs/colors.php:28
+#, fuzzy
+#| msgid "Primary color"
+msgid "Primary (Dark)"
+msgstr "Colore principale"
+
+#: Admin/Poll/views/design/tabs/colors.php:32
+#, fuzzy
+#| msgid "Primary border"
+msgid "Primary (Darker)"
+msgstr "Bordo principale"
+
+#: Admin/Poll/views/design/tabs/colors.php:43
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Contrast)"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:47
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Light)"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:51
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Lighter)"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:55
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Dark)"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:59
+#, fuzzy
+#| msgid "Secondary"
+msgid "Secondary (Darker)"
+msgstr "Secondario"
+
+#: Admin/Poll/views/design/tabs/colors.php:70
+msgid "Accent (Contrast)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:74
+#, fuzzy
+#| msgid "Accent"
+msgid "Accent (Light)"
+msgstr "Accento"
+
+#: Admin/Poll/views/design/tabs/colors.php:78
+msgid "Accent (Lighter)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:82
+#, fuzzy
+#| msgid "Accent"
+msgid "Accent (Dark)"
+msgstr "Accento"
+
+#: Admin/Poll/views/design/tabs/colors.php:86
+msgid "Accent (Darker)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:97
+msgid "Gray (Contrast)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:101
+msgid "Gray (Light)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:105
+msgid "Gray (Lighter)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:109
+msgid "Gray (Dark)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:113
+msgid "Gray (Darker)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/colors.php:120
+msgid "Dark (Body Text)"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "Scelte per riga"
+
+#: Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "Domande per riga"
+
+#: Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "Larghezza massima"
+
+#: Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "Spaziatura"
+
+#: Admin/Poll/views/design/tabs/layout.php:21
+#, fuzzy
+#| msgid "Radius"
+msgid "Border Radius"
+msgstr "Radius"
+
+#: Admin/Poll/views/design/tabs/templates.php:9
+#: Admin/Poll/views/design/tabs/templates.php:35
+#, fuzzy
+#| msgid "User ID"
+msgid "Use"
+msgstr "ID utente"
+
+#: Admin/Poll/views/design/tabs/templates.php:10
+#: Admin/Poll/views/design/tabs/templates.php:36
+#, fuzzy
+#| msgid "Activate"
+msgid "Active"
+msgstr "Attivare"
+
+#: Admin/Poll/views/design/tabs/templates.php:14
+#: Admin/Poll/views/design/tabs/templates.php:44
+msgid "Customized Template"
+msgstr "Modello personalizzato"
+
+#: Admin/Poll/views/design/tabs/templates.php:49
+msgid "Customization service"
+msgstr "Servizio di personalizzazione"
+
+#: Admin/Poll/views/design/tabs/templates.php:63
+msgid "Get Quote"
+msgstr "Ottieni un preventivo"
+
+#: Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "Tipografia"
+
+#: Admin/Poll/views/editor.php:14
+msgid ""
+"This poll has been created using an older version of TotalPoll, please "
+"migrate it."
+msgstr ""
+
+#: Admin/Poll/views/editor.php:87
+msgid "Switch to advanced"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:32 Admin/Poll/views/form/fields.php:144
+msgid "Textarea"
+msgstr "Area di testo"
+
+#: Admin/Poll/views/form/field.php:33 Admin/Poll/views/form/fields.php:145
+msgid "Select"
+msgstr "Lista di selezione"
+
+#: Admin/Poll/views/form/field.php:34 Admin/Poll/views/form/fields.php:146
+msgid "Checkbox"
+msgstr "Scelta multipla"
+
+#: Admin/Poll/views/form/field.php:35 Admin/Poll/views/form/fields.php:147
+msgid "Radio"
+msgstr "Scelta singola"
+
+#: Admin/Poll/views/form/field.php:36
+msgid "Required"
+msgstr "Richiesto"
+
+#: Admin/Poll/views/form/field.php:90
+msgid "Basic"
+msgstr "Di base"
+
+#: Admin/Poll/views/form/field.php:120
+msgid "Field label"
+msgstr "Etichetta del campo"
+
+#: Admin/Poll/views/form/field.php:129
+msgid "Name"
+msgstr "Nome"
+
+#: Admin/Poll/views/form/field.php:131
+msgid "Field name"
+msgstr "Nome del campo"
+
+#: Admin/Poll/views/form/field.php:139
+msgid "Default value"
+msgstr "Valore di default"
+
+#: Admin/Poll/views/form/field.php:141 Admin/Poll/views/form/field.php:144
+msgid "Field default value"
+msgstr "Campo del valore di default"
+
+#: Admin/Poll/views/form/field.php:148
+msgid "Default value per line."
+msgstr "Valore di default per riga."
+
+#: Admin/Poll/views/form/field.php:158
+msgid "option_key:Option label"
+msgstr "tasto_opzioni:Etichetta opzioni"
+
+#: Admin/Poll/views/form/field.php:161
+msgid "Option per line."
+msgstr "Opzioni per riga."
+
+#: Admin/Poll/views/form/field.php:164
+msgid "Option format is \"option : label\""
+msgstr "Il formato dell'opzione è \"opzione : etichetta\""
+
+#: Admin/Poll/views/form/field.php:174
+msgid "Allow multiple values"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:184
+msgid "Filled (required)"
+msgstr "Riempito (richiesto)"
+
+#: Admin/Poll/views/form/field.php:202
+msgid "Unique"
+msgstr "Unico"
+
+#: Admin/Poll/views/form/field.php:203
+msgid "This field value must be unique in entries table."
+msgstr "Nella tabella dati il valore di questo campo deve essere univoco."
+
+#: Admin/Poll/views/form/field.php:212
+msgid "Filter by list"
+msgstr "Filtra per elenco"
+
+#: Admin/Poll/views/form/field.php:222
+#: Admin/Poll/views/settings/vote/limitations.php:115
+msgid "Type"
+msgstr "Tipo"
+
+#: Admin/Poll/views/form/field.php:225
+msgid "Value"
+msgstr "Valore"
+
+#: Admin/Poll/views/form/field.php:235
+#: Admin/Poll/views/settings/vote/limitations.php:124
+msgid "Allow"
+msgstr "Consenti"
+
+#: Admin/Poll/views/form/field.php:238
+#: Admin/Poll/views/settings/vote/limitations.php:125
+msgid "Deny"
+msgstr "Rifiuta"
+
+#: Admin/Poll/views/form/field.php:243
+msgid "* means wildcard."
+msgstr "* significa wildcard."
+
+#: Admin/Poll/views/form/field.php:267
+msgid "Add new value"
+msgstr "Inserisci un nuovo valore"
+
+#: Admin/Poll/views/form/field.php:281
+msgid "Regular Expression"
+msgstr "Espressione regolare"
+
+#: Admin/Poll/views/form/field.php:287
+msgid "Expression"
+msgstr "Espressione"
+
+#: Admin/Poll/views/form/field.php:288
+msgid "Run user input against a regular expression."
+msgstr "Esegui l'input dell'utente con un'espressione regolare."
+
+#: Admin/Poll/views/form/field.php:293
+msgid "Must be a valid regular expression."
+msgstr "Deve essere un'espressione regolare valida."
+
+#: Admin/Poll/views/form/field.php:298
+msgid "Error message"
+msgstr "Messaggio di errore"
+
+#: Admin/Poll/views/form/field.php:299
+msgid "This message will be shown if the validation failed."
+msgstr "Questo messaggio verrà mostrato se la convalida è fallita."
+
+#: Admin/Poll/views/form/field.php:304
+msgid "{{label}} for a field label."
+msgstr "{{label}} per un'etichetta del campo."
+
+#: Admin/Poll/views/form/field.php:309
+msgid "Comparison"
+msgstr "Confronto"
+
+#: Admin/Poll/views/form/field.php:313
+msgid "Must match"
+msgstr "Deve corrispondere"
+
+#: Admin/Poll/views/form/field.php:317
+msgid "Must not match"
+msgstr "Non deve corrispondere"
+
+#: Admin/Poll/views/form/field.php:322
+msgid "Modifiers"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:325
+msgid "Case Insensitive"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:328
+msgid "Multiline"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:331
+#, fuzzy
+#| msgid "Customer Support"
+msgid "Unicode Support"
+msgstr "Servizio Clienti"
+
+#: Admin/Poll/views/form/field.php:340
+msgid "Field CSS classes"
+msgstr "Classi CSS del campo"
+
+#: Admin/Poll/views/form/field.php:342
+msgid "Field classes"
+msgstr "Classi del campo"
+
+#: Admin/Poll/views/form/field.php:349
+msgid "Template"
+msgstr "Modello"
+
+#: Admin/Poll/views/form/field.php:351
+msgid "Field template"
+msgstr "Modello del campo"
+
+#: Admin/Poll/views/form/field.php:356
+msgid "full column"
+msgstr "colonna intera"
+
+#: Admin/Poll/views/form/field.php:360
+msgid "1/2 column"
+msgstr "1/2 colonna"
+
+#: Admin/Poll/views/form/field.php:364
+msgid "1/3 column"
+msgstr "1/3 colonna"
+
+#: Admin/Poll/views/form/field.php:368
+msgid "{{label}} for field label."
+msgstr "{{label}} per l'etichetta del campo."
+
+#: Admin/Poll/views/form/field.php:371
+msgid "{{errors}} for field errors."
+msgstr "{{errors}} per errori del campo."
+
+#: Admin/Poll/views/form/field.php:374
+msgid "{{field}} for field input."
+msgstr "{{field}} per input del campo."
+
+#: Admin/Poll/views/form/fields.php:12
+msgid "Preset"
+msgstr "Preimpostato"
+
+#: Admin/Poll/views/form/fields.php:14
+msgid "First name"
+msgstr "Nome"
+
+#: Admin/Poll/views/form/fields.php:15
+msgid "Last name"
+msgstr "Cognome"
+
+#: Admin/Poll/views/form/fields.php:17
+msgid "Phone"
+msgstr "Telefono"
+
+#: Admin/Poll/views/form/fields.php:18
+msgid "Gender"
+msgstr "Sesso"
+
+#: Admin/Poll/views/form/fields.php:19
+msgid "Country"
+msgstr "Paese"
+
+#: Admin/Poll/views/form/fields.php:20
+msgid "Agreement"
+msgstr "Accordo"
+
+#: Admin/Poll/views/form/fields.php:109
+msgid "One field per line."
+msgstr "Un campo per riga."
+
+#: Admin/Poll/views/form/fields.php:114
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr ""
+"Nessun campo personalizzato, ancora. Aggiungine alcuni facendo clic sui "
+"pulsanti qui sotto."
+
+#: Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "Prepara il modello di email"
+
+#: Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr "Inizia preparando il modello di email con le tue domande e le scelte."
+
+#: Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "Adatta i link delle scelte"
+
+#: Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "Copia e incolla i link delle scelte dal seguente elenco:"
+
+#: Admin/Poll/views/integration/email.php:41
+#: Admin/Poll/views/questions/questions.php:22
+msgid "Question"
+msgstr "Domanda"
+
+#: Admin/Poll/views/integration/email.php:51
+#: Admin/Poll/views/integration/embed.php:18
+#: Admin/Poll/views/integration/link.php:17
+#: Admin/Poll/views/integration/shortcode.php:18
+#: Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "Copia"
+
+#: Admin/Poll/views/integration/email.php:64
+#: Admin/Poll/views/integration/embed.php:42
+#: Admin/Poll/views/integration/link.php:41
+#: Admin/Poll/views/integration/shortcode.php:48
+#: Admin/Poll/views/integration/widget.php:31
+msgid "Preview"
+msgstr "Anteprima"
+
+#: Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr ""
+"Invia una e-mail di prova a te stesso e prova le funzionalità della "
+"votazione."
+
+#: Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "Copia il codice"
+
+#: Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "Inizia copiando il seguente codice HTML:"
+
+#: Admin/Poll/views/integration/embed.php:29
+msgid "Paste the code"
+msgstr "Incolla il codice"
+
+#: Admin/Poll/views/integration/embed.php:32
+msgid "Paste the copied code into an HTML page."
+msgstr "Incolla il codice copiato in una pagina HTML."
+
+#: Admin/Poll/views/integration/embed.php:45
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr ""
+"Apri la pagina in cui hai incollato il codice e prova le funzionalità della "
+"votazione."
+
+#: Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "Copia il link"
+
+#: Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "Inizia copiando il seguente link:"
+
+#: Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "Incolla il link"
+
+#: Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr "Incolla il link copiato ovunque, come pagine e post."
+
+#: Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr ""
+"Apri la pagina in cui hai incollato il link e prova le funzionalità della "
+"votazione."
+
+#: Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "Copia shortcode"
+
+#: Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "Inizia copiando il seguente shortcode:"
+
+#: Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "Incolla lo shortcode"
+
+#: Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr ""
+"Incolla lo shortcode copiato in un'area che supporta gli shortcode, come "
+"pagine e post."
+
+#: Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr ""
+"Apri la pagina in cui hai incollato lo shortcode e prova le funzionalità "
+"della votazione."
+
+#: Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "Aggiungilo alla barra laterale"
+
+#: Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr ""
+"Inizia aggiungendo questa votazione a una delle barre laterali disponibili:"
+
+#: Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "Seleziona una barra laterale"
+
+#: Admin/Poll/views/integration/widget.php:20
+#, fuzzy
+#| msgid "Insert"
+msgid "Inserted"
+msgstr "Inserisci"
+
+#: Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr ""
+"Apri la pagina in cui hai la stessa barra laterale e prova le funzionalità "
+"della votazione."
+
+#: Admin/Poll/views/loading.php:3
+msgid "Loading..."
+msgstr ""
+
+#: Admin/Poll/views/questions/question.php:37
+#, fuzzy
+#| msgid "You must vote for at least {{minimum}} choice."
+#| msgid_plural "You must vote for at least {{minimum}} choices."
+msgid "User must vote at least for {{minimum}} choice(s)."
+msgstr "Devi votare per almeno {{minimum}} scelta."
+
+#: Admin/Poll/views/questions/question.php:50
+#, fuzzy
+#| msgid "You can vote for up to {{maximum}} choice."
+#| msgid_plural "You can vote for up to {{maximum}} choices."
+msgid "User can vote for up to {{maximum}} choice(s)."
+msgstr "Puoi votare fino a {{maximum}} scelta."
+
+#: Admin/Poll/views/questions/question.php:61
+msgid "Allow custom choice (other field)."
+msgstr ""
+
+#: Admin/Poll/views/questions/question.php:66
+msgid "Yes, but hide it until reviewed below."
+msgstr ""
+
+#: Admin/Poll/views/questions/questions.php:45
+msgid "New Question"
+msgstr "Nuova domanda"
+
+#: Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "Ordina le scelte per"
+
+#: Admin/Poll/views/settings/choices/sort.php:10
+#: Admin/Poll/views/settings/results/sort.php:10
+msgid "Position"
+msgstr "Posizione"
+
+#: Admin/Poll/views/settings/choices/sort.php:25
+#: Admin/Poll/views/settings/results/sort.php:25
+msgid "Random"
+msgstr "Casuale"
+
+#: Admin/Poll/views/settings/choices/sort.php:34
+#: Admin/Poll/views/settings/results/sort.php:34
+msgid "Direction"
+msgstr "Direzione"
+
+#: Admin/Poll/views/settings/choices/sort.php:40
+#: Admin/Poll/views/settings/results/sort.php:40
+msgid "Descending"
+msgstr "Discendente"
+
+#: Admin/Poll/views/settings/choices/sort.php:45
+#: Admin/Poll/views/settings/results/sort.php:45
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: Admin/Poll/views/settings/content/results.php:4
+#: Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "Sopra"
+
+#: Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "Questo contenuto verrà mostrato sopra i risultati."
+
+#: Admin/Poll/views/settings/content/results.php:14
+#: Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "Sotto"
+
+#: Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "Questo contenuto verrà mostrato sotto i risultati."
+
+#: Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "Questo contenuto verrà mostrato sopra la domanda e le scelte."
+
+#: Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "Questo contenuto verrà mostrato sotto la domanda e le scelte."
+
+#: Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "Personalizzazione?<br>Siamo accanto a te!"
+
+#: Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr ""
+"Se hai bisogno di funzionalità personalizzate, faccelo sapere. Saremo lieti "
+"di servirti!"
+
+#: Admin/Poll/views/settings/customization/index.php:21
+msgid "Get a quote"
+msgstr "Richiedi un preventivo"
+
+#: Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "Destinatario dell'email"
+
+#: Admin/Poll/views/settings/notifications/email.php:11
+#: Admin/Poll/views/settings/notifications/push.php:24
+#: Admin/Poll/views/settings/notifications/webhook.php:50
+msgid "Send notification when"
+msgstr "Invia notifica quando"
+
+#: Admin/Poll/views/settings/notifications/email.php:16
+#: Admin/Poll/views/settings/notifications/push.php:29
+#: Admin/Poll/views/settings/notifications/webhook.php:55
+msgid "New vote has been casted"
+msgstr "È stato dato un nuovo voto"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "OneSignal App ID"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "Prendine uno"
+
+#: Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "OneSignal API Key"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "Questo URL riceverà un POST HTTP con il seguente corpo"
+
+#: Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "Formato voti"
+
+#: Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "Come vengono presentati i voti"
+
+#: Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "{{voti}} per numero di voti."
+
+#: Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "{{votesPercentage}} per percentuale di voti."
+
+#: Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "{{votesWithLabel}} per voti con etichetta."
+
+#: Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "{{votiTotali}} per voti totali."
+
+#: Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "{{votesTotalWithLabel}} per voti totali con etichetta."
+
+#: Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "Ordina risultati per"
+
+#: Admin/Poll/views/settings/results/visibility.php:8
+msgid "Show results for voters and non-voters"
+msgstr "Mostra risultati per elettori e non votanti"
+
+#: Admin/Poll/views/settings/results/visibility.php:17
+msgid "Show results for voters only"
+msgstr "Mostra risultati solo per elettori"
+
+#: Admin/Poll/views/settings/results/visibility.php:26
+msgid "Hide results"
+msgstr "Nascondi i risultati"
+
+#: Admin/Poll/views/settings/results/visibility.php:34
+msgid "Hidden results message"
+msgstr "Messaggio risultati nascosti"
+
+#: Admin/Poll/views/settings/results/visibility.php:44
+msgid "Until quota is reached"
+msgstr "Fino a quando non viene raggiunta la quota"
+
+#: Admin/Poll/views/settings/results/visibility.php:51
+msgid "Until end date is reached"
+msgstr "Fino a quando non viene raggiunta la data finale"
+
+#: Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "Descrizione"
+
+#: Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "Caratteri rimanenti."
+
+#: Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "Variabili del modello"
+
+#: Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "{{title}} per il titolo della votazione."
+
+#: Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}} per il titolo del sito web."
+
+#: Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "Blocco basato su"
+
+#: Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "I metodi usati per bloccare superano i limiti del voto."
+
+#: Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Cookie"
+
+#: Admin/Poll/views/settings/vote/frequency.php:25
+msgid "Authenticated user"
+msgstr "Utente autenticato"
+
+#: Admin/Poll/views/settings/vote/frequency.php:33
+msgid "Votes per session"
+msgstr "Voti per sessioni"
+
+#: Admin/Poll/views/settings/vote/frequency.php:35
+msgid "How many times can the user vote using the same session."
+msgstr "Quante volte l'utente può votare utilizzando la stessa sessione."
+
+#: Admin/Poll/views/settings/vote/frequency.php:44
+msgid "Votes per user"
+msgstr "Voti per utente"
+
+#: Admin/Poll/views/settings/vote/frequency.php:46
+msgid "How many times can the authenticated user vote."
+msgstr "Quante volte può votare l'utente autenticato."
+
+#: Admin/Poll/views/settings/vote/frequency.php:55
+msgid "Votes per IP"
+msgstr "Voti per IP"
+
+#: Admin/Poll/views/settings/vote/frequency.php:57
+msgid "How many times can the user vote using the same IP."
+msgstr "Quante volte l'utente può votare utilizzando lo stesso IP."
+
+#: Admin/Poll/views/settings/vote/frequency.php:66
+msgid "Timeout (seconds)"
+msgstr "Timeout (secondi)"
+
+#: Admin/Poll/views/settings/vote/frequency.php:68
+msgid "The time period before the user can vote again."
+msgstr "Il periodo di tempo prima che l'utente possa votare di nuovo."
+
+#: Admin/Poll/views/settings/vote/frequency.php:74
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr ""
+"Dopo questo periodo, gli utenti potranno votare di nuovo. Per bloccare il "
+"voto in modo permanente, usa 0 come valore."
+
+#: Admin/Poll/views/settings/vote/frequency.php:77
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr ""
+"Attenzione! Il database sarà riempito con record permanenti che potrebbero "
+"influire sul rendimento complessivo."
+
+#: Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "Periodo di tempo"
+
+#: Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "Data d'inizio"
+
+#: Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "Le votazioni saranno chiuse prima di raggiungere questa data."
+
+#: Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "Data di fine"
+
+#: Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "La votazione sarà chiusa dopo aver raggiunto questa data."
+
+#: Admin/Poll/views/settings/vote/limitations.php:44
+msgid "Membership"
+msgstr "Iscrizione"
+
+#: Admin/Poll/views/settings/vote/limitations.php:53
+msgid "Required membership roles"
+msgstr "Ruoli di iscrizione al sito richiesti"
+
+#: Admin/Poll/views/settings/vote/limitations.php:55
+msgid "The membership types that can vote."
+msgstr "Le categorie di iscrizione al sito che possono votare."
+
+#: Admin/Poll/views/settings/vote/limitations.php:65
+msgid "Hold Control/Command for multiple selection."
+msgstr "Tieni premuto Control/Command per una selezione multipla."
+
+#: Admin/Poll/views/settings/vote/limitations.php:76
+msgid "Quota"
+msgstr "Quota"
+
+#: Admin/Poll/views/settings/vote/limitations.php:85
+msgid "Number of votes"
+msgstr "Numero di voti"
+
+#: Admin/Poll/views/settings/vote/limitations.php:87
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr ""
+"La quota in cui il sondaggio non accetterà voti dopo il suo raggiungimento."
+
+#: Admin/Poll/views/settings/vote/limitations.php:103
+msgid "Region (IP based)"
+msgstr "Regione (basata su IP)"
+
+#: Admin/Poll/views/settings/vote/limitations.php:153
+msgid "Add new rule"
+msgstr "Aggiungi nuova regola"
+
+#: Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "Originale"
+
+#: Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "Seleziona la lingua"
+
+#: Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "Domanda #{{$index+1}}"
+
+#: Admin/Privacy/Policy.php:105
+msgid "Useragent"
+msgstr "User agent"
+
+#: Entry/Repository.php:136
+msgid "poll_id and fields are required"
+msgstr ""
+
+#: Entry/Repository.php:140 Log/Repository.php:155
+msgid "date must be a DateTime object"
+msgstr ""
+
+#: Entry/Repository.php:155 Log/Repository.php:173
+msgid "Unable to insert the entry."
+msgstr "Impossibile inserire la voce."
+
+#: Entry/Repository.php:187 Entry/Repository.php:255 Log/Repository.php:204
+#: Log/Repository.php:320
+msgid "No conditions were specified"
+msgstr "Non sono state specificate condizioni"
+
+#: Limitations/Membership.php:28
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "Per continuare devi far parte di questi ruoli: %s."
+
+#: Limitations/Membership.php:38
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr ""
+"Per continuare effettua per favore il <a href=\"%s\">login</a> o <a href=\"%s"
+"\">registrati</a>."
+
+#: Limitations/Period.php:28
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "Questa votazione non è ancora iniziata (%s rimanenti)."
+
+#: Limitations/Period.php:40
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "Questa votazione è terminata (da %s)."
+
+#: Limitations/Period.php:51
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y anno"
+msgstr[1] "%y anni"
+
+#: Limitations/Period.php:53
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m mese"
+msgstr[1] "%m mesi"
+
+#: Limitations/Period.php:55
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d giorno"
+msgstr[1] "%d giorni"
+
+#: Limitations/Period.php:57
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h ora"
+msgstr[1] "%h ore"
+
+#: Limitations/Period.php:59
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i minuto"
+msgstr[1] "%i minuti"
+
+#: Limitations/Period.php:61
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s secondo"
+msgstr[1] "%s secondi"
+
+#: Limitations/Quota.php:22
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "Questa votazione è terminata (il limite dei voti è stato superato)."
+
+#: Limitations/Region.php:29
+msgid "This poll is not available in your region."
+msgstr "Questa votazione non è disponibile nella tua regione."
+
+#: Log/Repository.php:151
+msgid "poll_id and action are required"
+msgstr ""
+
+#: Poll/Commands/CountVote.php:123
+msgid "All questions must be answered."
+msgstr "Rispondere a tutte le domande."
+
+#: Poll/Commands/CountVote.php:130
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "Devi votare per almeno {{minimum}} scelta."
+msgstr[1] "Devi votare per almeno {{minimum}} scelte."
+
+#: Poll/Commands/CountVote.php:133
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "Puoi votare fino a {{maximum}} scelta."
+msgstr[1] "Puoi votare fino a {{maximum}} scelte."
+
+#: Poll/Commands/CountVote.php:142
+msgid "Unknown choice. Please try again."
+msgstr "Scelta sconosciuta Per favore riprova."
+
+#: Poll/Commands/CountVote.php:152
+msgid "Something went wrong. Please try again."
+msgstr "Qualcosa è andato storto. Per favore riprova."
+
+#: Poll/Form.php:212
+msgid "Continue to vote"
+msgstr "Continua al voto"
+
+#: Poll/Form.php:223
+msgid "Continue to results"
+msgstr "Continua ai risultati"
+
+#: Poll/Form.php:259
+msgid "Back to vote"
+msgstr "Indietro al voto"
+
+#: Poll/Form.php:347
+msgid "Other"
+msgstr ""
+
+#: Poll/PostType.php:71
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "Votazione aggiornata. <a href=\"%s\">Visualizza la votazione</a>"
+
+#: Poll/PostType.php:72
+msgid "Custom field updated."
+msgstr "Campo personalizzato aggiornato."
+
+#: Poll/PostType.php:73
+msgid "Custom field deleted."
+msgstr "Campo personalizzato cancellato."
+
+#: Poll/PostType.php:74
+msgid "Poll updated."
+msgstr "Votazione aggiornata."
+
+#: Poll/PostType.php:75
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "Votazione ripristinata per la revisione da %s"
+
+#: Poll/PostType.php:76
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "Votazione pubblicata. <a href=\"%s\">Visualizza la votazione</a>"
+
+#: Poll/PostType.php:77
+msgid "Poll saved."
+msgstr "Votazione salvata."
+
+#: Poll/PostType.php:78
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Votazione inserita. <a target=\"_blank\" href=\"%s\">Anteprima della "
+"votazione</a>"
+
+#: Poll/PostType.php:80
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"Votazione pianificata per: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Anteprima della votazione</a>"
+
+#: Poll/PostType.php:81
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: Poll/PostType.php:82
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Bozza della votazione aggiornata. <a target=\"_blank\" href=\"%s\">Anteprima "
+"della votazione</a>"
+
+#: Poll/PostType.php:120 Poll/PostType.php:126
+msgid "Polls"
+msgstr "Votazioni"
+
+#: Poll/PostType.php:123 Poll/PostType.php:125
+msgid "New Poll"
+msgstr "Nuova votazione"
+
+#: Poll/PostType.php:124
+msgid "Edit Poll"
+msgstr "Modifica votazione"
+
+#: Poll/PostType.php:127
+msgid "View Poll"
+msgstr "Visualizza votazione"
+
+#: Poll/PostType.php:128
+msgid "Search Polls"
+msgstr "Cerca tra le votazioni"
+
+#: Poll/PostType.php:129
+msgid "No polls found"
+msgstr "Nessuna votazione trovata"
+
+#: Poll/PostType.php:130
+msgid "No polls found in Trash"
+msgstr "Nessuna votazione trovata nel cestino"
+
+#: Poll/PostType.php:131
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: Poll/PostType.php:155
+#, fuzzy
+#| msgctxt "slug"
+#| msgid "polls"
+msgid "polls"
+msgstr "votazioni"
+
+#: Poll/Renderer.php:254
+msgid "of"
+msgstr ""
+
+#: Restrictions/IPAddress.php:43 Restrictions/LoggedInUser.php:47
+#: Restrictions/Restriction.php:76
+msgid "You cannot vote again."
+msgstr "Non puoi votare di nuovo."
+
+#: Shortcodes/Poll.php:20
+msgid "Could not load the poll."
+msgstr "Impossibile caricare la votazione."
+
+#: Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "Widget ultima votazione TotalPoll"
+
+#: Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll] Ultima votazione"
+
+#: Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "Widget votazione TotalPoll"
+
+#: Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] Votazione"
+
+#: Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "Votazione:"
+
+#: Widgets/Poll.php:81
+msgid "Screen:"
+msgstr "Schermata:"
+
+#~ msgid "Yet another powerful plugin."
+#~ msgstr "Ancora un altro potente plugin."
+
+#~ msgid "https://totalpoll.com"
+#~ msgstr "https://totalpoll.com"
+
+#~ msgid "TotalSuite"
+#~ msgstr "TotalSuite"
+
+#~ msgid "http://totalsuite.net"
+#~ msgstr "http://totalsuite.net"
+
+#~ msgid "Buy"
+#~ msgstr "Acquista"
+
+#~ msgid "Google+"
+#~ msgstr "Google+"
+
+#~ msgid "TotalPoll uses standard WordPress export mechanism."
+#~ msgstr ""
+#~ "TotalPoll utilizza la funzione di esportazione standard di WordPress."
+
+#~ msgid "Migrated"
+#~ msgstr "Migrato"
+
+#~ msgid "Migrating"
+#~ msgstr "Migrazione"
+
+#~ msgid "Elements"
+#~ msgstr "Elementi"
+
+#~ msgid "Background"
+#~ msgstr "Sfondo"
+
+#~ msgid "Padding"
+#~ msgstr "Padding"
+
+#~ msgid "Color"
+#~ msgstr "Colore"
+
+#~ msgid "Border"
+#~ msgstr "Bordo"
+
+#~ msgid "Background (Hover)"
+#~ msgstr "Sfondo (Hover)"
+
+#~ msgid "Color (Hover)"
+#~ msgstr "Colore (Hover)"
+
+#~ msgid "Border (Hover)"
+#~ msgstr "Bordo (Hover)"
+
+#~ msgid "Background (Checked)"
+#~ msgstr "Sfondo (selezionato)"
+
+#~ msgid "Color (Checked)"
+#~ msgstr "Colore (selezionato)"
+
+#~ msgid "Border (Checked)"
+#~ msgstr "Bordo (selezionato)"
+
+#~ msgid "Background (Start)"
+#~ msgstr "Sfondo (inizio)"
+
+#~ msgid "Background (End)"
+#~ msgstr "Sfondo (Fine)"
+
+#~ msgid "Height"
+#~ msgstr "Altezza"
+
+#~ msgid "Background (error)"
+#~ msgstr "Sfondo (errore)"
+
+#~ msgid "Color (error)"
+#~ msgstr "Colore (errore)"
+
+#~ msgid "Background (hover)"
+#~ msgstr "Sfondo (hover)"
+
+#~ msgid "Color (hover)"
+#~ msgstr "Colore (hover)"
+
+#~ msgid "Border (hover)"
+#~ msgstr "Bordo (hover)"
+
+#~ msgid "Primary background"
+#~ msgstr "Sfondo principale"
+
+#~ msgid "Primary background (hover)"
+#~ msgstr "Sfondo principale (hover)"
+
+#~ msgid "Primary border (hover)"
+#~ msgstr "Bordo principale (hover)"
+
+#~ msgid "Get poll object"
+#~ msgstr "Ottieni l'oggetto di votazione"
+
+#~ msgid "Start by getting the poll object from this URL:"
+#~ msgstr "Inizia ottenendo l'oggetto di votazione da questo URL:"
+
+#~ msgid "Cast a vote"
+#~ msgstr "Esprimi un voto"
+
+#~ msgid "You can cast a vote by sending a POST request to the following URL:"
+#~ msgstr "Puoi esprimere un voto inviando una richiesta POST al seguente URL:"
+
+#~ msgid ""
+#~ "Open the page which you have used these API endpoints in and test poll "
+#~ "functionality."
+#~ msgstr ""
+#~ "Apri la pagina in cui sono stati utilizzati questi endpoint API ed "
+#~ "esamina la funzionalità del voto."
+
+#~ msgid "REST API are available only in WordPress 4.4"
+#~ msgstr "Le API REST sono disponibili solo in WordPress 4.4"
+
+#~ msgid "Take your website to the next level"
+#~ msgstr "Porta il tuo sito Web ad un livello superiore"
+
+#~ msgid ""
+#~ "Get started with TotalSuite to take your website to the next level with "
+#~ "feature-rich premium products."
+#~ msgstr ""
+#~ "Inizia con TotalSuite per portare il tuo sito Web ad un livello superiore "
+#~ "con prodotti premium ricchi di funzionalità."
+
+#~ msgid "Welcome to TotalPoll!"
+#~ msgstr "Benvenuto su TotalPoll!"
+
+#~ msgid ""
+#~ "TotalPoll's user interface was built with you in mind! You can create a "
+#~ "poll in less than a minute."
+#~ msgstr ""
+#~ "L'interfaccia utente di TotalPoll è stata creata pensando a te! Puoi "
+#~ "creare un sondaggio in meno di un minuto."
+
+#~ msgid "New features"
+#~ msgstr "Nuove caratteristiche"
+
+#~ msgid ""
+#~ "TotalPoll 4.0 brings a lot of new features like multiple questions, live "
+#~ "preview and insights."
+#~ msgstr ""
+#~ "TotalPoll 4.0 offre molte nuove funzionalità come domande multiple, "
+#~ "anteprima dal vivo e insights."
+
+#~ msgid "Together is Better"
+#~ msgstr "Insieme è meglio"
+
+#~ msgid ""
+#~ "TotalPoll is now part of <a href=\"https://totalsuite.net/\">TotalSuite</"
+#~ "a> that brings essential tools in a robust suite."
+#~ msgstr ""
+#~ "TotalPoll fa ora parte di <a href=\"https://totalsuite.net/\">TotalSuite</"
+#~ "a> che offre strumenti essenziali in una suite robusta."
+
+#~ msgid "Visual Learner?"
+#~ msgstr "Apprendi visivamente?"
+
+#~ msgid ""
+#~ "Here is a playlist of 5 videos that covers the main tasks to start your "
+#~ "journey with TotalPoll."
+#~ msgstr ""
+#~ "Ecco una playlist di 5 video che copre le attività principali per "
+#~ "iniziare il tuo viaggio con TotalPoll."
+
+#~ msgid "Create your first poll"
+#~ msgstr "Crea la tua prima votazione"
+
+#~ msgid "Settings overview"
+#~ msgstr "Panoramica delle impostazioni"
+
+#~ msgid "Design customization"
+#~ msgstr "Personalizzazione del design"
+
+#~ msgid "Publish"
+#~ msgstr "Pubblica"
+
+#~ msgid "This poll will be shown to customer after checkout"
+#~ msgstr "Questo sondaggio verrà mostrato al cliente dopo il checkout"
+
+#~ msgid "Redirect"
+#~ msgstr "Reindirizzamento"
+
+#~ msgid "Redirect to this URL after vote:"
+#~ msgstr "Reindirizza a questo URL dopo il voto:"
+
+#~ msgid "REST API"
+#~ msgstr "REST API"
+
+#~ msgid "License key is invalid. Please double check and try again."
+#~ msgstr ""
+#~ "La chiave di licenza non è valida. Per favore ricontrolla e prova di "
+#~ "nuovo."
+
+#~ msgid "Migrated."
+#~ msgstr "Migrato."
+
+#~ msgctxt "slug"
+#~ msgid "poll"
+#~ msgstr "votazione"
+
+#~ msgid "After checkout"
+#~ msgstr "Dopo il checkout"
+
+#~ msgid ""
+#~ "TotalPoll requires PHP 5.4+ and WordPress 4.0+ to function properly. "
+#~ "Please contact your host to upgrade PHP and WordPress. TotalPoll has been "
+#~ "auto-deactivated."
+#~ msgstr ""
+#~ "Per funzionare correttamente TotalPoll richiede PHP 5.4+ e WordPress "
+#~ "4.0+. Per l'aggiornamento di PHP e WordPress contatta per favore il tuo "
+#~ "gestore. TotalPoll è stato auto-disattivato."

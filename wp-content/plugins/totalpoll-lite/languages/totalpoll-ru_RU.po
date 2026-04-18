@@ -1,0 +1,2797 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-16 15:31+0000\n"
+"PO-Revision-Date: 2021-08-23 20:36+0100\n"
+"Last-Translator: totalsuite <supporttotalsuite.net>\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && n"
+"%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+
+#: plugin.php:26
+msgid ""
+"TotalPoll requires PHP 5.4+ and WordPress 4.0+ to function properly. Please "
+"contact your host to upgrade PHP and WordPress. TotalPoll has been auto-"
+"deactivated."
+msgstr ""
+"TotalPoll требует, чтобы PHP 5.4+ и WordPress 4.0+ работали правильно. "
+"Пожалуйста, свяжитесь с вашим хостом, чтобы обновить PHP и WordPress. "
+"TotalPoll автоматически отключен."
+
+#: src/Admin/Bootstrap.php:47 src/Admin/Bootstrap.php:48
+#: src/Admin/Dashboard/views/index.php:2
+msgid "Dashboard"
+msgstr "Панель инструментов"
+
+#: src/Admin/Bootstrap.php:51 src/Admin/Bootstrap.php:52
+#: src/Admin/Privacy/Policy.php:151 src/Admin/Poll/Editor.php:365
+#: src/Admin/Poll/Listing.php:80 src/Admin/Poll/Listing.php:129
+#: src/Admin/Dashboard/views/overview.php:28
+#: src/Admin/Entries/views/index.php:2
+msgid "Entries"
+msgstr "Записи"
+
+#: src/Admin/Bootstrap.php:55 src/Admin/Bootstrap.php:56
+#: src/Admin/Poll/Editor.php:364 src/Admin/Poll/Listing.php:130
+#: src/Admin/Insights/views/index.php:2
+msgid "Insights"
+msgstr "Идеи"
+
+#: src/Admin/Bootstrap.php:59 src/Admin/Poll/Editor.php:366
+#: src/Admin/Poll/Listing.php:81 src/Admin/Poll/Listing.php:131
+#: src/Admin/Log/views/index.php:2
+msgid "Log"
+msgstr "Журнал"
+
+#: src/Admin/Bootstrap.php:60
+msgid "Logs"
+msgstr "Журналы"
+
+#: src/Admin/Bootstrap.php:63 src/Admin/Bootstrap.php:64
+#: src/Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "Модули"
+
+#: src/Admin/Bootstrap.php:67 src/Admin/Bootstrap.php:68
+#: src/Admin/Options/views/index.php:2 src/Admin/Poll/views/form/field.php:100
+msgid "Options"
+msgstr "Параметры"
+
+#: src/Admin/Bootstrap.php:349
+msgid ""
+"TotalPoll is part of <a href=\"https://totalsuite.net/\" target=\"_blank"
+"\">TotalSuite</a>, a suite of plugins that takes <a href=\"https://wordpress."
+"org/\" target=\"_blank\">WordPress</a> to the next level."
+msgstr ""
+"TotalPoll является частью <a href=\"https://totalsuite.net/\" target=\"_blank"
+"\"> TotalSuite </a>, набора плагинов, который поднимает <a href = \"https://"
+"wordpress.org/\" target = \"_ blank\"> WordPress </a> на следующий уровень."
+
+#: src/Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "Виджет опроса TotalPoll"
+
+#: src/Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] Опрос"
+
+#: src/Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "Опрос:"
+
+#: src/Widgets/Poll.php:81
+msgid "Screen:"
+msgstr "Экран:"
+
+#: src/Widgets/Poll.php:83 src/Poll/Form.php:238 src/Admin/Options/Page.php:87
+#: src/Admin/Poll/Editor.php:288 src/Admin/Poll/Editor.php:316
+#: modules/templates/MediaContest/views/preview/shared/footer.php:13
+#: modules/templates/Basic/views/preview/shared/footer.php:13
+#: modules/templates/Versus/views/preview/shared/footer.php:13
+msgid "Vote"
+msgstr "Голосовать"
+
+#: src/Widgets/Poll.php:84 src/Poll/Form.php:226 src/Admin/Options/Page.php:82
+#: src/Admin/Poll/Editor.php:303 src/Admin/Poll/Editor.php:318
+#: modules/templates/MediaContest/views/preview/shared/footer.php:10
+#: modules/templates/Basic/views/preview/shared/footer.php:10
+#: modules/templates/Versus/views/preview/shared/footer.php:10
+msgid "Results"
+msgstr "Результаты"
+
+#: src/Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "Виджет последнего опроса TotalPoll"
+
+#: src/Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll] Последний опрос"
+
+#: src/Entry/Repository.php:127 src/Log/Repository.php:144
+msgid "Unable to insert the entry."
+msgstr "Невозможно вставить запись."
+
+#: src/Entry/Repository.php:148 src/Entry/Repository.php:195
+#: src/Log/Repository.php:166 src/Log/Repository.php:264
+msgid "No conditions were specified"
+msgstr "Условия не указаны"
+
+#: src/Limitations/Region.php:29
+msgid "This poll is not available in your region."
+msgstr "Опрос не доступен для вашего региона."
+
+#: src/Limitations/Membership.php:27
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "Чтобы продолжить, вы должны быть частью этих ролей:% s."
+
+#: src/Limitations/Membership.php:37
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr ""
+"Чтобы продолжить, пожалуйста, <a href=\"%s\"> войдите </a> или <a href=\"%s"
+"\"> зарегистрируйтесь </a>."
+
+#: src/Limitations/Quota.php:22
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "Этот опрос закончен (превышена квота голосов)."
+
+#: src/Limitations/Period.php:30
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "Этот опрос еще не начался (%s осталось)."
+
+#: src/Limitations/Period.php:42
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "Этот опрос закончен (с %s)."
+
+#: src/Limitations/Period.php:53
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y год"
+msgstr[1] "%y лет"
+msgstr[2] "%y лет"
+
+#: src/Limitations/Period.php:55
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m месяц"
+msgstr[1] "%m месяцев"
+msgstr[2] "%m месяцев"
+
+#: src/Limitations/Period.php:57
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d день"
+msgstr[1] "%d дней"
+msgstr[2] "%d дней"
+
+#: src/Limitations/Period.php:59
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h час"
+msgstr[1] "%h часов"
+msgstr[2] "%h часов"
+
+#: src/Limitations/Period.php:61
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i минута"
+msgstr[1] "%i минут"
+msgstr[2] "%i минут"
+
+#: src/Limitations/Period.php:63
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s секунда"
+msgstr[1] "%s секунд"
+msgstr[2] "%s секунд"
+
+#: src/Restrictions/LoggedInUser.php:53 src/Restrictions/Cookies.php:28
+#: src/Restrictions/IPAddress.php:49
+msgid "You cannot vote again."
+msgstr "Вы не можете голосовать опять."
+
+#: src/Shortcodes/Poll.php:20
+msgid "Could not load the poll."
+msgstr "Не удалось загрузить опрос."
+
+#: src/Poll/Form.php:89 src/Admin/Options/Page.php:203
+msgid "{{label}} has been used before."
+msgstr "{{label}} использовался ранее."
+
+#: src/Poll/Form.php:203
+msgid "Continue to vote"
+msgstr "Продолжить, чтобы перейти к голосованию"
+
+#: src/Poll/Form.php:214
+msgid "Continue to results"
+msgstr "Продолжить, чтобы увидеть результаты"
+
+#: src/Poll/Form.php:250
+msgid "Back to vote"
+msgstr "Назад к голосованию"
+
+#: src/Poll/PostType.php:30
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "Опрос обновлен. <a href=\"%s\">Посмотреть опрос</a>"
+
+#: src/Poll/PostType.php:31
+msgid "Custom field updated."
+msgstr "Пользовательское поле обновлено."
+
+#: src/Poll/PostType.php:32
+msgid "Custom field deleted."
+msgstr "Пользовательское поле удалено."
+
+#: src/Poll/PostType.php:33
+msgid "Poll updated."
+msgstr "Опрос обновлен."
+
+#: src/Poll/PostType.php:34
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "Опрос восстановлен до версии %s"
+
+#: src/Poll/PostType.php:35
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "Опрос опубликован. <a href=\"%s\"> Просмотр опроса </a>"
+
+#: src/Poll/PostType.php:36
+msgid "Poll saved."
+msgstr "Опрос сохранен."
+
+#: src/Poll/PostType.php:37
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Опрос представлен. <a target=\"_blank\" href=\"%s\"> Предварительный опрос </"
+"a>"
+
+#: src/Poll/PostType.php:39
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"Опрос запланирован на: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\"> Предварительный опрос </a>"
+
+#: src/Poll/PostType.php:41
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Обновлен черновик опроса. <a target=\"_blank\" href=\"%s\"> Предварительный "
+"опрос </a>"
+
+#: src/Poll/PostType.php:63 src/Poll/PostType.php:69
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:13
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:41
+msgid "Polls"
+msgstr "Опросы"
+
+#: src/Poll/PostType.php:64
+msgid "Poll"
+msgstr "Опрос"
+
+#: src/Poll/PostType.php:65 src/Admin/Dashboard/views/overview.php:8
+msgid "Create Poll"
+msgstr "Создать опрос"
+
+#: src/Poll/PostType.php:66 src/Poll/PostType.php:68
+msgid "New Poll"
+msgstr "Новый опрос"
+
+#: src/Poll/PostType.php:67
+msgid "Edit Poll"
+msgstr "Редактировать опрос"
+
+#: src/Poll/PostType.php:70
+msgid "View Poll"
+msgstr "Посмотреть опрос"
+
+#: src/Poll/PostType.php:71
+msgid "Search Polls"
+msgstr "Найти опрос"
+
+#: src/Poll/PostType.php:72
+msgid "No polls found"
+msgstr "Опросы не найдены"
+
+#: src/Poll/PostType.php:73
+msgid "No polls found in Trash"
+msgstr "В корзине опросы не найдены"
+
+#. Name of the plugin
+#: src/Poll/PostType.php:74
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: src/Poll/PostType.php:82
+msgctxt "slug"
+msgid "poll"
+msgstr "опрос"
+
+#: src/Poll/PostType.php:84
+msgctxt "slug"
+msgid "polls"
+msgstr "опросы"
+
+#: src/Poll/Model.php:605 src/Poll/Model.php:653 src/Poll/Model.php:689
+#: src/Admin/Options/Page.php:60
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "%s Голос"
+msgstr[1] "%s Голоса"
+msgstr[2] "%s Голоса"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:34
+#: src/Admin/Poll/views/design/index.php:268
+#: src/Admin/Poll/views/design/tabs/effects.php:10
+msgid "None"
+msgstr "Ничего"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:50
+msgid "After checkout"
+msgstr "После оформления заказа"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:53
+msgid "This poll will be shown to customer after checkout"
+msgstr "Этот опрос будет показан клиенту после оформления заказа"
+
+#: modules/extensions/Redirect/Extension.php:36
+msgid "Redirect"
+msgstr "Переадресовывать"
+
+#: modules/extensions/Redirect/Extension.php:47
+msgid "Redirect to this URL after vote:"
+msgstr "Перенаправить на этот URL после голосования:"
+
+#: modules/extensions/RestAPI/Extension.php:33
+msgid "REST API"
+msgstr "REST API"
+
+#: modules/extensions/RestAPI/Extension.php:34 src/Admin/Options/Page.php:236
+msgid "Advanced"
+msgstr "Продвинутый"
+
+#: src/Admin/Ajax/Dashboard.php:58
+msgid "License key is invalid. Please double check and try again."
+msgstr ""
+"Лицензионный ключ является недопустимым. Пожалуйста, проверьте и повторите "
+"попытку."
+
+#: src/Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "Модуль установлен."
+
+#: src/Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "Модуль загружен и установлен."
+
+#: src/Admin/Ajax/Modules.php:91
+msgid "Module updated."
+msgstr "Модуль обновлен."
+
+#: src/Admin/Ajax/Modules.php:105
+msgid "Module uninstalled."
+msgstr "Модуль был удаллен."
+
+#: src/Admin/Ajax/Modules.php:119
+msgid "Module activated."
+msgstr "Модуль активирован."
+
+#: src/Admin/Ajax/Modules.php:133
+msgid "Module deactivated."
+msgstr "Модуль деактивирован."
+
+#: src/Admin/Ajax/Entries.php:63
+msgid "Invalid Poll ID"
+msgstr "Недопустимый идентификатор опроса"
+
+#: src/Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "Недопустимый идентификатор опроса."
+
+#: src/Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "Виджет успешно добавлен."
+
+#: src/Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "Недопустимый идентификатор боковой панели."
+
+#: src/Admin/Ajax/Options.php:42 src/Admin/Ajax/Options.php:54
+msgid "Saved."
+msgstr "Сохранено."
+
+#: src/Admin/Ajax/Options.php:62
+msgid "Purged."
+msgstr "Очищено."
+
+#: src/Admin/Ajax/Options.php:73
+msgid "Plugin is not supported."
+msgstr "Плагин не поддерживается."
+
+#: src/Admin/Ajax/Options.php:79
+msgid "Migrated."
+msgstr "Перенесено."
+
+#: src/Admin/Privacy/Policy.php:97 src/Admin/Options/Page.php:55
+#: src/Admin/Poll/Listing.php:79 src/Admin/Dashboard/views/overview.php:24
+#: src/Admin/Poll/views/choices/choice.php:29
+#: src/Admin/Poll/views/choices/choice.php:33
+#: src/Admin/Poll/views/settings/results/sort.php:15
+#: src/Admin/Poll/views/settings/choices/sort.php:15
+msgid "Votes"
+msgstr "Голоса"
+
+#: src/Admin/Privacy/Policy.php:101 src/Admin/Log/Page.php:43
+#: src/Admin/Poll/views/settings/vote/frequency.php:19
+#: src/Admin/Poll/views/settings/vote/limitations.php:116
+msgid "IP"
+msgstr "IP"
+
+#: src/Admin/Privacy/Policy.php:105
+msgid "Useragent"
+msgstr "Useragent"
+
+#: src/Admin/Privacy/Policy.php:109 src/Admin/Log/Page.php:40
+msgid "Status"
+msgstr "Статус"
+
+#: src/Admin/Privacy/Policy.php:113 src/Admin/Log/Page.php:42
+#: src/Admin/Entries/views/index.php:35
+msgid "Date"
+msgstr "Дата"
+
+#: src/Admin/Log/Page.php:41
+msgid "Action"
+msgstr "Действие"
+
+#: src/Admin/Log/Page.php:44
+msgid "Browser"
+msgstr "Браузер"
+
+#: src/Admin/Log/Page.php:45
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: src/Admin/Log/Page.php:46
+msgid "User ID"
+msgstr "ID пользователя"
+
+#: src/Admin/Log/Page.php:47
+msgid "User login"
+msgstr "Логин пользователя"
+
+#: src/Admin/Log/Page.php:48
+msgid "User email"
+msgstr "электронная почта пользователя"
+
+#: src/Admin/Log/Page.php:49
+msgid "Details"
+msgstr "Детали"
+
+#: src/Admin/Options/Page.php:61
+#, php-format
+msgid "%s Votes"
+msgstr "%s Голосов"
+
+#: src/Admin/Options/Page.php:67
+msgid "Buttons"
+msgstr "Кнопки"
+
+#: src/Admin/Options/Page.php:72
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: src/Admin/Options/Page.php:77
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: src/Admin/Options/Page.php:92
+#: modules/templates/MediaContest/views/preview/shared/footer.php:16
+#: modules/templates/Basic/views/preview/shared/footer.php:16
+#: modules/templates/Versus/views/preview/shared/footer.php:16
+msgid "Back"
+msgstr "Назад"
+
+#: src/Admin/Options/Page.php:97
+msgid "Proceed"
+msgstr "Продолжать"
+
+#: src/Admin/Options/Page.php:103
+msgid "Errors"
+msgstr "Ошибки"
+
+#: src/Admin/Options/Page.php:109
+msgid "You cannot vote again in this poll."
+msgstr "Вы не можете опять голосовать в этом опросе."
+
+#: src/Admin/Options/Page.php:115
+msgid "You have to vote for at least one choice."
+msgstr "Вам необходимо проголосовать хотя бы за один вариант."
+
+#: src/Admin/Options/Page.php:116
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "Вам необходимо проголосовать хотя бы за %d вариантов."
+
+#: src/Admin/Options/Page.php:122
+msgid "You cannot vote for more than one choice."
+msgstr "Вы не можете голосовать больше, чем за один вариант."
+
+#: src/Admin/Options/Page.php:123
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "Вы не можете голосовать больше, чем за %d вариантов."
+
+#: src/Admin/Options/Page.php:129
+msgid "You have entered an invalid captcha code."
+msgstr "Вы ввели неверный код с картинки."
+
+#: src/Admin/Options/Page.php:135
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "Вы не можете голосовать, потому что превышена квота."
+
+#: src/Admin/Options/Page.php:141
+msgid "You cannot see results before voting."
+msgstr "Вы не можете видеть результаты до голосования."
+
+#: src/Admin/Options/Page.php:147
+msgid "You cannot vote because this poll has not started yet."
+msgstr "Вы не можете голосовать, потому что опрос еще не начался."
+
+#: src/Admin/Options/Page.php:153
+msgid "You cannot vote because this poll has expired."
+msgstr "Вы не можете голосовать, потому что время на опрос закончилось."
+
+#: src/Admin/Options/Page.php:159
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "Вы не можете голосовать, потому что опрос не доступен в вашем регионе."
+
+#: src/Admin/Options/Page.php:165
+msgid "You cannot vote because you have insufficient rights."
+msgstr "Вы не можете голосовать, потому что у вас недостаточно прав."
+
+#: src/Admin/Options/Page.php:171
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"Вы не можете голосовать, потому что вы гость, пожалуйста, <a href=\"%s\"> "
+"войдите </a> или <a href=\"%s\"> зарегистрируйтесь </a>."
+
+#: src/Admin/Options/Page.php:177
+msgid "Voting via links has been disabled for this poll."
+msgstr "Голосование по ссылкам отключено для этого опроса."
+
+#: src/Admin/Options/Page.php:183 src/Admin/Poll/views/form/field.php:44
+msgid "Validations"
+msgstr "Проверки"
+
+#: src/Admin/Options/Page.php:188
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}} должен быть настоящим адресом электронной почты."
+
+#: src/Admin/Options/Page.php:193
+msgid "{{label}} must be filled."
+msgstr "{{label}} должен быть заполнен."
+
+#: src/Admin/Options/Page.php:198
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}} не входит в поддерживаемый диапазон."
+
+#: src/Admin/Options/Page.php:208
+msgid "{{label}} is not accepted."
+msgstr "{{label}} не принимается."
+
+#: src/Admin/Options/Page.php:213
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} не допускает этого значения."
+
+#: src/Admin/Options/Page.php:232
+msgid "General"
+msgstr "Основное"
+
+#: src/Admin/Options/Page.php:233
+msgid "Performance"
+msgstr "Производительность"
+
+#: src/Admin/Options/Page.php:234
+msgid "Services"
+msgstr "Сервисы"
+
+#: src/Admin/Options/Page.php:235
+msgid "Sharing"
+msgstr "Обмен"
+
+#: src/Admin/Options/Page.php:237 src/Admin/Poll/Editor.php:323
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: src/Admin/Options/Page.php:238
+msgid "Expressions"
+msgstr "Выражения"
+
+#: src/Admin/Options/Page.php:239
+msgid "Migration"
+msgstr "Перемещение"
+
+#: src/Admin/Options/Page.php:240
+msgid "Import & Export"
+msgstr "Импорт и экспорт"
+
+#: src/Admin/Options/Page.php:241
+msgid "Debug"
+msgstr "Отладка"
+
+#: src/Admin/Poll/Editor.php:275
+msgid "Questions"
+msgstr "Вопросы"
+
+#: src/Admin/Poll/Editor.php:276 src/Admin/Poll/views/form/fields.php:17
+#: src/Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "Поля"
+
+#: src/Admin/Poll/Editor.php:277 src/Admin/Poll/views/questions/question.php:10
+msgid "Settings"
+msgstr "Настройки"
+
+#: src/Admin/Poll/Editor.php:278
+msgid "Design"
+msgstr "Дизайн"
+
+#: src/Admin/Poll/Editor.php:279 src/Admin/Dashboard/views/get-started.php:57
+msgid "Integration"
+msgstr "Интеграция"
+
+#: src/Admin/Poll/Editor.php:280
+msgid "Translations"
+msgstr "Переводы"
+
+#: src/Admin/Poll/Editor.php:291
+msgid "Limitations"
+msgstr "Ограничения"
+
+#: src/Admin/Poll/Editor.php:292
+msgid "Frequency"
+msgstr "Частота"
+
+#: src/Admin/Poll/Editor.php:296 src/Admin/Poll/views/questions/question.php:42
+#: src/Admin/Poll/views/questions/questions.php:18
+msgid "Choices"
+msgstr "Варианты"
+
+#: src/Admin/Poll/Editor.php:299 src/Admin/Poll/Editor.php:306
+msgid "Sort"
+msgstr "Тип"
+
+#: src/Admin/Poll/Editor.php:307
+msgid "Visibility"
+msgstr "Видимость"
+
+#: src/Admin/Poll/Editor.php:308
+msgid "Format"
+msgstr "Формат"
+
+#: src/Admin/Poll/Editor.php:312 src/Admin/Poll/views/questions/question.php:3
+#: src/Admin/Poll/views/translations/index.php:55
+#: src/Admin/Poll/views/settings/content/welcome.php:4
+#: src/Admin/Poll/views/settings/content/thankyou.php:4
+msgid "Content"
+msgstr "Содержание"
+
+#: src/Admin/Poll/Editor.php:315
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: src/Admin/Poll/Editor.php:317
+msgid "Thank you"
+msgstr "Спасибо"
+
+#: src/Admin/Poll/Editor.php:321
+#: src/Admin/Poll/views/translations/index.php:108
+msgid "SEO"
+msgstr "SEO"
+
+#: src/Admin/Poll/Editor.php:326 src/Admin/Poll/Editor.php:351
+#: src/Admin/Poll/views/form/fields.php:9
+#: src/Admin/Poll/views/form/field.php:126
+msgid "Email"
+msgstr "электронный адрес"
+
+#: src/Admin/Poll/Editor.php:327
+msgid "Push"
+msgstr "Нажать"
+
+#: src/Admin/Poll/Editor.php:328
+msgid "WebHook"
+msgstr "WebHook"
+
+#: src/Admin/Poll/Editor.php:331
+msgid "Customization"
+msgstr "Пользовательские настройки"
+
+#: src/Admin/Poll/Editor.php:336 src/Admin/Modules/views/index.php:8
+msgid "Templates"
+msgstr "Шаблоны"
+
+#: src/Admin/Poll/Editor.php:337
+msgid "Layout"
+msgstr "Раскладка"
+
+#: src/Admin/Poll/Editor.php:338
+msgid "Colors"
+msgstr "Цвета"
+
+#: src/Admin/Poll/Editor.php:339
+#: modules/templates/MediaContest/views/settings.php:52
+#: modules/templates/MediaContest/views/settings.php:86
+#: modules/templates/MediaContest/views/settings.php:117
+#: modules/templates/MediaContest/views/settings.php:148
+#: modules/templates/MediaContest/views/settings.php:168
+#: modules/templates/MediaContest/views/settings.php:197
+#: modules/templates/MediaContest/views/settings.php:220
+#: modules/templates/MediaContest/views/settings.php:252
+#: modules/templates/MediaContest/views/settings.php:289
+#: modules/templates/Basic/views/settings.php:52
+#: modules/templates/Basic/views/settings.php:86
+#: modules/templates/Basic/views/settings.php:117
+#: modules/templates/Basic/views/settings.php:148
+#: modules/templates/Basic/views/settings.php:168
+#: modules/templates/Basic/views/settings.php:197
+#: modules/templates/Basic/views/settings.php:220
+#: modules/templates/Basic/views/settings.php:252
+#: modules/templates/Basic/views/settings.php:289
+#: modules/templates/Versus/views/settings.php:53
+#: modules/templates/Versus/views/settings.php:87
+#: modules/templates/Versus/views/settings.php:106
+#: modules/templates/Versus/views/settings.php:150
+#: modules/templates/Versus/views/settings.php:170
+#: modules/templates/Versus/views/settings.php:199
+#: modules/templates/Versus/views/settings.php:222
+#: modules/templates/Versus/views/settings.php:254
+#: modules/templates/Versus/views/settings.php:291
+#: src/Admin/Poll/views/form/fields.php:65
+#: src/Admin/Poll/views/form/field.php:17
+#: src/Admin/Poll/views/choices/choices.php:64
+#: src/Admin/Poll/views/choices/choices.php:113
+#: src/Admin/Poll/views/choices/choice.php:16
+msgid "Text"
+msgstr "Текст"
+
+#: src/Admin/Poll/Editor.php:340
+msgid "Elements"
+msgstr "Элементы"
+
+#: src/Admin/Poll/Editor.php:341
+msgid "Behaviours"
+msgstr "Режимы"
+
+#: src/Admin/Poll/Editor.php:342
+msgid "Effects"
+msgstr "Эффекты"
+
+#: src/Admin/Poll/Editor.php:343
+msgid "Custom CSS"
+msgstr "Пользовательский CSS"
+
+#: src/Admin/Poll/Editor.php:347
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: src/Admin/Poll/Editor.php:347 src/Admin/Poll/Editor.php:348
+msgid "WordPress feature"
+msgstr "Функция WordPress"
+
+#: src/Admin/Poll/Editor.php:348
+msgid "Widget"
+msgstr "Виджет"
+
+#: src/Admin/Poll/Editor.php:349
+msgid "Direct link"
+msgstr "прямая ссылка"
+
+#: src/Admin/Poll/Editor.php:349
+msgid "Standard link"
+msgstr "Стандартная ссылка"
+
+#: src/Admin/Poll/Editor.php:350
+msgid "Embed"
+msgstr "Встраивать"
+
+#: src/Admin/Poll/Editor.php:350
+msgid "External inclusion"
+msgstr "Внешнее включение"
+
+#: src/Admin/Poll/Editor.php:351
+msgid "Vote links"
+msgstr "Ссылки для голосования"
+
+#: src/Admin/Poll/Listing.php:144 src/Admin/Dashboard/views/overview.php:16
+msgid "Live"
+msgstr "Прямой эфир"
+
+#: src/Admin/Poll/Listing.php:146
+msgid "Offline"
+msgstr "Не в сети"
+
+#: src/Poll/Commands/CountVote.php:59
+msgid "All questions must be answered."
+msgstr "На все вопросы нужно ответить."
+
+#: src/Poll/Commands/CountVote.php:66
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "Вы должны проголосовать хотя бы за {{minimum}} вариант."
+msgstr[1] "Вы должны проголосовать хотя бы за {{minimum}} вариантов."
+msgstr[2] "Вы должны проголосовать хотя бы за {{minimum}} вариантов."
+
+#: src/Poll/Commands/CountVote.php:69
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "Вы можете проголосовать за {{maximum}} вариант."
+msgstr[1] "Вы можете проголосовать за {{maximum}} вариантов."
+msgstr[2] "Вы можете проголосовать за {{maximum}} вариантов."
+
+#: src/Poll/Commands/CountVote.php:78
+msgid "Unknown choice. Please try again."
+msgstr "Неизвестный выбор. Пожалуйста, попробуйте еще раз."
+
+#: src/Poll/Commands/CountVote.php:89
+msgid "Something went wrong. Please try again."
+msgstr "Что-то пошло не так. Попробуйте еще раз."
+
+#: modules/templates/MediaContest/views/settings.php:19
+#: modules/templates/MediaContest/views/settings.php:38
+#: modules/templates/MediaContest/views/settings.php:66
+#: modules/templates/MediaContest/views/settings.php:138
+#: modules/templates/MediaContest/views/settings.php:183
+#: modules/templates/MediaContest/views/settings.php:211
+#: modules/templates/MediaContest/views/settings.php:236
+#: modules/templates/MediaContest/views/settings.php:266
+#: modules/templates/Basic/views/settings.php:19
+#: modules/templates/Basic/views/settings.php:38
+#: modules/templates/Basic/views/settings.php:66
+#: modules/templates/Basic/views/settings.php:138
+#: modules/templates/Basic/views/settings.php:183
+#: modules/templates/Basic/views/settings.php:211
+#: modules/templates/Basic/views/settings.php:236
+#: modules/templates/Basic/views/settings.php:266
+#: modules/templates/Versus/views/settings.php:20
+#: modules/templates/Versus/views/settings.php:39
+#: modules/templates/Versus/views/settings.php:67
+#: modules/templates/Versus/views/settings.php:101
+#: modules/templates/Versus/views/settings.php:123
+#: modules/templates/Versus/views/settings.php:140
+#: modules/templates/Versus/views/settings.php:185
+#: modules/templates/Versus/views/settings.php:213
+#: modules/templates/Versus/views/settings.php:238
+#: modules/templates/Versus/views/settings.php:268
+msgid "Background"
+msgstr "Фон"
+
+#: modules/templates/MediaContest/views/settings.php:23
+#: modules/templates/MediaContest/views/settings.php:48
+#: modules/templates/MediaContest/views/settings.php:82
+#: modules/templates/MediaContest/views/settings.php:113
+#: modules/templates/MediaContest/views/settings.php:144
+#: modules/templates/MediaContest/views/settings.php:164
+#: modules/templates/MediaContest/views/settings.php:193
+#: modules/templates/MediaContest/views/settings.php:216
+#: modules/templates/MediaContest/views/settings.php:248
+#: modules/templates/MediaContest/views/settings.php:285
+#: modules/templates/Basic/views/settings.php:23
+#: modules/templates/Basic/views/settings.php:48
+#: modules/templates/Basic/views/settings.php:82
+#: modules/templates/Basic/views/settings.php:113
+#: modules/templates/Basic/views/settings.php:144
+#: modules/templates/Basic/views/settings.php:164
+#: modules/templates/Basic/views/settings.php:193
+#: modules/templates/Basic/views/settings.php:216
+#: modules/templates/Basic/views/settings.php:248
+#: modules/templates/Basic/views/settings.php:285
+#: modules/templates/Versus/views/settings.php:24
+#: modules/templates/Versus/views/settings.php:49
+#: modules/templates/Versus/views/settings.php:83
+#: modules/templates/Versus/views/settings.php:146
+#: modules/templates/Versus/views/settings.php:166
+#: modules/templates/Versus/views/settings.php:195
+#: modules/templates/Versus/views/settings.php:218
+#: modules/templates/Versus/views/settings.php:250
+#: modules/templates/Versus/views/settings.php:287
+msgid "Padding"
+msgstr "Заполнение"
+
+#: modules/templates/MediaContest/views/settings.php:39
+#: modules/templates/MediaContest/views/settings.php:67
+#: modules/templates/MediaContest/views/settings.php:104
+#: modules/templates/MediaContest/views/settings.php:139
+#: modules/templates/MediaContest/views/settings.php:160
+#: modules/templates/MediaContest/views/settings.php:184
+#: modules/templates/MediaContest/views/settings.php:212
+#: modules/templates/MediaContest/views/settings.php:237
+#: modules/templates/MediaContest/views/settings.php:267
+#: modules/templates/Basic/views/settings.php:39
+#: modules/templates/Basic/views/settings.php:67
+#: modules/templates/Basic/views/settings.php:104
+#: modules/templates/Basic/views/settings.php:139
+#: modules/templates/Basic/views/settings.php:160
+#: modules/templates/Basic/views/settings.php:184
+#: modules/templates/Basic/views/settings.php:212
+#: modules/templates/Basic/views/settings.php:237
+#: modules/templates/Basic/views/settings.php:267
+#: modules/templates/Versus/views/settings.php:40
+#: modules/templates/Versus/views/settings.php:68
+#: modules/templates/Versus/views/settings.php:102
+#: modules/templates/Versus/views/settings.php:141
+#: modules/templates/Versus/views/settings.php:162
+#: modules/templates/Versus/views/settings.php:186
+#: modules/templates/Versus/views/settings.php:214
+#: modules/templates/Versus/views/settings.php:239
+#: modules/templates/Versus/views/settings.php:269
+msgid "Color"
+msgstr "Цвет"
+
+#: modules/templates/MediaContest/views/settings.php:40
+#: modules/templates/MediaContest/views/settings.php:44
+#: modules/templates/MediaContest/views/settings.php:68
+#: modules/templates/MediaContest/views/settings.php:78
+#: modules/templates/MediaContest/views/settings.php:105
+#: modules/templates/MediaContest/views/settings.php:109
+#: modules/templates/MediaContest/views/settings.php:185
+#: modules/templates/MediaContest/views/settings.php:189
+#: modules/templates/MediaContest/views/settings.php:240
+#: modules/templates/MediaContest/views/settings.php:244
+#: modules/templates/MediaContest/views/settings.php:268
+#: modules/templates/Basic/views/settings.php:40
+#: modules/templates/Basic/views/settings.php:44
+#: modules/templates/Basic/views/settings.php:68
+#: modules/templates/Basic/views/settings.php:78
+#: modules/templates/Basic/views/settings.php:105
+#: modules/templates/Basic/views/settings.php:109
+#: modules/templates/Basic/views/settings.php:185
+#: modules/templates/Basic/views/settings.php:189
+#: modules/templates/Basic/views/settings.php:240
+#: modules/templates/Basic/views/settings.php:244
+#: modules/templates/Basic/views/settings.php:268
+#: modules/templates/Versus/views/settings.php:41
+#: modules/templates/Versus/views/settings.php:45
+#: modules/templates/Versus/views/settings.php:69
+#: modules/templates/Versus/views/settings.php:79
+#: modules/templates/Versus/views/settings.php:187
+#: modules/templates/Versus/views/settings.php:191
+#: modules/templates/Versus/views/settings.php:242
+#: modules/templates/Versus/views/settings.php:246
+#: modules/templates/Versus/views/settings.php:270
+msgid "Border"
+msgstr "Границы"
+
+#: modules/templates/MediaContest/views/settings.php:69
+#: modules/templates/Basic/views/settings.php:69
+#: modules/templates/Versus/views/settings.php:70
+msgid "Background (Hover)"
+msgstr "Фон (при наведение)"
+
+#: modules/templates/MediaContest/views/settings.php:70
+#: modules/templates/Basic/views/settings.php:70
+#: modules/templates/Versus/views/settings.php:71
+msgid "Color (Hover)"
+msgstr "Цвет (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:71
+#: modules/templates/Basic/views/settings.php:71
+#: modules/templates/Versus/views/settings.php:72
+msgid "Border (Hover)"
+msgstr "Граница (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:72
+#: modules/templates/Basic/views/settings.php:72
+#: modules/templates/Versus/views/settings.php:73
+msgid "Background (Checked)"
+msgstr "Фон (Проверен)"
+
+#: modules/templates/MediaContest/views/settings.php:73
+#: modules/templates/Basic/views/settings.php:73
+#: modules/templates/Versus/views/settings.php:74
+msgid "Color (Checked)"
+msgstr "Цвет ( Проверен)"
+
+#: modules/templates/MediaContest/views/settings.php:74
+#: modules/templates/Basic/views/settings.php:74
+#: modules/templates/Versus/views/settings.php:75
+msgid "Border (Checked)"
+msgstr "Граница (Проверена)"
+
+#: modules/templates/MediaContest/views/settings.php:102
+#: modules/templates/Basic/views/settings.php:102
+msgid "Background (Start)"
+msgstr "Фон (начало)"
+
+#: modules/templates/MediaContest/views/settings.php:103
+#: modules/templates/Basic/views/settings.php:103
+msgid "Background (End)"
+msgstr "Фон (конец)"
+
+#: modules/templates/MediaContest/views/settings.php:121
+#: modules/templates/Basic/views/settings.php:121
+#: modules/templates/Versus/views/settings.php:111
+msgid "Height"
+msgstr "Высота"
+
+#: modules/templates/MediaContest/views/settings.php:238
+#: modules/templates/Basic/views/settings.php:238
+#: modules/templates/Versus/views/settings.php:240
+msgid "Background (error)"
+msgstr "Фон (ошибка)"
+
+#: modules/templates/MediaContest/views/settings.php:239
+#: modules/templates/Basic/views/settings.php:239
+#: modules/templates/Versus/views/settings.php:241
+msgid "Color (error)"
+msgstr "Цвет (ошибка)"
+
+#: modules/templates/MediaContest/views/settings.php:269
+#: modules/templates/Basic/views/settings.php:269
+#: modules/templates/Versus/views/settings.php:271
+msgid "Background (hover)"
+msgstr "Фон (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:270
+#: modules/templates/Basic/views/settings.php:270
+#: modules/templates/Versus/views/settings.php:272
+msgid "Color (hover)"
+msgstr "Цвет (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:271
+#: modules/templates/Basic/views/settings.php:271
+#: modules/templates/Versus/views/settings.php:273
+msgid "Border (hover)"
+msgstr "Граница (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:273
+#: modules/templates/Basic/views/settings.php:273
+#: modules/templates/Versus/views/settings.php:275
+msgid "Primary background"
+msgstr "Основной фон"
+
+#: modules/templates/MediaContest/views/settings.php:274
+#: modules/templates/Basic/views/settings.php:274
+#: modules/templates/Versus/views/settings.php:276
+msgid "Primary border"
+msgstr "Основная граница"
+
+#: modules/templates/MediaContest/views/settings.php:275
+#: modules/templates/Basic/views/settings.php:275
+#: modules/templates/Versus/views/settings.php:277
+msgid "Primary color"
+msgstr "Основной цвет"
+
+#: modules/templates/MediaContest/views/settings.php:276
+#: modules/templates/Basic/views/settings.php:276
+#: modules/templates/Versus/views/settings.php:278
+msgid "Primary background (hover)"
+msgstr "Основной фон (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:278
+#: modules/templates/Basic/views/settings.php:278
+#: modules/templates/Versus/views/settings.php:280
+msgid "Primary border (hover)"
+msgstr "Основная граница (при наведении)"
+
+#: modules/templates/MediaContest/views/settings.php:280
+#: modules/templates/Basic/views/settings.php:280
+#: modules/templates/Versus/views/settings.php:282
+msgid "Primary color (hover)"
+msgstr "Основной цвет (при наведении)"
+
+#: modules/templates/Versus/views/settings.php:110
+#: src/Admin/Poll/views/design/index.php:253
+msgid "Width"
+msgstr "Ширина"
+
+#: modules/extensions/RestAPI/views/tab.php:9
+msgid "Get poll object"
+msgstr "Получить объект опроса"
+
+#: modules/extensions/RestAPI/views/tab.php:12
+msgid "Start by getting the poll object from this URL:"
+msgstr "Начните с получения объекта опроса по этому URL-адресу:"
+
+#: modules/extensions/RestAPI/views/tab.php:18
+#: modules/extensions/RestAPI/views/tab.php:38
+#: src/Admin/Poll/views/integration/embed.php:18
+#: src/Admin/Poll/views/integration/email.php:51
+#: src/Admin/Poll/views/integration/link.php:17
+#: src/Admin/Poll/views/integration/shortcode.php:18
+#: src/Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "Копировать"
+
+#: modules/extensions/RestAPI/views/tab.php:29
+msgid "Cast a vote"
+msgstr "Голосовать"
+
+#: modules/extensions/RestAPI/views/tab.php:32
+msgid "You can cast a vote by sending a POST request to the following URL:"
+msgstr ""
+"Вы можете проголосовать, отправив запрос POST по следующему URL-адресу:"
+
+#: modules/extensions/RestAPI/views/tab.php:79
+#: src/Admin/Poll/views/integration/widget.php:31
+#: src/Admin/Poll/views/integration/embed.php:42
+#: src/Admin/Poll/views/integration/email.php:64
+#: src/Admin/Poll/views/integration/link.php:41
+#: src/Admin/Poll/views/integration/shortcode.php:48
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+#: modules/extensions/RestAPI/views/tab.php:82
+msgid ""
+"Open the page which you have used these API endpoints in and test poll "
+"functionality."
+msgstr ""
+"Откройте страницу, на которой вы использовали конечные точки API и проверьте "
+"функциональность опроса."
+
+#: modules/extensions/RestAPI/views/tab.php:88
+msgid "REST API are available only in WordPress 4.4"
+msgstr "REST API доступен только в WordPress 4.4"
+
+#: src/Admin/Dashboard/views/sidebar.php:9
+#: src/Admin/Dashboard/views/sidebar.php:11
+msgid "Translate"
+msgstr "Переводить"
+
+#: src/Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"Помогите нам перевести TotalPoll на ваш язык и получите бесплатно товар из "
+"нашего магазина."
+
+#: src/Admin/Dashboard/views/sidebar.php:18
+msgid "Stay in the loop"
+msgstr "Оставайтесь на связи"
+
+#: src/Admin/Dashboard/views/sidebar.php:19
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"Получайте последние новости о новых функциях, продуктах и предложениях плюс "
+"<strong>скидка 10%</strong> в нашем магазине!"
+
+#: src/Admin/Dashboard/views/sidebar.php:22
+msgid "Your email"
+msgstr "Ваш электронный адрес"
+
+#: src/Admin/Dashboard/views/sidebar.php:24
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: src/Admin/Dashboard/views/sidebar.php:28
+msgid "Follow us"
+msgstr "Следовать за нами"
+
+#: src/Admin/Dashboard/views/sidebar.php:54
+msgid "Spread the word"
+msgstr "Расскажите о нас"
+
+#: src/Admin/Dashboard/views/sidebar.php:55
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"Пожалуйста, ознакомьтесь<a href=\"https://codecanyon.net/downloads/\"> , "
+"оставляя обзор </a>. Вы также можете получить шанс выиграть бесплатный товар "
+"в нашем магазине, твитнув о TotalPoll!"
+
+#: src/Admin/Dashboard/views/sidebar.php:61
+msgid "Tweet"
+msgstr "Твитнуть"
+
+#: src/Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "Как мы можем помочь вам?"
+
+#: src/Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr ""
+"Проверьте нашу базу знаний для получения подробных ответов и руководств."
+
+#: src/Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "Введите ключевые слова"
+
+#: src/Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "Поиск"
+
+#: src/Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "Поддержка сообщества"
+
+#: src/Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "Присоединяйтесь и обращайтесь за помощью к сообществу TotalSuite."
+
+#: src/Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "Посетить форумы"
+
+#: src/Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "Клиентская поддержка"
+
+#: src/Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "Здесь наша служба поддержки, чтобы помогать вам."
+
+#: src/Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "Отправить запрос"
+
+#: src/Admin/Dashboard/views/support.php:37
+msgid "VIP Support"
+msgstr "VIP Поддержка"
+
+#: src/Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "Вы торопитесь? Мы ждем вас назад!"
+
+#: src/Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "Узнать больше"
+
+#: src/Admin/Dashboard/views/credits.php:4
+#: src/Admin/Dashboard/views/index.php:21
+msgid "Credits"
+msgstr "Кредиты"
+
+#: src/Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr ""
+"Благодаря этим проектам и вкладчикам стало возможным создание TotalPoll."
+
+#: src/Admin/Dashboard/views/whats-new.php:6
+#: src/Admin/Modules/views/manager.php:64
+#: src/Admin/Poll/views/design/tabs/templates.php:24
+msgid "Version"
+msgstr "Версия"
+
+#: src/Admin/Dashboard/views/index.php:6
+msgid "Overview"
+msgstr "Обзор"
+
+#: src/Admin/Dashboard/views/index.php:9
+msgid "Get started"
+msgstr "Начать"
+
+#: src/Admin/Dashboard/views/index.php:12
+msgid "What's new"
+msgstr "Что нового"
+
+#: src/Admin/Dashboard/views/index.php:15
+msgid "Activation"
+msgstr "Активация"
+
+#: src/Admin/Dashboard/views/index.php:18
+msgid "Support"
+msgstr "Поддержка"
+
+#: src/Admin/Dashboard/views/index.php:54
+msgid "Take your website to the next level"
+msgstr "Переведите ваш сайт на следующий уровень"
+
+#: src/Admin/Dashboard/views/index.php:55
+msgid ""
+"Get started with TotalSuite to take your website to the next level with "
+"feature-rich premium products."
+msgstr ""
+"Начните работу с TotalSuite, чтобы перейти на следующий уровень с помощью "
+"многофункциональных продуктов премиум-класса."
+
+#: src/Admin/Dashboard/views/index.php:56
+msgid "Get Started"
+msgstr "Начать"
+
+#: src/Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "Время создать ваш первый опрос."
+
+#: src/Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "Пока нет опросов."
+
+#: src/Admin/Dashboard/views/overview.php:14
+msgid "Untitled"
+msgstr "Без названия"
+
+#: src/Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "в ожидании"
+
+#: src/Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "Продукт активирован!"
+
+#: src/Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "Теперь вы получаете обновления."
+
+#: src/Admin/Dashboard/views/activation.php:10
+msgid "Activation code"
+msgstr "Код активации"
+
+#: src/Admin/Dashboard/views/activation.php:14
+#, php-format
+msgid "Product activation for %s"
+msgstr "Активация продукта для %s"
+
+#: src/Admin/Dashboard/views/activation.php:15
+msgid ""
+"Open <a href=\"https://codecanyon.net/downloads\">downloads page</a>, find "
+"the product, click \"Download\" then select on \"License certificate & "
+"purchase code (text)\"."
+msgstr ""
+"Откройте <a href=\"https://codecanyon.net/downloads\"> страницу загрузки </"
+"a>, найдите продукт, нажмите «Загрузить», затем выберите «Лицензионный "
+"сертификат и код покупки (текст)»."
+
+#: src/Admin/Dashboard/views/activation.php:19
+msgid "Activating"
+msgstr "Активация"
+
+#: src/Admin/Dashboard/views/activation.php:19
+#: src/Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "Активировать"
+
+#: src/Admin/Dashboard/views/get-started.php:6
+msgid "Welcome to TotalPoll!"
+msgstr "Добро пожаловать в TotalPoll!"
+
+#: src/Admin/Dashboard/views/get-started.php:7
+msgid ""
+"TotalPoll's user interface was built with you in mind! You can create a poll "
+"in less than a minute."
+msgstr ""
+"Пользовательский интерфейс TotalPoll был создан с вами! Вы можете создать "
+"опрос менее чем за минуту."
+
+#: src/Admin/Dashboard/views/get-started.php:11
+msgid "New features"
+msgstr "Новые возможности"
+
+#: src/Admin/Dashboard/views/get-started.php:12
+msgid ""
+"TotalPoll 4.0 brings a lot of new features like multiple questions, live "
+"preview and insights."
+msgstr ""
+"TotalPoll 4.0 предлагает множество новых функций, таких как сложные вопросы, "
+"предварительный просмотр в реальном времени и различные идеи."
+
+#: src/Admin/Dashboard/views/get-started.php:16
+msgid "Together is Better"
+msgstr "Вместе лучше"
+
+#: src/Admin/Dashboard/views/get-started.php:17
+msgid ""
+"TotalPoll is now part of <a href=\"https://totalsuite.net/\">TotalSuite</a> "
+"that brings essential tools in a robust suite."
+msgstr ""
+"TotalPoll теперь входит в <a href=\"https://totalsuite.net/\"> TotalSuite </"
+"a>, который предоставляет необходимые инструменты в надежном наборе."
+
+#: src/Admin/Dashboard/views/get-started.php:33
+msgid "Visual Learner?"
+msgstr "Визуальный ученик?"
+
+#: src/Admin/Dashboard/views/get-started.php:34
+msgid ""
+"Here is a playlist of 5 videos that covers the main tasks to start your "
+"journey with TotalPoll."
+msgstr ""
+"Вот список воспроизведения из 5 видеороликов, который охватывает основные "
+"задачи, чтобы начать путешествие с помощью TotalPoll."
+
+#: src/Admin/Dashboard/views/get-started.php:39
+msgid "Create your first poll"
+msgstr "Создать ваш первый опрос"
+
+#: src/Admin/Dashboard/views/get-started.php:45
+msgid "Settings overview"
+msgstr "Обзор настроек"
+
+#: src/Admin/Dashboard/views/get-started.php:51
+msgid "Design customization"
+msgstr "Настройка дизайна"
+
+#: src/Admin/Dashboard/views/get-started.php:63
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: src/Admin/Insights/views/index.php:9 src/Admin/Entries/views/index.php:12
+msgid "Please select a poll"
+msgstr "Пожалуйста, выберете опрос"
+
+#: src/Admin/Insights/views/index.php:13 src/Admin/Entries/views/index.php:16
+#: src/Admin/Log/views/index.php:16
+msgid "From"
+msgstr "Откуда"
+
+#: src/Admin/Insights/views/index.php:15 src/Admin/Entries/views/index.php:18
+#: src/Admin/Log/views/index.php:18
+msgid "To"
+msgstr "Куда"
+
+#: src/Admin/Insights/views/index.php:19 src/Admin/Entries/views/index.php:23
+#: src/Admin/Log/views/index.php:23
+msgid "Clear"
+msgstr "Очистить"
+
+#: src/Admin/Insights/views/index.php:22 src/Admin/Entries/views/index.php:26
+#: src/Admin/Log/views/index.php:26
+msgid "Apply"
+msgstr "Подать заявление"
+
+#: src/Admin/Entries/views/index.php:44 src/Admin/Log/views/index.php:68
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "Nothing. Nada. Niente. Nickts. Rien."
+
+#: src/Admin/Entries/views/index.php:54 src/Admin/Log/views/index.php:77
+#: modules/templates/MediaContest/views/preview/shared/footer.php:4
+#: modules/templates/Basic/views/preview/shared/footer.php:4
+#: modules/templates/Versus/views/preview/shared/footer.php:4
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: src/Admin/Entries/views/index.php:56 src/Admin/Log/views/index.php:78
+#: modules/templates/MediaContest/views/preview/shared/footer.php:7
+#: modules/templates/Basic/views/preview/shared/footer.php:7
+#: modules/templates/Versus/views/preview/shared/footer.php:7
+msgid "Next"
+msgstr "Следующий"
+
+#: src/Admin/Entries/views/index.php:60 src/Admin/Log/views/index.php:82
+msgid "Download as"
+msgstr "Загрузить как"
+
+#: src/Admin/Modules/views/index.php:5 src/Admin/Modules/views/manager.php:30
+#: src/Admin/Modules/views/install.php:20
+msgid "Install"
+msgstr "Установить"
+
+#: src/Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "Расширения"
+
+#: src/Admin/Modules/views/index.php:14
+msgid "Downloads"
+msgstr "Загрузки"
+
+#: src/Admin/Modules/views/manager.php:21
+#: src/Admin/Poll/views/design/tabs/templates.php:22
+msgid "By"
+msgstr "От"
+
+#: src/Admin/Modules/views/manager.php:35
+msgid "Buy"
+msgstr "Купить"
+
+#: src/Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "Обновить"
+
+#: src/Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "Удалить"
+
+#: src/Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "дезактивировать"
+
+#: src/Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr ""
+"Если у вас есть шаблон или расширение в формате .zip, вы можете установить "
+"его, загрузив его здесь."
+
+#: src/Admin/Options/views/tabs/advanced.php:7
+msgid "Always embed CSS with HTML."
+msgstr "Всегда вставляйте CSS с HTML."
+
+#: src/Admin/Options/views/tabs/advanced.php:10
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr ""
+"Этот параметр может быть полезен, если WordPress не работает в стандартной "
+"файловой системе."
+
+#: src/Admin/Options/views/tabs/advanced.php:17
+msgid "Render full poll when listed in polls archive."
+msgstr "Воспроизведите полный опрос, указанный в архиве опросов."
+
+#: src/Admin/Options/views/tabs/advanced.php:20
+msgid "This option will render all polls instead of showing titles only."
+msgstr "Эта опция будет отображать все опросы, а не только заголовки."
+
+#: src/Admin/Options/views/tabs/advanced.php:27
+msgid "Disable polls archive."
+msgstr "Отключить архив опросов."
+
+#: src/Admin/Options/views/tabs/advanced.php:35
+msgid "Remove all data on uninstall."
+msgstr "Удалите все данные при удалении."
+
+#: src/Admin/Options/views/tabs/advanced.php:38
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr ""
+"Осторожно! Это приведет к удалению всех данных TotalPoll, включая параметры, "
+"кеш-файлы и опросы."
+
+#: src/Admin/Options/views/tabs/services.php:6
+msgid "reCaptcha by Google"
+msgstr "reCaptcha от Google"
+
+#: src/Admin/Options/views/tabs/services.php:14
+msgid "Site key"
+msgstr "Ключ сайта"
+
+#: src/Admin/Options/views/tabs/services.php:22
+msgid "Site secret"
+msgstr "Секрет сайта"
+
+#: src/Admin/Options/views/tabs/services.php:30
+msgid "Enable invisible captcha."
+msgstr "Включить невидимую captcha."
+
+#: src/Admin/Options/views/tabs/sharing.php:9
+msgid "Twitter"
+msgstr "Twitter"
+
+#: src/Admin/Options/views/tabs/sharing.php:19
+msgid "Facebook"
+msgstr "Facebook"
+
+#: src/Admin/Options/views/tabs/sharing.php:29
+msgid "Google+"
+msgstr "Google+"
+
+#: src/Admin/Options/views/tabs/sharing.php:39
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: src/Admin/Options/views/tabs/notifications.php:4
+msgid "Poll title: {{title}}"
+msgstr "Poll title: {{title}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:5
+msgid "Choices: {{choices}}"
+msgstr "Варианты: {{choices}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:6
+msgid "User IP: {{ip}}"
+msgstr "IP Пользователя: {{ip}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:7
+msgid "User browser: {{browser}}"
+msgstr "Браузер пользователя: {{browser}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:8
+msgid "Vote date: {{date}}"
+msgstr "Дата голосования: {{date}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:12
+#: src/Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "Название"
+
+#: src/Admin/Options/views/tabs/notifications.php:18
+msgid "Plain text body"
+msgstr "Текстовое поле"
+
+#: src/Admin/Options/views/tabs/notifications.php:24
+msgid "HTML template"
+msgstr "Шаблон HTML"
+
+#: src/Admin/Options/views/tabs/performance.php:7
+msgid "Asynchronous loading"
+msgstr "Асинхронная загрузка"
+
+#: src/Admin/Options/views/tabs/performance.php:10
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr ""
+"Это может быть полезно, если вы хотите обойти механизмы кэширования и "
+"плагины."
+
+#: src/Admin/Options/views/tabs/performance.php:17
+msgid "Full checks on page load."
+msgstr "Полная проверка загрузки страницы."
+
+#: src/Admin/Options/views/tabs/performance.php:20
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr ""
+"Это может привести к большой нагрузке на ваш сервер, потому что TotalPoll "
+"часто обращается к базе данных."
+
+#: src/Admin/Options/views/tabs/performance.php:25
+msgid "Clear cache"
+msgstr "Очистить кэш"
+
+#: src/Admin/Options/views/tabs/import-export.php:7
+msgid "Import data"
+msgstr "Импорт данных"
+
+#: src/Admin/Options/views/tabs/import-export.php:10
+msgid "Import settings"
+msgstr "Импорт настроек"
+
+#: src/Admin/Options/views/tabs/import-export.php:14
+msgid "TotalPoll uses standard WordPress import mechanism."
+msgstr "TotalPoll использует стандартный механизм импорта WordPress."
+
+#: src/Admin/Options/views/tabs/import-export.php:22
+msgid "Export data"
+msgstr "Экспорт данных"
+
+#: src/Admin/Options/views/tabs/import-export.php:25
+msgid "Export settings"
+msgstr "Экспорт настроек"
+
+#: src/Admin/Options/views/tabs/import-export.php:29
+msgid "TotalPoll uses standard WordPress export mechanism."
+msgstr "TotalPoll использует стандартный механизм экспорта WordPress."
+
+#: src/Admin/Options/views/tabs/general.php:7
+msgid "Structured Data"
+msgstr "Структурированные данные"
+
+#: src/Admin/Options/views/tabs/general.php:10
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"Улучшите свой внешний вид в поисковой системе с помощью внедрения <a href="
+"\"https://developers.google.com/search/docs/guides/intro-structured-data\" "
+"target=\"_blank\"> Структурированные данные </a>."
+
+#: src/Admin/Options/views/tabs/migration.php:13
+msgid "No polls to migrate."
+msgstr "Нет опросов для перемещения."
+
+#: src/Admin/Options/views/tabs/migration.php:14
+msgid "Polls migrated successfully."
+msgstr "Опросы перемещены успешно."
+
+#: src/Admin/Options/views/tabs/migration.php:15
+msgid "Polls to migrate."
+msgstr "Опросы для перемещения."
+
+#: src/Admin/Options/views/tabs/migration.php:22
+msgid "Migrate"
+msgstr "Перемещать"
+
+#: src/Admin/Options/views/tabs/migration.php:23
+msgid "Migrated"
+msgstr "Перенесенные"
+
+#: src/Admin/Options/views/tabs/migration.php:24
+msgid "Migrating"
+msgstr "Перемещение"
+
+#: src/Admin/Poll/views/form/fields.php:5
+msgid "Preset"
+msgstr "Предустановка"
+
+#: src/Admin/Poll/views/form/fields.php:7
+msgid "First name"
+msgstr "Имя"
+
+#: src/Admin/Poll/views/form/fields.php:8
+msgid "Last name"
+msgstr "Фамилия"
+
+#: src/Admin/Poll/views/form/fields.php:10
+msgid "Phone"
+msgstr "Номер телефона"
+
+#: src/Admin/Poll/views/form/fields.php:11
+msgid "Gender"
+msgstr "Пол"
+
+#: src/Admin/Poll/views/form/fields.php:12
+msgid "Country"
+msgstr "Страна"
+
+#: src/Admin/Poll/views/form/fields.php:13
+msgid "Agreement"
+msgstr "Соглашение"
+
+#: src/Admin/Poll/views/form/fields.php:23
+#: src/Admin/Poll/views/choices/choices.php:12
+msgid "Collapse"
+msgstr "Свернуть"
+
+#: src/Admin/Poll/views/form/fields.php:25
+#: src/Admin/Poll/views/choices/choices.php:16
+msgid "Expand"
+msgstr "Расширять"
+
+#: src/Admin/Poll/views/form/fields.php:27
+#: src/Admin/Poll/views/choices/choices.php:24
+msgid "Bulk"
+msgstr "Групповой"
+
+#: src/Admin/Poll/views/form/fields.php:33
+#: src/Admin/Poll/views/choices/choices.php:44
+msgid "Delete All"
+msgstr "Удалить все"
+
+#: src/Admin/Poll/views/form/fields.php:40
+msgid "One field per line."
+msgstr "Одно поле в строке."
+
+#: src/Admin/Poll/views/form/fields.php:41
+#: src/Admin/Poll/views/choices/choices.php:57
+msgid "Insert"
+msgstr "Вставить"
+
+#: src/Admin/Poll/views/form/fields.php:45
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr "Пока нет настраиваемых полей. Добавьте их, нажав на кнопки ниже."
+
+#: src/Admin/Poll/views/form/fields.php:58
+#: src/Admin/Poll/views/questions/questions.php:35
+#: src/Admin/Poll/views/choices/choices.php:104
+msgid "Move here"
+msgstr "Переместить сюда"
+
+#: src/Admin/Poll/views/form/fields.php:69
+#: src/Admin/Poll/views/form/field.php:18
+msgid "Textarea"
+msgstr "Текстовая область"
+
+#: src/Admin/Poll/views/form/fields.php:73
+#: src/Admin/Poll/views/form/field.php:19
+msgid "Select"
+msgstr "Выбрать"
+
+#: src/Admin/Poll/views/form/fields.php:77
+#: src/Admin/Poll/views/form/field.php:20
+msgid "Checkbox"
+msgstr "Флажок"
+
+#: src/Admin/Poll/views/form/fields.php:81
+#: src/Admin/Poll/views/form/field.php:21
+msgid "Radio"
+msgstr "Радио"
+
+#: src/Admin/Poll/views/form/field.php:22
+msgid "Required"
+msgstr "Оязательный"
+
+#: src/Admin/Poll/views/form/field.php:31
+#: src/Admin/Poll/views/form/field.php:189
+#: src/Admin/Poll/views/questions/questions.php:24
+#: src/Admin/Poll/views/choices/choice.php:57
+#: src/Admin/Poll/views/settings/vote/limitations.php:142
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/Admin/Poll/views/form/field.php:41
+msgid "Basic"
+msgstr "Основной"
+
+#: src/Admin/Poll/views/form/field.php:47
+#: src/Admin/Poll/views/choices/choices.php:80
+#: src/Admin/Poll/views/choices/choices.php:137
+#: src/Admin/Poll/views/choices/choice.php:20
+msgid "HTML"
+msgstr "HTML"
+
+#: src/Admin/Poll/views/form/field.php:62
+#: src/Admin/Poll/views/choices/choice-image.php:11
+#: src/Admin/Poll/views/choices/choice-html.php:5
+#: src/Admin/Poll/views/choices/choice-text.php:4
+#: src/Admin/Poll/views/choices/choice-video.php:19
+#: src/Admin/Poll/views/choices/choice-audio.php:16
+#: src/Admin/Poll/views/settings/results/sort.php:20
+#: src/Admin/Poll/views/settings/choices/sort.php:20
+msgid "Label"
+msgstr "Ярлык"
+
+#: src/Admin/Poll/views/form/field.php:64
+msgid "Field label"
+msgstr "Ярлык поля"
+
+#: src/Admin/Poll/views/form/field.php:73
+msgid "Name"
+msgstr "Имя"
+
+#: src/Admin/Poll/views/form/field.php:75
+msgid "Field name"
+msgstr "Имя поля"
+
+#: src/Admin/Poll/views/form/field.php:83
+msgid "Default value"
+msgstr "Значение по умолчанию"
+
+#: src/Admin/Poll/views/form/field.php:85
+#: src/Admin/Poll/views/form/field.php:88
+msgid "Field default value"
+msgstr "Значение для поля по умолчанию"
+
+#: src/Admin/Poll/views/form/field.php:92
+msgid "Default value per line."
+msgstr "Значение по умолчанию для каждой строки."
+
+#: src/Admin/Poll/views/form/field.php:102
+msgid "option_key:Option label"
+msgstr "option_key: ярлык опции"
+
+#: src/Admin/Poll/views/form/field.php:105
+msgid "Option per line."
+msgstr "Параметр в строке."
+
+#: src/Admin/Poll/views/form/field.php:108
+msgid "Option format is \"option : label\""
+msgstr "Формат опций - «параметр: ярлык»"
+
+#: src/Admin/Poll/views/form/field.php:117
+msgid "Filled (required)"
+msgstr "Заполнено (обязательно)"
+
+#: src/Admin/Poll/views/form/field.php:135
+msgid "Unique"
+msgstr "Уникальный"
+
+#: src/Admin/Poll/views/form/field.php:136
+msgid "This field value must be unique in entries table."
+msgstr "Это значение поля должно быть уникальным в таблице записей."
+
+#: src/Admin/Poll/views/form/field.php:145
+msgid "Filter by list"
+msgstr "Фильтровать по списку"
+
+#: src/Admin/Poll/views/form/field.php:155
+#: src/Admin/Poll/views/settings/vote/limitations.php:115
+msgid "Type"
+msgstr "Тип"
+
+#: src/Admin/Poll/views/form/field.php:158
+msgid "Value"
+msgstr "Значение"
+
+#: src/Admin/Poll/views/form/field.php:168
+#: src/Admin/Poll/views/settings/vote/limitations.php:124
+msgid "Allow"
+msgstr "Позволять"
+
+#: src/Admin/Poll/views/form/field.php:171
+#: src/Admin/Poll/views/settings/vote/limitations.php:125
+msgid "Deny"
+msgstr "Отвергать"
+
+#: src/Admin/Poll/views/form/field.php:176
+msgid "* means wildcard."
+msgstr "* означает wildcard."
+
+#: src/Admin/Poll/views/form/field.php:200
+msgid "Add new value"
+msgstr "Добавить новое значение"
+
+#: src/Admin/Poll/views/form/field.php:214
+msgid "Regular Expression"
+msgstr "Регулярное выражение"
+
+#: src/Admin/Poll/views/form/field.php:220
+msgid "Expression"
+msgstr "Выражение"
+
+#: src/Admin/Poll/views/form/field.php:221
+msgid "Run user input against a regular expression."
+msgstr "Запуск пользовательского ввода от регулярного выражения."
+
+#: src/Admin/Poll/views/form/field.php:226
+msgid "Must be a valid regular expression."
+msgstr "Должно быть допустимым регулярным выражением."
+
+#: src/Admin/Poll/views/form/field.php:231
+msgid "Error message"
+msgstr "Сообщение об ошибке"
+
+#: src/Admin/Poll/views/form/field.php:232
+msgid "This message will be shown if the validation failed."
+msgstr "Это сообщение будет показано, если проверка не выполнена."
+
+#: src/Admin/Poll/views/form/field.php:237
+msgid "{{label}} for a field label."
+msgstr "{{label}} для ярлыка поля."
+
+#: src/Admin/Poll/views/form/field.php:242
+msgid "Comparison"
+msgstr "Сравнение"
+
+#: src/Admin/Poll/views/form/field.php:246
+msgid "Must match"
+msgstr "Должно совпадать"
+
+#: src/Admin/Poll/views/form/field.php:250
+msgid "Must not match"
+msgstr "Не должно совпадать"
+
+#: src/Admin/Poll/views/form/field.php:259
+msgid "Field CSS classes"
+msgstr "Поле CSS-классов"
+
+#: src/Admin/Poll/views/form/field.php:261
+msgid "Field classes"
+msgstr "Поле классов"
+
+#: src/Admin/Poll/views/form/field.php:268
+msgid "Template"
+msgstr "Шаблон"
+
+#: src/Admin/Poll/views/form/field.php:270
+msgid "Field template"
+msgstr "Шаблон поля"
+
+#: src/Admin/Poll/views/form/field.php:275
+msgid "full column"
+msgstr "полная колонка"
+
+#: src/Admin/Poll/views/form/field.php:279
+msgid "1/2 column"
+msgstr "1/2 колонки"
+
+#: src/Admin/Poll/views/form/field.php:283
+msgid "1/3 column"
+msgstr "1/3 колонки"
+
+#: src/Admin/Poll/views/form/field.php:287
+msgid "{{label}} for field label."
+msgstr "{{label}} для ярлыка поля."
+
+#: src/Admin/Poll/views/form/field.php:290
+msgid "{{errors}} for field errors."
+msgstr "{{errors}} для ошибок поля."
+
+#: src/Admin/Poll/views/form/field.php:293
+msgid "{{field}} for field input."
+msgstr "{{field}} для ввода в поле."
+
+#: src/Admin/Poll/views/questions/questions.php:15
+#: src/Admin/Poll/views/integration/email.php:41
+msgid "Question"
+msgstr "Вопрос"
+
+#: src/Admin/Poll/views/questions/questions.php:31
+msgid "New Question"
+msgstr "Новый вопрос"
+
+#: src/Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "Активный шаблон"
+
+#: src/Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "Изменить"
+
+#: src/Admin/Poll/views/design/sidebar.php:25
+#: src/Admin/Poll/views/choices/choice.php:40
+msgid "Reset"
+msgstr "Сброс"
+
+#: src/Admin/Poll/views/design/index.php:44
+#: src/Admin/Poll/views/design/index.php:188
+msgid "Font family"
+msgstr "Семейство шрифтов"
+
+#: src/Admin/Poll/views/design/index.php:52
+#: src/Admin/Poll/views/design/index.php:196
+msgid "Font size"
+msgstr "Размеры шрифтов"
+
+#: src/Admin/Poll/views/design/index.php:58
+#: src/Admin/Poll/views/design/index.php:202
+msgid "Line height"
+msgstr "Высота линии"
+
+#: src/Admin/Poll/views/design/index.php:66
+#: src/Admin/Poll/views/design/index.php:210
+msgid "Align"
+msgstr "Выравнивать"
+
+#: src/Admin/Poll/views/design/index.php:70
+#: src/Admin/Poll/views/design/index.php:90
+#: src/Admin/Poll/views/design/index.php:214
+#: src/Admin/Poll/views/design/index.php:265
+msgid "Inherit"
+msgstr "Перенять"
+
+#: src/Admin/Poll/views/design/index.php:73
+#: src/Admin/Poll/views/design/index.php:119
+#: src/Admin/Poll/views/design/index.php:217
+#: src/Admin/Poll/views/design/index.php:313
+msgid "Right"
+msgstr "Справа"
+
+#: src/Admin/Poll/views/design/index.php:76
+#: src/Admin/Poll/views/design/index.php:220
+msgid "Center"
+msgstr "По центру"
+
+#: src/Admin/Poll/views/design/index.php:79
+#: src/Admin/Poll/views/design/index.php:133
+#: src/Admin/Poll/views/design/index.php:223
+#: src/Admin/Poll/views/design/index.php:325
+msgid "Left"
+msgstr "Слева"
+
+#: src/Admin/Poll/views/design/index.php:85
+#: src/Admin/Poll/views/design/index.php:229
+msgid "Transform"
+msgstr "Изменять"
+
+#: src/Admin/Poll/views/design/index.php:93
+#: src/Admin/Poll/views/design/index.php:234
+msgid "Normal"
+msgstr "Нормальный"
+
+#: src/Admin/Poll/views/design/index.php:96
+#: src/Admin/Poll/views/design/index.php:237
+msgid "UPPERCASE"
+msgstr "ПРОПИСНЫЕ БУКВЫ"
+
+#: src/Admin/Poll/views/design/index.php:99
+#: src/Admin/Poll/views/design/index.php:240
+msgid "lowercase"
+msgstr "строчные буквы"
+
+#: src/Admin/Poll/views/design/index.php:102
+#: src/Admin/Poll/views/design/index.php:243
+msgid "Capitalize"
+msgstr "Капитализировать"
+
+#: src/Admin/Poll/views/design/index.php:112
+#: src/Admin/Poll/views/design/index.php:307
+msgid "Top"
+msgstr "Верхний"
+
+#: src/Admin/Poll/views/design/index.php:126
+#: src/Admin/Poll/views/design/index.php:319
+msgid "Bottom"
+msgstr "Нижний"
+
+#: src/Admin/Poll/views/design/index.php:261
+msgid "Style"
+msgstr "Стиль"
+
+#: src/Admin/Poll/views/design/index.php:271
+msgid "Solid"
+msgstr "Сплошной"
+
+#: src/Admin/Poll/views/design/index.php:274
+msgid "Double"
+msgstr "Двойной"
+
+#: src/Admin/Poll/views/design/index.php:277
+msgid "Dashed"
+msgstr "Прерывистый"
+
+#: src/Admin/Poll/views/design/index.php:280
+msgid "Dotted"
+msgstr "Пунктирный"
+
+#: src/Admin/Poll/views/design/index.php:283
+msgid "Groove"
+msgstr "Groove"
+
+#: src/Admin/Poll/views/design/index.php:286
+msgid "Hidden"
+msgstr "Скрытый"
+
+#: src/Admin/Poll/views/design/index.php:289
+msgid "Ridge"
+msgstr "Ребристый"
+
+#: src/Admin/Poll/views/design/index.php:297
+msgid "Radius"
+msgstr "Радиус"
+
+#: src/Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "Оригинал"
+
+#: src/Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "Выбрать язык"
+
+#: src/Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "Вопрос #{{$index+1}}"
+
+#: src/Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "Добавить это на боковую панель"
+
+#: src/Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr "Начните с добавления этого опроса в одну из доступных боковых панелей:"
+
+#: src/Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "Выбрать боковую панель"
+
+#: src/Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr ""
+"Откройте страницу, где у вас уже есть такая же боковая панель и "
+"протестируйте функциональность опроса."
+
+#: src/Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "Копировать код"
+
+#: src/Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "Начните с копирования следующего кода HTML:"
+
+#: src/Admin/Poll/views/integration/embed.php:29
+msgid "Paste the code"
+msgstr "Вставить код"
+
+#: src/Admin/Poll/views/integration/embed.php:32
+msgid "Paste the copied code into an HTML page."
+msgstr "Вставьте скопированный код в HTML-страницу."
+
+#: src/Admin/Poll/views/integration/embed.php:45
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr ""
+"Вставьте скопированный код в HTML-страницу. Откройте страницу, на которой вы "
+"вставили код и проверьте функциональность опроса."
+
+#: src/Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "Подготовить шаблон электронной почты"
+
+#: src/Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr ""
+"Начните с подготовки вашего шаблона электронной почты с вашими вопросами и "
+"вариантами."
+
+#: src/Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "Настроить варианты ссылок"
+
+#: src/Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "Скопируйте и вставьте варианты ссылок из следующего списка:"
+
+#: src/Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr ""
+"Отправьте себе тестовое электронное письмо и проверьте функциональность "
+"опроса."
+
+#: src/Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "Скопировать ссылку"
+
+#: src/Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "Начать с копирования следующей ссылки:"
+
+#: src/Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "Вставить ссылку"
+
+#: src/Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr ""
+"Вставьте скопированную ссылку где угодно, например на страницы или в "
+"сообщения."
+
+#: src/Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr ""
+"Откройте страницу, на которой вы вставили ссылку и проверьте "
+"функциональность опроса."
+
+#: src/Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "Копировать shortcode"
+
+#: src/Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "Начните с копирования следующего shortcode:"
+
+#: src/Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "Вставьте shortcode"
+
+#: src/Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr ""
+"Вставьте скопированный shortcode в область, поддерживающую shortcodes, "
+"например на страницу или в пост."
+
+#: src/Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr ""
+"Откройте страницу, куда вы вставили shortcodes и протестируйте "
+"функциональность опроса."
+
+#: src/Admin/Poll/views/choices/choice-image.php:13
+#: src/Admin/Poll/views/choices/choice-html.php:7
+#: src/Admin/Poll/views/choices/choice-text.php:5
+#: src/Admin/Poll/views/choices/choice-video.php:21
+#: src/Admin/Poll/views/choices/choice-audio.php:18
+msgid "Choice label"
+msgstr "Выбор ярлыка"
+
+#: src/Admin/Poll/views/choices/choice-image.php:18
+msgid "Image URL"
+msgstr "URL изображения"
+
+#: src/Admin/Poll/views/choices/choice-image.php:20
+msgid "Full size image URL"
+msgstr "Полноразмерное URL изображение"
+
+#: src/Admin/Poll/views/choices/choice-image.php:24
+#: src/Admin/Poll/views/choices/choice-video.php:36
+#: src/Admin/Poll/views/choices/choice-video.php:61
+#: src/Admin/Poll/views/choices/choice-audio.php:30
+#: src/Admin/Poll/views/choices/choice-audio.php:52
+msgid "Upload"
+msgstr "Загрузить"
+
+#: src/Admin/Poll/views/choices/choice-image.php:29
+#: src/Admin/Poll/views/choices/choice-video.php:53
+#: src/Admin/Poll/views/choices/choice-audio.php:45
+msgid "Thumbnail URL"
+msgstr "URL миниатюра"
+
+#: src/Admin/Poll/views/choices/choice-image.php:31
+#: src/Admin/Poll/views/choices/choice-video.php:55
+#: src/Admin/Poll/views/choices/choice-audio.php:47
+msgid "Thumbnail image URL"
+msgstr "Миниатюрное URL изображение"
+
+#: src/Admin/Poll/views/choices/choice-image.php:36
+#: src/Admin/Poll/views/choices/choice-video.php:65
+#: src/Admin/Poll/views/choices/choice-audio.php:56
+msgid "Available sizes"
+msgstr "Доступные размеры"
+
+#: src/Admin/Poll/views/choices/choices.php:28
+msgid "Shuffle"
+msgstr "Перемешивание"
+
+#: src/Admin/Poll/views/choices/choices.php:32
+msgid "Random Votes"
+msgstr "Случайные голоса"
+
+#: src/Admin/Poll/views/choices/choices.php:40
+msgid "Filter"
+msgstr "Фильтр"
+
+#: src/Admin/Poll/views/choices/choices.php:48
+msgid "Reset Votes"
+msgstr "Сбросить голоса"
+
+#: src/Admin/Poll/views/choices/choices.php:55
+msgid "One choice per line."
+msgstr "Один вариант на строчке."
+
+#: src/Admin/Poll/views/choices/choices.php:68
+#: src/Admin/Poll/views/choices/choices.php:119
+#: src/Admin/Poll/views/choices/choice.php:17
+msgid "Image"
+msgstr "Изображение"
+
+#: src/Admin/Poll/views/choices/choices.php:72
+#: src/Admin/Poll/views/choices/choices.php:125
+#: src/Admin/Poll/views/choices/choice.php:18
+msgid "Video"
+msgstr "Видео"
+
+#: src/Admin/Poll/views/choices/choices.php:76
+#: src/Admin/Poll/views/choices/choices.php:131
+#: src/Admin/Poll/views/choices/choice.php:19
+msgid "Audio"
+msgstr "Аудио"
+
+#: src/Admin/Poll/views/choices/choices.php:86
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr "Пока нет вариантов. Добавьте их, нажав на кнопки ниже."
+
+#: src/Admin/Poll/views/choices/choice-video.php:27
+msgid "Video URL"
+msgstr "URL видео"
+
+#: src/Admin/Poll/views/choices/choice-video.php:29
+msgid "Full size video URL"
+msgstr "Полноразмерное URL видео"
+
+#: src/Admin/Poll/views/choices/choice-video.php:43
+#: src/Admin/Poll/views/choices/choice-audio.php:36
+msgid "Yes"
+msgstr "Да"
+
+#: src/Admin/Poll/views/choices/choice-video.php:47
+#: src/Admin/Poll/views/choices/choice-audio.php:39
+msgid "No"
+msgstr "Нет"
+
+#: src/Admin/Poll/views/choices/choice-audio.php:23
+msgid "Audio URL"
+msgstr "URL аудио"
+
+#: src/Admin/Poll/views/choices/choice-audio.php:25
+msgid "Full size audio URL"
+msgstr "Полноразмерное URL аудио"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "Единый App ID"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "Получить"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "Единый API Ключ"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:24
+#: src/Admin/Poll/views/settings/notifications/email.php:11
+#: src/Admin/Poll/views/settings/notifications/webhook.php:50
+msgid "Send notification when"
+msgstr "Отправлять уведомление, когда"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:29
+#: src/Admin/Poll/views/settings/notifications/email.php:16
+#: src/Admin/Poll/views/settings/notifications/webhook.php:55
+msgid "New vote has been casted"
+msgstr "Новое голосование было отменено"
+
+#: src/Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "Электронная почта получателя"
+
+#: src/Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: src/Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "Этот URL-адрес получит HTTP POST со следующим телом"
+
+#: src/Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "Сортировать результаты по"
+
+#: src/Admin/Poll/views/settings/results/sort.php:10
+#: src/Admin/Poll/views/settings/choices/sort.php:10
+msgid "Position"
+msgstr "Позиция"
+
+#: src/Admin/Poll/views/settings/results/sort.php:25
+#: src/Admin/Poll/views/settings/choices/sort.php:25
+msgid "Random"
+msgstr "Случайно"
+
+#: src/Admin/Poll/views/settings/results/sort.php:34
+#: src/Admin/Poll/views/settings/choices/sort.php:34
+msgid "Direction"
+msgstr "Направление"
+
+#: src/Admin/Poll/views/settings/results/sort.php:40
+#: src/Admin/Poll/views/settings/choices/sort.php:40
+msgid "Descending"
+msgstr "По убыванию"
+
+#: src/Admin/Poll/views/settings/results/sort.php:45
+#: src/Admin/Poll/views/settings/choices/sort.php:45
+msgid "Ascending"
+msgstr "По возрастанию"
+
+#: src/Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "Формат голосов"
+
+#: src/Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "Как представлены голоса"
+
+#: src/Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "{{votes}} для количества голосов."
+
+#: src/Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "{{votePercentage}} процент голосов."
+
+#: src/Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "{{voteWithLabel}} для голосов с ярлыком."
+
+#: src/Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "{{votesTotal}} для общего количества голосов."
+
+#: src/Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "{{votesTotalWithLabel}} для общего количества голосов с ярлыком."
+
+#: src/Admin/Poll/views/settings/results/visibility.php:8
+msgid "Show results for voters and non-voters"
+msgstr "Показать результаты для избирателей и не избирателей"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:17
+msgid "Show results for voters only"
+msgstr "Показывать результаты только для избирателей"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:26
+msgid "Hide results"
+msgstr "Скрыть результаты"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:34
+msgid "Hidden results message"
+msgstr "Сообщение со скрытыми результатами"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:44
+msgid "Until quota is reached"
+msgstr "Пока не будет достигнута квота"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:51
+msgid "Until end date is reached"
+msgstr "Пока не будет достигнута конечная дата"
+
+#: src/Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "Пользовательская настройка?<br>Мы вас прикроем!"
+
+#: src/Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr ""
+"Если вам нужна пользовательская функция, просто сообщите нам, мы будем рады "
+"вам помочь!"
+
+#: src/Admin/Poll/views/settings/customization/index.php:11
+msgid "Get a quote"
+msgstr "Получить квоту"
+
+#: src/Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "Описание"
+
+#: src/Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "Осталось символов."
+
+#: src/Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "Переменные шаблона"
+
+#: src/Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "{{title}} для названия опроса."
+
+#: src/Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}} для названия веб-сайта."
+
+#: src/Admin/Poll/views/settings/content/results.php:4
+#: src/Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "Выше"
+
+#: src/Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "Этот контент будет показан над результатами."
+
+#: src/Admin/Poll/views/settings/content/results.php:14
+#: src/Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "Ниже"
+
+#: src/Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "Этот контент будет показан под результатами."
+
+#: src/Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "Этот контент будет показан над вопросами и вариантами."
+
+#: src/Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "Этот контент будет показан под вопросами и вариантами."
+
+#: src/Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "Выбор сортировки по"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "Блок основан на"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "Методы, используемые для блоков, превышающих лимиты голосования."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Cookies"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:25
+msgid "Authenticated user"
+msgstr "Аутентифицированный пользователь"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:33
+msgid "Votes per session"
+msgstr "Голоса за сессию"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:35
+msgid "How many times can the user vote using the same session."
+msgstr "Сколько раз пользователь может голосовать за одну и ту же сессию."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:44
+msgid "Votes per user"
+msgstr "Голосов на одного пользователя"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:46
+msgid "How many times can the authenticated user vote."
+msgstr "Сколько раз идентифицированный пользователь проголосовал."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:55
+msgid "Votes per IP"
+msgstr "Голосов на IP-адрес"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:57
+msgid "How many times can the user vote using the same IP."
+msgstr ""
+"Сколько раз пользователь может голосовать с использованием одного и того же "
+"IP-адреса."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:66
+msgid "Timeout (seconds)"
+msgstr "Тайм-аут (в секундах)"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:68
+msgid "The time period before the user can vote again."
+msgstr "Через какой период времени пользователь может проголосовать снова."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:74
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr ""
+"После этого периода пользователи смогут снова проголосовать. Чтобы "
+"заблокировать голосование навсегда, используйте 0 в качестве значения."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:77
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr ""
+"Осторожно! База данных будет заполнена постоянными записями, которые могут "
+"повлиять на общую производительность."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "Временной период"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "Начальная дата"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "Голосование будет закрыто до достижения этой даты."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "Конечная дата"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "Голосование будет закрыто после достижения этой даты."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:44
+msgid "Membership"
+msgstr "Членство"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:53
+msgid "Required membership roles"
+msgstr "Требуемые членские роли"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:55
+msgid "The membership types that can vote."
+msgstr "Типы членства, которые могут голосовать."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:65
+msgid "Hold Control/Command for multiple selection."
+msgstr "Удерживать Control/Command для выбора нескольких элементов."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:76
+msgid "Quota"
+msgstr "Квота"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:85
+msgid "Number of votes"
+msgstr "Число голосов"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:87
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "Квота, в которой опрос не будет принимать голоса после достижения."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:103
+msgid "Region (IP based)"
+msgstr "Регион (на основе IP)"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:153
+msgid "Add new rule"
+msgstr "Добавить новое правило"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "Загрузите опрос на месте без перезагрузки всей страницы."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "Прокрутка вверх после завершения голосования"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:10
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr ""
+"Прокрутка вверх для просмотра результатов опроса после завершения "
+"голосования."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:13
+msgid "One-click vote"
+msgstr "Голосование в один клик"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:15
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "Пользователь может проголосовать, нажав напрямую на вариант."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:18
+msgid "Question by question"
+msgstr "Вопрос за вопросом"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:20
+msgid "Display questions one by one."
+msgstr "Показывайте вопросы один за другим."
+
+#: src/Admin/Poll/views/design/tabs/templates.php:12
+#: src/Admin/Poll/views/design/tabs/templates.php:41
+msgid "Customized Template"
+msgstr "Индивидуальный шаблон"
+
+#: src/Admin/Poll/views/design/tabs/templates.php:46
+msgid "Customization service"
+msgstr "Служба индивидуальной настройки"
+
+#: src/Admin/Poll/views/design/tabs/templates.php:50
+msgid "Get Quote"
+msgstr "Получить квоту"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:4
+msgid "Transition"
+msgstr "Переход"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:15
+msgid "Fade"
+msgstr "Затухание"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:20
+msgid "Slide"
+msgstr "Скольжение"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:29
+msgid "Animation duration"
+msgstr "Продолжительность анимации"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:30
+msgid "Animation and transition duration"
+msgstr "Продолжительность анимации и перехода"
+
+#: src/Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "Оформление"
+
+#: src/Admin/Poll/views/design/tabs/custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "Добавьте собственный CSS здесь"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:3
+msgid "Primary"
+msgstr "Первичный"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:7
+msgid "Secondary"
+msgstr "Вторичный"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:11
+msgid "Accent"
+msgstr "Акцент"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "Варианты в каждой строке"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "Вопросы в каждой строке"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "Максимальная ширина"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "Gutter"
+
+#. Description of the plugin
+msgid "Yet another powerful plugin."
+msgstr "Еще один мощный плагин."
+
+#. URI of the plugin
+msgid "https://totalpoll.com"
+msgstr "https://totalpoll.com"
+
+#. Author of the plugin
+msgid "TotalSuite"
+msgstr "TotalSuite"
+
+#. Author URI of the plugin
+msgid "http://totalsuite.net"
+msgstr "http://totalsuite.net"

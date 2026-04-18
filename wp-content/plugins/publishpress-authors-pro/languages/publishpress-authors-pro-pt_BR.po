@@ -1,0 +1,435 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Authors Pro\n"
+"POT-Creation-Date: 2024-12-17 00:21-0300\n"
+"PO-Revision-Date: 2024-12-18 00:53-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: publishpress-authors-pro.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: core/Installer.php:323
+#: core/Installer.php:323
+msgid "Facebook"
+msgstr "Facebook"
+
+#: core/Installer.php:328
+msgid "Please enter the full URL to your Facebook profile."
+msgstr "Digite o URL completo do seu perfil do Facebook."
+
+#: core/Installer.php:332
+msgid "Twitter"
+msgstr "Twitter"
+
+#: core/Installer.php:337
+msgid "Please enter the full URL to your Twitter profile."
+msgstr "Digite o URL completo do seu perfil do Twitter."
+
+#: core/Installer.php:341
+msgid "Instagram"
+msgstr "Instagram"
+
+#: core/Installer.php:346
+msgid "Please enter the full URL to your Instagram page."
+msgstr "Digite o URL completo da sua página do Instagram."
+
+#: core/Installer.php:350
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: core/Installer.php:355
+msgid "Please enter the full URL to your LinkedIn profile."
+msgstr "Digite o URL completo do seu perfil do LinkedIn."
+
+#: core/Installer.php:359
+msgid "YouTube"
+msgstr "YouTube"
+
+#: core/Installer.php:364
+msgid "Please enter the full URL to your YouTube channel."
+msgstr "Digite o URL completo do seu canal do YouTube."
+
+#: core/Installer.php:368
+msgid "TikTok"
+msgstr "TikTok"
+
+#: core/Installer.php:373
+msgid "Please enter the full URL to your TikTok profile."
+msgstr "Digite o URL completo do seu perfil do TikTok."
+
+#: core/Plugin.php:120 modules/author-boxes-pro/author-boxes-pro.php:277
+#: modules/author-boxes-pro/author-boxes-pro.php:357
+#: modules/author-boxes-pro/author-boxes-pro.php:437
+#: modules/author-boxes-pro/author-boxes-pro.php:515
+#: modules/author-boxes-pro/author-boxes-pro.php:593
+#: modules/author-boxes-pro/author-boxes-pro.php:746
+msgid "Authors"
+msgstr "Autores"
+
+#: core/Plugin.php:121
+msgid "Settings"
+msgstr "Configurações"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:62
+msgid "Author Boxes Pro"
+msgstr "Caixas de autores Pro"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:196
+msgid "Boxed (Categories)"
+msgstr "Encaixotado (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:197
+msgid "Two Columns (Categories)"
+msgstr "Duas colunas (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:198
+msgid "List Authors Inline (Categories)"
+msgstr "Lista de autores em linha (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:199
+msgid "List Authors Block (Categories)"
+msgstr "Lista de autores em bloco (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:200
+msgid "Simple Name Authors Block (Categories)"
+msgstr "Nome simples de autores em bloco (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:201
+msgid "Simple Name Authors Inline (Categories)"
+msgstr "Nome simples de autores em linha (categorias)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:276
+#: modules/author-boxes-pro/author-boxes-pro.php:356
+#: modules/author-boxes-pro/author-boxes-pro.php:436
+#: modules/author-boxes-pro/author-boxes-pro.php:514
+#: modules/author-boxes-pro/author-boxes-pro.php:592
+#: modules/author-boxes-pro/author-boxes-pro.php:745
+msgid "Author"
+msgstr "Autor"
+
+#: modules/author-list-pro/author-list-pro.php:62
+msgid "Author List Pro"
+msgstr "Lista de autores Pro"
+
+#: modules/author-list-pro/author-list-pro.php:109
+msgid "Authors Per Page"
+msgstr "Autores por página"
+
+#: modules/author-list-pro/author-list-pro.php:110
+msgid "You can set the number of authors to show per page."
+msgstr "Você pode definir o número de autores a serem exibidos por página."
+
+#: modules/author-list-pro/author-list-pro.php:119
+msgid "Show Empty"
+msgstr "Mostrar vazio"
+
+#: modules/author-list-pro/author-list-pro.php:120
+msgid ""
+"Enable this option to show all authors, including those without any posts. "
+"Disable this option to show only authors who are assigned to posts."
+msgstr ""
+"Ative esta opção para mostrar todos os autores, inclusive aqueles sem nenhum "
+"post. Desative esta opção para mostrar apenas os autores que estão "
+"atribuídos a posts."
+
+#: modules/author-list-pro/author-list-pro.php:127
+msgid "Order By"
+msgstr "Ordenar por"
+
+#: modules/author-list-pro/author-list-pro.php:131
+msgid "Name"
+msgstr "Nome"
+
+#: modules/author-list-pro/author-list-pro.php:132
+msgid "Post Counts"
+msgstr "Contagem de posts"
+
+#: modules/author-list-pro/author-list-pro.php:133
+msgid "First Name"
+msgstr "Nome"
+
+#: modules/author-list-pro/author-list-pro.php:134
+msgid "Last Name"
+msgstr "Sobrenome"
+
+#: modules/author-list-pro/author-list-pro.php:141
+msgid "Order"
+msgstr "Ordem"
+
+#: modules/author-list-pro/author-list-pro.php:145
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: modules/author-list-pro/author-list-pro.php:146
+msgid "Descending"
+msgstr "Descendente"
+
+#: modules/author-list-pro/author-list-pro.php:153
+msgid "Last Article Date"
+msgstr "Data do último artigo"
+
+#: modules/author-list-pro/author-list-pro.php:154
+msgid ""
+"You can limit the author list to users with a published post within a "
+"specific time. This option accepts date values such as 1 week ago, 1 month "
+"ago, 6 months ago, 1 year ago etc."
+msgstr ""
+"Você pode limitar a lista de autores a usuários com um post publicado dentro "
+"de um período específico. Esta opção aceita valores de data como 1 semana "
+"atrás, 1 mês atrás, 6 meses atrás, 1 ano atrás etc."
+
+#: modules/author-list-pro/author-list-pro.php:163
+msgid "Show Search Box"
+msgstr "Mostrar caixa de pesquisa"
+
+#: modules/author-list-pro/author-list-pro.php:171
+msgid "Search Field Dropdown"
+msgstr "Menu suspenso do campo de pesquisa"
+
+#: modules/author-list-pro/author-list-pro.php:172
+msgid ""
+"You can also show a dropdown menu that allows users to search on specific "
+"author fields."
+msgstr ""
+"Você também pode exibir um menu suspenso que permita aos usuários pesquisar "
+"em campos de autor específicos."
+
+#: modules/automap-author/automap-author.php:52
+msgid "Auto map authors to users"
+msgstr "Mapear automaticamente autores para usuários"
+
+#: modules/automap-author/automap-author.php:54
+msgid "Add bulk action to automatically map authors to users"
+msgstr ""
+"Adicione uma ação em massa para mapear automaticamente autores para usuários"
+
+#: modules/automap-author/automap-author.php:96
+msgid "Auto map guest authors to users by the slug"
+msgstr "Mapear automaticamente autores convidados para usuários pelo slug"
+
+#: modules/buddypress-integration/buddypress-integration.php:53
+msgid "BuddyPress Integration"
+msgstr "Integração com o BuddyPress"
+
+#: modules/buddypress-integration/buddypress-integration.php:55
+msgid "Add support for BuddyPress profile links."
+msgstr "Adicione suporte para links do perfil do BuddyPress."
+
+#: modules/buddypress-integration/buddypress-integration.php:121
+msgid "BuddyPress Profile Link"
+msgstr "Link do perfil do BuddyPress"
+
+#: modules/prosettings/prosettings.php:88
+msgid "Pro Settings"
+msgstr "Configurações do Pro"
+
+#: modules/prosettings/prosettings.php:138
+msgid "License key:"
+msgstr "Chave de licença:"
+
+#: modules/prosettings/prosettings.php:146
+msgid "Display PublishPress branding in the admin:"
+msgstr "Exibir a marca do PublishPress no painel administrativo:"
+
+#: modules/prosettings/prosettings.php:166
+msgid "Activated"
+msgstr "Ativado"
+
+#: modules/prosettings/prosettings.php:168
+msgid "Inactive"
+msgstr "Inativo"
+
+#: modules/prosettings/prosettings.php:178
+msgid "Status: "
+msgstr "Status: "
+
+#: modules/prosettings/prosettings.php:182
+msgid "Enter the license key for being able to update the plugin."
+msgstr "Digite a chave de licença para poder atualizar o plugin."
+
+#: modules/reviews-pro/reviews-pro.php:69
+msgid "Reviews Pro"
+msgstr "Avaliações Pro"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:57
+msgid "Shortcode Authors List"
+msgstr "Shortcode da lista de autores"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:59
+msgid "Add a shortcode for displaying list of authors"
+msgstr "Adicione um shortcode para exibir a lista de autores"
+
+#: publishpress-authors-pro.php:58
+#, php-format
+msgid "Please deactivate %1$s when %2$s is activated."
+msgstr "Desative %1$s quando %2$s estiver ativado."
+
+#. Plugin Name of the plugin/theme
+msgid "PublishPress Authors Pro"
+msgstr "PublishPress Authors Pro"
+
+#. Plugin URI of the plugin/theme
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#. Description of the plugin/theme
+msgid ""
+"PublishPress Authors allows you to add multiple authors and guest authors to "
+"WordPress posts."
+msgstr ""
+"O PublishPress Authors permite que você adicione vários autores e autores "
+"convidados aos posts do WordPress."
+
+#. Author of the plugin/theme
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#. Author URI of the plugin/theme
+msgid "https://publishpress.com"
+msgstr "https://publishpress.com"
+
+#, php-format
+#~ msgid "%1$s Image"
+#~ msgstr "%1$s imagem"
+
+#, php-format
+#~ msgid "%2$s"
+#~ msgstr "%2$s"
+
+#, php-format
+#~ msgid "%2$s list"
+#~ msgstr "Lista %2$s"
+
+#, php-format
+#~ msgid "%2$s list navigation"
+#~ msgstr "%2$s lista de navegação"
+
+#, php-format
+#~ msgid "Add New %1$s"
+#~ msgstr "Adicionar Novo %1$s"
+
+#~ msgid "Add support for custom fields in the author profiles."
+#~ msgstr "Adicione suporte para campos personalizados nos perfis do autor."
+
+#~ msgid "Custom Field"
+#~ msgstr "Campo personalizado"
+
+#, php-format
+#~ msgctxt "custom field post type menu name"
+#~ msgid "%2$s"
+#~ msgstr "%2$s"
+
+#, php-format
+#~ msgctxt "Custom Field post type name"
+#~ msgid "%2$s"
+#~ msgstr "%2$s"
+
+#~ msgid "Custom Field published."
+#~ msgstr "Campo publicado."
+
+#~ msgid "Custom Field saved."
+#~ msgstr "Campo salvo."
+
+#~ msgid "Custom Field submitted."
+#~ msgstr "Campo enviado."
+
+#~ msgid "Custom Field updated."
+#~ msgstr "Campo atualizado."
+
+#~ msgid "Custom Fields"
+#~ msgstr "Campos Personalizados"
+
+#~ msgid "Description"
+#~ msgstr "Descrição"
+
+#~ msgid "Details"
+#~ msgstr "Detalhes"
+
+#, php-format
+#~ msgid "Edit %1$s"
+#~ msgstr "Editar %1$s"
+
+#~ msgid "Field Slug"
+#~ msgstr "Slug do Campo"
+
+#~ msgid "Field Type"
+#~ msgstr "Tipo de Campo"
+
+#~ msgid "Fields"
+#~ msgstr "Campos"
+
+#, php-format
+#~ msgid "Filter %2$s list"
+#~ msgstr "Filtrar a lista %2$s"
+
+#, php-format
+#~ msgid "New %1$s"
+#~ msgstr "Novo %1$s"
+
+#, php-format
+#~ msgid "New %1s"
+#~ msgstr "Novo %1s"
+
+#, php-format
+#~ msgid "No %2$s found"
+#~ msgstr "Nenhum %2$s encontrado"
+
+#, php-format
+#~ msgid "No %2$s found in Trash"
+#~ msgstr "Nenhum %2$s encontrado na lixeira"
+
+#, php-format
+#~ msgid "Remove %1$s Image"
+#~ msgstr "Remover %1$s Imagem"
+
+#, php-format
+#~ msgid "Search %2$s"
+#~ msgstr "Pesquisar %2$s"
+
+#, php-format
+#~ msgid "Set %1$s Image"
+#~ msgstr "Definir %1$s Imagem"
+
+#, php-format
+#~ msgctxt "singular custom field post type name"
+#~ msgid "%1$s"
+#~ msgstr "%1$s"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid ""
+#~ "The slug allows only lowercase letters, numbers and underscore. It is "
+#~ "used as an author's attribute when referencing the field in the custom "
+#~ "layouts."
+#~ msgstr ""
+#~ "O slug permite apenas letras minúsculas, números e sublinhar. É usado "
+#~ "como atributo de autor ao fazer referência ao campo nos layouts "
+#~ "personalizados."
+
+#~ msgid ""
+#~ "This description appears under the fields and helps users understand "
+#~ "their choice."
+#~ msgstr ""
+#~ "Esta descrição aparece sob os campos e ajuda os usuários a entender sua "
+#~ "escolha."
+
+#, php-format
+#~ msgid "Use as %1$s Image"
+#~ msgstr "Use como %1$s Imagem"
+
+#, php-format
+#~ msgid "View %1$s"
+#~ msgstr "Visualizar %1$s"

@@ -1,0 +1,2202 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-17 22:01+0000\n"
+"PO-Revision-Date: 2019-03-14 19:58+0100\n"
+"Last-Translator: totalsuite <supporttotalsuite.net>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: src/Limitations/Period.php:61
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "ساعة واحدة"
+msgstr[1] "ساعتين"
+msgstr[2] "%h ساعات"
+msgstr[3] "%h ساعة"
+msgstr[4] "%h ساعات"
+msgstr[5] "%h ساعات"
+
+#: src/Limitations/Period.php:65
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "0 ثانية"
+msgstr[1] ""
+msgstr[2] "ثانيتان"
+msgstr[3] "%s ثوان"
+msgstr[4] "%s ثانية"
+msgstr[5] "%s ثانية"
+
+#: src/Poll/Model.php:632 src/Poll/Model.php:668
+#: src/Admin/Pages/Tools/Page.php:50
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "بدون أصوات"
+msgstr[1] "صوت واحد"
+msgstr[2] "صوتان"
+msgstr[3] "%s أصوات"
+msgstr[4] "%s صوت"
+msgstr[5] "%s صوت"
+
+#: src/Poll/Commands/CountVote.php:40
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "يجب التصويت لخيار واحد على الأقل"
+msgstr[1] "يجب التصويت لخيارين على الأقل"
+msgstr[2] "يجب التصويت على الأقل {{minimum}} خيارات."
+msgstr[3] "يجب التصويت على الأقل {{minimum}} خيار."
+msgstr[4] "يجب التصويت على الأقل {{minimum}} خيار."
+msgstr[5] ""
+
+#: src/Poll/Commands/CountVote.php:43
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "تستطيع التصويت لخيار واحدة فقط."
+msgstr[1] "تستطيع التصويت لخيارين فقط."
+msgstr[2] "تستطيع التصويت حتى  {{maximum}} خيارات."
+msgstr[3] "تستطيع التصويت حتى  {{maximum}} خيارات."
+msgstr[4] "تستطيع التصويت حتى  {{maximum}} خيار."
+msgstr[5] "تستطيع التصويت حتى  {{maximum}} خيار."
+
+#: src/PostTypes/Poll.php:47
+msgctxt "slug"
+msgid "poll"
+msgstr "تصويت"
+
+#: src/PostTypes/Poll.php:49
+msgctxt "slug"
+msgid "polls"
+msgstr "تصويتات"
+
+#: src/Admin/Poll/Editor.php:405
+msgid "Push"
+msgstr "Push"
+
+#: src/Admin/Poll/Editor.php:406
+msgid "WebHook"
+msgstr "WebHook"
+
+#: src/Admin/Poll/Editor.php:415
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "الصعود لبداية التصويت بعد إرسال التصويت."
+
+#: src/Admin/Poll/Editor.php:429
+msgid "Pagination"
+msgstr "الصفحات"
+
+#: src/Admin/Poll/Editor.php:446
+msgid "Maximum width"
+msgstr "العرض الأقصى"
+
+#: src/Admin/Poll/Editor.php:449
+msgid "Accent"
+msgstr "التمييز"
+
+#: src/Admin/Poll/Editor.php:454
+msgid "Inherit"
+msgstr "موروث"
+
+#: src/Admin/Poll/Editor.php:458
+msgid "Transform"
+msgstr "تحويل"
+
+#: src/Admin/Poll/Editor.php:334
+msgid "Extra"
+msgstr "المزيد"
+
+#: src/Admin/Poll/Editor.php:336
+msgid "Frequency"
+msgstr "التواتر"
+
+#: src/Admin/Poll/Editor.php:368
+msgid "Vote timeout"
+msgstr "مدة الصوت"
+
+#: src/Admin/Poll/Editor.php:370
+msgid "Sort"
+msgstr "ترتيب"
+
+#: src/Admin/Poll/Editor.php:373
+msgid "Position"
+msgstr "الموضع"
+
+#: src/Admin/Pages/Insights/views/index.php:19
+#: src/Admin/Pages/Entries/views/index.php:22
+#: src/Admin/Pages/Log/views/index.php:25
+msgid "Clear"
+msgstr "محو"
+
+#. Description of the plugin
+msgid "Yet another powerful plugin."
+msgstr "إضافة مميزة أخرى."
+
+#: src/Admin/Poll/Editor.php:472
+msgid "Ridge"
+msgstr "تمديد"
+
+#: src/Admin/Pages/Tools/views/index.php:5
+msgid "Debug"
+msgstr "معلومات الاستقصاء"
+
+#: src/Admin/Poll/Editor.php:234
+msgid "Move here"
+msgstr "التحريك لهنا"
+
+#: src/Admin/Poll/Editor.php:246
+msgid "Collapse"
+msgstr "طي"
+
+#: src/Admin/Poll/Editor.php:248
+msgid "Bulk"
+msgstr "أوامر بالجملة"
+
+#: src/Admin/Poll/Editor.php:431
+msgid "Media Contest"
+msgstr "Media Contest"
+
+#: src/Admin/Poll/Editor.php:433
+msgid "Versus"
+msgstr "Versus"
+
+#: src/Admin/Poll/Editor.php:435
+msgid "Twitter-like"
+msgstr "Twitter-like"
+
+#: src/Admin/Poll/Editor.php:436
+msgid "Facebook-like"
+msgstr "Facebook-like"
+
+#: src/Admin/Poll/Editor.php:437
+msgid "Opinion"
+msgstr "Opinion"
+
+#: src/Limitations/Period.php:57
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "0 أشهر"
+msgstr[1] "شهر واحد"
+msgstr[2] "شهرين"
+msgstr[3] "%m أشهر"
+msgstr[4] "%m شهر"
+msgstr[5] "%m أشهر"
+
+#: src/Limitations/Period.php:59
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "ولا يوم"
+msgstr[1] "يوم واحد"
+msgstr[2] "يومان"
+msgstr[3] "%d أيام"
+msgstr[4] "%d يوم"
+msgstr[5] "%d يوم"
+
+#: src/Limitations/Period.php:63
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "0 دقيقة"
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#: src/Admin/Poll/Editor.php:371
+msgid "Selection"
+msgstr "الاختيار"
+
+#: src/Admin/Poll/Editor.php:379
+msgid "User must vote at least for {{minimum}} choice(s)."
+msgstr "يجب التصويت ل {{minimum}} اختيارات على الأقل."
+
+#: src/Admin/Poll/Editor.php:380
+msgid "User can vote for up to {{maximum}} choice(s)."
+msgstr "يمكن التصويت ل {{maximum}} اختيارات على الأكثر."
+
+#: src/Admin/Poll/Editor.php:381
+msgid "Visibility"
+msgstr "الظهور"
+
+#: src/Admin/Poll/Editor.php:382
+msgid "Sort results by"
+msgstr "فرز النتائج عبر"
+
+#: src/Admin/Poll/Editor.php:383
+msgid "Show results for voters and non-voters"
+msgstr "عرض النتائج للمصوتين وغير المصوتين"
+
+#: src/Admin/Poll/Editor.php:384
+msgid "Show results for voters only"
+msgstr "عرض النتائج للمصوتين فقط"
+
+#: src/Admin/Poll/Editor.php:385
+msgid "Hide results"
+msgstr "إخفاء النتائج"
+
+#: src/Admin/Poll/Editor.php:386
+msgid "Hidden results message"
+msgstr "رسالة بديلة عن النتائج المخفية"
+
+#: src/Admin/Poll/Editor.php:387
+msgid "Until quota is reached"
+msgstr "حتى الوصول لحصة الأصوات"
+
+#: src/Admin/Poll/Editor.php:388
+msgid "Until end date is reached"
+msgstr "حتى الوصول لتاريخ الانتهاء"
+
+#: src/Admin/Poll/Editor.php:389
+msgid "Welcome"
+msgstr "أهلاً"
+
+#: src/Admin/Poll/Editor.php:390
+msgid "Thank you"
+msgstr "شكراً"
+
+#: src/Admin/Poll/Editor.php:391
+msgid "This content will be shown above question and choices."
+msgstr "سيتم عرض هذا المحتوى أعلى السؤال والاختيارات."
+
+#: src/Admin/Poll/Editor.php:392
+msgid "This content will be shown below question and choices."
+msgstr "سيتم عرض هذا المحتوى أسفل السؤال والاختيارات."
+
+#: src/Admin/Poll/Editor.php:393
+msgid "Above"
+msgstr "أعلى"
+
+#: src/Admin/Poll/Editor.php:394
+msgid "Below"
+msgstr "أسف"
+
+#: src/Admin/Poll/Editor.php:395
+msgid "This content will be shown above results."
+msgstr "سيتم عرض هذا المحتوى أعلى النتائج."
+
+#: src/Admin/Poll/Editor.php:396
+msgid "This content will be shown below results."
+msgstr "سيتم عرض هذا المحتوى أسفل النتائج."
+
+#: src/Admin/Poll/Editor.php:397
+msgid "Websites"
+msgstr "المواقع"
+
+#: src/Admin/Poll/Editor.php:399
+msgid "Title"
+msgstr "العنوان"
+
+#: src/Admin/Poll/Editor.php:400
+msgid "Description"
+msgstr "الوصف"
+
+#: src/Admin/Poll/Editor.php:401
+msgid "Characters left."
+msgstr "حرف متبقي."
+
+#: src/Admin/Poll/Editor.php:402
+msgid "Template variables"
+msgstr "متغيرات القالب"
+
+#: src/Admin/Poll/Editor.php:403
+msgid "{{title}} for poll title."
+msgstr "{{title}} لعنوان التصويت."
+
+#: src/Admin/Poll/Editor.php:404
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}} لعنوان الموقع."
+
+#: src/Admin/Poll/Editor.php:407
+msgid "Recipient email"
+msgstr "بريد المستلم"
+
+#: src/Admin/Poll/Editor.php:408
+msgid "Send notification when"
+msgstr "إرسال إشعار عندما"
+
+#: src/Admin/Poll/Editor.php:409
+msgid "New vote has been casted"
+msgstr "يكون هناك تصويت جديد"
+
+#: src/Admin/Poll/Editor.php:410
+msgid "Push ID"
+msgstr "معرف Push"
+
+#: src/Admin/Poll/Editor.php:411
+msgid "URL"
+msgstr "الرابط"
+
+#: src/Admin/Poll/Editor.php:412
+msgid "Captcha"
+msgstr "Captcha"
+
+#: src/Admin/Poll/Editor.php:413
+msgid "Site key"
+msgstr "Site key"
+
+#: src/Admin/Poll/Editor.php:414
+msgid "Site secret"
+msgstr "Site secret"
+
+#: src/Admin/Poll/Editor.php:416
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "سيتمكن المستخدم من التصويت عند الضغط على أحد الاختيارات مباشرة."
+
+#: src/Admin/Poll/Editor.php:417
+msgid "Animation and transition duration"
+msgstr "مدة الحركة والانتقال"
+
+#: src/Admin/Poll/Editor.php:418
+msgid "How many choices should be displayed per page."
+msgstr "ما هو عدد الاختيارات التي يجب أن تعرض في كل صفحة."
+
+#: src/Admin/Poll/Editor.php:419
+msgid "Add your own CSS here"
+msgstr "أضف CSS الخاص بك هنا"
+
+#: src/Admin/Poll/Editor.php:420
+msgid "Active template"
+msgstr "القالب المفعّل"
+
+#: src/Admin/Poll/Editor.php:421
+msgid "Change"
+msgstr "تغيير"
+
+#: src/Admin/Poll/Editor.php:422
+msgid "Customize"
+msgstr "تخصيص"
+
+#: src/Admin/Poll/Editor.php:423 src/Admin/Pages/Modules/views/index.php:8
+msgid "Templates"
+msgstr "القوالب"
+
+#: src/Admin/Poll/Editor.php:424
+msgid "Layout"
+msgstr "الإطار"
+
+#: src/Admin/Poll/Editor.php:425
+msgid "Colors"
+msgstr "الألوان"
+
+#: src/Admin/Poll/Editor.php:426
+msgid "Elements"
+msgstr "العناصر"
+
+#: src/Admin/Poll/Editor.php:427
+msgid "Behaviours"
+msgstr "السلوك"
+
+#: src/Admin/Poll/Editor.php:428
+msgid "Effects"
+msgstr "التأثيرات"
+
+#: src/Admin/Poll/Editor.php:430
+msgid "Custom CSS"
+msgstr "CSS مخصص"
+
+#: src/Admin/Poll/Editor.php:432
+msgid "Use"
+msgstr "استخدام"
+
+#: src/Admin/Poll/Editor.php:434
+msgid "Active"
+msgstr "مفعّل"
+
+#: src/Admin/Poll/Editor.php:438
+msgid "Customized Template"
+msgstr "قوالب مخصصة"
+
+#: src/Admin/Poll/Editor.php:439 src/Admin/Pages/Modules/views/manager.php:21
+msgid "By"
+msgstr "بواسطة"
+
+#: src/Admin/Poll/Editor.php:440
+#: src/Admin/Pages/Dashboard/views/whats-new.php:6
+#: src/Admin/Pages/Modules/views/manager.php:64
+msgid "Version"
+msgstr "الإصدار"
+
+#: src/Admin/Poll/Editor.php:441
+msgid "Customization service"
+msgstr "خدمة التخصيص"
+
+#: src/Admin/Poll/Editor.php:442
+msgid "Get Quote"
+msgstr "الحصول على تسعيرة"
+
+#: src/Admin/Poll/Editor.php:443
+msgid "Choices per row"
+msgstr "الاختيارات في كل سطر"
+
+#: src/Admin/Poll/Editor.php:444
+msgid "Questions per row"
+msgstr "الأسئلة في كل سطر"
+
+#: src/Admin/Poll/Editor.php:445
+msgid "Question by question"
+msgstr "سؤال بعد سؤال"
+
+#: src/Admin/Poll/Editor.php:447
+msgid "Primary"
+msgstr "أساسي"
+
+#: src/Admin/Poll/Editor.php:448
+msgid "Secondary"
+msgstr "ثانوي"
+
+#: src/Admin/Poll/Editor.php:450
+msgid "Font family"
+msgstr "عائلة الخط"
+
+#: src/Admin/Poll/Editor.php:451
+msgid "Font size"
+msgstr "حجم الخط"
+
+#: src/Admin/Poll/Editor.php:452
+msgid "Line height"
+msgstr "ارتفاع السطر"
+
+#: src/Admin/Poll/Editor.php:453
+msgid "Align"
+msgstr "محاذاة"
+
+#: src/Admin/Poll/Editor.php:455
+msgid "Right"
+msgstr "يمين"
+
+#: src/Admin/Poll/Editor.php:456
+msgid "Center"
+msgstr "وسط"
+
+#: src/Admin/Poll/Editor.php:457
+msgid "Left"
+msgstr "يسار"
+
+#: src/Admin/Poll/Editor.php:459
+msgid "Normal"
+msgstr "عادي"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:7
+msgid ""
+"TotalPoll's interface was built with you in mind! You could create a poll in "
+"two minutes or less."
+msgstr ""
+"تم تصميم واجهة TotalPoll خصيصاً لك! يمكنك إنشاء تصويتك في دقيقتين أو أقل."
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:11
+msgid "New features"
+msgstr "مزايا جديدة"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:12
+msgid ""
+"TotalPoll 4.0 brings a lot of new features like multiple questions, live "
+"preview and insights."
+msgstr ""
+"يقدم TotalPoll 4.0 العديد من المميزات الجديدة مثل الأسئلة المتعددة، المعاينة "
+"المباشرة واللمحات."
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:16
+msgid "Together is Better"
+msgstr "معاً أفضل"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:17
+msgid "TotalSuite brings essential tools together in a robust suite."
+msgstr "تأتي TotalSuite بأدوات أساسية في حزمة مميزة."
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:34
+msgid ""
+"Here is a playlist of 5 videos that covers the most basic tasks to start "
+"your journey with TotalPoll."
+msgstr ""
+"هذه قائمة ب 5 مقاطع فيديو والتي تشمل معلومات عن المهام الأساسية لتبدأ رحلتك "
+"مع TotalPoll."
+
+#: src/Admin/Poll/Editor.php:284
+msgid "Run user input against a regular expression."
+msgstr "مقارنة مدخل المستخدم بتعبير قياسي."
+
+#: src/Admin/Poll/Editor.php:285
+msgid "Must be a valid regular expression."
+msgstr "يجب أن يكون التعبير القياسي صالح."
+
+#: src/Admin/Poll/Editor.php:286
+msgid "Error message"
+msgstr "رسالة الخطأ"
+
+#: src/Admin/Poll/Editor.php:287
+msgid "This message will be shown if the validation failed."
+msgstr "سوف تظهر هذه الرسالة في حال فشل التحقق."
+
+#: src/Admin/Poll/Editor.php:288
+msgid "{{label}} for a field label."
+msgstr "{{label}} لعنوان الحقل."
+
+#: src/Admin/Poll/Editor.php:289
+msgid "Comparison"
+msgstr "وجه المقارنة"
+
+#: src/Admin/Poll/Editor.php:290
+msgid "Must match"
+msgstr "يجب العثور"
+
+#: src/Admin/Poll/Editor.php:291
+msgid "Must not match"
+msgstr "يجب عدم العثور"
+
+#: src/Admin/Poll/Editor.php:292
+msgid "Field CSS classes"
+msgstr "CSS classes للحقل"
+
+#: src/Admin/Poll/Editor.php:293
+msgid "Field classes"
+msgstr "Field classes"
+
+#: src/Admin/Poll/Editor.php:294
+msgid "Template"
+msgstr "القالب"
+
+#: src/Admin/Poll/Editor.php:295
+msgid "Field template"
+msgstr "قالب الحقل"
+
+#: src/Admin/Poll/Editor.php:296
+msgid "full column"
+msgstr "عمود كامل"
+
+#: src/Admin/Poll/Editor.php:297
+msgid "1/2 column"
+msgstr "نصف عمود"
+
+#: src/Admin/Poll/Editor.php:298
+msgid "1/3 column"
+msgstr "ثلث عمود"
+
+#: src/Admin/Poll/Editor.php:299
+msgid "{{label}} for field label."
+msgstr "{{label}} لعنوان الحقل."
+
+#: src/Admin/Poll/Editor.php:300
+msgid "{{errors}} for field errors."
+msgstr "{{errors}} لأخطاء الحقل."
+
+#: src/Admin/Poll/Editor.php:301
+msgid "{{field}} for field input."
+msgstr "{{field}} لمدخل الحقل."
+
+#: src/Admin/Poll/Editor.php:303
+msgid "Filter"
+msgstr "تصفية"
+
+#: src/Admin/Poll/Editor.php:304
+msgid "Random Votes"
+msgstr "أصوات عشوائية"
+
+#: src/Admin/Poll/Editor.php:305
+msgid "Shuffle"
+msgstr "خلط"
+
+#: src/Admin/Poll/Editor.php:306
+msgid "Reset Votes"
+msgstr "إعادة تعيين الأصوات"
+
+#: src/Admin/Poll/Editor.php:307
+msgid "One choice per line."
+msgstr "اختيار واحد لكل سطر"
+
+#: src/Admin/Poll/Editor.php:308
+msgid "Image"
+msgstr "صورة"
+
+#: src/Admin/Poll/Editor.php:309
+msgid "Video"
+msgstr "فيديو"
+
+#: src/Admin/Poll/Editor.php:310
+msgid "Audio"
+msgstr "صوت"
+
+#: src/Admin/Poll/Editor.php:311
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr "لا يوجد اختيارات بعد. قم بإضافة بعضها باستخدام الأزرار بالأسفل."
+
+#: src/Admin/Poll/Editor.php:313 src/Admin/Poll/Listing.php:64
+#: src/Admin/Pages/Tools/Page.php:45
+#: src/Admin/Pages/Dashboard/views/overview.php:24
+msgid "Votes"
+msgstr "الأصوات"
+
+#: src/Admin/Poll/Editor.php:314
+msgid "Choice label"
+msgstr "عنوان الاختيار"
+
+#: src/Admin/Poll/Editor.php:315
+msgid "Image URL"
+msgstr "رابط الصورة"
+
+#: src/Admin/Poll/Editor.php:316
+msgid "Full size image URL"
+msgstr "رابط الصورة بحجم كامل"
+
+#: src/Admin/Poll/Editor.php:317
+msgid "Upload"
+msgstr "رفع"
+
+#: src/Admin/Poll/Editor.php:318
+msgid "Thumbnail URL"
+msgstr "رابط الصورة المصغرة"
+
+#: src/Admin/Poll/Editor.php:319
+msgid "Thumbnail image URL"
+msgstr "رابط الصورة المصغرة"
+
+#: src/Admin/Poll/Editor.php:320
+msgid "Available sizes"
+msgstr "الأحجام المتوفرة"
+
+#: src/Admin/Poll/Editor.php:321
+msgid "Video URL"
+msgstr "رابط الفيديو"
+
+#: src/Admin/Poll/Editor.php:322
+msgid "Full size video URL"
+msgstr "رابط الفيديو بالحجم الكامل"
+
+#: src/Admin/Poll/Editor.php:323
+msgid "Import information from {{provider}}?"
+msgstr "استيراد المعلومات من {{provider}}؟"
+
+#: src/Admin/Poll/Editor.php:324
+msgid "Yes"
+msgstr "نعم"
+
+#: src/Admin/Poll/Editor.php:325
+msgid "No"
+msgstr "لا"
+
+#: src/Admin/Poll/Editor.php:326
+msgid "Audio URL"
+msgstr "رابط الصوت"
+
+#: src/Admin/Poll/Editor.php:327
+msgid "Full size audio URL"
+msgstr "رابط الصوت بالمدة الكاملة"
+
+#: src/Admin/Poll/Editor.php:331
+msgid "Share"
+msgstr "مشاركة"
+
+#: src/Admin/Poll/Editor.php:332
+msgid "SEO"
+msgstr "SEO"
+
+#: src/Admin/Poll/Editor.php:333
+msgid "Notifications"
+msgstr "الإشعارات"
+
+#: src/Admin/Poll/Editor.php:335
+msgid "Limitations"
+msgstr "القيود"
+
+#: src/Admin/Poll/Editor.php:337
+msgid "Voting will be closed before reaching this date."
+msgstr "سوف يتم إغلاق التصويت قبل الوصول لهذا التاريخ."
+
+#: src/Admin/Poll/Editor.php:338
+msgid "Voting will be closed after reaching this date."
+msgstr "سوف يتم إغلاق التصويت عند الوصول لهذا التاريخ."
+
+#: src/Admin/Poll/Editor.php:339
+msgid "The membership types that can vote."
+msgstr "أنواع العضوية التي يمكنها التصويت."
+
+#: src/Admin/Poll/Editor.php:340
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "حصة عدد الأصوات والتي لن يقبل أي صوت بعد وصولها."
+
+#: src/Admin/Poll/Editor.php:341
+msgid "Time period"
+msgstr "الإطار الزمني"
+
+#: src/Admin/Poll/Editor.php:342
+msgid "Start date"
+msgstr "تاريخ البدء"
+
+#: src/Admin/Poll/Editor.php:343
+msgid "End date"
+msgstr "تاريخ الانتهاء"
+
+#: src/Admin/Poll/Editor.php:344
+msgid "Membership"
+msgstr "العضوية"
+
+#: src/Admin/Poll/Editor.php:345
+msgid "Required membership roles"
+msgstr "أنواع العضوية"
+
+#: src/Admin/Poll/Editor.php:346
+msgid "Hold Control/Command for multiple selection."
+msgstr "استخدم مفتاح Control/CMD للتحديد المتعدد."
+
+#: src/Admin/Poll/Editor.php:347
+msgid "Quota"
+msgstr "حصة الأصوات"
+
+#: src/Admin/Poll/Editor.php:348
+msgid "Number of votes"
+msgstr "عدد الأصوات"
+
+#: src/Admin/Poll/Editor.php:349
+msgid "Region (IP based)"
+msgstr "المنطقة (باستخدام IP)"
+
+#: src/Admin/Poll/Editor.php:350
+msgid "Type"
+msgstr "النوع"
+
+#: src/Admin/Poll/Editor.php:351 src/Admin/Pages/Log/views/index.php:14
+#: src/Admin/Pages/Log/views/index.php:39
+msgid "IP"
+msgstr "IP"
+
+#: src/Admin/Poll/Editor.php:352
+msgid "Allow"
+msgstr "سماح"
+
+#: src/Admin/Poll/Editor.php:353
+msgid "Deny"
+msgstr "حظر"
+
+#: src/Admin/Poll/Editor.php:354
+msgid "Value"
+msgstr "القيمة"
+
+#: src/Admin/Poll/Editor.php:355
+msgid "Add new rule"
+msgstr "إضافة قاعدة جديدة"
+
+#: src/Admin/Poll/Editor.php:356
+msgid "Add new value"
+msgstr "إضافة قيمة جديدة"
+
+#: src/Admin/Poll/Editor.php:357
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "الطرق المستخدم للحد من تجاوز حدود التصويت."
+
+#: src/Admin/Poll/Editor.php:358
+msgid "How many times can the user vote using the same session."
+msgstr "كم من المرات يمكن للمستخدم التصويت باستخدام نفس الجلسة."
+
+#: src/Admin/Poll/Editor.php:359
+msgid "How many times can the authenticated user vote."
+msgstr "كم من المرات يمكن للمستخدم الذي قام بتسجيل دخوله بالتصويت."
+
+#: src/Admin/Poll/Editor.php:360
+msgid "How many times can the user vote using the same IP."
+msgstr "كم من المرات يمكن للمستخدم التصويت باستخدام نفس IP."
+
+#: src/Admin/Poll/Editor.php:361
+msgid "The time period before the user can vote again."
+msgstr "المدة الزمنية قبل أن يتمكن المستخدم من التصويت مجدداً."
+
+#: src/Admin/Poll/Editor.php:362
+msgid "Block based on"
+msgstr "حظر باستخدام"
+
+#: src/Admin/Poll/Editor.php:363
+msgid "Cookies"
+msgstr "Cookies"
+
+#: src/Admin/Poll/Editor.php:364
+msgid "Authenticated user"
+msgstr "تسجيل الدخول"
+
+#: src/Admin/Poll/Editor.php:365
+msgid "Votes per session"
+msgstr "الأصوات في كل جلسة"
+
+#: src/Admin/Poll/Editor.php:366
+msgid "Votes per user"
+msgstr "الأصوات لكل مستخدم مسجل الدخول"
+
+#: src/Admin/Poll/Editor.php:367
+msgid "Votes per IP"
+msgstr "الأصوات لكل IP"
+
+#: src/Admin/Poll/Editor.php:369
+msgid "0 means permanent."
+msgstr "0 يعني لا نهائي."
+
+#: src/Admin/Poll/Editor.php:372
+msgid "Sort choices by"
+msgstr "ترتيب الاختيارات حسب"
+
+#: src/Admin/Poll/Editor.php:374 src/Admin/Pages/Log/views/index.php:13
+#: src/Admin/Pages/Log/views/index.php:38
+msgid "Date"
+msgstr "التاريخ"
+
+#: src/Admin/Poll/Editor.php:375
+msgid "Random"
+msgstr "عشوائي"
+
+#: src/Admin/Poll/Editor.php:376
+msgid "Direction"
+msgstr "الاتجاه"
+
+#: src/Admin/Poll/Editor.php:377
+msgid "Descending"
+msgstr "تنازلي"
+
+#: src/Admin/Poll/Editor.php:378
+msgid "Ascending"
+msgstr "تصاعدي"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:33
+msgid "Visual Learner?"
+msgstr "متعلم مرئي؟"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:39
+msgid "Create your first poll"
+msgstr "أنشئ تصويتك الأول"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:45
+msgid "Settings overview"
+msgstr "نظرة عامة للإعدادات"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:51
+msgid "Design customization"
+msgstr "تخصيص التصميم"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:63
+msgid "Publish"
+msgstr "نشر"
+
+#: src/Admin/Pages/Insights/views/index.php:9
+#: src/Admin/Pages/Entries/views/index.php:12
+msgid "Please select a poll"
+msgstr "يرجى اختيار تصويت"
+
+#: src/Admin/Pages/Insights/views/index.php:13
+#: src/Admin/Pages/Entries/views/index.php:16
+#: src/Admin/Pages/Log/views/index.php:19
+msgid "From"
+msgstr "من"
+
+#: src/Admin/Pages/Insights/views/index.php:15
+#: src/Admin/Pages/Entries/views/index.php:18
+#: src/Admin/Pages/Log/views/index.php:21
+msgid "To"
+msgstr "إلى"
+
+#: src/Admin/Pages/Insights/views/index.php:22
+#: src/Admin/Pages/Entries/views/index.php:25
+#: src/Admin/Pages/Log/views/index.php:28
+msgid "Apply"
+msgstr "تطبيق"
+
+#: src/Admin/Pages/Entries/views/index.php:43
+#: src/Admin/Pages/Log/views/index.php:57
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "لا شيء هنا."
+
+#: src/Admin/Pages/Entries/views/index.php:53
+#: src/Admin/Pages/Log/views/index.php:67
+#: modules/templates/Basic/views/preview/shared/footer.php:4
+msgid "Previous"
+msgstr "السابق"
+
+#: src/Admin/Pages/Entries/views/index.php:55
+#: src/Admin/Pages/Log/views/index.php:69
+#: modules/templates/Basic/views/preview/shared/footer.php:7
+msgid "Next"
+msgstr "التالي"
+
+#: src/Admin/Pages/Entries/views/index.php:59
+#: src/Admin/Pages/Log/views/index.php:73
+msgid "Download as"
+msgstr "تحميل ك"
+
+#: src/Admin/Pages/Entries/views/index.php:64
+#: src/Admin/Pages/Log/views/index.php:78
+msgid "JSON"
+msgstr "JSON"
+
+#: src/Admin/Pages/Entries/views/index.php:66
+#: src/Admin/Pages/Log/views/index.php:80
+msgid "CSV"
+msgstr "CSV"
+
+#: src/Admin/Pages/Modules/views/index.php:5
+#: src/Admin/Pages/Modules/views/manager.php:30
+#: src/Admin/Pages/Modules/views/install.php:20
+msgid "Install"
+msgstr "تثبيت"
+
+#: src/Admin/Pages/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "الملحقات"
+
+#: src/Admin/Pages/Modules/views/index.php:14
+msgid "Downloads"
+msgstr "التحميلات"
+
+#: src/Admin/Pages/Modules/views/manager.php:35
+msgid "Buy"
+msgstr "شراء"
+
+#: src/Admin/Pages/Modules/views/manager.php:40
+msgid "Update"
+msgstr "تحديث"
+
+#: src/Admin/Pages/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "إزالة"
+
+#: src/Admin/Pages/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "تعطيل"
+
+#: src/Admin/Pages/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in a .zip format, you may install it by "
+"uploading it here."
+msgstr "إذا كان لديك قالب أو ملحق بصيغة .zip، يمكنك تثبيته عبر رفعه هنا."
+
+#: src/Admin/Pages/Log/views/index.php:11
+#: src/Admin/Pages/Log/views/index.php:36
+msgid "Status"
+msgstr "الحالة"
+
+#: src/Admin/Pages/Log/views/index.php:12
+#: src/Admin/Pages/Log/views/index.php:37
+msgid "Action"
+msgstr "الإجراء"
+
+#: src/Admin/Pages/Log/views/index.php:15
+#: src/Admin/Pages/Log/views/index.php:40
+msgid "Browser"
+msgstr "المتصفح"
+
+#: src/Admin/Pages/Log/views/index.php:16
+#: src/Admin/Pages/Log/views/index.php:41
+msgid "Details"
+msgstr "التفاصيل"
+
+#: src/Admin/Poll/views/form/fields.php:30
+msgid "One field per line."
+msgstr "حقل لكل سطر"
+
+#: src/Admin/Poll/views/integration/rest.php:92
+msgid "REST API are available only in WordPress 4.4"
+msgstr "REST API متوفر فقط في إصدار ووردبريس 4.4"
+
+#. URI of the plugin
+msgid "https://totalpoll.com"
+msgstr "https://totalpoll.com"
+
+#. Author of the plugin
+msgid "TotalSuite"
+msgstr "مسك تك"
+
+#. Author URI of the plugin
+msgid "http://totalsuite.net"
+msgstr "http://totalsuite.net"
+
+#: src/Admin/Poll/Editor.php:460
+msgid "UPPERCASE"
+msgstr "حروف كبيرة (UPPERCASE)"
+
+#: src/Admin/Poll/Editor.php:461
+msgid "lowercase"
+msgstr "حروف صغيرة (lowercase)"
+
+#: src/Admin/Poll/Editor.php:462
+msgid "Capitalize"
+msgstr "بدايات بحروف كبيرة (Capitalize)"
+
+#: src/Admin/Poll/Editor.php:463
+msgid "Container"
+msgstr "حاوية"
+
+#: src/Admin/Poll/Editor.php:464
+msgid "Message"
+msgstr "رسالة"
+
+#: src/Admin/Poll/Editor.php:465
+msgid "Button"
+msgstr "زر"
+
+#: src/Admin/Poll/Editor.php:466
+msgid "Solid"
+msgstr "مصمت"
+
+#: src/Admin/Poll/Editor.php:467
+msgid "Double"
+msgstr "مضاعف"
+
+#: src/Admin/Poll/Editor.php:468
+msgid "Dashed"
+msgstr "متقطع"
+
+#: src/Admin/Poll/Editor.php:469
+msgid "Dotted"
+msgstr "منقّط"
+
+#: src/Admin/Poll/Editor.php:470
+msgid "Groove"
+msgstr "مخدد"
+
+#: src/Admin/Poll/Editor.php:471
+msgid "Hidden"
+msgstr "مخفي"
+
+#: src/Admin/Poll/Editor.php:473
+msgid "Padding"
+msgstr "الحاشية"
+
+#: src/Admin/Poll/Editor.php:474
+msgid "Background"
+msgstr "الخلفية"
+
+#: src/Admin/Poll/Editor.php:475
+msgid "Top"
+msgstr "أعلى"
+
+#: src/Admin/Poll/Editor.php:476
+msgid "Bottom"
+msgstr "أسفل"
+
+#: src/Admin/Poll/Editor.php:477
+msgid "Color"
+msgstr "اللون"
+
+#: src/Admin/Poll/Editor.php:478
+msgid "Background (error)"
+msgstr "الخلفية (خطأ)"
+
+#: src/Admin/Poll/Editor.php:479
+msgid "Color (error)"
+msgstr "اللون (خطأ)"
+
+#: src/Admin/Poll/Editor.php:480
+msgid "Scroll up after vote submission"
+msgstr "صعود الصفحة للأعلى بعد التصويت"
+
+#: src/Admin/Poll/Editor.php:481
+msgid "One-click vote"
+msgstr "تصويت بضغطة واحدة"
+
+#: src/Admin/Poll/Editor.php:482
+msgid "Transition"
+msgstr "التأثير"
+
+#: src/Admin/Poll/Editor.php:483
+msgid "None"
+msgstr "لا شيء"
+
+#: src/Admin/Poll/Editor.php:484
+msgid "Fade"
+msgstr "تلاشي"
+
+#: src/Admin/Poll/Editor.php:485
+msgid "Slide"
+msgstr "انزلاق"
+
+#: src/Admin/Poll/Editor.php:486
+msgid "Animation duration"
+msgstr "مدة الحركة"
+
+#: src/Admin/Poll/Editor.php:487
+msgid "Choices per page"
+msgstr "عدد الاختيارات لكل صفحة"
+
+#: src/Admin/Poll/Editor.php:488
+msgid "Shortcode"
+msgstr "رمز قصير"
+
+#: src/Admin/Poll/Editor.php:489
+msgid "Widget"
+msgstr "ودج"
+
+#: src/Admin/Poll/Editor.php:490
+msgid "WordPress feature"
+msgstr "ميزة WordPress"
+
+#: src/Admin/Poll/Editor.php:491
+msgid "Direct link"
+msgstr "رابط مباشر"
+
+#: src/Admin/Poll/Editor.php:492
+msgid "Standard link"
+msgstr "رابط قياسي"
+
+#: src/Admin/Poll/Editor.php:493
+msgid "Embed"
+msgstr "تضمين"
+
+#: src/Admin/Poll/Editor.php:494
+msgid "External inclusion"
+msgstr "تضمين خارجي"
+
+#: src/Admin/Poll/Editor.php:495
+msgid "Copy shortcode"
+msgstr "نسخ الرمز القصير"
+
+#: src/Admin/Poll/Editor.php:496
+msgid "Start by copying the following shortcode:"
+msgstr "ابدأ بنسخ الرمز القصير التالي:"
+
+#: src/Admin/Poll/Editor.php:497
+msgid "Copy"
+msgstr "نسخ"
+
+#: src/Admin/Poll/Editor.php:498
+msgid "Paste the shortcode"
+msgstr "الصق الرمز القصير"
+
+#: src/Admin/Poll/Editor.php:499
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr "الصق الرمز القصير في مكان يدعم الرموز القصيرة مثل الصفحات أو المقالات."
+
+#: src/Admin/Poll/Editor.php:500
+msgid "Preview"
+msgstr "معاينة"
+
+#: src/Admin/Poll/Editor.php:501
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr "قم بفتح الصفحة التي تحمل الرمز القصير لتجربة تصويتك."
+
+#: src/Admin/Poll/Editor.php:502
+msgid "Copy the link"
+msgstr "انسخ الرابط"
+
+#: src/Admin/Poll/Editor.php:503
+msgid "Start by copying the following link:"
+msgstr "ابدأ بنسخ الرابط التالي:"
+
+#: src/Admin/Poll/Editor.php:504
+msgid "Paste the link"
+msgstr "الصق الرابط"
+
+#: src/Admin/Poll/Editor.php:505
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr "الصق الرابط في أي مكان مثل الصفحات أو المقالات."
+
+#: src/Admin/Poll/Editor.php:506
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr "قم بفتح الصفحة التي تحمل الرابط لتجربة تصويتك."
+
+#: src/Admin/Poll/Editor.php:507
+msgid "Copy code"
+msgstr "انسخ الرمز"
+
+#: src/Admin/Poll/Editor.php:508
+msgid "Start by copying the following HTML code:"
+msgstr "ابدأ بنسخ رمز HTML التالي:"
+
+#: src/Admin/Poll/Editor.php:509
+msgid "Paste the code"
+msgstr "الصق الرمز"
+
+#: src/Admin/Poll/Editor.php:510
+msgid "Paste the copied code into an HTML page."
+msgstr "الصق الرمز في صفحة HTML."
+
+#: src/Admin/Poll/Editor.php:511
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr "قم بفتح الصفحة التي تحمل الرمز لتجربة تصويتك."
+
+#: src/Admin/Poll/Editor.php:512
+msgid "Are you sure?"
+msgstr "هل أنت متأكد؟"
+
+#: src/Admin/Poll/Editor.php:513
+msgid "Unfortunately, your browser does not support push notifications."
+msgstr "المعذرة، متصفحك لا يدعم الإخطارات اللحظية."
+
+#: src/Admin/Poll/Editor.php:514
+msgid "Setup push notification"
+msgstr "إعداد الإخطار اللحظي"
+
+#: src/Admin/Poll/Editor.php:515
+msgid "Do you want to receive notifications from TotalPoll?"
+msgstr "هل تريد استلام إخطارات من TotalPoll؟"
+
+#: src/Admin/Poll/Editor.php:516
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "سيستلم هذا الرابط طلب HTTP POST بالمحتوى التالي:"
+
+#: src/Admin/Poll/Editor.php:517
+msgid "Get one"
+msgstr "الحصول على واحد"
+
+#: src/Admin/Poll/Editor.php:518
+msgid ""
+"ATTENTION! Overriding votes is not reversible. Are you sure you want to "
+"override votes?"
+msgstr ""
+"تنبيه! تغيير الأصوات لا يمكن استرجاعه. هل أنت متأكد بأنك تود تغيير الأصوات؟"
+
+#: src/Poll/Commands/CountVote.php:33
+msgid "All questions must be answered."
+msgstr "يجب الإجابة على جميع الأسئلة."
+
+#: src/Poll/Commands/CountVote.php:52
+msgid "Unknown choice. Please try again."
+msgstr "اختيار غير معروف. يرجى المحاولة مرة أخرى."
+
+#: src/Poll/Commands/CountVote.php:62
+msgid "Something went wrong. Please try again."
+msgstr "حصل خطب ما. يرجى المحاولة مرة أخرى"
+
+#: src/Poll/Commands/SendNotifications.php:29
+#, php-format
+msgid "New vote on %s"
+msgstr "تصويت جديد على %s"
+
+#: src/Poll/Commands/SendNotifications.php:36
+#, php-format
+msgid "Someone just voted for \"%s\" on %s"
+msgstr "أحد ما قام بالتصويت للتو ل \"%s\" على \"%s\""
+
+#: src/Admin/Pages/Tools/Page.php:51
+#, php-format
+msgid "%s Votes"
+msgstr "%s أصوات"
+
+#: src/Admin/Pages/Tools/Page.php:57
+msgid "Buttons"
+msgstr "الأزرار"
+
+#: src/Admin/Pages/Tools/Page.php:62
+msgid "Previous page"
+msgstr "الصفحة السابقة"
+
+#: src/Admin/Pages/Tools/Page.php:67
+msgid "Next page"
+msgstr "الصفحة التالية"
+
+#: src/Admin/Pages/Tools/Page.php:82
+#: modules/templates/Basic/views/preview/shared/footer.php:16
+msgid "Back"
+msgstr "العودة"
+
+#: src/Admin/Pages/Tools/Page.php:87
+msgid "Proceed"
+msgstr "الاستمرار"
+
+#: src/Admin/Pages/Tools/Page.php:93
+msgid "Errors"
+msgstr "الأخطاء"
+
+#: src/Admin/Pages/Tools/Page.php:99
+msgid "You cannot vote again in this poll."
+msgstr "لا يمكنك التصويت مجدداً في هذا التصويت."
+
+#: src/Admin/Pages/Tools/Page.php:105
+msgid "You have to vote for at least one choice."
+msgstr "يجب عليك التصويت لاختيار واحد على الأقل."
+
+#: src/Admin/Pages/Tools/Page.php:106
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "يجب عليك التصويت ل %d اختيارات على الأقل."
+
+#: src/Admin/Pages/Tools/Page.php:112
+msgid "You cannot vote for more than one choice."
+msgstr "لا يمكنك التصويت لأكثر من اختيار واحد."
+
+#: src/Admin/Pages/Tools/Page.php:113
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "لا يمكنك التصويت لأكثر من %d اختيارات."
+
+#: src/Admin/Pages/Tools/Page.php:119
+msgid "You have entered an invalid captcha code."
+msgstr "لقد أدخلت رمز captcha خاطئ."
+
+#: src/Admin/Pages/Tools/Page.php:125
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "لا يمكنك التصويت لأن حصة الأصوات قد اكتملت."
+
+#: src/Admin/Pages/Tools/Page.php:131
+msgid "You cannot see results before voting."
+msgstr "لا يمكنك مشاهدة النتائج قبل التصويت."
+
+#: src/Admin/Pages/Tools/Page.php:137
+msgid "You cannot vote because this poll has not started yet."
+msgstr "لا يمكنك التصويت لأن هذا التصويت لم يبدأ بعد."
+
+#: src/Admin/Pages/Tools/Page.php:143
+msgid "You cannot vote because this poll has been completed."
+msgstr "لا يمكنك التصويت لأن هذا التصويت قد انتهى."
+
+#: src/Admin/Pages/Tools/Page.php:149
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "لا يمكنك التصويت لأن هذا التصويت غير متاح في منطقتك."
+
+#: src/Admin/Pages/Tools/Page.php:155
+msgid "You cannot vote because you have insufficient rights."
+msgstr "لا يمكنك التصويت لأنك لا تمتلك إمكانيات كافية."
+
+#: src/Admin/Pages/Tools/Page.php:161
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"لا يمكنك التصويت لأنك زائر، يرجى <a href=\"%s\">تسجيل الدخول</a> أو <a href="
+"\"%s\">التسجيل</a>."
+
+#: src/Admin/Pages/Tools/Page.php:167
+msgid "Voting via links has been disabled for this poll."
+msgstr "التصويت عبر الروابط قد تم تعطيله لهذا التصويت."
+
+#: src/Admin/Pages/Tools/Page.php:178
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}} يجب أن يكون عنوان بريد إلكتروني صالح."
+
+#: src/Admin/Pages/Tools/Page.php:183
+msgid "{{label}} must be filled."
+msgstr "{{label}} يجب أن يكون ممتلئ."
+
+#: src/Admin/Pages/Tools/Page.php:188
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}} ليس ضمن النطاق المسموح."
+
+#: src/Admin/Pages/Tools/Page.php:198
+msgid "{{label}} is not accepted."
+msgstr "{{label}} غير مقبول."
+
+#: src/Admin/Pages/Tools/Page.php:203
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} لا يتقبل هذه القيمة."
+
+#: src/Admin/Pages/Tools/views/index.php:8
+msgid "Expressions"
+msgstr "التعابير"
+
+#: src/Admin/Pages/Tools/views/index.php:11
+msgid "Migration"
+msgstr "النقل"
+
+#: src/Admin/Pages/Tools/views/index.php:14
+msgid "Cache Control"
+msgstr "الكاش"
+
+#: src/Admin/Pages/Tools/views/index.php:17
+msgid "Import & Export"
+msgstr "الاستيراد والتصدير"
+
+#: src/Admin/Pages/Tools/views/index.php:50
+msgid "Customized expression"
+msgstr "التعبير المخصص"
+
+#: src/Admin/Pages/Tools/views/index.php:92
+msgid "No polls to migrate."
+msgstr "لا تصويتات لنقلها."
+
+#: src/Admin/Pages/Tools/views/index.php:93
+msgid "Polls migrated successfully."
+msgstr "تم نقل التصويتات بنجاح."
+
+#: src/Admin/Pages/Tools/views/index.php:94
+msgid "Polls to migrate."
+msgstr "التصويتات القابلة للنقل."
+
+#: src/Admin/Pages/Tools/views/index.php:101
+msgid "Migrate"
+msgstr "نقل"
+
+#: src/Admin/Pages/Tools/views/index.php:102
+msgid "Migrated"
+msgstr "تم النقل"
+
+#: src/Admin/Pages/Tools/views/index.php:118
+msgid "Purge CSS Cache"
+msgstr "مسح الكاش"
+
+#: src/Admin/Pages/Tools/views/index.php:119
+msgid ""
+"TotalPoll compiles and caches template CSS every time you save a poll to "
+"ensure best load time. Due to different cache mechanisms, TotalPoll gives "
+"you the ability to purge cached files."
+msgstr ""
+"يقوم TotalPoll بإنشاء ملفات قوالب CSS في كل مرة تقوم فيها بحفظ التصويت للخفض "
+"مدة التحميل لأدنى وقت ممكن. بسبب تقنيات الكاش المختلفة، فإن TotalPoll يعطيك "
+"القدرة على مسح ملفات الكاش."
+
+#: src/Admin/Pages/Tools/views/index.php:132
+msgid "Import"
+msgstr "استيراد"
+
+#: src/Admin/Pages/Tools/views/index.php:133
+msgid ""
+"TotalPoll uses the standard WordPress import process to import your polls."
+msgstr ""
+"TotalPoll يستخدم عمليات الاستيراد القياسية المتوفرة في WordPress لاستيراد "
+"تصويتاتك."
+
+#: src/Admin/Pages/Tools/views/index.php:143
+msgid "Export"
+msgstr "التصدير"
+
+#: src/Admin/Pages/Tools/views/index.php:144
+msgid ""
+"TotalPoll uses the standard WordPress export process to export your polls."
+msgstr ""
+"TotalPoll يستخدم عمليات التصدير القياسية المتوفرة في WordPress لتصدير "
+"تصويتاتك."
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:9
+#: src/Admin/Pages/Dashboard/views/sidebar.php:13
+msgid "Translate"
+msgstr "ترجمة"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get a item from our store "
+"for free."
+msgstr ""
+"ساعدنا على ترجمة TotalPoll إلى لغتك واحصل على منتج من متجرنا مجاناً بالمقابل."
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:12
+msgid "Quick tutorial"
+msgstr "درس سريع"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:21
+msgid "Stay in the loop"
+msgstr "ابق على اطلاع"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:22
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"احصل على آخر الأخبار عن المزايا الجديدة والمنتجات والعروض بالإضافة "
+"<strong>لخصم 10%</strong> على منتجات متجرنا!"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:25
+msgid "Your email"
+msgstr "بريدك الالكتروني"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:27
+msgid "Subscribe"
+msgstr "اشتراك"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:31
+msgid "Follow us"
+msgstr "تابعنا"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:57
+msgid "Spread the word"
+msgstr "انشر لمن حولك"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:58
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"يرجى محاولة <a href=\"https://codecanyon.net/downloads/\">كتابة مراجعة</a> "
+"عن الإضافة وسيكون لديك فرصة في الحصول على منتج مجاني من متجرنا بتغريدك عن "
+"TotalPoll!"
+
+#: src/Admin/Pages/Dashboard/views/sidebar.php:62
+msgid "Tweet"
+msgstr "تغريد"
+
+#: src/Admin/Pages/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "كيف يمكننا مساعدتك؟"
+
+#: src/Admin/Pages/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "ابحث في قاعدة المعرفة للحصول على إجابات ودروس."
+
+#: src/Admin/Pages/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "أدخل بعض الكلمات المفتاحية"
+
+#: src/Admin/Pages/Dashboard/views/support.php:7
+msgid "Search"
+msgstr "البحث"
+
+#: src/Admin/Pages/Dashboard/views/support.php:15
+msgid "Community Support"
+msgstr "دعم المجتمع"
+
+#: src/Admin/Pages/Dashboard/views/support.php:16
+msgid "Join and ask TotalSuite community for help."
+msgstr "انضم واسأل مجتمع TotalSuite للمساعدة."
+
+#: src/Admin/Pages/Dashboard/views/support.php:17
+msgid "Visit Forums"
+msgstr "قم بزيارة المنتدى"
+
+#: src/Admin/Pages/Dashboard/views/support.php:25
+msgid "Customer Support"
+msgstr "دعم العملاء"
+
+#: src/Admin/Pages/Dashboard/views/support.php:26
+msgid "Our support team is here to help you."
+msgstr "فريق الدعم الفني هنا لمساعدتك."
+
+#: src/Admin/Pages/Dashboard/views/support.php:27
+msgid "Send Ticket"
+msgstr "أرسل تذكرة"
+
+#: src/Admin/Pages/Dashboard/views/support.php:35
+msgid "VIP Support"
+msgstr "دعم VIP"
+
+#: src/Admin/Pages/Dashboard/views/support.php:36
+msgid "You're in a hurry? We've got your back!"
+msgstr "هل أنت على عجلة من أمرك؟ لا تقلق فنحن هنا!"
+
+#: src/Admin/Pages/Dashboard/views/support.php:37
+msgid "Learn More"
+msgstr "معرفة المزيد"
+
+#: src/Admin/Pages/Dashboard/views/credits.php:4
+#: src/Admin/Pages/Dashboard/views/index.php:21
+msgid "Credits"
+msgstr "لوحة الشكر"
+
+#: src/Admin/Pages/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr "اصبح TotalPoll متوفراً بمساعدة هؤلاء الداعمين والمشاريع."
+
+#: src/Admin/Pages/Dashboard/views/index.php:6
+msgid "Overview"
+msgstr "نظرة عامة"
+
+#: src/Admin/Pages/Dashboard/views/index.php:9
+msgid "Get started"
+msgstr "ابدأ الآن"
+
+#: src/Admin/Pages/Dashboard/views/index.php:12
+msgid "What's new"
+msgstr "ما الجديد"
+
+#: src/Admin/Pages/Dashboard/views/index.php:15
+msgid "Activation"
+msgstr "التفعيل"
+
+#: src/Admin/Pages/Dashboard/views/index.php:18
+msgid "Support"
+msgstr "الدعم"
+
+#: src/Admin/Pages/Dashboard/views/index.php:54
+msgid "Take your website to the next level"
+msgstr "خذ بموقعك لمستوى جديد"
+
+#: src/Admin/Pages/Dashboard/views/index.php:55
+msgid ""
+"Get started with TotalSuite to take your website functionality to the next "
+"level with feature-rich products."
+msgstr ""
+"ابدأ مع TotalSuite لتأخذ بمزايا موقعك لمرحلة جديدة باستخدامك لمنتجات مميزة."
+
+#: src/Admin/Pages/Dashboard/views/index.php:56
+msgid "Get Started"
+msgstr "ابدأ الآن"
+
+#: src/Admin/Pages/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "حان الوقت لتنشئ تصويتك الأول."
+
+#: src/Admin/Pages/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "لا يوجد تصويتات بعد."
+
+#: src/Admin/Pages/Dashboard/views/overview.php:16
+msgid "Live"
+msgstr "مباشر"
+
+#: src/Admin/Pages/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "بالانتظار"
+
+#: src/Admin/Pages/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "تم تفعيل المنتج!"
+
+#: src/Admin/Pages/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "أنت الآن تتلقى التحديثات."
+
+#: src/Admin/Pages/Dashboard/views/activation.php:10
+msgid "Activation code"
+msgstr "رمز التفعيل"
+
+#: src/Admin/Pages/Dashboard/views/activation.php:14
+#, php-format
+msgid "Product activation for %s"
+msgstr "رمز التفعيل ل %s"
+
+#: src/Admin/Pages/Dashboard/views/activation.php:15
+msgid ""
+"Open downloads page, lookup the product and click on \"License certificate & "
+"purchase code (text)\"."
+msgstr ""
+"قم بفتح صفحة التحميلات، ابحث عن المنتج ثم اضغط على \"License certificate & "
+"purchase code (text)\"."
+
+#: src/Admin/Pages/Dashboard/views/activation.php:19
+msgid "Activating"
+msgstr "جاري التفعيل"
+
+#: src/Admin/Pages/Dashboard/views/activation.php:19
+#: src/Admin/Pages/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "التفعيل"
+
+#: src/Admin/Pages/Dashboard/views/get-started.php:6
+msgid "Welcome to TotalPoll!"
+msgstr "أهلا بك في TotalPoll!"
+
+#: src/Limitations/Region.php:27
+msgid ""
+"This poll is not available in your region. Please contact us for more "
+"details."
+msgstr "هذا التصويت غير متوفر في منطقتك. يرجى الاتصال بنا للتفاصيل."
+
+#: src/Limitations/Membership.php:30
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "يجب ان تنتمي إلى إحدى هذه العضويات للاستمرار: %s."
+
+#: src/Limitations/Membership.php:39
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr ""
+"يجب عليك <a href=\"%s\">التسجيل</a> أو <a href=\"%s\">تسجيل الدخول</a> "
+"للاستمرار."
+
+#: src/Limitations/Quota.php:24
+msgid "This poll is over (votes quota has been exceeded)."
+msgstr "انتهى هذا التصويت (حصة الأصوات قد اكتملت)"
+
+#: src/Limitations/Period.php:32
+#, php-format
+msgid "This poll is not started yet (%s left)."
+msgstr "هذا التصويت لم يبدأ بعد (%s متبقي)."
+
+#: src/Limitations/Period.php:44
+#, php-format
+msgid "This poll is over (finished since %s)."
+msgstr "انتهى هذا التصويت (انتهى منذ %s)."
+
+#: src/Limitations/Period.php:55
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y سنة"
+msgstr[1] "سنة"
+msgstr[2] "سنتين"
+msgstr[3] "%y سنوات"
+msgstr[4] "%y سنوات"
+msgstr[5] "%y سنوات"
+
+#: src/Restrictions/LoggedInUser.php:53 src/Restrictions/Cookies.php:28
+#: src/Restrictions/IPAddress.php:49
+msgid "You cannot vote again."
+msgstr "لا يمكنك التصويت مجدداً."
+
+#: src/Shortcodes/Poll.php:22
+msgid "Could not load the poll."
+msgstr "تعذر تحميل التصويت."
+
+#: src/Poll/Form.php:91 src/Admin/Pages/Tools/Page.php:193
+msgid "{{label}} has been used before."
+msgstr "تم استخدام {{label}} سابقاً."
+
+#: src/Poll/Form.php:202
+msgid "Continue to vote"
+msgstr "الاستمرار للتصويت"
+
+#: src/Poll/Form.php:213
+msgid "Continue to results"
+msgstr "الاستمرار للنتائج"
+
+#: src/Poll/Form.php:249
+msgid "Back to vote"
+msgstr "العودة للتصويت"
+
+#: src/Admin/Ajax/Dashboard.php:60
+msgid "License key is invalid. Please double check and try again."
+msgstr "رقم الرخصة غير صحيحة. يرجى التحقق من الرقم والمحاولة ثانية."
+
+#: src/Admin/Ajax/Modules.php:57
+msgid "Module installed."
+msgstr "تم تثبيت الملحق."
+
+#: src/Admin/Ajax/Modules.php:71
+msgid "Module downloaded and installed."
+msgstr "تم تحميل وتثبيت الملحق."
+
+#: src/Admin/Ajax/Modules.php:93
+msgid "Module updated."
+msgstr "تم تحديث الملحق."
+
+#: src/Admin/Ajax/Modules.php:107
+msgid "Module uninstalled."
+msgstr "تم حذف الملحق."
+
+#: src/Admin/Ajax/Modules.php:121
+msgid "Module activated."
+msgstr "تم تفعيل الملحق."
+
+#: src/Admin/Ajax/Modules.php:135
+msgid "Module deactivated."
+msgstr "تم إلغاء تفعيل الملحق."
+
+#: src/Admin/Ajax/Entries.php:65
+msgid "Invalid Poll ID"
+msgstr "معرّف تصويت غير صحيح"
+
+#: src/Admin/Ajax/Tools.php:42
+msgid "Saved."
+msgstr "تم الحفظ."
+
+#: src/Admin/Ajax/Tools.php:53
+msgid "Not supported plugin."
+msgstr "إضافة غير مدعومة."
+
+#: src/Admin/Ajax/Tools.php:66
+msgid "Migrated."
+msgstr "تم النقل."
+
+#: src/Admin/Ajax/Tools.php:75
+msgid "Purged."
+msgstr "تم المسح."
+
+#: src/Admin/Ajax/Polls.php:44
+msgid "Invalid Poll ID."
+msgstr "معرّف تصويت غير صحيح."
+
+#: src/Admin/Ajax/Polls.php:65
+msgid "Widget added successfully."
+msgstr "تم إضافة الودج بنجاح."
+
+#: src/Admin/Ajax/Polls.php:67
+msgid "Invalid Sidebar ID."
+msgstr "معرّف شريط جانبي غير صحيح."
+
+#: src/Admin/Poll/Editor.php:224
+msgid "Questions"
+msgstr "الأسئلة"
+
+#: src/Admin/Poll/Editor.php:225
+msgid "Fields"
+msgstr "الحقول"
+
+#: src/Admin/Poll/Editor.php:226
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: src/Admin/Poll/Editor.php:227
+msgid "Design"
+msgstr "التصميم"
+
+#: src/Admin/Poll/Editor.php:228
+#: src/Admin/Pages/Dashboard/views/get-started.php:57
+msgid "Integration"
+msgstr "التضمين"
+
+#: src/Admin/Poll/Editor.php:230
+msgid "Question"
+msgstr "السؤال"
+
+#: src/Admin/Poll/Editor.php:231
+msgid "Choices"
+msgstr "الاختيارات"
+
+#: src/Admin/Poll/Editor.php:232
+msgid "Delete"
+msgstr "حذف"
+
+#: src/Admin/Poll/Editor.php:233
+msgid "New Question"
+msgstr "سؤال جديد"
+
+#: src/Admin/Poll/Editor.php:235
+msgid "Drop to add"
+msgstr "أفلت للإضافة"
+
+#: src/Admin/Poll/Editor.php:237
+msgid "Content"
+msgstr "المحتوى"
+
+#: src/Admin/Poll/Editor.php:239
+msgid "First name"
+msgstr "اسم أول"
+
+#: src/Admin/Poll/Editor.php:240
+msgid "Last name"
+msgstr "اسم أخير"
+
+#: src/Admin/Poll/Editor.php:241
+msgid "Email"
+msgstr "بريد إلكتروني"
+
+#: src/Admin/Poll/Editor.php:242
+msgid "Phone"
+msgstr "رقم هاتف"
+
+#: src/Admin/Poll/Editor.php:243
+msgid "Gender"
+msgstr "جنس"
+
+#: src/Admin/Poll/Editor.php:244
+msgid "Country"
+msgstr "بلد"
+
+#: src/Admin/Poll/Editor.php:245
+msgid "Agreement"
+msgstr "اتفاقية"
+
+#: src/Admin/Poll/Editor.php:247
+msgid "Expand"
+msgstr "توسيع"
+
+#: src/Admin/Poll/Editor.php:249
+msgid "Delete All"
+msgstr "حذف الكل"
+
+#: src/Admin/Poll/Editor.php:250
+msgid "Insert"
+msgstr "إضافة"
+
+#: src/Admin/Poll/Editor.php:251
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr "لم يتم إضافة حقول بعد. يمكن إضافة حقول عبر الأزرار بالأسفل."
+
+#: src/Admin/Poll/Editor.php:252
+msgid "Text"
+msgstr "نص"
+
+#: src/Admin/Poll/Editor.php:253
+msgid "Textarea"
+msgstr "نص واسع (Textarea)"
+
+#: src/Admin/Poll/Editor.php:254
+msgid "Select"
+msgstr "قائمة منسدلة (Select)"
+
+#: src/Admin/Poll/Editor.php:255
+msgid "Checkbox"
+msgstr "اختيار متعدد (Checkbox)"
+
+#: src/Admin/Poll/Editor.php:256
+msgid "Radio"
+msgstr "اختيار موحد (Radio)"
+
+#: src/Admin/Poll/Editor.php:258
+#: src/Admin/Pages/Dashboard/views/overview.php:14
+msgid "Untitled"
+msgstr "غير معنون"
+
+#: src/Admin/Poll/Editor.php:259
+msgid "Required"
+msgstr "إلزامي"
+
+#: src/Admin/Poll/Editor.php:260
+msgid "Basic"
+msgstr "أساسي"
+
+#: src/Admin/Poll/Editor.php:261 src/Admin/Pages/Tools/Page.php:173
+msgid "Validations"
+msgstr "التحققات"
+
+#: src/Admin/Poll/Editor.php:262 src/Admin/Pages/Entries/views/index.php:62
+#: src/Admin/Pages/Log/views/index.php:76
+msgid "HTML"
+msgstr "HTML"
+
+#: src/Admin/Poll/Editor.php:263
+msgid "Label"
+msgstr "العنوان"
+
+#: src/Admin/Poll/Editor.php:264
+msgid "Field label"
+msgstr "عنوان الحقل"
+
+#: src/Admin/Poll/Editor.php:265
+msgid "Name"
+msgstr "الاسم"
+
+#: src/Admin/Poll/Editor.php:266
+msgid "List"
+msgstr "قائمة"
+
+#: src/Admin/Poll/Editor.php:267
+msgid "Field name"
+msgstr "اسم الحقل"
+
+#: src/Admin/Poll/Editor.php:268
+msgid "Default value"
+msgstr "القيمة الافتراضية"
+
+#: src/Admin/Poll/Editor.php:269
+msgid "Field default value"
+msgstr "القيمة الافتراضية للحقل"
+
+#: src/Admin/Poll/Editor.php:270
+msgid "Default value per line."
+msgstr "قائمة افتراضية لكل سطر."
+
+#: src/Admin/Poll/Editor.php:271
+msgid "Options"
+msgstr "الخيارات"
+
+#: src/Admin/Poll/Editor.php:272
+msgid "option_key : Option label"
+msgstr "مفتاح_الخيار : عنوان الخيار"
+
+#: src/Admin/Poll/Editor.php:273
+msgid "Option per line."
+msgstr "خيار لكل سطر."
+
+#: src/Admin/Poll/Editor.php:274
+msgid "Option format is \"option : label\" (without quotes)."
+msgstr "تنصيق الخيار هي \"الخيار : العنوان\" (بدون علامات تنصيص)."
+
+#: src/Admin/Poll/Editor.php:275
+msgid "Filled (required)"
+msgstr "مملوء (إلزامي)"
+
+#: src/Admin/Poll/Editor.php:276
+msgid "Unique"
+msgstr "مميز"
+
+#: src/Admin/Poll/Editor.php:277
+msgid "This field value must be unique in submissions table."
+msgstr "يجب أن تكون قيمة هذا الحقل مميزة بالمقارنة بالمدخلات الأخرى."
+
+#: src/Admin/Poll/Editor.php:278
+msgid "Filter by list"
+msgstr "تصفية حسب القائمة"
+
+#: src/Admin/Poll/Editor.php:279
+msgid "Filtering method"
+msgstr "آلية التصفية"
+
+#: src/Admin/Poll/Editor.php:280
+msgid "Value per line."
+msgstr "قيمة لكل سطر."
+
+#: src/Admin/Poll/Editor.php:281
+msgid "* means wildcard."
+msgstr "* تعني أي قيمة"
+
+#: src/Admin/Poll/Editor.php:282
+msgid "Regular Expression"
+msgstr "تعبير قياسي (Regular Expression)"
+
+#: src/Admin/Poll/Editor.php:283 src/Admin/Pages/Tools/views/index.php:49
+msgid "Expression"
+msgstr "التعبير"
+
+#: plugin.php:28
+msgid ""
+"TotalPoll requires PHP 5.4+ and WordPress 4.0+ to function properly. Please "
+"contact your host to upgrade PHP and WordPress. TotalPoll has been auto-"
+"deactivated."
+msgstr ""
+"TotalPoll تتطلب PHP 5.4+ ووردبريس 4.0+ لتعمل بشكل صحيح. يرجى التواصل مع "
+"مستضيفك لترقية إصدار PHP ووردبريس. تم إلغاء تفعيل TotalPoll تلقائياً."
+
+#: src/Admin/Bootstrap.php:49 src/Admin/Bootstrap.php:50
+#: src/Admin/Pages/Dashboard/views/index.php:2
+msgid "Dashboard"
+msgstr "الواجهة"
+
+#: src/Admin/Bootstrap.php:53 src/Admin/Bootstrap.php:54
+#: src/Admin/Poll/Listing.php:65 src/Admin/Poll/Listing.php:102
+#: src/Admin/Poll/views/actions.php:17
+#: src/Admin/Pages/Dashboard/views/overview.php:28
+#: src/Admin/Pages/Entries/views/index.php:2
+msgid "Entries"
+msgstr "المدخلات"
+
+#: src/Admin/Bootstrap.php:57 src/Admin/Bootstrap.php:58
+#: src/Admin/Poll/Listing.php:103 src/Admin/Poll/views/actions.php:8
+#: src/Admin/Pages/Insights/views/index.php:2
+msgid "Insights"
+msgstr "لمحات"
+
+#: src/Admin/Bootstrap.php:61 src/Admin/Poll/Listing.php:66
+#: src/Admin/Poll/Listing.php:104 src/Admin/Poll/views/actions.php:26
+#: src/Admin/Pages/Log/views/index.php:2
+msgid "Log"
+msgstr "السجل"
+
+#: src/Admin/Bootstrap.php:62
+msgid "Log Browser"
+msgstr "متصفح السجل"
+
+#: src/Admin/Bootstrap.php:65 src/Admin/Bootstrap.php:66
+#: src/Admin/Pages/Modules/views/index.php:2
+msgid "Modules"
+msgstr "الملحقات"
+
+#: src/Admin/Bootstrap.php:69 src/Admin/Bootstrap.php:70
+#: src/Admin/Pages/Tools/views/index.php:2
+msgid "Tools"
+msgstr "الأدوات"
+
+#: src/Admin/Bootstrap.php:405
+msgid ""
+"TotalPoll is a part of <a href=\"https://subscribe.totalsuite.net/totalsuite-"
+"invitation/\">TotalSuite</a>, a suite of plugins that takes <a href="
+"\"https://wordpress.org/\">WordPress</a> to the next level."
+msgstr ""
+"TotalPoll هي جزء من <a href=\"https://subscribe.totalsuite.net/totalsuite-"
+"invitation/\">TotalSuite</a>. مجموعة من الإضافات التي تأخذ <a href=\"https://"
+"wordpress.org/\">ووردبريس</a> إلى مرحلة أخرى."
+
+#: src/PostTypes/Poll.php:28 src/PostTypes/Poll.php:34
+msgid "Polls"
+msgstr "تصويتات"
+
+#: src/PostTypes/Poll.php:29 src/Admin/Poll/Editor.php:398
+msgid "Poll"
+msgstr "تصويت"
+
+#: src/PostTypes/Poll.php:30 src/Admin/Pages/Dashboard/views/overview.php:8
+msgid "Create Poll"
+msgstr "إنشاء تصويت"
+
+#: src/PostTypes/Poll.php:31 src/PostTypes/Poll.php:33
+msgid "New Poll"
+msgstr "تصويت جديد"
+
+#: src/PostTypes/Poll.php:32
+msgid "Edit Poll"
+msgstr "تعديل التصويت"
+
+#: src/PostTypes/Poll.php:35
+msgid "View Poll"
+msgstr "عرض التصويت"
+
+#: src/PostTypes/Poll.php:36
+msgid "Search Polls"
+msgstr "بحث في التصويتات"
+
+#: src/PostTypes/Poll.php:37
+msgid "No polls found"
+msgstr "لم يتم العثور على تصويتات"
+
+#: src/PostTypes/Poll.php:38
+msgid "No polls found in Trash"
+msgstr "لم يتم العثور على تصويتات في المهملات"
+
+#. Name of the plugin
+#: src/PostTypes/Poll.php:39
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: src/PostTypes/Poll.php:67
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "تم تحديث التصويت. <a href=\"%s\">عرض التصويت</a>"
+
+#: src/PostTypes/Poll.php:68
+msgid "Custom field updated."
+msgstr "تم تحديث الحقل الإضافي."
+
+#: src/PostTypes/Poll.php:69
+msgid "Custom field deleted."
+msgstr "تم حذف الحقل الإضافي."
+
+#: src/PostTypes/Poll.php:70
+msgid "Poll updated."
+msgstr "تم تحديث التصويت."
+
+#: src/PostTypes/Poll.php:71
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "تم استعادة التصويت لمراجعة %s"
+
+#: src/PostTypes/Poll.php:72
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "تم نشر التصويت. <a href=\"%s\">عرض التصويت</a>"
+
+#: src/PostTypes/Poll.php:73
+msgid "Poll saved."
+msgstr "تم حفظ التصويت."
+
+#: src/PostTypes/Poll.php:74
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr "تم إرسال التصويت. <a href=\"%s\">معاينة التصويت</a>"
+
+#: src/PostTypes/Poll.php:76
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"التصويت مجدول ليوم: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">معاينة التصويت</a>"
+
+#: src/PostTypes/Poll.php:78
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"تم تحديث مسودة التصويت. <a target=\"_blank\" href=\"%s\">معاينة التصويت</a>"
+
+#: src/Widgets/Poll.php:20
+msgid "TotalPoll poll widget"
+msgstr "ودج تصويت TotalPoll"
+
+#: src/Widgets/Poll.php:22
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] تصويت"
+
+#: src/Widgets/Poll.php:72
+msgid "Poll:"
+msgstr "التصويت:"
+
+#: src/Widgets/Poll.php:83
+msgid "Screen:"
+msgstr "الشاشة:"
+
+#: src/Widgets/Poll.php:85 src/Poll/Form.php:237 src/Admin/Poll/Editor.php:329
+#: src/Admin/Pages/Tools/Page.php:77
+#: modules/templates/Basic/views/preview/shared/footer.php:13
+msgid "Vote"
+msgstr "تصويت"
+
+#: src/Widgets/Poll.php:86 src/Poll/Form.php:225 src/Admin/Poll/Editor.php:330
+#: src/Admin/Pages/Tools/Page.php:72
+#: modules/templates/Basic/views/preview/shared/footer.php:10
+msgid "Results"
+msgstr "النتائج"
+
+#: src/Entry/Repository.php:124 src/Log/Repository.php:140
+msgid "Unable to insert the entry."
+msgstr "تعذر إدخال المشاركة."
+
+#: src/Entry/Repository.php:146 src/Log/Repository.php:161
+msgid "No conditions were specified"
+msgstr "لم يتم تحديد أية شروط"

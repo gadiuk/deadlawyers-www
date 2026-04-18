@@ -1,0 +1,3071 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-19 12:15+0100\n"
+"PO-Revision-Date: 2021-04-19 12:15+0100\n"
+"Last-Translator: Şenol Güçkan\n"
+"Language-Team: Türkçe\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ../src\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__;esc_html_e;_n;_x;_ex;_nx;_n:1,2;"
+"esc_attr__;esc_attr_e;i18n\n"
+"X-Loco-Version: 2.5.2; wp-5.7\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Admin/Ajax/Dashboard.php:67
+msgid "Invalid key or email."
+msgstr "Geçersiz anahtar veya e-posta."
+
+#: Admin/Ajax/Dashboard.php:138
+msgid "Invalid access token."
+msgstr "Geçersiz erişim belirteci."
+
+#: Admin/Ajax/Entries.php:66
+msgid "Invalid Poll ID"
+msgstr "Geçersiz Anket ID"
+
+#: Admin/Ajax/Insights.php:99 Admin/Poll/views/integration/email.php:41
+#: Admin/Poll/views/questions/questions.php:22
+msgid "Question"
+msgstr "Soru"
+
+#: Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "Modül yüklendi."
+
+#: Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "Modül indirildi ve kuruldu."
+
+#: Admin/Ajax/Modules.php:110
+msgid "Module updated."
+msgstr "Modül güncellendi."
+
+#: Admin/Ajax/Modules.php:124
+msgid "Module uninstalled."
+msgstr "Modül kaldırıldı."
+
+#: Admin/Ajax/Modules.php:138
+msgid "Module activated."
+msgstr "Modül etkinleştirildi."
+
+#: Admin/Ajax/Modules.php:152
+msgid "Module deactivated."
+msgstr "Modül devre dışı bırakıldı."
+
+#: Admin/Ajax/Options.php:45
+msgid "Saved."
+msgstr "Kaydedildi."
+
+#: Admin/Ajax/Options.php:57
+msgid "Purged."
+msgstr "Tasfiye edildi."
+
+#: Admin/Ajax/Options.php:68
+msgid "Plugin is not supported."
+msgstr "Eklenti desteklenmez."
+
+#: Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "Geçersiz Anket ID."
+
+#: Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "Widget başarıyla eklendi."
+
+#: Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "Geçersiz Sidebar ID."
+
+#: Admin/Ajax/Polls.php:85
+#, fuzzy
+#| msgid "Untitled"
+msgid "no title"
+msgstr "Başlıksız"
+
+#: Admin/Bootstrap.php:59
+#, fuzzy
+#| msgid "New vote has been casted"
+msgid "Poll has been reset"
+msgstr "Yeni oy verildi"
+
+#: Admin/Bootstrap.php:60
+#, fuzzy
+#| msgid "Poll saved."
+msgid "Poll reset failed"
+msgstr "Anket kaydedildi."
+
+#: Admin/Bootstrap.php:76 Admin/Bootstrap.php:77
+#: Admin/Dashboard/views/index.php:3
+msgid "Dashboard"
+msgstr "Gösterge Paneli"
+
+#: Admin/Bootstrap.php:81 Admin/Bootstrap.php:82
+#: Admin/Dashboard/views/overview.php:28 Admin/Entries/views/index.php:2
+#: Admin/Poll/Editor.php:422 Admin/Poll/Listing.php:104
+#: Admin/Poll/Listing.php:180 Admin/Privacy/Policy.php:152
+msgid "Entries"
+msgstr "Girdiler"
+
+#: Admin/Bootstrap.php:86 Admin/Bootstrap.php:87
+#: Admin/Insights/views/index.php:4 Admin/Poll/Editor.php:413
+#: Admin/Poll/Listing.php:181
+msgid "Insights"
+msgstr "Insights"
+
+#: Admin/Bootstrap.php:91 Admin/Log/views/index.php:2
+#: Admin/Log/views/index.php:119 Admin/Poll/Editor.php:434
+#: Admin/Poll/Listing.php:105 Admin/Poll/Listing.php:185
+msgid "Log"
+msgstr "Log"
+
+#: Admin/Bootstrap.php:92
+msgid "Logs"
+msgstr "Logs"
+
+#: Admin/Bootstrap.php:96 Admin/Bootstrap.php:97
+#: Admin/Modules/Templates/views/index.php:3 Admin/Modules/views/index.php:8
+#: Admin/Poll/Editor.php:334 Admin/Poll/views/design/sidebar.php:11
+msgid "Templates"
+msgstr "Şablonlar"
+
+#: Admin/Bootstrap.php:101 Admin/Bootstrap.php:102
+#: Admin/Modules/Extensions/views/index.php:3 Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "Uzantılar"
+
+#: Admin/Bootstrap.php:106 Admin/Bootstrap.php:107
+#: Admin/Options/views/index.php:5 Admin/Poll/views/form/field.php:156
+msgid "Options"
+msgstr "Seçenekler"
+
+#: Admin/Bootstrap.php:112 Admin/Bootstrap.php:113
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: Admin/Bootstrap.php:125 Admin/Bootstrap.php:126
+#, fuzzy
+#| msgid "Preset"
+msgid "Presets"
+msgstr "Ön ayar"
+
+#: Admin/Bootstrap.php:134 Admin/Bootstrap.php:135
+#, fuzzy
+#| msgid "Loading..."
+msgid "Onboarding"
+msgstr "Yükleniyor..."
+
+#: Admin/Bootstrap.php:483
+msgid ""
+"{{product}} is part of <a href=\"{{totalsuite}}\" target=\"_blank"
+"\">TotalSuite</a>, a suite of robust and maintained plugins for WordPress."
+msgstr ""
+"{{product}} WordPress için sağlam ve bakımı yapılmış bir eklenti paketi olan "
+"<a href=\"{{totalsuite}}\" target=\"_blank\">TotalSuite</a>'in bir "
+"parçasıdır."
+
+#: Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "Ürün etkinleştirildi!"
+
+#: Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "Şimdi güncellemeleri alıyorsunuz."
+
+#: Admin/Dashboard/views/activation.php:12
+msgid "Activation code"
+msgstr "Aktivasyon Kodu"
+
+#: Admin/Dashboard/views/activation.php:18
+msgid "Licensed to"
+msgstr "Lisanslı"
+
+#: Admin/Dashboard/views/activation.php:27
+#, php-format
+msgid "Product activation for %s"
+msgstr "%s için ürün aktivasyonu"
+
+#: Admin/Dashboard/views/activation.php:28
+msgid ""
+"Open <a target=\"_blank\" href=\"https://codecanyon.net/downloads"
+"\">downloads page</a>, find the product, click \"Download\" then select on "
+"\"License certificate & purchase code (text)\"."
+msgstr ""
+"<a target=\"_blank\" href=\"https://codecanyon.net/downloads\">İndirmeler "
+"sayfasını</a> açın, ürünü bulun, \"İndir\" i tıklayın ve ardından \"Lisans "
+"sertifikası ve satın alma kodu (metin)\" seçeneğini seçin ."
+
+#: Admin/Dashboard/views/activation.php:34
+msgid "Activating"
+msgstr "Etkinleştiriliyor"
+
+#: Admin/Dashboard/views/activation.php:34 Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "Etkin"
+
+#: Admin/Dashboard/views/blog-feed.php:4
+msgid "Picks from our blog"
+msgstr ""
+
+#: Admin/Dashboard/views/credits.php:4 Admin/Dashboard/views/index.php:20
+msgid "Credits"
+msgstr "Kredi"
+
+#: Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr "TotalPoll, bu projeler ve katkıda bulunanlar sayesinde mümkün oldu."
+
+#: Admin/Dashboard/views/index.php:7
+msgid "Overview"
+msgstr "Genel Bakış"
+
+#: Admin/Dashboard/views/index.php:11
+msgid "Get started"
+msgstr "Başla"
+
+#: Admin/Dashboard/views/index.php:14
+msgid "What's new"
+msgstr "Neler yeni"
+
+#: Admin/Dashboard/views/index.php:17
+msgid "Support"
+msgstr "Destek"
+
+#: Admin/Dashboard/views/index.php:24
+msgid "Activation"
+msgstr "Aktivasyon"
+
+#: Admin/Dashboard/views/index.php:27
+msgid "My Account"
+msgstr "Hesabım"
+
+#: Admin/Dashboard/views/index.php:70
+msgid "Simple yet Powerful Plugins for WordPress"
+msgstr "WordPress için Basit ama Güçlü Eklentiler"
+
+#: Admin/Dashboard/views/index.php:71
+msgid ""
+"A suite of robust, maintained and secure plugins for WordPress that helps "
+"you generate more value for your business."
+msgstr ""
+"İşletmeniz için daha fazla değer üretmenize yardımcı olan WordPress için "
+"sağlam, bakımı yapılan ve güvenli bir eklenti paketi."
+
+#: Admin/Dashboard/views/index.php:82
+msgid "Get Started"
+msgstr "Başla"
+
+#: Admin/Dashboard/views/my-account.php:8
+msgid "Account Linked!"
+msgstr "Hesap Bağlandı!"
+
+#: Admin/Dashboard/views/my-account.php:9
+msgid "Your account has been linked successfully."
+msgstr "Hesabınız başarıyla bağlanmıştır."
+
+#: Admin/Dashboard/views/my-account.php:12
+msgid "Linked account"
+msgstr "Bağlı hesap"
+
+#: Admin/Dashboard/views/my-account.php:21
+msgid "Your TotalSuite Account"
+msgstr "TotalSuite Hesabınız"
+
+#: Admin/Dashboard/views/my-account.php:22
+msgid "Link your account purchases using an access token."
+msgstr "Hesap satın alımlarınızı bir erişim jetonu kullanarak bağlayın."
+
+#: Admin/Dashboard/views/my-account.php:25
+msgid "Access Token"
+msgstr "Access Token"
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Linking..."
+msgstr "Bağlanıyor ..."
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Connect"
+msgstr "Bağlan"
+
+#: Admin/Dashboard/views/my-account.php:30
+msgid "Get Access Token"
+msgstr "Access Token Al"
+
+#: Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "İlk anketinizi oluşturma zamanı."
+
+#: Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "Henüz anket yok."
+
+#: Admin/Dashboard/views/overview.php:8 Poll/PostType.php:122
+msgid "Create Poll"
+msgstr "Anket Oluştur"
+
+#: Admin/Dashboard/views/overview.php:14 Admin/Poll/views/choices/choice.php:19
+#: Admin/Poll/views/form/field.php:20
+msgid "Untitled"
+msgstr "Başlıksız"
+
+#: Admin/Dashboard/views/overview.php:16 Admin/Poll/Listing.php:240
+msgid "Live"
+msgstr "Canlı"
+
+#: Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "Bekliyor"
+
+#: Admin/Dashboard/views/overview.php:24 Admin/Options/Page.php:66
+#: Admin/Poll/Listing.php:103 Admin/Poll/views/choices/choice.php:64
+#: Admin/Poll/views/choices/choice.php:68
+#: Admin/Poll/views/settings/choices/sort.php:15
+#: Admin/Poll/views/settings/results/sort.php:15 Admin/Privacy/Policy.php:98
+msgid "Votes"
+msgstr "Oylar"
+
+#: Admin/Dashboard/views/sidebar.php:9 Admin/Dashboard/views/sidebar.php:21
+msgid "Translate"
+msgstr "Çevir"
+
+#: Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"TotalPoll'u dilinize çevirmemize yardımcı olun ve mağazamızdan ücretsiz bir "
+"ürün alın."
+
+#: Admin/Dashboard/views/sidebar.php:28
+msgid "Stay in the loop"
+msgstr "Bağlantıda kal"
+
+#: Admin/Dashboard/views/sidebar.php:29
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"Yeni özellikler, ürünler ve fırsatlarla ilgili en son haberleri ve "
+"mağazamızda kullanmak üzere <strong>%10 indirim</strong> alın!"
+
+#: Admin/Dashboard/views/sidebar.php:32
+msgid "Your email"
+msgstr "E-posta adresiniz"
+
+#: Admin/Dashboard/views/sidebar.php:34
+msgid "Subscribe"
+msgstr "Abone"
+
+#: Admin/Dashboard/views/sidebar.php:38
+msgid "Follow us"
+msgstr "Takip edin"
+
+#: Admin/Dashboard/views/sidebar.php:64
+msgid "Spread the word"
+msgstr "Herkese duyurun"
+
+#: Admin/Dashboard/views/sidebar.php:65
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"Lütfen <a href=\"https://codecanyon.net/downloads/\"> bir inceleme bırakmayı "
+"</a> düşünün. Ayrıca TotalPoll hakkında tweet atarak mağazamızdan ücretsiz "
+"bir ürün kazanma şansı elde edebilirsiniz!"
+
+#: Admin/Dashboard/views/sidebar.php:71
+msgid "Tweet"
+msgstr "Tweet"
+
+#: Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "Nasıl yardım edebiliriz?"
+
+#: Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "Ayrıntılı yanıtlar ve öğreticiler için bilgi tabanımızda arama yapın."
+
+#: Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "Birkaç anahtar kelime girin"
+
+#: Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "Ara"
+
+#: Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "Topluluk Desteği"
+
+#: Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "TotalSuite topluluğuna katılın ve yardım isteyin."
+
+#: Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "Forumları Ziyaret Et"
+
+#: Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "Müşteri desteği"
+
+#: Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "Destek ekibimiz size yardımcı olmak için burada."
+
+#: Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "Bilet Gönder"
+
+#: Admin/Dashboard/views/support.php:37
+msgid "Instant Support"
+msgstr "Anında Destek"
+
+#: Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "Aceleniz mi var? Biz sizin arkanızdayız!"
+
+#: Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "Daha Fazla"
+
+#: Admin/Entries/Page.php:51 Admin/Insights/Page.php:54 Admin/Log/Page.php:75
+#: Admin/Poll/views/choices/choice.php:34
+#: Admin/Poll/views/choices/choice.php:114
+#: Admin/Poll/views/choices/choices.php:166
+#: Admin/Poll/views/choices/choices.php:236 Admin/Poll/views/form/field.php:96
+msgid "HTML"
+msgstr "HTML"
+
+#: Admin/Entries/Page.php:53 Admin/Insights/Page.php:56 Admin/Log/Page.php:77
+msgid "CSV"
+msgstr "CSV"
+
+#: Admin/Entries/Page.php:54 Admin/Insights/Page.php:57 Admin/Log/Page.php:78
+msgid "JSON"
+msgstr "JSON"
+
+#: Admin/Entries/views/index.php:12 Admin/Insights/views/index.php:11
+msgid "Please select a poll"
+msgstr "Lütfen bir anket seçin"
+
+#: Admin/Entries/views/index.php:16 Admin/Insights/views/index.php:15
+#: Admin/Log/views/index.php:16
+msgid "From"
+msgstr "Nereden"
+
+#: Admin/Entries/views/index.php:18 Admin/Insights/views/index.php:17
+#: Admin/Log/views/index.php:18
+msgid "To"
+msgstr "İçin"
+
+#: Admin/Entries/views/index.php:30 Admin/Insights/views/index.php:21
+#: Admin/Log/views/index.php:30
+msgid "Clear"
+msgstr "Temizle"
+
+#: Admin/Entries/views/index.php:33 Admin/Insights/views/index.php:24
+#: Admin/Log/views/index.php:33
+msgid "Apply"
+msgstr "Uygula"
+
+#: Admin/Entries/views/index.php:42 Admin/Log/Page.php:52
+#: Admin/Log/views/index.php:149 Admin/Poll/Listing.php:106
+#: Admin/Privacy/Policy.php:114
+msgid "Date"
+msgstr "Tarih"
+
+#: Admin/Entries/views/index.php:51 Admin/Log/views/index.php:85
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "Hiçbir şey değil. Nada. Niente. Nickts. Rien."
+
+#: Admin/Entries/views/index.php:61 Admin/Log/views/index.php:94
+#: Admin/Options/Page.php:83 Poll/Renderer.php:291
+msgid "Previous"
+msgstr "Önceki"
+
+#: Admin/Entries/views/index.php:63 Admin/Log/views/index.php:95
+#: Admin/Options/Page.php:88 Poll/Renderer.php:292
+msgid "Next"
+msgstr "Sonraki"
+
+#: Admin/Entries/views/index.php:67 Admin/Insights/views/index.php:29
+#: Admin/Log/views/index.php:100
+msgid "Download as"
+msgstr "Olarak indir"
+
+#: Admin/Insights/views/index.php:45 Admin/Poll/Editor.php:448
+msgid "Summary"
+msgstr ""
+
+#: Admin/Insights/views/index.php:59
+msgid "Today"
+msgstr ""
+
+#: Admin/Insights/views/index.php:67
+#, fuzzy
+#| msgid "%m month"
+#| msgid_plural "%m months"
+msgid "Past month"
+msgstr "%m ay"
+
+#: Admin/Insights/views/index.php:75
+#, fuzzy
+#| msgid "%y year"
+#| msgid_plural "%y years"
+msgid "Past year"
+msgstr "%y yıl"
+
+#: Admin/Insights/views/index.php:86
+#, fuzzy
+#| msgid "Browser"
+msgid "Browsers"
+msgstr "Tarayıcı"
+
+#: Admin/Insights/views/index.php:94
+msgid "OS"
+msgstr ""
+
+#: Admin/Log/Page.php:50 Admin/Privacy/Policy.php:110
+msgid "Status"
+msgstr "Durum"
+
+#: Admin/Log/Page.php:51
+msgid "Action"
+msgstr "İşlem"
+
+#: Admin/Log/Page.php:53 Admin/Log/views/index.php:148
+#: Admin/Poll/views/settings/vote/frequency.php:20
+#: Admin/Poll/views/settings/vote/limitations.php:122
+#: Admin/Privacy/Policy.php:102
+msgid "IP"
+msgstr "IP"
+
+#: Admin/Log/Page.php:54 Admin/Log/views/index.php:156
+msgid "Browser"
+msgstr "Tarayıcı"
+
+#: Admin/Log/Page.php:55 Admin/Log/views/index.php:127 Poll/PostType.php:121
+msgid "Poll"
+msgstr "Anket"
+
+#: Admin/Log/Page.php:56
+msgid "User name"
+msgstr "Üye Adı"
+
+#: Admin/Log/Page.php:57
+msgid "User ID"
+msgstr "Üye ID"
+
+#: Admin/Log/Page.php:58
+msgid "User login"
+msgstr "Üye Girişi"
+
+#: Admin/Log/Page.php:59
+msgid "User email"
+msgstr "User email"
+
+#: Admin/Log/Page.php:60
+msgid "Details"
+msgstr "Detaylar"
+
+#: Admin/Log/views/index.php:45
+#, fuzzy
+#| msgid "Action"
+msgid "Actions"
+msgstr "İşlem"
+
+#: Admin/Log/views/index.php:56
+msgid "Local Time"
+msgstr ""
+
+#: Admin/Log/views/index.php:80
+msgid "Open"
+msgstr ""
+
+#: Admin/Log/views/index.php:81 Admin/Poll/views/form/field.php:66
+#: Admin/Poll/views/form/field.php:256
+#: Admin/Poll/views/questions/questions.php:31
+#: Admin/Poll/views/settings/vote/limitations.php:148
+msgid "Delete"
+msgstr "Sil"
+
+#: Admin/Log/views/index.php:99
+#, fuzzy
+#| msgid "Purged."
+msgid "Purge"
+msgstr "Tasfiye edildi."
+
+#: Admin/Log/views/index.php:135
+msgid "Received choices"
+msgstr ""
+
+#: Admin/Log/views/index.php:144
+msgid "Skipped"
+msgstr ""
+
+#: Admin/Log/views/index.php:163
+#, fuzzy
+#| msgid "User ID"
+msgid "User"
+msgstr "Üye ID"
+
+#: Admin/Log/views/index.php:170
+#, fuzzy
+#| msgid "Entries"
+msgid "Entry"
+msgstr "Girdiler"
+
+#: Admin/Log/views/index.php:181 Poll/Renderer.php:293
+msgid "of"
+msgstr "of"
+
+#: Admin/Modules/Extensions/views/index.php:4
+#: Admin/Modules/Templates/views/index.php:4
+#: Admin/Poll/views/choices/choice-audio.php:38
+#: Admin/Poll/views/choices/choice-audio.php:60
+#: Admin/Poll/views/choices/choice-image.php:32
+#: Admin/Poll/views/choices/choice-video.php:44
+#: Admin/Poll/views/choices/choice-video.php:69
+msgid "Upload"
+msgstr "Yükle"
+
+#: Admin/Modules/Extensions/views/index.php:9
+#: Admin/Modules/Templates/views/index.php:9
+msgid "Installed"
+msgstr "Yüklendi"
+
+#: Admin/Modules/Extensions/views/index.php:12
+#: Admin/Modules/Templates/views/index.php:12
+msgid "Store"
+msgstr "Mağaza"
+
+#: Admin/Modules/Extensions/views/index.php:16
+#: Admin/Modules/Templates/views/index.php:16
+msgid "Refresh"
+msgstr "Yenile"
+
+#: Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "Modüller"
+
+#: Admin/Modules/views/index.php:5 Admin/Modules/views/install.php:21
+#: Admin/Modules/views/manager.php:30
+msgid "Install"
+msgstr "Yükle"
+
+#: Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr ""
+".Zip biçiminde bir şablonunuz veya uzantınız varsa, buraya yükleyerek "
+"kurabilirsiniz."
+
+#: Admin/Modules/views/install.php:18
+msgid "Browse"
+msgstr "Tarayıcı"
+
+#: Admin/Modules/views/manager.php:21
+#: Admin/Poll/views/design/tabs/templates.php:23
+msgid "By"
+msgstr "Ekleyen"
+
+#: Admin/Modules/views/manager.php:35
+msgid "Get it"
+msgstr "Sahip ol"
+
+#: Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "Güncelle"
+
+#: Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "Kaldır"
+
+#: Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "Pasif"
+
+#: Admin/Modules/views/manager.php:64
+#: Admin/Poll/views/design/tabs/templates.php:25
+msgid "Version"
+msgstr "Versiyon"
+
+#: Admin/Onboarding/Page.php:34
+msgid "Hey mate!"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:35
+msgid ""
+"We are delighted to see you started using TotalPoll. <br> TotalPoll will "
+"impress you, we promise!"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:39
+#, fuzzy
+#| msgid "User login"
+msgid "User Friendly"
+msgstr "Üye Girişi"
+
+#: Admin/Onboarding/Page.php:40
+msgid "The user-friendly interface enables you to create polls in no time."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:44
+#, fuzzy
+#| msgid "Design"
+msgid "Elegant Design"
+msgstr "Tasarım"
+
+#: Admin/Onboarding/Page.php:45
+msgid "A good-looking poll could help you achieve a better response rate."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:49
+msgid "Flexibility & Extensibility"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:50
+msgid "Whether text-based or media-based polls, TotalPoll got you covered."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:55
+#, fuzzy
+#| msgid "Get started"
+msgid "🎓<br>Get started"
+msgstr "Başla"
+
+#: Admin/Onboarding/Page.php:56
+msgid "We've prepared some materials for you to ease your learning curve."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:60
+msgid "How to create a poll"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:61
+#, fuzzy
+#| msgid "It's time to create your first poll."
+msgid "Learn how to create your first poll using TotalPoll."
+msgstr "İlk anketinizi oluşturma zamanı."
+
+#: Admin/Onboarding/Page.php:66
+msgid "How to integrate a poll"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:67
+msgid "Lean how to integrate a poll into your site using different methods."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:72
+msgid "How to customize the appearance of a poll"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:73
+msgid "Learn how to customize the appearance of a poll to match your brand."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:79
+msgid "🤝 <br> Happy to e-meet you!"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:80
+msgid "Let's go beyond business, let's be friends!"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:83
+msgid "🍒 <br> Featured add-ons"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:84
+msgid "Do even more with a set of powerful add-ons for TotalPoll."
+msgstr ""
+
+#: Admin/Onboarding/Page.php:87
+msgid "🙌<br>Almost done!"
+msgstr ""
+
+#: Admin/Onboarding/Page.php:88
+msgid ""
+"We'd like to collect some anonymous usage information that will help us "
+"shape up TotalPoll."
+msgstr ""
+
+#: Admin/Options/Page.php:71 Poll/Model.php:907 Poll/Model.php:1038
+#: Poll/Model.php:1104
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "%s Oy"
+msgstr[1] "%s Oy"
+
+#: Admin/Options/Page.php:72
+#, php-format
+msgid "%s Votes"
+msgstr "%s Oy"
+
+#: Admin/Options/Page.php:78
+msgid "Buttons"
+msgstr "Düğmeler"
+
+#: Admin/Options/Page.php:93 Admin/Poll/Editor.php:292
+#: Admin/Poll/Editor.php:307 Poll/Form.php:255 Widgets/Poll.php:84
+#: Widgets/RandomPoll.php:65
+msgid "Results"
+msgstr "Sonuçlar"
+
+#: Admin/Options/Page.php:98 Admin/Poll/Editor.php:277
+#: Admin/Poll/Editor.php:305 Poll/Form.php:267 Widgets/Poll.php:83
+#: Widgets/RandomPoll.php:64
+msgid "Vote"
+msgstr "Oyla"
+
+#: Admin/Options/Page.php:103 Poll/Form.php:279
+msgid "Back to vote"
+msgstr "Oylamaya geri dön"
+
+#: Admin/Options/Page.php:108 Poll/Form.php:230
+msgid "Continue to vote"
+msgstr "Oy vermeye devam et"
+
+#: Admin/Options/Page.php:113 Poll/Form.php:242
+msgid "Continue to results"
+msgstr "Sonuçlar"
+
+#: Admin/Options/Page.php:119 Admin/Poll/Editor.php:257
+#: Admin/Poll/views/form/fields.php:31
+#: Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "Alanlar"
+
+#: Admin/Options/Page.php:124 Poll/Form.php:367
+msgid "Other"
+msgstr "Diğer"
+
+#: Admin/Options/Page.php:130
+msgid "Errors"
+msgstr "Hata"
+
+#: Admin/Options/Page.php:136
+msgid "You cannot vote again in this poll."
+msgstr "Bu ankette tekrar oy kullanamazsınız."
+
+#: Admin/Options/Page.php:142
+msgid "You have to vote for at least one choice."
+msgstr "Lütfen bir seçim yapınız."
+
+#: Admin/Options/Page.php:143
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "En az %d seçenek için oy kullanmanız gerekir."
+
+#: Admin/Options/Page.php:149
+msgid "You cannot vote for more than one choice."
+msgstr "Birden fazla seçeneğe oy veremezsiniz."
+
+#: Admin/Options/Page.php:150
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "%d'den fazla seçeneğe oy veremezsiniz."
+
+#: Admin/Options/Page.php:156
+msgid "You have entered an invalid captcha code."
+msgstr "Geçersiz bir captcha kodu girdiniz."
+
+#: Admin/Options/Page.php:162
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "Kota aşıldığı için oy veremezsiniz."
+
+#: Admin/Options/Page.php:168
+msgid "You cannot see results before voting."
+msgstr "Oylamadan önce sonuçları göremezsiniz."
+
+#: Admin/Options/Page.php:174
+msgid "You cannot vote because this poll has not started yet."
+msgstr "Bu anket henüz başlamadığı için oy veremezsiniz."
+
+#: Admin/Options/Page.php:180
+msgid "You cannot vote because this poll has expired."
+msgstr "Bu anketin süresi dolduğu için oy veremezsiniz."
+
+#: Admin/Options/Page.php:186
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "Bu anket bölgenizde mevcut olmadığı için oy veremezsiniz."
+
+#: Admin/Options/Page.php:192
+msgid "You cannot vote because you have insufficient rights."
+msgstr "Yeterli haklara sahip olmadığınız için oy kullanamazsınız."
+
+#: Admin/Options/Page.php:198 Limitations/Membership.php:49
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"Misafir olduğunuz için oy veremezsiniz, lütfen <a href=\"%s\">oturum açın</"
+"a> veya <a href=\"%s\">kaydolun</a>."
+
+#: Admin/Options/Page.php:204
+msgid "Voting via links has been disabled for this poll."
+msgstr "Bu anket için bağlantılar aracılığıyla oylama devre dışı bırakıldı."
+
+#: Admin/Options/Page.php:210 Limitations/Membership.php:39
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "Devam etmek için şu rollerin bir parçası olmalısınız: %s."
+
+#: Admin/Options/Page.php:216 Poll/Commands/CountVote.php:166
+msgid "Something went wrong. Please try again."
+msgstr "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+
+#: Admin/Options/Page.php:222 Limitations/Period.php:28
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "Bu anket henüz başlamadı (%s kaldı)."
+
+#: Admin/Options/Page.php:228 Limitations/Period.php:40
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "Bu anket sona erdi (%s tarihinden beri)."
+
+#: Admin/Options/Page.php:234 Admin/Poll/views/form/field.php:93
+msgid "Validations"
+msgstr "Doğrulamalar"
+
+#: Admin/Options/Page.php:239
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}} geçerli bir e-posta adresi olmalıdır."
+
+#: Admin/Options/Page.php:244
+msgid "{{label}} must be filled."
+msgstr "{{label}} doldurulmalıdır."
+
+#: Admin/Options/Page.php:249
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}} desteklenen aralıkta değil."
+
+#: Admin/Options/Page.php:254 Poll/Form.php:89
+msgid "{{label}} has been used before."
+msgstr "{{label}} daha önce kullanıldı."
+
+#: Admin/Options/Page.php:259
+msgid "{{label}} is not accepted."
+msgstr "{{label}} kabul edilmiyor."
+
+#: Admin/Options/Page.php:264
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} bu değere izin vermiyor."
+
+#: Admin/Options/Page.php:269 Poll/Commands/CountVote.php:135
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "En az {{minimum}} seçim için oy vermelisiniz."
+msgstr[1] "En az {{minimum}} seçim için oy vermelisiniz."
+
+#: Admin/Options/Page.php:270
+#, fuzzy
+#| msgid "You must vote for at least {{minimum}} choice."
+#| msgid_plural "You must vote for at least {{minimum}} choices."
+msgid "You must vote for at least {{minimum}} choices."
+msgstr "En az {{minimum}} seçim için oy vermelisiniz."
+
+#: Admin/Options/Page.php:275 Poll/Commands/CountVote.php:138
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "{{maximum}} seçime kadar oy verebilirsiniz."
+msgstr[1] "{{maximum}} seçime kadar oy verebilirsiniz."
+
+#: Admin/Options/Page.php:276
+#, fuzzy
+#| msgid "You can vote for up to {{maximum}} choice."
+#| msgid_plural "You can vote for up to {{maximum}} choices."
+msgid "You can vote for up to {{maximum}} choices."
+msgstr "{{maximum}} seçime kadar oy verebilirsiniz."
+
+#: Admin/Options/Page.php:304
+msgid "General"
+msgstr "Genel"
+
+#: Admin/Options/Page.php:305
+msgid "Performance"
+msgstr "Performans"
+
+#: Admin/Options/Page.php:306
+msgid "Services"
+msgstr "Servis"
+
+#: Admin/Options/Page.php:307
+msgid "Sharing"
+msgstr "Paylaşım"
+
+#: Admin/Options/Page.php:308 Admin/Poll/Editor.php:339
+msgid "Advanced"
+msgstr "Gelişmiş"
+
+#: Admin/Options/Page.php:309 Admin/Poll/Editor.php:312
+msgid "Notifications"
+msgstr "Bildirimler"
+
+#: Admin/Options/Page.php:310
+msgid "Expressions"
+msgstr "İfade"
+
+#: Admin/Options/Page.php:311
+msgid "Migration"
+msgstr "Migration"
+
+#: Admin/Options/Page.php:312
+msgid "Import & Export"
+msgstr "Import & Export"
+
+#: Admin/Options/Page.php:313
+msgid "Debug"
+msgstr "Hata ayıklama"
+
+#: Admin/Options/views/index.php:9 Admin/Options/views/index.php:58
+msgid "Saving ..."
+msgstr ""
+
+#: Admin/Options/views/index.php:10 Admin/Options/views/index.php:59
+#, fuzzy
+#| msgid "Saved."
+msgid "Saved"
+msgstr "Kaydedildi."
+
+#: Admin/Options/views/index.php:11 Admin/Options/views/index.php:60
+msgid "Save changes"
+msgstr ""
+
+#: Admin/Options/views/tabs/advanced.php:5
+msgid "Always embed CSS with HTML."
+msgstr "CSS'yi her zaman HTML ile gömün."
+
+#: Admin/Options/views/tabs/advanced.php:8
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr ""
+"Bu seçenek, WordPress standart dosya sisteminde çalışmadığında yararlı "
+"olabilir."
+
+#: Admin/Options/views/tabs/advanced.php:15
+msgid "Render full poll when listed in polls archive."
+msgstr "Anket arşivinde listelendiğinde tam anketi işle."
+
+#: Admin/Options/views/tabs/advanced.php:18
+msgid "This option will render all polls instead of showing titles only."
+msgstr ""
+"Bu seçenek, yalnızca başlıkları göstermek yerine tüm anketleri "
+"oluşturacaktır."
+
+#: Admin/Options/views/tabs/advanced.php:26
+msgid "Disable polls archive."
+msgstr "Anket arşivini devre dışı bırakın."
+
+#: Admin/Options/views/tabs/advanced.php:34
+msgid "Remove all data on uninstall."
+msgstr "Kaldırma sırasında tüm verileri kaldırın."
+
+#: Admin/Options/views/tabs/advanced.php:37
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr ""
+"Dikkat! Bu, seçenekler, önbellek dosyaları ve anketler dahil olmak üzere tüm "
+"TotalPoll verilerini kaldıracaktır."
+
+#: Admin/Options/views/tabs/debug.php:17
+msgid "Download"
+msgstr "İndir"
+
+#: Admin/Options/views/tabs/general.php:6
+msgid ""
+"Spread the love by adding \"Powered by TotalPoll\" underneath the polls."
+msgstr ""
+
+#: Admin/Options/views/tabs/general.php:16
+msgid "Structured Data"
+msgstr "Yapılandırılmış Veriler"
+
+#: Admin/Options/views/tabs/general.php:19
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"<a href=\"https://developers.google.com/search/docs/guides/intro-structured-"
+"data\" target=\"_blank\">Yapısal Veri</a> uygulamasıyla arama motorundaki "
+"görünümünüzü iyileştirin.."
+
+#: Admin/Options/views/tabs/import-export.php:5
+msgid "Import data"
+msgstr "Verileri içe aktar"
+
+#: Admin/Options/views/tabs/import-export.php:8
+msgid "Export data"
+msgstr "Verileri dışa aktar"
+
+#: Admin/Options/views/tabs/import-export.php:11
+msgid "Export settings"
+msgstr "Dışa Aktarma Ayarları"
+
+#: Admin/Options/views/tabs/import-export.php:15
+msgid "TotalPoll uses standard WordPress import/export mechanism."
+msgstr ""
+"TotalPoll, standart WordPress içe / dışa aktarma mekanizmasını kullanır."
+
+#: Admin/Options/views/tabs/import-export.php:21
+msgid "Drag and drop settings file or copy then paste its content here."
+msgstr ""
+"Ayarlar dosyasını sürükleyip bırakın veya kopyalayıp içeriğini buraya "
+"yapıştırın."
+
+#: Admin/Options/views/tabs/import-export.php:25
+msgid "Import settings"
+msgstr "Ayarları içe aktar"
+
+#: Admin/Options/views/tabs/import-export.php:26
+msgid "Importing"
+msgstr "İçe aktarılıyor"
+
+#: Admin/Options/views/tabs/import-export.php:27
+msgid "Imported"
+msgstr "İçe aktar"
+
+#: Admin/Options/views/tabs/migration.php:11
+msgid "No polls to migrate."
+msgstr "Taşınacak anket yok."
+
+#: Admin/Options/views/tabs/migration.php:12
+msgid "Polls migrated successfully."
+msgstr "Anketler başarıyla taşındı."
+
+#: Admin/Options/views/tabs/migration.php:13
+msgid "Polls to migrate."
+msgstr "Anketler taşınacak."
+
+#: Admin/Options/views/tabs/migration.php:26 Admin/Poll/views/editor.php:15
+msgid "Migrate"
+msgstr "Migrate"
+
+#: Admin/Options/views/tabs/notifications.php:2
+msgid "Poll title: {{title}}"
+msgstr "Anket başlığı: {{title}}"
+
+#: Admin/Options/views/tabs/notifications.php:3
+msgid "Choices: {{choices}}"
+msgstr "Seçenekler: {{choices}}"
+
+#: Admin/Options/views/tabs/notifications.php:4
+msgid "User IP: {{ip}}"
+msgstr "Üye IP: {{ip}}"
+
+#: Admin/Options/views/tabs/notifications.php:5
+msgid "User browser: {{browser}}"
+msgstr "Kullanıcı tarayıcısı: {{browser}}"
+
+#: Admin/Options/views/tabs/notifications.php:6
+msgid "Vote date: {{date}}"
+msgstr "Oy tarihi: {{date}}"
+
+#: Admin/Options/views/tabs/notifications.php:10 Admin/Poll/Listing.php:102
+#: Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "Başlık"
+
+#: Admin/Options/views/tabs/notifications.php:16
+msgid "Plain text body"
+msgstr "Düz metin gövdesi"
+
+#: Admin/Options/views/tabs/notifications.php:22
+msgid "HTML template"
+msgstr "HTML şablonu"
+
+#: Admin/Options/views/tabs/performance.php:5
+msgid "Asynchronous loading"
+msgstr "Eşzamansız yükleme"
+
+#: Admin/Options/views/tabs/performance.php:8
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr ""
+"Bu, önbellek mekanizmalarını ve eklentileri atlamak istediğinizde yararlı "
+"olabilir."
+
+#: Admin/Options/views/tabs/performance.php:15
+msgid "Full checks on page load."
+msgstr "Sayfa yüklemesinde tam kontroller."
+
+#: Admin/Options/views/tabs/performance.php:18
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr ""
+"TotalPoll veritabanına sık sık vuracağından bu, sunucunuza yüksek yük "
+"getirebilir."
+
+#: Admin/Options/views/tabs/performance.php:25
+msgid "Clear cache"
+msgstr "Önbelleği temizle"
+
+#: Admin/Options/views/tabs/performance.php:26
+msgid "Clearing"
+msgstr "Clearing"
+
+#: Admin/Options/views/tabs/performance.php:27
+msgid "Cleared"
+msgstr "Temizlendi"
+
+#: Admin/Options/views/tabs/services.php:4
+msgid "reCaptcha by Google"
+msgstr "Google'dan reCaptcha"
+
+#: Admin/Options/views/tabs/services.php:13
+msgid "Site key"
+msgstr "Site key"
+
+#: Admin/Options/views/tabs/services.php:21
+msgid "Site secret"
+msgstr "Site secret"
+
+#: Admin/Options/views/tabs/services.php:29
+msgid "Enable invisible captcha."
+msgstr "Görünmez captcha'yı etkinleştirin."
+
+#: Admin/Options/views/tabs/sharing.php:7
+msgid "Twitter"
+msgstr "Twitter"
+
+#: Admin/Options/views/tabs/sharing.php:17
+msgid "Facebook"
+msgstr "Facebook"
+
+#: Admin/Options/views/tabs/sharing.php:27
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: Admin/Poll/Editor.php:186
+msgid "Are you sure?"
+msgstr "Emin misiniz?"
+
+#: Admin/Poll/Editor.php:187 Admin/Poll/views/choices/choice-audio.php:44
+#: Admin/Poll/views/choices/choice-video.php:51
+#: Admin/Poll/views/questions/question.php:65
+msgid "Yes"
+msgstr "Evet"
+
+#: Admin/Poll/Editor.php:188 Admin/Poll/views/choices/choice-audio.php:47
+#: Admin/Poll/views/choices/choice-video.php:55
+#: Admin/Poll/views/questions/question.php:64
+msgid "No"
+msgstr "Hayır"
+
+#: Admin/Poll/Editor.php:189
+msgid "Done"
+msgstr "Bitti"
+
+#: Admin/Poll/Editor.php:190
+msgid "Do you want to receive notifications from TotalPoll?"
+msgstr "TotalPoll'dan bildirim almak istiyor musunuz?"
+
+#: Admin/Poll/Editor.php:191
+msgid "Unfortunately, your browser does not support push notifications."
+msgstr "Maalesef tarayıcınız push bildirimlerini desteklemiyor."
+
+#: Admin/Poll/Editor.php:192
+msgid ""
+"ATTENTION! Overriding votes is not reversible. Are you sure you want to "
+"override votes?"
+msgstr ""
+"DİKKAT! Geçersiz kılan oylar geri alınamaz. Oyları geçersiz kılmak "
+"istediğinizden emin misiniz?"
+
+#: Admin/Poll/Editor.php:204
+#, fuzzy
+#| msgid "%i minute"
+#| msgid_plural "%i minutes"
+msgid "30 Minutes"
+msgstr "%i dakika"
+
+#: Admin/Poll/Editor.php:205
+msgid "1 Hour"
+msgstr ""
+
+#: Admin/Poll/Editor.php:206
+msgid "6 Hours"
+msgstr ""
+
+#: Admin/Poll/Editor.php:207
+msgid "1 Day"
+msgstr ""
+
+#: Admin/Poll/Editor.php:208
+msgid "1 Week"
+msgstr ""
+
+#: Admin/Poll/Editor.php:209
+#, fuzzy
+#| msgid "%m month"
+#| msgid_plural "%m months"
+msgid "1 Month"
+msgstr "%m ay"
+
+#: Admin/Poll/Editor.php:210
+#, fuzzy
+#| msgid "%m month"
+#| msgid_plural "%m months"
+msgid "6 Months"
+msgstr "%m ay"
+
+#: Admin/Poll/Editor.php:211
+msgid "1 Year"
+msgstr ""
+
+#: Admin/Poll/Editor.php:256
+msgid "Questions"
+msgstr "Sorular"
+
+#: Admin/Poll/Editor.php:258 Admin/Poll/views/questions/question.php:24
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: Admin/Poll/Editor.php:259
+msgid "Design"
+msgstr "Tasarım"
+
+#: Admin/Poll/Editor.php:260
+msgid "Integration"
+msgstr "Entegrasyon"
+
+#: Admin/Poll/Editor.php:261
+msgid "Translations"
+msgstr "Çeviriler"
+
+#: Admin/Poll/Editor.php:280
+msgid "Limitations"
+msgstr "Sınırlamalar"
+
+#: Admin/Poll/Editor.php:281
+msgid "Frequency"
+msgstr "Sıklık"
+
+#: Admin/Poll/Editor.php:285 Admin/Poll/views/questions/question.php:81
+#: Admin/Poll/views/questions/questions.php:25
+msgid "Choices"
+msgstr "Seçim"
+
+#: Admin/Poll/Editor.php:288 Admin/Poll/Editor.php:295
+msgid "Sort"
+msgstr "Çeşit"
+
+#: Admin/Poll/Editor.php:296
+msgid "Visibility"
+msgstr "Görünürlük"
+
+#: Admin/Poll/Editor.php:297
+msgid "Format"
+msgstr "Format"
+
+#: Admin/Poll/Editor.php:301 Admin/Poll/views/questions/question.php:3
+#: Admin/Poll/views/settings/content/thankyou.php:4
+#: Admin/Poll/views/settings/content/welcome.php:4
+#: Admin/Poll/views/translations/index.php:61
+msgid "Content"
+msgstr "İçerik"
+
+#: Admin/Poll/Editor.php:304
+msgid "Welcome"
+msgstr "Hoşgeldiniz"
+
+#: Admin/Poll/Editor.php:306
+msgid "Thank you"
+msgstr "Teşekkürler"
+
+#: Admin/Poll/Editor.php:310 Admin/Poll/views/translations/index.php:122
+msgid "SEO"
+msgstr "SEO"
+
+#: Admin/Poll/Editor.php:315 Admin/Poll/Editor.php:382
+#: Admin/Poll/views/form/field.php:193 Admin/Poll/views/form/fields.php:16
+msgid "Email"
+msgstr "E-Posta"
+
+#: Admin/Poll/Editor.php:316
+msgid "Push"
+msgstr "Push"
+
+#: Admin/Poll/Editor.php:317
+msgid "WebHook"
+msgstr "WebHook"
+
+#: Admin/Poll/Editor.php:335
+msgid "Layout"
+msgstr "Yerleşim"
+
+#: Admin/Poll/Editor.php:336
+msgid "Colors"
+msgstr "Renk"
+
+#: Admin/Poll/Editor.php:337 Admin/Poll/views/choices/choice.php:30
+#: Admin/Poll/views/choices/choice.php:102
+#: Admin/Poll/views/choices/choices.php:150
+#: Admin/Poll/views/choices/choices.php:201 Admin/Poll/views/form/field.php:31
+#: Admin/Poll/views/form/fields.php:142
+msgid "Text"
+msgstr "Metin"
+
+#: Admin/Poll/Editor.php:341
+msgid "Template Settings"
+msgstr "Şablon Ayarları"
+
+#: Admin/Poll/Editor.php:342
+msgid "Behaviours"
+msgstr "Davranışlar"
+
+#: Admin/Poll/Editor.php:343
+msgid "Effects"
+msgstr "Efekt"
+
+#: Admin/Poll/Editor.php:344
+msgid "Custom CSS"
+msgstr "Özel CSS"
+
+#: Admin/Poll/Editor.php:362
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: Admin/Poll/Editor.php:363 Admin/Poll/Editor.php:368
+msgid "WordPress feature"
+msgstr "WordPress özelliği"
+
+#: Admin/Poll/Editor.php:367
+msgid "Widget"
+msgstr "Widget"
+
+#: Admin/Poll/Editor.php:372
+msgid "Direct link"
+msgstr "Direk link"
+
+#: Admin/Poll/Editor.php:373
+msgid "Standard link"
+msgstr "Standart bağlantı"
+
+#: Admin/Poll/Editor.php:377
+msgid "Embed"
+msgstr "Embed"
+
+#: Admin/Poll/Editor.php:378
+msgid "External inclusion"
+msgstr "Dış dahil etme"
+
+#: Admin/Poll/Editor.php:383
+msgid "Vote links"
+msgstr "Oy bağlantıları"
+
+#: Admin/Poll/Editor.php:458
+#, fuzzy
+#| msgid "Your TotalSuite Account"
+msgid "TotalSuite"
+msgstr "TotalSuite Hesabınız"
+
+#: Admin/Poll/Editor.php:466
+msgid "Feature Request"
+msgstr ""
+
+#: Admin/Poll/Listing.php:190
+msgid ""
+"Are you sure? This will remove votes, log entries and form entries. Please "
+"type \"confirm\" to continue"
+msgstr ""
+
+#: Admin/Poll/Listing.php:194
+#, fuzzy
+#| msgid "Reset Votes"
+msgid "Reset Poll"
+msgstr "Oyları Sıfırla"
+
+#: Admin/Poll/Listing.php:199
+#, fuzzy
+#| msgid "Sort results by"
+msgid "Export results"
+msgstr "Sonuçları sıralama ölçütü"
+
+#: Admin/Poll/Listing.php:205
+#, fuzzy, php-format
+#| msgid "Export data"
+msgid "Export as %s"
+msgstr "Verileri dışa aktar"
+
+#: Admin/Poll/Listing.php:242
+msgid "Offline"
+msgstr "Çevrimdışı"
+
+#: Admin/Poll/views/choices/choice-audio.php:24
+#: Admin/Poll/views/choices/choice-html.php:13
+#: Admin/Poll/views/choices/choice-image.php:19
+#: Admin/Poll/views/choices/choice-text.php:11
+#: Admin/Poll/views/choices/choice-video.php:27
+#: Admin/Poll/views/form/field.php:118
+#: Admin/Poll/views/settings/choices/sort.php:20
+#: Admin/Poll/views/settings/results/sort.php:20
+msgid "Label"
+msgstr "Etiket"
+
+#: Admin/Poll/views/choices/choice-audio.php:26
+#: Admin/Poll/views/choices/choice-html.php:15
+#: Admin/Poll/views/choices/choice-image.php:21
+#: Admin/Poll/views/choices/choice-text.php:12
+#: Admin/Poll/views/choices/choice-video.php:29
+msgid "Choice label"
+msgstr "Seçim etiketi"
+
+#: Admin/Poll/views/choices/choice-audio.php:31
+msgid "Audio URL"
+msgstr "Ses URL'si"
+
+#: Admin/Poll/views/choices/choice-audio.php:33
+msgid "Full size audio URL"
+msgstr "Tam boyutlu ses URL'si"
+
+#: Admin/Poll/views/choices/choice-audio.php:42
+#: Admin/Poll/views/choices/choice-video.php:48
+msgid "Import information from {{provider}}?"
+msgstr "{{Provider}} bilgileri içe aktarılsın mı?"
+
+#: Admin/Poll/views/choices/choice-audio.php:53
+#: Admin/Poll/views/choices/choice-image.php:37
+#: Admin/Poll/views/choices/choice-video.php:61
+msgid "Thumbnail URL"
+msgstr "Küçük resim URL'si"
+
+#: Admin/Poll/views/choices/choice-audio.php:55
+#: Admin/Poll/views/choices/choice-image.php:39
+#: Admin/Poll/views/choices/choice-video.php:63
+msgid "Thumbnail image URL"
+msgstr "Küçük resim URL'si"
+
+#: Admin/Poll/views/choices/choice-audio.php:64
+#: Admin/Poll/views/choices/choice-image.php:44
+#: Admin/Poll/views/choices/choice-video.php:73
+msgid "Available sizes"
+msgstr "Mevcut boyutlar"
+
+#: Admin/Poll/views/choices/choice-image.php:26
+msgid "Image URL"
+msgstr "Resim URL"
+
+#: Admin/Poll/views/choices/choice-image.php:28
+msgid "Full size image URL"
+msgstr "Tam boyutlu resim URL'si"
+
+#: Admin/Poll/views/choices/choice-video.php:35
+msgid "Video URL"
+msgstr "Video URL"
+
+#: Admin/Poll/views/choices/choice-video.php:37
+msgid "Full size video URL"
+msgstr "Tam boyutlu video URL'si"
+
+#: Admin/Poll/views/choices/choice.php:31
+#: Admin/Poll/views/choices/choice.php:105
+#: Admin/Poll/views/choices/choices.php:154
+#: Admin/Poll/views/choices/choices.php:209
+msgid "Image"
+msgstr "Resim"
+
+#: Admin/Poll/views/choices/choice.php:32
+#: Admin/Poll/views/choices/choice.php:108
+#: Admin/Poll/views/choices/choices.php:158
+#: Admin/Poll/views/choices/choices.php:218
+msgid "Video"
+msgstr "Video"
+
+#: Admin/Poll/views/choices/choice.php:33
+#: Admin/Poll/views/choices/choice.php:111
+#: Admin/Poll/views/choices/choices.php:162
+#: Admin/Poll/views/choices/choices.php:227
+msgid "Audio"
+msgstr "Ses"
+
+#: Admin/Poll/views/choices/choice.php:75
+msgid "Revert"
+msgstr ""
+
+#: Admin/Poll/views/choices/choice.php:100
+msgid "Convert to..."
+msgstr ""
+
+#: Admin/Poll/views/choices/choice.php:123
+#, fuzzy
+#| msgid "Transform"
+msgid "Transfer to..."
+msgstr "Dönüştürme"
+
+#: Admin/Poll/views/choices/choices.php:3
+msgid "Drop to add"
+msgstr "Eklemek için bırakın"
+
+#: Admin/Poll/views/choices/choices.php:26 Admin/Poll/views/form/fields.php:50
+msgid "Collapse"
+msgstr "Collapse"
+
+#: Admin/Poll/views/choices/choices.php:37 Admin/Poll/views/form/fields.php:59
+msgid "Expand"
+msgstr "Genişlet"
+
+#: Admin/Poll/views/choices/choices.php:59 Admin/Poll/views/form/fields.php:68
+msgid "Bulk"
+msgstr "Bulk"
+
+#: Admin/Poll/views/choices/choices.php:71
+msgid "Shuffle"
+msgstr "Karıştır"
+
+#: Admin/Poll/views/choices/choices.php:82
+msgid "Random Votes"
+msgstr "Rastgele Oylar"
+
+#: Admin/Poll/views/choices/choices.php:104
+msgid "Filter"
+msgstr "Filtrele"
+
+#: Admin/Poll/views/choices/choices.php:116 Admin/Poll/views/form/fields.php:88
+msgid "Delete All"
+msgstr "Hepsini sil"
+
+#: Admin/Poll/views/choices/choices.php:127
+msgid "Reset Votes"
+msgstr "Oyları Sıfırla"
+
+#: Admin/Poll/views/choices/choices.php:141
+msgid "One choice per line."
+msgstr "Satır başına bir seçenek."
+
+#: Admin/Poll/views/choices/choices.php:143
+#: Admin/Poll/views/form/fields.php:110
+#: Admin/Poll/views/integration/widget.php:19
+msgid "Insert"
+msgstr "Ekle"
+
+#: Admin/Poll/views/choices/choices.php:172
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr "Henüz seçenek yok. Aşağıdaki düğmelere tıklayarak birkaç tane ekleyin."
+
+#: Admin/Poll/views/choices/choices.php:190
+#: Admin/Poll/views/form/fields.php:127
+#: Admin/Poll/views/questions/questions.php:50
+msgid "Move here"
+msgstr "Buraya taşı"
+
+#: Admin/Poll/views/design/index.php:51 Admin/Poll/views/design/index.php:204
+msgid "Font family"
+msgstr "Font family"
+
+#: Admin/Poll/views/design/index.php:59 Admin/Poll/views/design/index.php:212
+msgid "Font size"
+msgstr "Font size"
+
+#: Admin/Poll/views/design/index.php:65 Admin/Poll/views/design/index.php:218
+msgid "Line height"
+msgstr "Satır yüksekliği"
+
+#: Admin/Poll/views/design/index.php:73 Admin/Poll/views/design/index.php:226
+msgid "Align"
+msgstr "Align"
+
+#: Admin/Poll/views/design/index.php:77 Admin/Poll/views/design/index.php:97
+#: Admin/Poll/views/design/index.php:230 Admin/Poll/views/design/index.php:281
+msgid "Inherit"
+msgstr "Devral"
+
+#: Admin/Poll/views/design/index.php:80 Admin/Poll/views/design/index.php:126
+#: Admin/Poll/views/design/index.php:233 Admin/Poll/views/design/index.php:329
+msgid "Right"
+msgstr "Sağ"
+
+#: Admin/Poll/views/design/index.php:83 Admin/Poll/views/design/index.php:236
+msgid "Center"
+msgstr "Merkez"
+
+#: Admin/Poll/views/design/index.php:86 Admin/Poll/views/design/index.php:140
+#: Admin/Poll/views/design/index.php:239 Admin/Poll/views/design/index.php:341
+msgid "Left"
+msgstr "Sol"
+
+#: Admin/Poll/views/design/index.php:92 Admin/Poll/views/design/index.php:245
+msgid "Transform"
+msgstr "Dönüştürme"
+
+#: Admin/Poll/views/design/index.php:100 Admin/Poll/views/design/index.php:250
+msgid "Normal"
+msgstr "Normal"
+
+#: Admin/Poll/views/design/index.php:103 Admin/Poll/views/design/index.php:253
+msgid "UPPERCASE"
+msgstr "BÜYÜK HARF"
+
+#: Admin/Poll/views/design/index.php:106 Admin/Poll/views/design/index.php:256
+msgid "lowercase"
+msgstr "küçük harf"
+
+#: Admin/Poll/views/design/index.php:109 Admin/Poll/views/design/index.php:259
+msgid "Capitalize"
+msgstr "Büyük harf"
+
+#: Admin/Poll/views/design/index.php:119 Admin/Poll/views/design/index.php:323
+msgid "Top"
+msgstr "Top"
+
+#: Admin/Poll/views/design/index.php:133 Admin/Poll/views/design/index.php:335
+msgid "Bottom"
+msgstr "Bottom"
+
+#: Admin/Poll/views/design/index.php:269
+msgid "Width"
+msgstr "Genişlik"
+
+#: Admin/Poll/views/design/index.php:277
+msgid "Style"
+msgstr "Style"
+
+#: Admin/Poll/views/design/index.php:284
+#: Admin/Poll/views/design/tabs/advanced-effects.php:10
+msgid "None"
+msgstr "Hiçbiri"
+
+#: Admin/Poll/views/design/index.php:287
+msgid "Solid"
+msgstr "Solid"
+
+#: Admin/Poll/views/design/index.php:290
+msgid "Double"
+msgstr "Çift"
+
+#: Admin/Poll/views/design/index.php:293
+msgid "Dashed"
+msgstr "Dashed"
+
+#: Admin/Poll/views/design/index.php:296
+msgid "Dotted"
+msgstr "Benekli"
+
+#: Admin/Poll/views/design/index.php:299
+msgid "Groove"
+msgstr "Groove"
+
+#: Admin/Poll/views/design/index.php:302
+msgid "Hidden"
+msgstr "Gizli"
+
+#: Admin/Poll/views/design/index.php:305
+msgid "Ridge"
+msgstr "Ridge"
+
+#: Admin/Poll/views/design/index.php:313
+msgid "Radius"
+msgstr "Radius"
+
+#: Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "Aktif şablon"
+
+#: Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "Değiştir"
+
+#: Admin/Poll/views/design/sidebar.php:21
+msgid "Customize"
+msgstr "Özelleştir"
+
+#: Admin/Poll/views/design/sidebar.php:25
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "Tüm sayfayı yeniden yüklemeden anketi yerinde yükleyin."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "Oy verdikten sonra yukarı kaydırın"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:10
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "Bir oylama gönderdikten sonra anket görünümüne gidin."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:14
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:37
+msgid "One-click vote"
+msgstr "Tek tıkla oy"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:16
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:39
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "Kullanıcı, doğrudan seçeneğe tıklayarak oy kullanabilir."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:19
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:46
+msgid "Question by question"
+msgstr "Question by question"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:21
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:48
+msgid "Display questions one by one."
+msgstr "Soruları tek tek görüntüleyin."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:25
+msgid "Display fields before questions"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:29
+msgid "Disable modal"
+msgstr ""
+
+#: Admin/Poll/views/design/tabs/advanced-custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "Buraya kendi CSS'nizi ekleyin"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:4
+msgid "Transition"
+msgstr "Geçiş"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:15
+msgid "Fade"
+msgstr "Fade"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:20
+msgid "Slide"
+msgstr "Slide"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:29
+msgid "Animation duration"
+msgstr "Animasyon süresi"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:30
+msgid "Animation and transition duration"
+msgstr "Animasyon ve geçiş süresi"
+
+#: Admin/Poll/views/design/tabs/colors.php:2
+#: Admin/Poll/views/design/tabs/colors.php:12
+msgid "Primary"
+msgstr "Birincil"
+
+#: Admin/Poll/views/design/tabs/colors.php:3
+#: Admin/Poll/views/design/tabs/colors.php:39
+msgid "Secondary"
+msgstr "İkincil"
+
+#: Admin/Poll/views/design/tabs/colors.php:4
+#: Admin/Poll/views/design/tabs/colors.php:66
+msgid "Accent"
+msgstr "Vurgu"
+
+#: Admin/Poll/views/design/tabs/colors.php:5
+#: Admin/Poll/views/design/tabs/colors.php:93
+msgid "Gray"
+msgstr "Gri"
+
+#: Admin/Poll/views/design/tabs/colors.php:6
+msgid "Dark"
+msgstr "Dark"
+
+#: Admin/Poll/views/design/tabs/colors.php:16
+msgid "Primary (Contrast)"
+msgstr "Birincil (Kontrast)"
+
+#: Admin/Poll/views/design/tabs/colors.php:20
+msgid "Primary (Light)"
+msgstr "Birincil (Açık)"
+
+#: Admin/Poll/views/design/tabs/colors.php:24
+msgid "Primary (Lighter)"
+msgstr "Birincil (Daha Açık)"
+
+#: Admin/Poll/views/design/tabs/colors.php:28
+msgid "Primary (Dark)"
+msgstr "Birincil (Koyu)"
+
+#: Admin/Poll/views/design/tabs/colors.php:32
+msgid "Primary (Darker)"
+msgstr "Birincil (Daha Koyu)"
+
+#: Admin/Poll/views/design/tabs/colors.php:43
+msgid "Secondary (Contrast)"
+msgstr "İkincil (Contrast)"
+
+#: Admin/Poll/views/design/tabs/colors.php:47
+msgid "Secondary (Light)"
+msgstr "İkincil (Light)"
+
+#: Admin/Poll/views/design/tabs/colors.php:51
+msgid "Secondary (Lighter)"
+msgstr "İkincil (Lighter)"
+
+#: Admin/Poll/views/design/tabs/colors.php:55
+msgid "Secondary (Dark)"
+msgstr "İkincil (Dark)"
+
+#: Admin/Poll/views/design/tabs/colors.php:59
+msgid "Secondary (Darker)"
+msgstr "İkincil (Darker)"
+
+#: Admin/Poll/views/design/tabs/colors.php:70
+msgid "Accent (Contrast)"
+msgstr "Vurgu (Kontrast)"
+
+#: Admin/Poll/views/design/tabs/colors.php:74
+msgid "Accent (Light)"
+msgstr "Vurgu (Açık)"
+
+#: Admin/Poll/views/design/tabs/colors.php:78
+msgid "Accent (Lighter)"
+msgstr "Vurgu (Daha Açık)"
+
+#: Admin/Poll/views/design/tabs/colors.php:82
+msgid "Accent (Dark)"
+msgstr "Vurgu (Koyu)"
+
+#: Admin/Poll/views/design/tabs/colors.php:86
+msgid "Accent (Darker)"
+msgstr "Vurgu (Daha Koyu)"
+
+#: Admin/Poll/views/design/tabs/colors.php:97
+msgid "Gray (Contrast)"
+msgstr "Gri (Contrast)"
+
+#: Admin/Poll/views/design/tabs/colors.php:101
+msgid "Gray (Light)"
+msgstr "Gri (Light)"
+
+#: Admin/Poll/views/design/tabs/colors.php:105
+msgid "Gray (Lighter)"
+msgstr "Gri (Lighter)"
+
+#: Admin/Poll/views/design/tabs/colors.php:109
+msgid "Gray (Dark)"
+msgstr "Gri (Dark)"
+
+#: Admin/Poll/views/design/tabs/colors.php:113
+msgid "Gray (Darker)"
+msgstr "Gri (Daha Koyu)"
+
+#: Admin/Poll/views/design/tabs/colors.php:120
+msgid "Dark (Body Text)"
+msgstr "Dark (Body Text)"
+
+#: Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "Satır başına seçenekler"
+
+#: Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "Satır başına sorular"
+
+#: Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "Maksimum genişlik"
+
+#: Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "Gutter"
+
+#: Admin/Poll/views/design/tabs/layout.php:21
+msgid "Border Radius"
+msgstr "Border Radius"
+
+#: Admin/Poll/views/design/tabs/templates.php:10
+#: Admin/Poll/views/design/tabs/templates.php:33
+msgid "Use"
+msgstr "Kullanım"
+
+#: Admin/Poll/views/design/tabs/templates.php:11
+#: Admin/Poll/views/design/tabs/templates.php:34
+msgid "Active"
+msgstr "Etkin"
+
+#: Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "Typography"
+
+#: Admin/Poll/views/editor.php:14
+msgid ""
+"This poll has been created using an older version of TotalPoll, please "
+"migrate it."
+msgstr ""
+"Bu anket TotalPoll'un eski bir sürümü kullanılarak oluşturuldu, lütfen "
+"taşıyın."
+
+#: Admin/Poll/views/editor.php:87
+msgid "Switch to advanced"
+msgstr "Gelişmişe geç"
+
+#: Admin/Poll/views/feature-request.php:22
+msgid "Have you got an idea or improvement? We will be delighted to hear it."
+msgstr ""
+
+#: Admin/Poll/views/feature-request.php:23
+msgid "Feature title"
+msgstr ""
+
+#: Admin/Poll/views/feature-request.php:26
+#, fuzzy
+#| msgid "Continue to vote"
+msgid "Continue"
+msgstr "Oy vermeye devam et"
+
+#: Admin/Poll/views/feedback-collector.php:4
+msgid "Feedback"
+msgstr ""
+
+#: Admin/Poll/views/feedback-collector.php:5
+msgid ""
+"How likely are you to recommend our product to your colleagues or friends?"
+msgstr ""
+
+#: Admin/Poll/views/feedback-collector.php:37
+msgid "Submit"
+msgstr ""
+
+#: Admin/Poll/views/form/field.php:32 Admin/Poll/views/form/fields.php:143
+msgid "Textarea"
+msgstr "Textarea"
+
+#: Admin/Poll/views/form/field.php:33 Admin/Poll/views/form/fields.php:144
+msgid "Select"
+msgstr "Seçiniz"
+
+#: Admin/Poll/views/form/field.php:34 Admin/Poll/views/form/fields.php:145
+msgid "Checkbox"
+msgstr "Checkbox"
+
+#: Admin/Poll/views/form/field.php:35 Admin/Poll/views/form/fields.php:146
+msgid "Radio"
+msgstr "Radio"
+
+#: Admin/Poll/views/form/field.php:36
+msgid "Required"
+msgstr "Zorunlu"
+
+#: Admin/Poll/views/form/field.php:90
+msgid "Basic"
+msgstr "Temel"
+
+#: Admin/Poll/views/form/field.php:120
+msgid "Field label"
+msgstr "Alan etiketi"
+
+#: Admin/Poll/views/form/field.php:129
+msgid "Name"
+msgstr "İsim"
+
+#: Admin/Poll/views/form/field.php:131
+msgid "Field name"
+msgstr "Alan adı"
+
+#: Admin/Poll/views/form/field.php:139
+msgid "Default value"
+msgstr "Varsayılan değer"
+
+#: Admin/Poll/views/form/field.php:141 Admin/Poll/views/form/field.php:144
+msgid "Field default value"
+msgstr "Alan varsayılan değeri"
+
+#: Admin/Poll/views/form/field.php:148
+msgid "Default value per line."
+msgstr "Satır başına varsayılan değer."
+
+#: Admin/Poll/views/form/field.php:158
+msgid "option_key:Option label"
+msgstr "option_key: Seçenek etiketi"
+
+#: Admin/Poll/views/form/field.php:161
+msgid "Option per line."
+msgstr "Satır başına seçenek."
+
+#: Admin/Poll/views/form/field.php:164
+msgid "Option format is \"option : label\""
+msgstr "Seçenek biçimi \"seçenek: etiket\" şeklindedir"
+
+#: Admin/Poll/views/form/field.php:174
+msgid "Allow multiple values"
+msgstr "Birden çok değere izin ver"
+
+#: Admin/Poll/views/form/field.php:184
+msgid "Filled (required)"
+msgstr "Doldurulmuş (gerekli)"
+
+#: Admin/Poll/views/form/field.php:202
+msgid "Unique"
+msgstr "Benzersiz"
+
+#: Admin/Poll/views/form/field.php:203
+msgid "This field value must be unique in entries table."
+msgstr "Bu alan değeri, girişler tablosunda benzersiz olmalıdır."
+
+#: Admin/Poll/views/form/field.php:212
+msgid "Filter by list"
+msgstr "Listeye göre filtrele"
+
+#: Admin/Poll/views/form/field.php:222
+#: Admin/Poll/views/settings/vote/limitations.php:121
+msgid "Type"
+msgstr "Tür"
+
+#: Admin/Poll/views/form/field.php:225
+msgid "Value"
+msgstr "Değer"
+
+#: Admin/Poll/views/form/field.php:235
+#: Admin/Poll/views/settings/vote/limitations.php:130
+msgid "Allow"
+msgstr "İzin ver"
+
+#: Admin/Poll/views/form/field.php:238
+#: Admin/Poll/views/settings/vote/limitations.php:131
+msgid "Deny"
+msgstr "Reddet"
+
+#: Admin/Poll/views/form/field.php:243
+msgid "* means wildcard."
+msgstr "* joker karakter anlamına gelir."
+
+#: Admin/Poll/views/form/field.php:267
+msgid "Add new value"
+msgstr "Yeni değer ekle"
+
+#: Admin/Poll/views/form/field.php:281
+msgid "Regular Expression"
+msgstr "Düzenli ifade"
+
+#: Admin/Poll/views/form/field.php:287
+msgid "Expression"
+msgstr "İfade"
+
+#: Admin/Poll/views/form/field.php:288
+msgid "Run user input against a regular expression."
+msgstr "Kullanıcı girdisini bir normal ifadeye karşı çalıştırın."
+
+#: Admin/Poll/views/form/field.php:293
+msgid "Must be a valid regular expression."
+msgstr "Geçerli bir normal ifade olmalıdır."
+
+#: Admin/Poll/views/form/field.php:298
+msgid "Error message"
+msgstr "Hata mesajı"
+
+#: Admin/Poll/views/form/field.php:299
+msgid "This message will be shown if the validation failed."
+msgstr "Doğrulama başarısız olursa bu mesaj gösterilecektir."
+
+#: Admin/Poll/views/form/field.php:304
+msgid "{{label}} for a field label."
+msgstr "Alan etiketi için {{label}}."
+
+#: Admin/Poll/views/form/field.php:309
+msgid "Comparison"
+msgstr "Karşılaştırma"
+
+#: Admin/Poll/views/form/field.php:313
+msgid "Must match"
+msgstr "Eşleşmelidir"
+
+#: Admin/Poll/views/form/field.php:317
+msgid "Must not match"
+msgstr "Eşleşmemelidir"
+
+#: Admin/Poll/views/form/field.php:322
+msgid "Modifiers"
+msgstr "Değiştiriciler"
+
+#: Admin/Poll/views/form/field.php:325
+msgid "Case Insensitive"
+msgstr "Büyük / Küçük Harfe Duyarlı Değil"
+
+#: Admin/Poll/views/form/field.php:328
+msgid "Multiline"
+msgstr "Çok satırlı"
+
+#: Admin/Poll/views/form/field.php:331
+msgid "Unicode Support"
+msgstr "Unicode Desteği"
+
+#: Admin/Poll/views/form/field.php:340
+msgid "Field CSS classes"
+msgstr "Field CSS classes"
+
+#: Admin/Poll/views/form/field.php:342
+msgid "Field classes"
+msgstr "Field classes"
+
+#: Admin/Poll/views/form/field.php:349
+msgid "Template"
+msgstr "Şablon"
+
+#: Admin/Poll/views/form/field.php:351
+msgid "Field template"
+msgstr "Alan şablonu"
+
+#: Admin/Poll/views/form/field.php:356
+msgid "full column"
+msgstr "tam sütun"
+
+#: Admin/Poll/views/form/field.php:360
+msgid "1/2 column"
+msgstr "1/2 sütun"
+
+#: Admin/Poll/views/form/field.php:364
+msgid "1/3 column"
+msgstr "1/3 sütun"
+
+#: Admin/Poll/views/form/field.php:368
+msgid "{{label}} for field label."
+msgstr "Alan etiketi için {{label}}."
+
+#: Admin/Poll/views/form/field.php:371
+msgid "{{errors}} for field errors."
+msgstr "Alan hataları için {{errors}}."
+
+#: Admin/Poll/views/form/field.php:374
+msgid "{{field}} for field input."
+msgstr "Alan girişi için {{field}}."
+
+#: Admin/Poll/views/form/fields.php:12
+msgid "Preset"
+msgstr "Ön ayar"
+
+#: Admin/Poll/views/form/fields.php:14
+msgid "First name"
+msgstr "İsim"
+
+#: Admin/Poll/views/form/fields.php:15
+msgid "Last name"
+msgstr "Soyisim"
+
+#: Admin/Poll/views/form/fields.php:17
+msgid "Phone"
+msgstr "Telefon"
+
+#: Admin/Poll/views/form/fields.php:18
+msgid "Gender"
+msgstr "Cinsiyet"
+
+#: Admin/Poll/views/form/fields.php:19
+msgid "Country"
+msgstr "Ülke"
+
+#: Admin/Poll/views/form/fields.php:20
+msgid "Agreement"
+msgstr "Şartlar"
+
+#: Admin/Poll/views/form/fields.php:109
+msgid "One field per line."
+msgstr "Satır başına bir alan."
+
+#: Admin/Poll/views/form/fields.php:114
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr ""
+"Henüz özel alan yok. Aşağıdaki düğmelere tıklayarak birkaç tane ekleyin."
+
+#: Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "E-posta şablonu hazırlayın"
+
+#: Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr ""
+"Sorularınız ve seçimlerinizle e-posta şablonunuzu hazırlayarak başlayın."
+
+#: Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "Seçenek bağlantılarını ayarlayın"
+
+#: Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "Aşağıdaki listeden seçim bağlantılarını kopyalayıp yapıştırın:"
+
+#: Admin/Poll/views/integration/email.php:51
+#: Admin/Poll/views/integration/embed.php:19
+#: Admin/Poll/views/integration/link.php:17
+#: Admin/Poll/views/integration/shortcode.php:18
+#: Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "Kopyala"
+
+#: Admin/Poll/views/integration/email.php:64
+#: Admin/Poll/views/integration/embed.php:43
+#: Admin/Poll/views/integration/link.php:41
+#: Admin/Poll/views/integration/shortcode.php:48
+#: Admin/Poll/views/integration/widget.php:31
+msgid "Preview"
+msgstr "Ön izleme"
+
+#: Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr "Kendinize bir test e-postası gönderin ve anket işlevini test edin."
+
+#: Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "Kodu kopyala"
+
+#: Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "Aşağıdaki HTML kodunu kopyalayarak başlayın:"
+
+#: Admin/Poll/views/integration/embed.php:30
+msgid "Paste the code"
+msgstr "Kodu yapıştırın"
+
+#: Admin/Poll/views/integration/embed.php:33
+msgid "Paste the copied code into an HTML page."
+msgstr "Kopyalanan kodu bir HTML sayfasına yapıştırın."
+
+#: Admin/Poll/views/integration/embed.php:46
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr "Kodu yapıştırdığınız sayfayı açın ve anket işlevini test edin."
+
+#: Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "Bağlantıyı kopyalayın"
+
+#: Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "Aşağıdaki bağlantıyı kopyalayarak başlayın:"
+
+#: Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "Bağlantıyı yapıştırın"
+
+#: Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr ""
+"Kopyalanan bağlantıyı sayfalar ve yazılar gibi herhangi bir yere yapıştırın."
+
+#: Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr "Bağlantıyı yapıştırdığınız sayfayı açın ve anket işlevini test edin."
+
+#: Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "Kısa kodu kopyala"
+
+#: Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "Aşağıdaki kısa kodu kopyalayarak başlayın:"
+
+#: Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "Kısa kodu yapıştırın"
+
+#: Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr ""
+"Kopyalanan kısa kodu, sayfalar ve yazılar gibi kısa kodları destekleyen bir "
+"alana yapıştırın."
+
+#: Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr "Kısa kodu yapıştırdığınız sayfayı açın ve anket işlevini test edin."
+
+#: Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "Sidebar'a ekle"
+
+#: Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr "Bu anketi mevcut kenar çubuklarından birine ekleyerek başlayın:"
+
+#: Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "Sidebar seç"
+
+#: Admin/Poll/views/integration/widget.php:20
+msgid "Inserted"
+msgstr "Eklendi"
+
+#: Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr ""
+"Aynı kenar çubuğuna sahip olduğunuz sayfayı açın ve anket işlevini test edin."
+
+#: Admin/Poll/views/loading.php:3
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: Admin/Poll/views/questions/question.php:37
+msgid "User must vote at least for {{minimum}} choice(s)."
+msgstr "Kullanıcı en az {{minimum}} seçenek için oy vermelidir."
+
+#: Admin/Poll/views/questions/question.php:50
+msgid "User can vote for up to {{maximum}} choice(s)."
+msgstr "Kullanıcı {{maximum}} seçime kadar oy verebilir."
+
+#: Admin/Poll/views/questions/question.php:61
+msgid "Allow custom choice (other field)."
+msgstr "Özel seçime izin ver (diğer alan)."
+
+#: Admin/Poll/views/questions/question.php:66
+msgid "Yes, but hide it until reviewed below."
+msgstr "Evet, ancak aşağıda incelenene kadar saklayın."
+
+#: Admin/Poll/views/questions/questions.php:46
+msgid "New Question"
+msgstr "Yeni Soru"
+
+#: Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "Seçimleri şuna göre sırala:"
+
+#: Admin/Poll/views/settings/choices/sort.php:10
+#: Admin/Poll/views/settings/results/sort.php:10
+msgid "Position"
+msgstr "Durum"
+
+#: Admin/Poll/views/settings/choices/sort.php:26
+#: Admin/Poll/views/settings/results/sort.php:26
+msgid "Random"
+msgstr "Rastgele"
+
+#: Admin/Poll/views/settings/choices/sort.php:36
+#: Admin/Poll/views/settings/results/sort.php:36
+msgid "Direction"
+msgstr "Direction"
+
+#: Admin/Poll/views/settings/choices/sort.php:42
+#: Admin/Poll/views/settings/results/sort.php:42
+msgid "Descending"
+msgstr "Descending"
+
+#: Admin/Poll/views/settings/choices/sort.php:47
+#: Admin/Poll/views/settings/results/sort.php:47
+msgid "Ascending"
+msgstr "Artan"
+
+#: Admin/Poll/views/settings/content/results.php:4
+#: Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "Yukarı"
+
+#: Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "Bu içerik, sonuçların üzerinde gösterilecektir."
+
+#: Admin/Poll/views/settings/content/results.php:14
+#: Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "Altında"
+
+#: Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "Bu içerik sonuçların altında gösterilecektir."
+
+#: Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "Bu içerik soru ve seçeneklerin üzerinde gösterilecektir."
+
+#: Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "Bu içerik soru ve seçeneklerin altında gösterilecektir."
+
+#: Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "Özelleştirme? <br> Arkanızdayız!"
+
+#: Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr ""
+"Özel bir özelliğe ihtiyacınız varsa, size hizmet etmekten mutluluk "
+"duyacağımızı bize bildirin!"
+
+#: Admin/Poll/views/settings/customization/index.php:21
+msgid "Get a quote"
+msgstr "bir teklif al"
+
+#: Admin/Poll/views/settings/index.php:61
+#: Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "Şablon değişkenleri"
+
+#: Admin/Poll/views/settings/index.php:64
+#, fuzzy
+#| msgid "Number of votes"
+msgid "{{totalVotes}} Number of votes"
+msgstr "Oy sayısı"
+
+#: Admin/Poll/views/settings/index.php:68
+#, fuzzy
+#| msgid "{{votesWithLabel}} for votes with label."
+msgid "{{totalVotesWithLabel}} Number of votes with label"
+msgstr "etiketli oylar {{votesWithLabel}}"
+
+#: Admin/Poll/views/settings/index.php:73
+#, php-format
+msgid "{{totalVotesForQuestion%d}} Number of votes for question %1$d"
+msgstr ""
+
+#: Admin/Poll/views/settings/index.php:76
+#, php-format
+msgid ""
+"{{totalVotesWithLabelForQuestion%d}} Number of votes with label for question "
+"%1$d"
+msgstr ""
+
+#: Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "Alıcı E-posta"
+
+#: Admin/Poll/views/settings/notifications/email.php:12
+#: Admin/Poll/views/settings/notifications/push.php:25
+#: Admin/Poll/views/settings/notifications/webhook.php:51
+msgid "Send notification when"
+msgstr "Ne zaman bildirim gönder"
+
+#: Admin/Poll/views/settings/notifications/email.php:17
+#: Admin/Poll/views/settings/notifications/push.php:30
+#: Admin/Poll/views/settings/notifications/webhook.php:56
+msgid "New vote has been casted"
+msgstr "Yeni oy verildi"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "OneSignal Uygulama Kimliği"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "Birini al"
+
+#: Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "OneSignal API Anahtarı"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "Bu URL, aşağıdaki gövdeye sahip bir HTTP POST alacak"
+
+#: Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "Oy biçimi"
+
+#: Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "Oylar nasıl sunulur"
+
+#: Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "oy sayısı {{votes}}"
+
+#: Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "Oy yüzdesi {{votesPercentage}}"
+
+#: Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "etiketli oylar {{votesWithLabel}}"
+
+#: Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "Toplam oy {{votesTotal}}"
+
+#: Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "etiketli toplam oylar {{votesTotalWithLabel}} "
+
+#: Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "Sonuçları sıralama ölçütü"
+
+#: Admin/Poll/views/settings/results/visibility.php:15
+msgid "Show results for voters and non-voters"
+msgstr "Seçmenler ve seçmen olmayanlar için sonuçları göster"
+
+#: Admin/Poll/views/settings/results/visibility.php:25
+msgid "Show results for voters only"
+msgstr "Yalnızca seçmenler için sonuçları göster"
+
+#: Admin/Poll/views/settings/results/visibility.php:35
+msgid "Hide results"
+msgstr "Sonuçları gizle"
+
+#: Admin/Poll/views/settings/results/visibility.php:45
+msgid "Hidden results message"
+msgstr "Gizli sonuç mesajı"
+
+#: Admin/Poll/views/settings/results/visibility.php:57
+msgid "Until quota is reached"
+msgstr "Kotaya ulaşılana kadar"
+
+#: Admin/Poll/views/settings/results/visibility.php:65
+msgid "Until end date is reached"
+msgstr "Bitiş tarihine ulaşılıncaya kadar"
+
+#: Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "Açıklama"
+
+#: Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "Karakter kaldı."
+
+#: Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "Anket başlığı {{title}}."
+
+#: Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "Web sitesi başlığı {{sitename}}."
+
+#: Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "Şuna göre engelle"
+
+#: Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "Oylama sınırlarının aşılmasını engellemek için kullanılan yöntemler."
+
+#: Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Çerezler"
+
+#: Admin/Poll/views/settings/vote/frequency.php:28
+msgid "Authenticated user"
+msgstr "Doğrulanmış kullanıcı"
+
+#: Admin/Poll/views/settings/vote/frequency.php:37
+msgid "Votes per session"
+msgstr "Oturum başına oy"
+
+#: Admin/Poll/views/settings/vote/frequency.php:39
+msgid "How many times can the user vote using the same session."
+msgstr "Kullanıcı aynı oturumu kullanarak kaç kez oy kullanabilir?"
+
+#: Admin/Poll/views/settings/vote/frequency.php:48
+msgid "Votes per user"
+msgstr "Kullanıcı başına oy"
+
+#: Admin/Poll/views/settings/vote/frequency.php:50
+msgid "How many times can the authenticated user vote."
+msgstr "Kimliği doğrulanmış kullanıcı kaç kez oy kullanabilir."
+
+#: Admin/Poll/views/settings/vote/frequency.php:59
+msgid "Votes per IP"
+msgstr "IP başına oy"
+
+#: Admin/Poll/views/settings/vote/frequency.php:61
+msgid "How many times can the user vote using the same IP."
+msgstr "Kullanıcı aynı IP'yi kullanarak kaç kez oy kullanabilir?"
+
+#: Admin/Poll/views/settings/vote/frequency.php:70
+msgid "Timeout"
+msgstr ""
+
+#: Admin/Poll/views/settings/vote/frequency.php:71
+msgid "The time period before the user can vote again."
+msgstr "Kullanıcının tekrar oy kullanabilmesi için önceki süre."
+
+#: Admin/Poll/views/settings/vote/frequency.php:78
+#, fuzzy
+#| msgid "Customize"
+msgid "Custom (minutes)"
+msgstr "Özelleştir"
+
+#: Admin/Poll/views/settings/vote/frequency.php:87
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr ""
+"Bu sürenin sonunda kullanıcılar tekrar oy kullanabilecek. Oyu kalıcı olarak "
+"kilitlemek için değer olarak 0 kullanın."
+
+#: Admin/Poll/views/settings/vote/frequency.php:90
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr ""
+"Dikkat! Veritabanı, genel performansı etkileyebilecek kalıcı kayıtlarla "
+"doldurulacaktır."
+
+#: Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "Zaman dilimi"
+
+#: Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "Başlangıç ​​tarihi"
+
+#: Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "Bu tarihe ulaşılmadan oylama kapatılacaktır."
+
+#: Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "Bitiş tarihi"
+
+#: Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "Bu tarihe ulaşıldıktan sonra oylama kapatılacaktır."
+
+#: Admin/Poll/views/settings/vote/limitations.php:45
+msgid "Membership"
+msgstr "Üyelik"
+
+#: Admin/Poll/views/settings/vote/limitations.php:55
+msgid "Required membership roles"
+msgstr "Gerekli üyelik rolleri"
+
+#: Admin/Poll/views/settings/vote/limitations.php:57
+msgid "The membership types that can vote."
+msgstr "Oy verebilecek üyelik türleri."
+
+#: Admin/Poll/views/settings/vote/limitations.php:67
+msgid "Hold Control/Command for multiple selection."
+msgstr "Çoklu seçim için Control/Command tuşunu basılı tutun."
+
+#: Admin/Poll/views/settings/vote/limitations.php:79
+msgid "Quota"
+msgstr "Quota"
+
+#: Admin/Poll/views/settings/vote/limitations.php:89
+msgid "Number of votes"
+msgstr "Oy sayısı"
+
+#: Admin/Poll/views/settings/vote/limitations.php:91
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "Anketin ulaştıktan sonra oy kabul etmeyeceği kota."
+
+#: Admin/Poll/views/settings/vote/limitations.php:108
+msgid "Region (IP based)"
+msgstr "Bölge (IP tabanlı)"
+
+#: Admin/Poll/views/settings/vote/limitations.php:159
+msgid "Add new rule"
+msgstr "Yeni kural ekle"
+
+#: Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "Orijinal"
+
+#: Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "Dil seç"
+
+#: Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "Soru #{{$index+1}}"
+
+#: Admin/Privacy/Policy.php:106
+msgid "Useragent"
+msgstr "Kullanıcı Temsilcisi"
+
+#: Admin/Upgrade/views/index.php:2
+#, fuzzy
+#| msgid "[TotalPoll] Poll"
+msgid "Upgrade to TotalPoll Pro"
+msgstr "[TotalPoll] Anket"
+
+#: Admin/Upgrade/views/index.php:3
+msgid "Enjoy TotalPoll features without limits!"
+msgstr ""
+
+#: Entry/Repository.php:164
+msgid "poll_id and fields are required"
+msgstr "poll_id ve alanlar zorunludur"
+
+#: Entry/Repository.php:168 Log/Repository.php:156
+msgid "date must be a DateTime object"
+msgstr "tarih bir DateTime nesnesi olmalıdır"
+
+#: Entry/Repository.php:183 Log/Repository.php:174
+msgid "Unable to insert the entry."
+msgstr "Giriş eklenemiyor."
+
+#: Entry/Repository.php:215 Entry/Repository.php:283 Log/Repository.php:221
+#: Log/Repository.php:358 Poll/Repository.php:388
+msgid "No conditions were specified"
+msgstr "Hiçbir koşul belirtilmedi"
+
+#: Limitations/Period.php:51
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y yıl"
+msgstr[1] "%y yıl"
+
+#: Limitations/Period.php:53
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m ay"
+msgstr[1] "%m ay"
+
+#: Limitations/Period.php:55
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d gün"
+msgstr[1] "%d gün"
+
+#: Limitations/Period.php:57
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h saat"
+msgstr[1] "%h saat"
+
+#: Limitations/Period.php:59
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i dakika"
+msgstr[1] "%i dakika"
+
+#: Limitations/Period.php:61
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s saniye"
+msgstr[1] "%s saniye"
+
+#: Limitations/Quota.php:23
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "Bu anket sona erdi (oy kotası aşıldı)."
+
+#: Limitations/Region.php:30
+msgid "This poll is not available in your region."
+msgstr "Bu anket bölgenizde mevcut değil."
+
+#: Log/Repository.php:152
+msgid "poll_id and action are required"
+msgstr "poll_id ve eylem gerekli"
+
+#: Log/Repository.php:203
+#, fuzzy
+#| msgid "Unable to insert the entry."
+msgid "Unable to update the entry."
+msgstr "Giriş eklenemiyor."
+
+#: Plugin.php:362
+#, fuzzy
+#| msgid "This poll is not available in your region."
+msgid "This feature is available in Pro version."
+msgstr "Bu anket bölgenizde mevcut değil."
+
+#: Poll/Commands/CountVote.php:147
+msgid "Unknown choice. Please try again."
+msgstr "Bilinmeyen seçim. Lütfen tekrar deneyin."
+
+#: Poll/Model.php:2176 Poll/Model.php:2188
+#, php-format
+msgid "%s vote"
+msgid_plural "%s votes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: Poll/PostType.php:71
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "Anket güncellendi. <a href=\"%s\">Anketi görüntüleyin</a>"
+
+#: Poll/PostType.php:72
+msgid "Custom field updated."
+msgstr "Özel alan güncellendi."
+
+#: Poll/PostType.php:73
+msgid "Custom field deleted."
+msgstr "Özel alan silindi."
+
+#: Poll/PostType.php:74
+msgid "Poll updated."
+msgstr "Anket güncellendi."
+
+#: Poll/PostType.php:75
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "Anket %s kaynağından revizyona geri yüklendi"
+
+#: Poll/PostType.php:76
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "Anket yayınlandı. <a href=\"%s\">Anketi görüntüleyin</a>"
+
+#: Poll/PostType.php:77
+msgid "Poll saved."
+msgstr "Anket kaydedildi."
+
+#: Poll/PostType.php:78
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Anket gönderildi. <a target=\"_blank\" href=\"%s\">Anketi önizleyin</a>"
+
+#: Poll/PostType.php:80
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"Anketin planlandığı tarih: <strong>%1$s </strong>. <a target=\"_blank\" href="
+"\"%2$s\"> Anketi önizleyin </a>"
+
+#: Poll/PostType.php:81
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: Poll/PostType.php:82
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Anket taslağı güncellendi. <a target=\"_blank\" href=\"%s\">Anketi "
+"önizleyin</a>"
+
+#: Poll/PostType.php:120 Poll/PostType.php:126
+msgid "Polls"
+msgstr "Anketler"
+
+#: Poll/PostType.php:123 Poll/PostType.php:125
+msgid "New Poll"
+msgstr "Yeni Anket"
+
+#: Poll/PostType.php:124
+msgid "Edit Poll"
+msgstr "Anketi Düzenle"
+
+#: Poll/PostType.php:127
+msgid "View Poll"
+msgstr "Anketi Görüntüle"
+
+#: Poll/PostType.php:128
+msgid "Search Polls"
+msgstr "Anketlerde Ara"
+
+#: Poll/PostType.php:129
+msgid "No polls found"
+msgstr "Anket bulunamadı"
+
+#: Poll/PostType.php:130
+msgid "No polls found in Trash"
+msgstr "Çöp Kutusu'nda anket bulunamadı"
+
+#: Poll/PostType.php:131
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: Poll/PostType.php:155
+msgid "polls"
+msgstr "anketler"
+
+#: Poll/Renderer.php:223
+#, php-format
+msgid "Powered by %s"
+msgstr ""
+
+#: Poll/Renderer.php:294
+#, fuzzy
+#| msgid "Something went wrong. Please try again."
+msgid "Something went wrong! Please try again."
+msgstr "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+
+#: Restrictions/IPAddress.php:48 Restrictions/LoggedInUser.php:52
+#: Restrictions/Restriction.php:83 Shortcodes/Poll.php:38
+#: Shortcodes/RandomPoll.php:39
+msgid "You cannot vote again."
+msgstr "Tekrar oy kullanamazsınız."
+
+#: Shortcodes/Poll.php:27
+msgid "Could not load the poll."
+msgstr "Anket yüklenemedi."
+
+#: Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "TotalPoll en son anket aracı"
+
+#: Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll] Son Anket"
+
+#: Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "TotalPoll anket aracı"
+
+#: Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] Anket"
+
+#: Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "Anket:"
+
+#: Widgets/Poll.php:81 Widgets/RandomPoll.php:62
+msgid "Screen:"
+msgstr "Ekran:"
+
+#: Widgets/RandomPoll.php:18
+#, fuzzy
+#| msgid "TotalPoll poll widget"
+msgid "TotalPoll random poll widget"
+msgstr "TotalPoll anket aracı"
+
+#: Widgets/RandomPoll.php:20
+#, fuzzy
+#| msgid "[TotalPoll] Poll"
+msgid "[TotalPoll] Random Poll"
+msgstr "[TotalPoll] Anket"
+
+#~ msgid "Previous page"
+#~ msgstr "Önceki sayfa"
+
+#~ msgid "Next page"
+#~ msgstr "Sonraki Sayfa"
+
+#~ msgid "Back"
+#~ msgstr "Geri"
+
+#~ msgid "Proceed"
+#~ msgstr "İlerle"
+
+#~ msgid "Customization"
+#~ msgstr "Özelleştirme"
+
+#~ msgid "Customized Template"
+#~ msgstr "Özel Şablon"
+
+#~ msgid "Customization service"
+#~ msgstr "Özelleştirme hizmeti"
+
+#~ msgid "Get Quote"
+#~ msgstr "Teklif Al"
+
+#~ msgid "Timeout (seconds)"
+#~ msgstr "Zaman aşımı (saniye)"
+
+#, php-format
+#~ msgid ""
+#~ "To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s"
+#~ "\">register</a>."
+#~ msgstr ""
+#~ "Devam etmek için lütfen <a href=\"%s\">oturum açın</a> veya <a href=\"%s"
+#~ "\">kaydolun</a>."
+
+#~ msgid "All questions must be answered."
+#~ msgstr "Lütfen bir seçim yapınız."

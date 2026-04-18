@@ -1,0 +1,19 @@
+{
+  "id": "troubleshooter-extension",
+  "type": "extension",
+  "name": "Troubleshooter",
+  "description": "An extension that helps you troubleshooting and fixing TotalPoll common issues.",
+  "author": {
+    "name": "TotalSuite",
+    "url": "https://totalsuite.net/"
+  },
+  "permalink": "https://totalsuite.net/product/totalpoll/add-ons/troubleshooter-extension/",
+  "images": {
+    "icon": "https://totalsuite.net/content/uploads/2019/02/troubleshooter-extension.png",
+    "cover": ""
+  },
+  "version": "1.0.1",
+  "requires": "4.0.0",
+  "defaults": {
+  }
+}

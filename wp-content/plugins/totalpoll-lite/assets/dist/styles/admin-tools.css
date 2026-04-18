@@ -1,0 +1,47 @@
+#totalpoll-tools {
+  box-sizing: border-box;
+}
+#totalpoll-tools * {
+  box-sizing: inherit;
+}
+#totalpoll-tools tools-debug, #totalpoll-tools tools-expressions, #totalpoll-tools tools-migration, #totalpoll-tools tools-cache, #totalpoll-tools tools-import-export {
+  display: block;
+}
+#totalpoll-tools .totalpoll-tools-debug {
+  direction: ltr;
+}
+body.is-ltr #totalpoll-tools .totalpoll-tools-debug td:first-child {
+  border-left: 1px solid #dddddd;
+}
+
+body.is-rtl #totalpoll-tools .totalpoll-tools-debug td:first-child {
+  border-right: border-right;
+}
+
+#totalpoll-tools .totalpoll-tools-list-title > td {
+  font-weight: bold;
+  background: #0073aa;
+  color: white;
+}
+#totalpoll-tools .totalpoll-tools-list-entry > td:first-child {
+  font-weight: bold;
+  white-space: nowrap;
+}
+body.is-ltr #totalpoll-tools .totalpoll-tools-list-entry > td:first-child {
+  border-right: 1px solid #dddddd;
+}
+
+body.is-rtl #totalpoll-tools .totalpoll-tools-list-entry > td:first-child {
+  border-left: border-left;
+}
+
+#totalpoll-tools .totalpoll-tools-list-entry > td {
+  border-bottom: 1px solid #dddddd;
+  vertical-align: middle;
+}
+#totalpoll-tools .totalpoll-tools-list-entry input {
+  text-align: left;
+}
+html[dir=rtl] #totalpoll-tools .totalpoll-tools-list-entry input {
+  text-align: right;
+}

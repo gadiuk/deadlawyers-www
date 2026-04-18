@@ -1,0 +1,2628 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"POT-Creation-Date: 2019-03-14 19:55+0100\n"
+"PO-Revision-Date: 2019-03-14 20:13+0100\n"
+"Last-Translator: \n"
+"Language-Team: TotalSuite <support@totalsuite.net>\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ../src\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__;esc_html_e;_n;_x;_ex;_nx;_n:1,2;"
+"esc_attr__;esc_attr_e;i18n\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Admin/Ajax/Dashboard.php:66
+msgid "Invalid key or email."
+msgstr "Neplatný kľúč alebo email."
+
+#: Admin/Ajax/Dashboard.php:135
+msgid "Invalid access token."
+msgstr "Neplatný prístupový kupón."
+
+#: Admin/Ajax/Entries.php:65
+msgid "Invalid Poll ID"
+msgstr "Neplatné ID hlasovania"
+
+#: Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "Module je nainštalovaný."
+
+#: Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "Modul je stiahnutý a nainštalovaný."
+
+#: Admin/Ajax/Modules.php:110
+msgid "Module updated."
+msgstr "Modul je aktualizovaný."
+
+#: Admin/Ajax/Modules.php:124
+msgid "Module uninstalled."
+msgstr "Modul je odinštalovaný."
+
+#: Admin/Ajax/Modules.php:138
+msgid "Module activated."
+msgstr "Modul je aktivovaný."
+
+#: Admin/Ajax/Modules.php:152
+msgid "Module deactivated."
+msgstr "Modul he deaktivovaný."
+
+#: Admin/Ajax/Options.php:45
+msgid "Saved."
+msgstr "Uložené."
+
+#: Admin/Ajax/Options.php:57
+msgid "Purged."
+msgstr "Vyčistené."
+
+#: Admin/Ajax/Options.php:68
+msgid "Plugin is not supported."
+msgstr "Rozšírenie nie je podporované."
+
+#: Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "Neplatné ID hlasovania."
+
+#: Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "Widget bol úspešne pridaný."
+
+#: Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "Neplatné ID bočného panela."
+
+#: Admin/Bootstrap.php:42 Admin/Bootstrap.php:43
+#: Admin/Dashboard/views/index.php:3
+msgid "Dashboard"
+msgstr "Administratívny panel"
+
+#: Admin/Bootstrap.php:47 Admin/Bootstrap.php:48
+#: Admin/Dashboard/views/overview.php:28 Admin/Entries/views/index.php:2
+#: Admin/Poll/Editor.php:331 Admin/Poll/Listing.php:81
+#: Admin/Poll/Listing.php:160 Admin/Privacy/Policy.php:151
+msgid "Entries"
+msgstr "Zápisy"
+
+#: Admin/Bootstrap.php:52 Admin/Bootstrap.php:53
+#: Admin/Insights/views/index.php:2 Admin/Poll/Editor.php:330
+#: Admin/Poll/Listing.php:161
+msgid "Insights"
+msgstr "Náhľady"
+
+#: Admin/Bootstrap.php:57 Admin/Log/views/index.php:2 Admin/Poll/Editor.php:335
+#: Admin/Poll/Listing.php:82 Admin/Poll/Listing.php:165
+msgid "Log"
+msgstr "Denník"
+
+#: Admin/Bootstrap.php:58
+msgid "Logs"
+msgstr "Denník"
+
+#: Admin/Bootstrap.php:62 Admin/Bootstrap.php:63
+#: Admin/Modules/Templates/views/index.php:3 Admin/Modules/views/index.php:8
+#: Admin/Poll/Editor.php:281 Admin/Poll/views/design/sidebar.php:11
+msgid "Templates"
+msgstr "Šablóny"
+
+#: Admin/Bootstrap.php:67 Admin/Bootstrap.php:68
+#: Admin/Modules/Extensions/views/index.php:3 Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "Rozšírenia"
+
+#: Admin/Bootstrap.php:72 Admin/Bootstrap.php:73
+#: Admin/Options/views/index.php:2 Admin/Poll/views/form/field.php:156
+msgid "Options"
+msgstr "Voľby"
+
+#: Admin/Bootstrap.php:364
+msgid ""
+"{{product}} is part of <a href=\"{{totalsuite}}\" target=\"_blank"
+"\">TotalSuite</a>, a suite of robust and maintained plugins for WordPress."
+msgstr ""
+"{{product}} je súčasťou <a href=\"{{totalsuite}}\" target=\"_blank"
+"\">TotalSuite</a> - suity robustných a udržiavaných rozšírení pre WordPress."
+
+#: Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "Produkt je aktivovaný!"
+
+#: Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "Môžeš prijímať aktualizácie."
+
+#: Admin/Dashboard/views/activation.php:12
+msgid "Activation code"
+msgstr "Aktivačný kód"
+
+#: Admin/Dashboard/views/activation.php:18
+msgid "Licensed to"
+msgstr "Licencia vydaná pre"
+
+#: Admin/Dashboard/views/activation.php:27
+#, php-format
+msgid "Product activation for %s"
+msgstr "Aktivácia produktu pre %s"
+
+#: Admin/Dashboard/views/activation.php:28
+msgid ""
+"Open <a target=\"_blank\" href=\"https://codecanyon.net/downloads"
+"\">downloads page</a>, find the product, click \"Download\" then select on "
+"\"License certificate & purchase code (text)\"."
+msgstr ""
+"Navštív <a target=\"_blank\" href=\"https://codecanyon.net/downloads"
+"\">stránku pre stiahnutie</a>, vyhľadaj produkt, klikni na \"Download\" a "
+"potom vyber \"License certificate & purchase code (text)\"."
+
+#: Admin/Dashboard/views/activation.php:34
+msgid "Activating"
+msgstr "Aktivuje"
+
+#: Admin/Dashboard/views/activation.php:34 Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "Aktivuj"
+
+#: Admin/Dashboard/views/credits.php:4 Admin/Dashboard/views/index.php:20
+msgid "Credits"
+msgstr "Kredity"
+
+#: Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr "TotalPoll vyjadruje vďaku týmto projektom a prispievateľom."
+
+#: Admin/Dashboard/views/index.php:7
+msgid "Overview"
+msgstr "Prehľad"
+
+#: Admin/Dashboard/views/index.php:11
+msgid "Get started"
+msgstr "Začíname"
+
+#: Admin/Dashboard/views/index.php:14
+msgid "What's new"
+msgstr "Čo je nové"
+
+#: Admin/Dashboard/views/index.php:17
+msgid "Support"
+msgstr "Podpora"
+
+#: Admin/Dashboard/views/index.php:23
+msgid "Activation"
+msgstr "Aktivácia"
+
+#: Admin/Dashboard/views/index.php:26
+msgid "My Account"
+msgstr "Môj účet"
+
+#: Admin/Dashboard/views/index.php:66
+msgid "Simple yet Powerful Plugins for WordPress"
+msgstr "Jednoduché ale výkonné rozšírenia pre WordPress"
+
+#: Admin/Dashboard/views/index.php:67
+msgid ""
+"A suite of robust, maintained and secure plugins for WordPress that helps "
+"you generate more value for your business."
+msgstr ""
+"Suita robustných, udržiavaných a zabezpečených rozšírení pre WordPress, "
+"ktorá vytvára pridanú hodnotu pre Tvoje podnikanie."
+
+#: Admin/Dashboard/views/index.php:78
+msgid "Get Started"
+msgstr "Začíname"
+
+#: Admin/Dashboard/views/my-account.php:8
+msgid "Account Linked!"
+msgstr "Účet je prepojený!"
+
+#: Admin/Dashboard/views/my-account.php:9
+msgid "Your account has been linked successfully."
+msgstr "Tvoj účet bol úspešne prepojený."
+
+#: Admin/Dashboard/views/my-account.php:12
+msgid "Linked account"
+msgstr "Prepojený účet"
+
+#: Admin/Dashboard/views/my-account.php:21
+msgid "Your TotalSuite Account"
+msgstr "Tvoj TotalSuite účet"
+
+#: Admin/Dashboard/views/my-account.php:22
+msgid "Link your account purchases using an access token."
+msgstr "Prepoj nákupy zo svojho účtu pomocou prístupového kupónu."
+
+#: Admin/Dashboard/views/my-account.php:25
+msgid "Access Token"
+msgstr "Prístupový kupón"
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Linking..."
+msgstr "Prepájam..."
+
+#: Admin/Dashboard/views/my-account.php:27
+msgid "Connect"
+msgstr "Zapoj"
+
+#: Admin/Dashboard/views/my-account.php:30
+msgid "Get Access Token"
+msgstr "Prevezmi si prístupový kupón"
+
+#: Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "Je čas vytvoriť prvé hlasovanie."
+
+#: Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "Ešte nie sú vytvorené žiadne hlasovania."
+
+#: Admin/Dashboard/views/overview.php:8 Poll/PostType.php:122
+msgid "Create Poll"
+msgstr "Vytvor hlasovanie"
+
+#: Admin/Dashboard/views/overview.php:14 Admin/Poll/views/choices/choice.php:19
+#: Admin/Poll/views/form/field.php:20
+msgid "Untitled"
+msgstr "Bez názvu"
+
+#: Admin/Dashboard/views/overview.php:16 Admin/Poll/Listing.php:188
+msgid "Live"
+msgstr "V produkcii"
+
+#: Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "Vykonáva sa"
+
+#: Admin/Dashboard/views/overview.php:24 Admin/Options/Page.php:67
+#: Admin/Poll/Listing.php:80 Admin/Poll/views/choices/choice.php:64
+#: Admin/Poll/views/choices/choice.php:68
+#: Admin/Poll/views/settings/choices/sort.php:15
+#: Admin/Poll/views/settings/results/sort.php:15 Admin/Privacy/Policy.php:97
+msgid "Votes"
+msgstr "Hlasy"
+
+#: Admin/Dashboard/views/sidebar.php:9 Admin/Dashboard/views/sidebar.php:21
+msgid "Translate"
+msgstr "Preklady"
+
+#: Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"Pomôž nám preložiť TotalPoll do svojho jazyka a dostaneš od nás jeden "
+"produkt zdarma."
+
+#: Admin/Dashboard/views/sidebar.php:28
+msgid "Stay in the loop"
+msgstr "Zostaň v kontakte"
+
+#: Admin/Dashboard/views/sidebar.php:29
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>10% discount</strong> to use in our store!"
+msgstr ""
+"Získaj posledné novinky o vylepšeniach, najnovších produktoch, akciách a "
+"<strong>10% zľavu</strong> v našom obchode!"
+
+#: Admin/Dashboard/views/sidebar.php:32
+msgid "Your email"
+msgstr "Tvoj email"
+
+#: Admin/Dashboard/views/sidebar.php:34
+msgid "Subscribe"
+msgstr "Odoberaj"
+
+#: Admin/Dashboard/views/sidebar.php:38
+msgid "Follow us"
+msgstr "Zostaň s nami"
+
+#: Admin/Dashboard/views/sidebar.php:64
+msgid "Spread the word"
+msgstr "Povedz pár slov"
+
+#: Admin/Dashboard/views/sidebar.php:65
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"Prosíme zváž <a href=\"https://codecanyon.net/downloads/\">napísanie "
+"recenzie</a>. Taktiež môžeš vyhrať produkt z nášho obchodu, ak pošleš tweet "
+"o TotalPoll!"
+
+#: Admin/Dashboard/views/sidebar.php:71
+msgid "Tweet"
+msgstr "Tweet"
+
+#: Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "Ako ti môžeme pomôcť?"
+
+#: Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "Hľadaj podrobné odpovede a návody v našej databanke znalostí."
+
+#: Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "Zadaj kľúčové slová"
+
+#: Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "Vyhľadaj"
+
+#: Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "Podpora komunity"
+
+#: Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "Prihlás sa do komunity TotalSuite a požiadaj o radu."
+
+#: Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "Navštív fóra"
+
+#: Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "Zákaznícka podpora"
+
+#: Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "Náš podporný tím Ti poskytne pomoc."
+
+#: Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "Pošli tiket o probléme"
+
+#: Admin/Dashboard/views/support.php:37
+msgid "Instant Support"
+msgstr "Stála podpora"
+
+#: Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "Ponáhľaš sa? Sme k dispozícii!"
+
+#: Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "Pozri viac"
+
+#: Admin/Entries/Page.php:48 Admin/Log/Page.php:73
+#: Admin/Poll/views/choices/choice.php:34
+#: Admin/Poll/views/choices/choices.php:164
+#: Admin/Poll/views/choices/choices.php:221 Admin/Poll/views/form/field.php:96
+msgid "HTML"
+msgstr "HTML"
+
+#: Admin/Entries/Page.php:49 Admin/Log/Page.php:74
+msgid "CSV"
+msgstr "CSV"
+
+#: Admin/Entries/Page.php:50 Admin/Log/Page.php:75
+msgid "JSON"
+msgstr "JSON"
+
+#: Admin/Entries/views/index.php:12 Admin/Insights/views/index.php:9
+msgid "Please select a poll"
+msgstr "Vyber hlasovanie"
+
+#: Admin/Entries/views/index.php:16 Admin/Insights/views/index.php:13
+#: Admin/Log/views/index.php:16
+msgid "From"
+msgstr "Od"
+
+#: Admin/Entries/views/index.php:18 Admin/Insights/views/index.php:15
+#: Admin/Log/views/index.php:18
+msgid "To"
+msgstr "Do"
+
+#: Admin/Entries/views/index.php:30 Admin/Insights/views/index.php:19
+#: Admin/Log/views/index.php:30
+msgid "Clear"
+msgstr "Vymaž"
+
+#: Admin/Entries/views/index.php:33 Admin/Insights/views/index.php:22
+#: Admin/Log/views/index.php:33
+msgid "Apply"
+msgstr "Použi"
+
+#: Admin/Entries/views/index.php:42 Admin/Log/Page.php:50
+#: Admin/Poll/Listing.php:83 Admin/Privacy/Policy.php:113
+msgid "Date"
+msgstr "Dátum"
+
+#: Admin/Entries/views/index.php:51 Admin/Log/views/index.php:77
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "Nič. Nothing. Nada. Niente. Nickts. Rien."
+
+#: Admin/Entries/views/index.php:61 Admin/Log/views/index.php:86
+#: Poll/Renderer.php:252
+msgid "Previous"
+msgstr "Predošlé"
+
+#: Admin/Entries/views/index.php:63 Admin/Log/views/index.php:87
+#: Poll/Renderer.php:253
+msgid "Next"
+msgstr "Ďalšie"
+
+#: Admin/Entries/views/index.php:67 Admin/Log/views/index.php:91
+msgid "Download as"
+msgstr "Stiahni ako"
+
+#: Admin/Log/Page.php:48 Admin/Privacy/Policy.php:109
+msgid "Status"
+msgstr "Status"
+
+#: Admin/Log/Page.php:49
+msgid "Action"
+msgstr "Akcia"
+
+#: Admin/Log/Page.php:51 Admin/Poll/views/settings/vote/frequency.php:19
+#: Admin/Poll/views/settings/vote/limitations.php:116
+#: Admin/Privacy/Policy.php:101
+msgid "IP"
+msgstr "IP"
+
+#: Admin/Log/Page.php:52
+msgid "Browser"
+msgstr "Prehliadač"
+
+#: Admin/Log/Page.php:53 Poll/PostType.php:121
+msgid "Poll"
+msgstr "Hlasovanie"
+
+#: Admin/Log/Page.php:54
+msgid "User name"
+msgstr "Meno účastníka"
+
+#: Admin/Log/Page.php:55
+msgid "User ID"
+msgstr "ID účastníka"
+
+#: Admin/Log/Page.php:56
+msgid "User login"
+msgstr "Prihlásenie"
+
+#: Admin/Log/Page.php:57
+msgid "User email"
+msgstr "Email účastníka"
+
+#: Admin/Log/Page.php:58
+msgid "Details"
+msgstr "Detaily"
+
+#: Admin/Modules/Extensions/views/index.php:4
+#: Admin/Modules/Templates/views/index.php:4
+#: Admin/Poll/views/choices/choice-audio.php:37
+#: Admin/Poll/views/choices/choice-audio.php:59
+#: Admin/Poll/views/choices/choice-image.php:31
+#: Admin/Poll/views/choices/choice-video.php:43
+#: Admin/Poll/views/choices/choice-video.php:68
+msgid "Upload"
+msgstr "Nahraj"
+
+#: Admin/Modules/Extensions/views/index.php:9
+#: Admin/Modules/Templates/views/index.php:9
+#, fuzzy
+#| msgid "Install"
+msgid "Installed"
+msgstr "Inštaluj"
+
+#: Admin/Modules/Extensions/views/index.php:12
+#: Admin/Modules/Templates/views/index.php:12
+msgid "Store"
+msgstr ""
+
+#: Admin/Modules/Extensions/views/index.php:16
+#: Admin/Modules/Templates/views/index.php:16
+msgid "Refresh"
+msgstr ""
+
+#: Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "Moduly"
+
+#: Admin/Modules/views/index.php:5 Admin/Modules/views/install.php:21
+#: Admin/Modules/views/manager.php:30
+msgid "Install"
+msgstr "Inštaluj"
+
+#: Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr ""
+"Ak máš šablónu alebo rozšírenie v ZIP formáte, môžeš ho nainštalovať "
+"nahratím ZIP súboru tu."
+
+#: Admin/Modules/views/install.php:18
+#, fuzzy
+#| msgid "Browser"
+msgid "Browse"
+msgstr "Prehliadač"
+
+#: Admin/Modules/views/manager.php:21
+#: Admin/Poll/views/design/tabs/templates.php:25
+msgid "By"
+msgstr "Od"
+
+#: Admin/Modules/views/manager.php:35
+#, fuzzy
+#| msgid "Get Quote"
+msgid "Get it"
+msgstr "Daj kvótu"
+
+#: Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "Aktualizuj"
+
+#: Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "Odinštaluj"
+
+#: Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "Deaktivuj"
+
+#: Admin/Modules/views/manager.php:64
+#: Admin/Poll/views/design/tabs/templates.php:27
+msgid "Version"
+msgstr "Verzia"
+
+#: Admin/Options/Page.php:72 Poll/Model.php:791 Poll/Model.php:912
+#: Poll/Model.php:973
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "%s hlas"
+msgstr[1] "%s hlasy"
+msgstr[2] "%s hlasov"
+
+#: Admin/Options/Page.php:73
+#, php-format
+msgid "%s Votes"
+msgstr "%s hlasov"
+
+#: Admin/Options/Page.php:79
+msgid "Buttons"
+msgstr "Tlačítka"
+
+#: Admin/Options/Page.php:84
+msgid "Previous page"
+msgstr "Predošlá"
+
+#: Admin/Options/Page.php:89
+msgid "Next page"
+msgstr "Ďalšia"
+
+#: Admin/Options/Page.php:94 Admin/Poll/Editor.php:239
+#: Admin/Poll/Editor.php:254 Poll/Form.php:235 Widgets/Poll.php:84
+msgid "Results"
+msgstr "Výsledky"
+
+#: Admin/Options/Page.php:99 Admin/Poll/Editor.php:224
+#: Admin/Poll/Editor.php:252 Poll/Form.php:247 Widgets/Poll.php:83
+msgid "Vote"
+msgstr "Hlasuj"
+
+#: Admin/Options/Page.php:104
+msgid "Back"
+msgstr "Naspäť"
+
+#: Admin/Options/Page.php:109
+msgid "Proceed"
+msgstr "Pokračuj"
+
+#: Admin/Options/Page.php:115
+msgid "Errors"
+msgstr "Chyby"
+
+#: Admin/Options/Page.php:121
+msgid "You cannot vote again in this poll."
+msgstr "V tomto hlasovaní môžeš hlasovať len raz."
+
+#: Admin/Options/Page.php:127
+msgid "You have to vote for at least one choice."
+msgstr "Musíš hlasovať aspoň za jednu odpoveď."
+
+#: Admin/Options/Page.php:128
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "Musíš hlasovať aspoň za %d odpovedí."
+
+#: Admin/Options/Page.php:134
+msgid "You cannot vote for more than one choice."
+msgstr "Môžeš hlasovať len za jednu odpoveď."
+
+#: Admin/Options/Page.php:135
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "Môžeš hlasovať nanajvýš za %d odpovedí."
+
+#: Admin/Options/Page.php:141
+msgid "You have entered an invalid captcha code."
+msgstr "Bol zadaný nesprávny obrázkový kód CAPTCHA."
+
+#: Admin/Options/Page.php:147
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "Hlasovanie bolo ukončené, bola dosiahnutá maximálna kvóta hlasov."
+
+#: Admin/Options/Page.php:153
+msgid "You cannot see results before voting."
+msgstr "Na zobrazenie výsledkov je potrebné najprv hlasovať."
+
+#: Admin/Options/Page.php:159
+msgid "You cannot vote because this poll has not started yet."
+msgstr "Hlasovanie ešte nie je otvorené."
+
+#: Admin/Options/Page.php:165
+msgid "You cannot vote because this poll has expired."
+msgstr "Hlasovanie je už ukončené."
+
+#: Admin/Options/Page.php:171
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "Toto hlasovanie nie je sprístupnené pre váš región."
+
+#: Admin/Options/Page.php:177
+msgid "You cannot vote because you have insufficient rights."
+msgstr "Na hlasovanie nemáš dostatočné oprávnenia."
+
+#: Admin/Options/Page.php:183
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"Anonymné hlasovanie nie je povolené, najprv sa <a href=\"%s\">prihlás</a> "
+"alebo <a href=\"%s\">zaregistruj</a>."
+
+#: Admin/Options/Page.php:189
+msgid "Voting via links has been disabled for this poll."
+msgstr "Hlasovanie cez odkazy nie je povolené."
+
+#: Admin/Options/Page.php:195 Admin/Poll/views/form/field.php:93
+msgid "Validations"
+msgstr "Validácia"
+
+#: Admin/Options/Page.php:200
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}} musí byť platná emailová adresa."
+
+#: Admin/Options/Page.php:205
+msgid "{{label}} must be filled."
+msgstr "{{label}} musí byť vyplnené."
+
+#: Admin/Options/Page.php:210
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}} nie je v dovolenom rozsahu."
+
+#: Admin/Options/Page.php:215 Poll/Form.php:89
+msgid "{{label}} has been used before."
+msgstr "{{label}} bolo už použité."
+
+#: Admin/Options/Page.php:220
+msgid "{{label}} is not accepted."
+msgstr "{{label}} nie je akceptované."
+
+#: Admin/Options/Page.php:225
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} je nepovolená hodnota."
+
+#: Admin/Options/Page.php:252
+msgid "General"
+msgstr "Všeobecne"
+
+#: Admin/Options/Page.php:253
+msgid "Performance"
+msgstr "Výkon"
+
+#: Admin/Options/Page.php:254
+msgid "Services"
+msgstr "Služby"
+
+#: Admin/Options/Page.php:255
+msgid "Sharing"
+msgstr "Zdieľanie"
+
+#: Admin/Options/Page.php:256 Admin/Poll/Editor.php:286
+msgid "Advanced"
+msgstr "Rozšírené"
+
+#: Admin/Options/Page.php:257 Admin/Poll/Editor.php:259
+msgid "Notifications"
+msgstr "Notifikácie"
+
+#: Admin/Options/Page.php:258
+msgid "Expressions"
+msgstr "Výrazy a texty"
+
+#: Admin/Options/Page.php:259
+msgid "Migration"
+msgstr "Migrácia"
+
+#: Admin/Options/Page.php:260
+msgid "Import & Export"
+msgstr "Import & Export"
+
+#: Admin/Options/Page.php:261
+msgid "Debug"
+msgstr "Ladenie"
+
+#: Admin/Options/views/tabs/advanced.php:7
+msgid "Always embed CSS with HTML."
+msgstr "Vždy vlož CSS do HTML."
+
+#: Admin/Options/views/tabs/advanced.php:10
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr ""
+"Táto voľba môže byť užitočná keď WordPress nebeží na štandardnom systéme "
+"súborov."
+
+#: Admin/Options/views/tabs/advanced.php:17
+msgid "Render full poll when listed in polls archive."
+msgstr "Zobraz celé hlasovanie keď sa prehľadáva v archíve hlasovaní."
+
+#: Admin/Options/views/tabs/advanced.php:20
+msgid "This option will render all polls instead of showing titles only."
+msgstr "Táto voľba zobrazí všetky hlasovania, nielen ich názvy."
+
+#: Admin/Options/views/tabs/advanced.php:27
+msgid "Disable polls archive."
+msgstr "Zablokuj archív hlasovaní."
+
+#: Admin/Options/views/tabs/advanced.php:35
+msgid "Remove all data on uninstall."
+msgstr "Vymaž všetky dáta pri odinštalovaní rozšírenia."
+
+#: Admin/Options/views/tabs/advanced.php:38
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr ""
+"POZOR! Táto akcia vymaže všetky dáta v TotalPoll, vrátane nastavených "
+"volieb, cache súborov aj hlasovaní."
+
+#: Admin/Options/views/tabs/debug.php:19
+msgid "Download"
+msgstr "Stiahni"
+
+#: Admin/Options/views/tabs/general.php:7
+msgid "Structured Data"
+msgstr "Štruktúrované dáta"
+
+#: Admin/Options/views/tabs/general.php:10
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"Zvýš svoju viditeľnosť vo vyhľadávačoch pomocou <a href=\"https://developers."
+"google.com/search/docs/guides/intro-structured-data\" target=\"_blank"
+"\">Štruktúrovaných dát</a>."
+
+#: Admin/Options/views/tabs/import-export.php:7
+msgid "Import data"
+msgstr "Import dát"
+
+#: Admin/Options/views/tabs/import-export.php:10
+msgid "Export data"
+msgstr "Export dát"
+
+#: Admin/Options/views/tabs/import-export.php:13
+msgid "Export settings"
+msgstr "Nastavenia Exportu"
+
+#: Admin/Options/views/tabs/import-export.php:17
+msgid "TotalPoll uses standard WordPress import/export mechanism."
+msgstr "TotalPoll používa štandardný WordPress import/export mechanizmus."
+
+#: Admin/Options/views/tabs/import-export.php:23
+msgid "Drag and drop settings file or copy then paste its content here."
+msgstr ""
+"Presuň súbor nastavení pomocou drag-n-drop alebo skopíruj a prilep jeho "
+"obsah tu."
+
+#: Admin/Options/views/tabs/import-export.php:27
+msgid "Import settings"
+msgstr "Import nastavení"
+
+#: Admin/Options/views/tabs/import-export.php:28
+msgid "Importing"
+msgstr "Importuje"
+
+#: Admin/Options/views/tabs/import-export.php:29
+msgid "Imported"
+msgstr "Import ukončený"
+
+#: Admin/Options/views/tabs/migration.php:13
+msgid "No polls to migrate."
+msgstr "Žiadne hlasovania vhodné na migráciu dát."
+
+#: Admin/Options/views/tabs/migration.php:14
+msgid "Polls migrated successfully."
+msgstr "Hlasovania boli úspešne migrované."
+
+#: Admin/Options/views/tabs/migration.php:15
+msgid "Polls to migrate."
+msgstr "Hlasovania na migráciu dát."
+
+#: Admin/Options/views/tabs/migration.php:28 Admin/Poll/views/editor.php:15
+msgid "Migrate"
+msgstr "Migrácia"
+
+#: Admin/Options/views/tabs/notifications.php:4
+msgid "Poll title: {{title}}"
+msgstr "Názov hlasovania: {{title}}"
+
+#: Admin/Options/views/tabs/notifications.php:5
+msgid "Choices: {{choices}}"
+msgstr "Odpovede: {{choices}}"
+
+#: Admin/Options/views/tabs/notifications.php:6
+msgid "User IP: {{ip}}"
+msgstr "IP účastníka: {{ip}}"
+
+#: Admin/Options/views/tabs/notifications.php:7
+msgid "User browser: {{browser}}"
+msgstr "Prehliadač účastníka: {{browser}}"
+
+#: Admin/Options/views/tabs/notifications.php:8
+msgid "Vote date: {{date}}"
+msgstr "Dátum hlasovania: {{date}}"
+
+#: Admin/Options/views/tabs/notifications.php:12 Admin/Poll/Listing.php:79
+#: Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "Názov"
+
+#: Admin/Options/views/tabs/notifications.php:18
+msgid "Plain text body"
+msgstr "Textový obsah"
+
+#: Admin/Options/views/tabs/notifications.php:24
+msgid "HTML template"
+msgstr "HTML šablóna"
+
+#: Admin/Options/views/tabs/performance.php:7
+msgid "Asynchronous loading"
+msgstr "Asynchrónne načítavanie"
+
+#: Admin/Options/views/tabs/performance.php:10
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr ""
+"Toto nastavenie môže byť užitočné keď treba obísť cache mechanizmus a iné "
+"rozšírenia."
+
+#: Admin/Options/views/tabs/performance.php:17
+msgid "Full checks on page load."
+msgstr "Úplná kontrola počas načítavania stránky."
+
+#: Admin/Options/views/tabs/performance.php:20
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr ""
+"Toto nastavenie môže spôsobiť preťaženie na serveri, pretože TotalPoll bude "
+"často posielať dopyty na databázu."
+
+#: Admin/Options/views/tabs/performance.php:26
+msgid "Clear cache"
+msgstr "Vyčisti cache"
+
+#: Admin/Options/views/tabs/performance.php:27
+msgid "Clearing"
+msgstr "Čistí"
+
+#: Admin/Options/views/tabs/performance.php:28
+msgid "Cleared"
+msgstr "Vyčistené"
+
+#: Admin/Options/views/tabs/services.php:6
+msgid "reCaptcha by Google"
+msgstr "reCAPTCHA od Google"
+
+#: Admin/Options/views/tabs/services.php:14
+msgid "Site key"
+msgstr "Kľúč stránky"
+
+#: Admin/Options/views/tabs/services.php:22
+msgid "Site secret"
+msgstr "Tajný kľúč stránky"
+
+#: Admin/Options/views/tabs/services.php:30
+msgid "Enable invisible captcha."
+msgstr "Neviditeľný mód reCAPTCHA."
+
+#: Admin/Options/views/tabs/sharing.php:9
+msgid "Twitter"
+msgstr "Twitter"
+
+#: Admin/Options/views/tabs/sharing.php:19
+msgid "Facebook"
+msgstr "Facebook"
+
+#: Admin/Options/views/tabs/sharing.php:29
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: Admin/Poll/Editor.php:170
+msgid "Are you sure?"
+msgstr "Určite chceš operáciu vykonať?"
+
+#: Admin/Poll/Editor.php:171 Admin/Poll/views/choices/choice-audio.php:43
+#: Admin/Poll/views/choices/choice-video.php:50
+#: Admin/Poll/views/questions/question.php:65
+msgid "Yes"
+msgstr "Áno"
+
+#: Admin/Poll/Editor.php:172 Admin/Poll/views/choices/choice-audio.php:46
+#: Admin/Poll/views/choices/choice-video.php:54
+#: Admin/Poll/views/questions/question.php:64
+msgid "No"
+msgstr "Nie"
+
+#: Admin/Poll/Editor.php:173
+msgid "Done"
+msgstr "Vykonané"
+
+#: Admin/Poll/Editor.php:174
+msgid "Do you want to receive notifications from TotalPoll?"
+msgstr "Chceš dostávať notifikácie z rozšírenia TotalPoll?"
+
+#: Admin/Poll/Editor.php:175
+msgid "Unfortunately, your browser does not support push notifications."
+msgstr "Bohužiaľ, Tvoj prehliadač takéto notifikácie nepodporuje."
+
+#: Admin/Poll/Editor.php:176
+msgid ""
+"ATTENTION! Overriding votes is not reversible. Are you sure you want to "
+"override votes?"
+msgstr ""
+"POZOR! Úprava počtu hlasov je neodvolateľná operácia. Naozaj chceš upraviť "
+"počet hlasov?"
+
+#: Admin/Poll/Editor.php:203
+msgid "Questions"
+msgstr "Otázky"
+
+#: Admin/Poll/Editor.php:204 Admin/Poll/views/form/fields.php:31
+#: Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "Polia"
+
+#: Admin/Poll/Editor.php:205 Admin/Poll/views/questions/question.php:24
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: Admin/Poll/Editor.php:206
+msgid "Design"
+msgstr "Návrh vzhľadu"
+
+#: Admin/Poll/Editor.php:207
+msgid "Integration"
+msgstr "Integrácia"
+
+#: Admin/Poll/Editor.php:208
+msgid "Translations"
+msgstr "Preklady"
+
+#: Admin/Poll/Editor.php:227
+msgid "Limitations"
+msgstr "Obmedzenia"
+
+#: Admin/Poll/Editor.php:228
+msgid "Frequency"
+msgstr "Frekvencia"
+
+#: Admin/Poll/Editor.php:232 Admin/Poll/views/questions/question.php:80
+#: Admin/Poll/views/questions/questions.php:25
+msgid "Choices"
+msgstr "Odpovede"
+
+#: Admin/Poll/Editor.php:235 Admin/Poll/Editor.php:242
+msgid "Sort"
+msgstr "Usporiadania"
+
+#: Admin/Poll/Editor.php:243
+msgid "Visibility"
+msgstr "Viditeľnosť"
+
+#: Admin/Poll/Editor.php:244
+msgid "Format"
+msgstr "Formát"
+
+#: Admin/Poll/Editor.php:248 Admin/Poll/views/questions/question.php:3
+#: Admin/Poll/views/settings/content/thankyou.php:4
+#: Admin/Poll/views/settings/content/welcome.php:4
+#: Admin/Poll/views/translations/index.php:55
+msgid "Content"
+msgstr "Obsah"
+
+#: Admin/Poll/Editor.php:251
+msgid "Welcome"
+msgstr "Vitaj"
+
+#: Admin/Poll/Editor.php:253
+msgid "Thank you"
+msgstr "Ďakujeme"
+
+#: Admin/Poll/Editor.php:257 Admin/Poll/views/translations/index.php:108
+msgid "SEO"
+msgstr "SEO"
+
+#: Admin/Poll/Editor.php:262 Admin/Poll/Editor.php:312
+#: Admin/Poll/views/form/field.php:193 Admin/Poll/views/form/fields.php:16
+msgid "Email"
+msgstr "Email"
+
+#: Admin/Poll/Editor.php:263
+msgid "Push"
+msgstr "Push"
+
+#: Admin/Poll/Editor.php:264
+msgid "WebHook"
+msgstr "WebHook"
+
+#: Admin/Poll/Editor.php:267
+msgid "Customization"
+msgstr "Prispôsobenie"
+
+#: Admin/Poll/Editor.php:282
+msgid "Layout"
+msgstr "Vzhľad"
+
+#: Admin/Poll/Editor.php:283
+msgid "Colors"
+msgstr "Farby"
+
+#: Admin/Poll/Editor.php:284 Admin/Poll/views/choices/choice.php:30
+#: Admin/Poll/views/choices/choices.php:148
+#: Admin/Poll/views/choices/choices.php:197 Admin/Poll/views/form/field.php:31
+#: Admin/Poll/views/form/fields.php:143
+msgid "Text"
+msgstr "Text"
+
+#: Admin/Poll/Editor.php:288
+msgid "Template Settings"
+msgstr "Nastavenia šablóny"
+
+#: Admin/Poll/Editor.php:289
+msgid "Behaviours"
+msgstr "Správanie"
+
+#: Admin/Poll/Editor.php:290
+msgid "Effects"
+msgstr "Efekty"
+
+#: Admin/Poll/Editor.php:291
+msgid "Custom CSS"
+msgstr "Vlastné CSS"
+
+#: Admin/Poll/Editor.php:308
+msgid "Shortcode"
+msgstr "Skratky"
+
+#: Admin/Poll/Editor.php:308 Admin/Poll/Editor.php:309
+msgid "WordPress feature"
+msgstr "Vlastnosti WordPress"
+
+#: Admin/Poll/Editor.php:309
+msgid "Widget"
+msgstr "Widget modul"
+
+#: Admin/Poll/Editor.php:310
+msgid "Direct link"
+msgstr "Priamy odkaz"
+
+#: Admin/Poll/Editor.php:310
+msgid "Standard link"
+msgstr "Štandardný odkaz"
+
+#: Admin/Poll/Editor.php:311
+msgid "Embed"
+msgstr "Vlož"
+
+#: Admin/Poll/Editor.php:311
+msgid "External inclusion"
+msgstr "Externé vloženie"
+
+#: Admin/Poll/Editor.php:312
+msgid "Vote links"
+msgstr "Odkaz na hlasovania"
+
+#: Admin/Poll/Listing.php:190
+msgid "Offline"
+msgstr "Offline"
+
+#: Admin/Poll/views/choices/choice-audio.php:23
+#: Admin/Poll/views/choices/choice-html.php:12
+#: Admin/Poll/views/choices/choice-image.php:18
+#: Admin/Poll/views/choices/choice-text.php:11
+#: Admin/Poll/views/choices/choice-video.php:26
+#: Admin/Poll/views/form/field.php:118
+#: Admin/Poll/views/settings/choices/sort.php:20
+#: Admin/Poll/views/settings/results/sort.php:20
+msgid "Label"
+msgstr "Štítky"
+
+#: Admin/Poll/views/choices/choice-audio.php:25
+#: Admin/Poll/views/choices/choice-html.php:14
+#: Admin/Poll/views/choices/choice-image.php:20
+#: Admin/Poll/views/choices/choice-text.php:12
+#: Admin/Poll/views/choices/choice-video.php:28
+msgid "Choice label"
+msgstr "Štítok pre odpoveď"
+
+#: Admin/Poll/views/choices/choice-audio.php:30
+msgid "Audio URL"
+msgstr "URL audia"
+
+#: Admin/Poll/views/choices/choice-audio.php:32
+msgid "Full size audio URL"
+msgstr "URL celého audia"
+
+#: Admin/Poll/views/choices/choice-audio.php:41
+#: Admin/Poll/views/choices/choice-video.php:47
+msgid "Import information from {{provider}}?"
+msgstr "Import informácií od {{provider}}?"
+
+#: Admin/Poll/views/choices/choice-audio.php:52
+#: Admin/Poll/views/choices/choice-image.php:36
+#: Admin/Poll/views/choices/choice-video.php:60
+msgid "Thumbnail URL"
+msgstr "URL miniatúry"
+
+#: Admin/Poll/views/choices/choice-audio.php:54
+#: Admin/Poll/views/choices/choice-image.php:38
+#: Admin/Poll/views/choices/choice-video.php:62
+msgid "Thumbnail image URL"
+msgstr "URL obrázku miniatúry"
+
+#: Admin/Poll/views/choices/choice-audio.php:63
+#: Admin/Poll/views/choices/choice-image.php:43
+#: Admin/Poll/views/choices/choice-video.php:72
+msgid "Available sizes"
+msgstr "Dostupné veľkosti"
+
+#: Admin/Poll/views/choices/choice-image.php:25
+msgid "Image URL"
+msgstr "URL obrázku"
+
+#: Admin/Poll/views/choices/choice-image.php:27
+msgid "Full size image URL"
+msgstr "URL obrázku v originálnej veľkosti"
+
+#: Admin/Poll/views/choices/choice-video.php:34
+msgid "Video URL"
+msgstr "URL videa"
+
+#: Admin/Poll/views/choices/choice-video.php:36
+msgid "Full size video URL"
+msgstr "URL celého videa"
+
+#: Admin/Poll/views/choices/choice.php:31
+#: Admin/Poll/views/choices/choices.php:152
+#: Admin/Poll/views/choices/choices.php:203
+msgid "Image"
+msgstr "Obrázok"
+
+#: Admin/Poll/views/choices/choice.php:32
+#: Admin/Poll/views/choices/choices.php:156
+#: Admin/Poll/views/choices/choices.php:209
+msgid "Video"
+msgstr "Video"
+
+#: Admin/Poll/views/choices/choice.php:33
+#: Admin/Poll/views/choices/choices.php:160
+#: Admin/Poll/views/choices/choices.php:215
+msgid "Audio"
+msgstr "Audio"
+
+#: Admin/Poll/views/choices/choice.php:75
+#: Admin/Poll/views/design/sidebar.php:25
+msgid "Reset"
+msgstr "Vynuluj"
+
+#: Admin/Poll/views/choices/choice.php:120 Admin/Poll/views/form/field.php:66
+#: Admin/Poll/views/form/field.php:256
+#: Admin/Poll/views/questions/questions.php:31
+#: Admin/Poll/views/settings/vote/limitations.php:142
+msgid "Delete"
+msgstr "Vymaž"
+
+#: Admin/Poll/views/choices/choices.php:3
+msgid "Drop to add"
+msgstr "Pridaj ťahaním"
+
+#: Admin/Poll/views/choices/choices.php:26 Admin/Poll/views/form/fields.php:50
+msgid "Collapse"
+msgstr "Zbal"
+
+#: Admin/Poll/views/choices/choices.php:37 Admin/Poll/views/form/fields.php:59
+msgid "Expand"
+msgstr "Rozbal"
+
+#: Admin/Poll/views/choices/choices.php:59 Admin/Poll/views/form/fields.php:68
+msgid "Bulk"
+msgstr "Hromadne"
+
+#: Admin/Poll/views/choices/choices.php:70
+msgid "Shuffle"
+msgstr "Pomiešane"
+
+#: Admin/Poll/views/choices/choices.php:81
+msgid "Random Votes"
+msgstr "Náhodné hlasy"
+
+#: Admin/Poll/views/choices/choices.php:103
+msgid "Filter"
+msgstr "Filter"
+
+#: Admin/Poll/views/choices/choices.php:114 Admin/Poll/views/form/fields.php:88
+msgid "Delete All"
+msgstr "Vymaž všetko"
+
+#: Admin/Poll/views/choices/choices.php:125
+msgid "Reset Votes"
+msgstr "Vynuluj hlasy"
+
+#: Admin/Poll/views/choices/choices.php:139
+msgid "One choice per line."
+msgstr "Jedna odpoveď na riadok."
+
+#: Admin/Poll/views/choices/choices.php:141
+#: Admin/Poll/views/form/fields.php:110
+#: Admin/Poll/views/integration/widget.php:19
+msgid "Insert"
+msgstr "Vlož"
+
+#: Admin/Poll/views/choices/choices.php:170
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr ""
+"Nie sú pridané žiadne odpovede. Pridaj odpoveď kliknutím na tlačítko nižšie."
+
+#: Admin/Poll/views/choices/choices.php:188
+#: Admin/Poll/views/form/fields.php:127
+#: Admin/Poll/views/questions/questions.php:49
+msgid "Move here"
+msgstr "Posuň sem"
+
+#: Admin/Poll/views/design/index.php:51 Admin/Poll/views/design/index.php:196
+msgid "Font family"
+msgstr "Typ písma"
+
+#: Admin/Poll/views/design/index.php:59 Admin/Poll/views/design/index.php:204
+msgid "Font size"
+msgstr "Veľkosť písma"
+
+#: Admin/Poll/views/design/index.php:65 Admin/Poll/views/design/index.php:210
+msgid "Line height"
+msgstr "Výška riadku"
+
+#: Admin/Poll/views/design/index.php:73 Admin/Poll/views/design/index.php:218
+msgid "Align"
+msgstr "Zarovnanie"
+
+#: Admin/Poll/views/design/index.php:77 Admin/Poll/views/design/index.php:97
+#: Admin/Poll/views/design/index.php:222 Admin/Poll/views/design/index.php:273
+msgid "Inherit"
+msgstr "Zdedené z"
+
+#: Admin/Poll/views/design/index.php:80 Admin/Poll/views/design/index.php:126
+#: Admin/Poll/views/design/index.php:225 Admin/Poll/views/design/index.php:321
+msgid "Right"
+msgstr "Napravo"
+
+#: Admin/Poll/views/design/index.php:83 Admin/Poll/views/design/index.php:228
+msgid "Center"
+msgstr "Stred"
+
+#: Admin/Poll/views/design/index.php:86 Admin/Poll/views/design/index.php:140
+#: Admin/Poll/views/design/index.php:231 Admin/Poll/views/design/index.php:333
+msgid "Left"
+msgstr "Naľavo"
+
+#: Admin/Poll/views/design/index.php:92 Admin/Poll/views/design/index.php:237
+msgid "Transform"
+msgstr "Transformácia"
+
+#: Admin/Poll/views/design/index.php:100 Admin/Poll/views/design/index.php:242
+msgid "Normal"
+msgstr "Normálne"
+
+#: Admin/Poll/views/design/index.php:103 Admin/Poll/views/design/index.php:245
+msgid "UPPERCASE"
+msgstr "VEĽKÉ PÍSMO"
+
+#: Admin/Poll/views/design/index.php:106 Admin/Poll/views/design/index.php:248
+msgid "lowercase"
+msgstr "malé písmo"
+
+#: Admin/Poll/views/design/index.php:109 Admin/Poll/views/design/index.php:251
+msgid "Capitalize"
+msgstr "Veľké začiatočné"
+
+#: Admin/Poll/views/design/index.php:119 Admin/Poll/views/design/index.php:315
+msgid "Top"
+msgstr "Navrchu"
+
+#: Admin/Poll/views/design/index.php:133 Admin/Poll/views/design/index.php:327
+msgid "Bottom"
+msgstr "Naspodu"
+
+#: Admin/Poll/views/design/index.php:261
+msgid "Width"
+msgstr "Dĺžka"
+
+#: Admin/Poll/views/design/index.php:269
+msgid "Style"
+msgstr "Štýl"
+
+#: Admin/Poll/views/design/index.php:276
+#: Admin/Poll/views/design/tabs/advanced-effects.php:10
+msgid "None"
+msgstr "Žiadne"
+
+#: Admin/Poll/views/design/index.php:279
+msgid "Solid"
+msgstr "Plná"
+
+#: Admin/Poll/views/design/index.php:282
+msgid "Double"
+msgstr "Hrubá"
+
+#: Admin/Poll/views/design/index.php:285
+msgid "Dashed"
+msgstr "Čiarkovaná"
+
+#: Admin/Poll/views/design/index.php:288
+msgid "Dotted"
+msgstr "Bodkovaná"
+
+#: Admin/Poll/views/design/index.php:291
+msgid "Groove"
+msgstr "Drážkovaná"
+
+#: Admin/Poll/views/design/index.php:294
+msgid "Hidden"
+msgstr "Skrytá"
+
+#: Admin/Poll/views/design/index.php:297
+msgid "Ridge"
+msgstr "Zbrázdená"
+
+#: Admin/Poll/views/design/index.php:305
+msgid "Radius"
+msgstr "Zaoblenie"
+
+#: Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "Aktívna šablóna"
+
+#: Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "Zmeň"
+
+#: Admin/Poll/views/design/sidebar.php:21
+msgid "Customize"
+msgstr "Prispôsob"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "Načítaj hlasovanie priamo bez obnovenia celej stránky."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "Zroluj nahor po zaslaní hlasu"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:10
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "Zroluj nahor k pohľadu po zaslaní hlasu."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:13
+msgid "One-click vote"
+msgstr "Hlasuj na jedno kliknutie"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:15
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "Účastník zašle hlas priamo kliknutím na vybratú odpoveď."
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:18
+msgid "Question by question"
+msgstr "Otázka za otázkou"
+
+#: Admin/Poll/views/design/tabs/advanced-behaviours.php:20
+msgid "Display questions one by one."
+msgstr "Zobraz otázky postupne."
+
+#: Admin/Poll/views/design/tabs/advanced-custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "Vlož vlastné CSS tu"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:4
+msgid "Transition"
+msgstr "Prelínanie"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:15
+msgid "Fade"
+msgstr "Vytrácanie"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:20
+msgid "Slide"
+msgstr "Snímkovanie"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:29
+msgid "Animation duration"
+msgstr "Trvanie animácie"
+
+#: Admin/Poll/views/design/tabs/advanced-effects.php:30
+msgid "Animation and transition duration"
+msgstr "Trvanie animácie a prelínania"
+
+#: Admin/Poll/views/design/tabs/colors.php:2
+#: Admin/Poll/views/design/tabs/colors.php:12
+msgid "Primary"
+msgstr "Primárna"
+
+#: Admin/Poll/views/design/tabs/colors.php:3
+#: Admin/Poll/views/design/tabs/colors.php:39
+msgid "Secondary"
+msgstr "Sekundárna"
+
+#: Admin/Poll/views/design/tabs/colors.php:4
+#: Admin/Poll/views/design/tabs/colors.php:66
+msgid "Accent"
+msgstr "Dôraz"
+
+#: Admin/Poll/views/design/tabs/colors.php:5
+#: Admin/Poll/views/design/tabs/colors.php:93
+msgid "Gray"
+msgstr "Šedá"
+
+#: Admin/Poll/views/design/tabs/colors.php:6
+msgid "Dark"
+msgstr "Tmavá"
+
+#: Admin/Poll/views/design/tabs/colors.php:16
+msgid "Primary (Contrast)"
+msgstr "Primárna (kontrastná)"
+
+#: Admin/Poll/views/design/tabs/colors.php:20
+msgid "Primary (Light)"
+msgstr "Primárna (svetlá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:24
+msgid "Primary (Lighter)"
+msgstr "Primárna (svetlejšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:28
+msgid "Primary (Dark)"
+msgstr "Primárna (tmavá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:32
+msgid "Primary (Darker)"
+msgstr "Primárna (tmavšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:43
+msgid "Secondary (Contrast)"
+msgstr "Sekundárna (kontrastná)"
+
+#: Admin/Poll/views/design/tabs/colors.php:47
+msgid "Secondary (Light)"
+msgstr "Sekundárna (svetlá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:51
+msgid "Secondary (Lighter)"
+msgstr "Sekundárna (svetlejšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:55
+msgid "Secondary (Dark)"
+msgstr "Sekundárna (tmavá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:59
+msgid "Secondary (Darker)"
+msgstr "Sekundárna (tmavšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:70
+msgid "Accent (Contrast)"
+msgstr "Dôraz (kontrastná)"
+
+#: Admin/Poll/views/design/tabs/colors.php:74
+msgid "Accent (Light)"
+msgstr "Dôraz (svetlá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:78
+msgid "Accent (Lighter)"
+msgstr "Dôraz (svetlejšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:82
+msgid "Accent (Dark)"
+msgstr "Dôraz (tmavá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:86
+msgid "Accent (Darker)"
+msgstr "Dôraz (tmavšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:97
+msgid "Gray (Contrast)"
+msgstr "Šedá (kontrastná)"
+
+#: Admin/Poll/views/design/tabs/colors.php:101
+msgid "Gray (Light)"
+msgstr "Šedá (svetlá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:105
+msgid "Gray (Lighter)"
+msgstr "Šedá (svetlejšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:109
+msgid "Gray (Dark)"
+msgstr "Šedá (tmavá)"
+
+#: Admin/Poll/views/design/tabs/colors.php:113
+msgid "Gray (Darker)"
+msgstr "Šedá (tmavšia)"
+
+#: Admin/Poll/views/design/tabs/colors.php:120
+msgid "Dark (Body Text)"
+msgstr "Tmavá (text tela)"
+
+#: Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "Odpovede na riadok"
+
+#: Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "Otázky na riadok"
+
+#: Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "Maximálna dĺžka"
+
+#: Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "Predel"
+
+#: Admin/Poll/views/design/tabs/layout.php:21
+msgid "Border Radius"
+msgstr "Polomer zaoblenia"
+
+#: Admin/Poll/views/design/tabs/templates.php:9
+#: Admin/Poll/views/design/tabs/templates.php:35
+msgid "Use"
+msgstr "Použi"
+
+#: Admin/Poll/views/design/tabs/templates.php:10
+#: Admin/Poll/views/design/tabs/templates.php:36
+msgid "Active"
+msgstr "Aktívny"
+
+#: Admin/Poll/views/design/tabs/templates.php:14
+#: Admin/Poll/views/design/tabs/templates.php:44
+msgid "Customized Template"
+msgstr "Prispôsobená šablóna"
+
+#: Admin/Poll/views/design/tabs/templates.php:49
+msgid "Customization service"
+msgstr "Služba prispôsobenia"
+
+#: Admin/Poll/views/design/tabs/templates.php:63
+msgid "Get Quote"
+msgstr "Daj kvótu"
+
+#: Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "Typografia"
+
+#: Admin/Poll/views/editor.php:14
+msgid ""
+"This poll has been created using an older version of TotalPoll, please "
+"migrate it."
+msgstr ""
+"Toto hlasovanie bolo vytvorené staršou verziou TotalPoll, je potrebná "
+"migrácia."
+
+#: Admin/Poll/views/editor.php:87
+msgid "Switch to advanced"
+msgstr "Prepni na pokročilé"
+
+#: Admin/Poll/views/form/field.php:32 Admin/Poll/views/form/fields.php:144
+msgid "Textarea"
+msgstr "Textové pole"
+
+#: Admin/Poll/views/form/field.php:33 Admin/Poll/views/form/fields.php:145
+msgid "Select"
+msgstr "Výber"
+
+#: Admin/Poll/views/form/field.php:34 Admin/Poll/views/form/fields.php:146
+msgid "Checkbox"
+msgstr "Zatrhnutie (checkbox)"
+
+#: Admin/Poll/views/form/field.php:35 Admin/Poll/views/form/fields.php:147
+msgid "Radio"
+msgstr "Výber (radio)"
+
+#: Admin/Poll/views/form/field.php:36
+msgid "Required"
+msgstr "Vyžadované"
+
+#: Admin/Poll/views/form/field.php:90
+msgid "Basic"
+msgstr "Základné"
+
+#: Admin/Poll/views/form/field.php:120
+msgid "Field label"
+msgstr "Štítok poľa"
+
+#: Admin/Poll/views/form/field.php:129
+msgid "Name"
+msgstr "Meno"
+
+#: Admin/Poll/views/form/field.php:131
+msgid "Field name"
+msgstr "Meno poľa"
+
+#: Admin/Poll/views/form/field.php:139
+msgid "Default value"
+msgstr "Prednastavená hodnota"
+
+#: Admin/Poll/views/form/field.php:141 Admin/Poll/views/form/field.php:144
+msgid "Field default value"
+msgstr "Prednastavená hodnota poľa"
+
+#: Admin/Poll/views/form/field.php:148
+msgid "Default value per line."
+msgstr "Prednastavená hodnota na riadok."
+
+#: Admin/Poll/views/form/field.php:158
+msgid "option_key:Option label"
+msgstr "kľúč_voľby:štítok_voľby"
+
+#: Admin/Poll/views/form/field.php:161
+msgid "Option per line."
+msgstr "Voľba na riadok."
+
+#: Admin/Poll/views/form/field.php:164
+msgid "Option format is \"option : label\""
+msgstr "Formát voľby je \"voľba : meno štítku\""
+
+#: Admin/Poll/views/form/field.php:174
+msgid "Allow multiple values"
+msgstr "Umožni viac hodnôt"
+
+#: Admin/Poll/views/form/field.php:184
+msgid "Filled (required)"
+msgstr "Vyplnené (povinné)"
+
+#: Admin/Poll/views/form/field.php:202
+msgid "Unique"
+msgstr "Unikátne"
+
+#: Admin/Poll/views/form/field.php:203
+msgid "This field value must be unique in entries table."
+msgstr "Hodnota tohto poľa musí byť unikátna v celej tabuľke zápisov."
+
+#: Admin/Poll/views/form/field.php:212
+msgid "Filter by list"
+msgstr "Filtruj v zozname"
+
+#: Admin/Poll/views/form/field.php:222
+#: Admin/Poll/views/settings/vote/limitations.php:115
+msgid "Type"
+msgstr "Typ"
+
+#: Admin/Poll/views/form/field.php:225
+msgid "Value"
+msgstr "Hodnota"
+
+#: Admin/Poll/views/form/field.php:235
+#: Admin/Poll/views/settings/vote/limitations.php:124
+msgid "Allow"
+msgstr "Umožni"
+
+#: Admin/Poll/views/form/field.php:238
+#: Admin/Poll/views/settings/vote/limitations.php:125
+msgid "Deny"
+msgstr "Odmietni"
+
+#: Admin/Poll/views/form/field.php:243
+msgid "* means wildcard."
+msgstr "* znamená ľubovoľný reťazec."
+
+#: Admin/Poll/views/form/field.php:267
+msgid "Add new value"
+msgstr "Pridaj novú hodnotu"
+
+#: Admin/Poll/views/form/field.php:281
+msgid "Regular Expression"
+msgstr "Regulárny výraz"
+
+#: Admin/Poll/views/form/field.php:287
+msgid "Expression"
+msgstr "Výraz"
+
+#: Admin/Poll/views/form/field.php:288
+msgid "Run user input against a regular expression."
+msgstr "Aplikuj regulárny výraz na vstupnú hodnotu."
+
+#: Admin/Poll/views/form/field.php:293
+msgid "Must be a valid regular expression."
+msgstr "Musí byť platný regulárny výraz."
+
+#: Admin/Poll/views/form/field.php:298
+msgid "Error message"
+msgstr "Chybové hlásenie"
+
+#: Admin/Poll/views/form/field.php:299
+msgid "This message will be shown if the validation failed."
+msgstr "Táto správa sa zobrazí keď zlyhá kontrola platnosti."
+
+#: Admin/Poll/views/form/field.php:304
+msgid "{{label}} for a field label."
+msgstr "{{label}} štítok poľa."
+
+#: Admin/Poll/views/form/field.php:309
+msgid "Comparison"
+msgstr "Porovnanie"
+
+#: Admin/Poll/views/form/field.php:313
+msgid "Must match"
+msgstr "Musí sa zhodovať"
+
+#: Admin/Poll/views/form/field.php:317
+msgid "Must not match"
+msgstr "Nesmie sa zhodovať"
+
+#: Admin/Poll/views/form/field.php:322
+msgid "Modifiers"
+msgstr "Modifikátory"
+
+#: Admin/Poll/views/form/field.php:325
+msgid "Case Insensitive"
+msgstr "Veľkosť písmen nerozhoduje"
+
+#: Admin/Poll/views/form/field.php:328
+msgid "Multiline"
+msgstr "Viac riadkov"
+
+#: Admin/Poll/views/form/field.php:331
+msgid "Unicode Support"
+msgstr "Podpora Unicode"
+
+#: Admin/Poll/views/form/field.php:340
+msgid "Field CSS classes"
+msgstr "Pole CSS tried"
+
+#: Admin/Poll/views/form/field.php:342
+msgid "Field classes"
+msgstr "Pole tried"
+
+#: Admin/Poll/views/form/field.php:349
+msgid "Template"
+msgstr "Šablóna"
+
+#: Admin/Poll/views/form/field.php:351
+msgid "Field template"
+msgstr "Pole šablóny"
+
+#: Admin/Poll/views/form/field.php:356
+msgid "full column"
+msgstr "celý stĺpec"
+
+#: Admin/Poll/views/form/field.php:360
+msgid "1/2 column"
+msgstr "1/2 stĺpec"
+
+#: Admin/Poll/views/form/field.php:364
+msgid "1/3 column"
+msgstr "1/3 stĺpec"
+
+#: Admin/Poll/views/form/field.php:368
+msgid "{{label}} for field label."
+msgstr "{{label}} štítok poľa."
+
+#: Admin/Poll/views/form/field.php:371
+msgid "{{errors}} for field errors."
+msgstr "{{errors}} chyby poľa."
+
+#: Admin/Poll/views/form/field.php:374
+msgid "{{field}} for field input."
+msgstr "{{field}} hodnota poľa."
+
+#: Admin/Poll/views/form/fields.php:12
+msgid "Preset"
+msgstr "Prednastavené"
+
+#: Admin/Poll/views/form/fields.php:14
+msgid "First name"
+msgstr "Meno"
+
+#: Admin/Poll/views/form/fields.php:15
+msgid "Last name"
+msgstr "Priezvisko"
+
+#: Admin/Poll/views/form/fields.php:17
+msgid "Phone"
+msgstr "Telefón"
+
+#: Admin/Poll/views/form/fields.php:18
+msgid "Gender"
+msgstr "Pohlavie"
+
+#: Admin/Poll/views/form/fields.php:19
+msgid "Country"
+msgstr "Štát"
+
+#: Admin/Poll/views/form/fields.php:20
+msgid "Agreement"
+msgstr "Návrh dohody"
+
+#: Admin/Poll/views/form/fields.php:109
+msgid "One field per line."
+msgstr "Jedno pole na riadok."
+
+#: Admin/Poll/views/form/fields.php:114
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr "Žiadne vlastné pole. Pridaj nejaké kliknutím na tlačítko nižšie."
+
+#: Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "Priprav šablónu pre email"
+
+#: Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr "Začni prípravou vlastnej šablóny emailu zadaním otázky a odpovedí."
+
+#: Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "Nastav odkazy na odpovede"
+
+#: Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "Skopíruj a prilep odkazy na odpovede z tohto zoznamu:"
+
+#: Admin/Poll/views/integration/email.php:41
+#: Admin/Poll/views/questions/questions.php:22
+msgid "Question"
+msgstr "Otázka"
+
+#: Admin/Poll/views/integration/email.php:51
+#: Admin/Poll/views/integration/embed.php:18
+#: Admin/Poll/views/integration/link.php:17
+#: Admin/Poll/views/integration/shortcode.php:18
+#: Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "Kopíruj"
+
+#: Admin/Poll/views/integration/email.php:64
+#: Admin/Poll/views/integration/embed.php:42
+#: Admin/Poll/views/integration/link.php:41
+#: Admin/Poll/views/integration/shortcode.php:48
+#: Admin/Poll/views/integration/widget.php:31
+msgid "Preview"
+msgstr "Náhľad"
+
+#: Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr "Pošli email sám sebe a otestuj funkcionalitu hlasovania."
+
+#: Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "Skopíruj kód"
+
+#: Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "Začni skopírovaním tohto HTML kódu:"
+
+#: Admin/Poll/views/integration/embed.php:29
+msgid "Paste the code"
+msgstr "Prilep kód"
+
+#: Admin/Poll/views/integration/embed.php:32
+msgid "Paste the copied code into an HTML page."
+msgstr "Prilep skopírovaný kód do HTML stránky."
+
+#: Admin/Poll/views/integration/embed.php:45
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr ""
+"Otvor stránku, do ktorej si skopíroval kód a testuj funkcionalitu hlasovania."
+
+#: Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "Skopíruj odkaz"
+
+#: Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "Začni skopírovaním tohto odkazu:"
+
+#: Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "Prilep odkaz"
+
+#: Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr "Prilep skopírovaný odkaz kdekoľvek na stránky alebo do článkov."
+
+#: Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr ""
+"Otvor stránku, do ktorej si skopíroval odkaz a testuj funkcionalitu "
+"hlasovanie."
+
+#: Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "Skopíruj riadiaci kód"
+
+#: Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "Začni skopírovaním tohto krátkeho kódu:"
+
+#: Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "Prilep riadiaci kód"
+
+#: Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr ""
+"Prilep skopírovaný riadiaci kód na miesto, ktoré podporuje takéto kódy, ako "
+"stránka alebo článok."
+
+#: Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr ""
+"Otvor stránku, do ktorej si skopíroval riadiaci kód a testuj funkcionalitu "
+"hlasovania."
+
+#: Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "Pridaj do bočného panela"
+
+#: Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr "Začni pridaním tohto hlasovania do jedného z bočných panelov:"
+
+#: Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "Vyber bočný panel"
+
+#: Admin/Poll/views/integration/widget.php:20
+msgid "Inserted"
+msgstr "Vložené"
+
+#: Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr ""
+"Otvor stránku s týmto bočným panelom a testuj funkcionalitu hlasovania."
+
+#: Admin/Poll/views/loading.php:3
+msgid "Loading..."
+msgstr "Načítava..."
+
+#: Admin/Poll/views/questions/question.php:37
+msgid "User must vote at least for {{minimum}} choice(s)."
+msgstr "Účastník musí hlasovať aspoň za {{minimum}} odpovedí."
+
+#: Admin/Poll/views/questions/question.php:50
+msgid "User can vote for up to {{maximum}} choice(s)."
+msgstr "Účastník môže hlasovať nanajvýš za {{minimum}} odpovedí."
+
+#: Admin/Poll/views/questions/question.php:61
+msgid "Allow custom choice (other field)."
+msgstr "Umožni definovať vlastnú odpoveď (nové pole)."
+
+#: Admin/Poll/views/questions/question.php:66
+msgid "Yes, but hide it until reviewed below."
+msgstr "Áno, ale schovaj ju pokiaľ nie je skontrolovaná nižšie."
+
+#: Admin/Poll/views/questions/questions.php:45
+msgid "New Question"
+msgstr "Nová otázka"
+
+#: Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "Usporiadaj odpovede podľa"
+
+#: Admin/Poll/views/settings/choices/sort.php:10
+#: Admin/Poll/views/settings/results/sort.php:10
+msgid "Position"
+msgstr "Pozície"
+
+#: Admin/Poll/views/settings/choices/sort.php:25
+#: Admin/Poll/views/settings/results/sort.php:25
+msgid "Random"
+msgstr "Náhodne"
+
+#: Admin/Poll/views/settings/choices/sort.php:34
+#: Admin/Poll/views/settings/results/sort.php:34
+msgid "Direction"
+msgstr "Pozície"
+
+#: Admin/Poll/views/settings/choices/sort.php:40
+#: Admin/Poll/views/settings/results/sort.php:40
+msgid "Descending"
+msgstr "Klesajúce"
+
+#: Admin/Poll/views/settings/choices/sort.php:45
+#: Admin/Poll/views/settings/results/sort.php:45
+msgid "Ascending"
+msgstr "Rastúce"
+
+#: Admin/Poll/views/settings/content/results.php:4
+#: Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "Nad"
+
+#: Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "Tento obsah bude zobrazený nad výsledkami."
+
+#: Admin/Poll/views/settings/content/results.php:14
+#: Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "Pod"
+
+#: Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "Tento obsah bude zobrazený pod výsledkami."
+
+#: Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "Tento obsah bude zobrazený nad otázkou a odpoveďami."
+
+#: Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "Tento obsah bude zobrazený pod otázkou a odpoveďami."
+
+#: Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "Prispôsobenie?<br>Sme k dispozícii!"
+
+#: Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr "Ak potrebuješ vlastnú funkcionalitu, daj nám vedieť a pomôžeme!"
+
+#: Admin/Poll/views/settings/customization/index.php:21
+msgid "Get a quote"
+msgstr "Získaj kvótu"
+
+#: Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "Adresát emailu"
+
+#: Admin/Poll/views/settings/notifications/email.php:11
+#: Admin/Poll/views/settings/notifications/push.php:24
+#: Admin/Poll/views/settings/notifications/webhook.php:50
+msgid "Send notification when"
+msgstr "Pošli notifikáciu keď"
+
+#: Admin/Poll/views/settings/notifications/email.php:16
+#: Admin/Poll/views/settings/notifications/push.php:29
+#: Admin/Poll/views/settings/notifications/webhook.php:55
+msgid "New vote has been casted"
+msgstr "Nový hlas bol vhodený"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "OneSignal App ID"
+
+#: Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "Založ si účet"
+
+#: Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "OneSignal App ID"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "Táto URL prijme  HTTP POST s nasledujúcim obsahom"
+
+#: Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "Formát hlasov"
+
+#: Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "Ako sú hlasy prezentované"
+
+#: Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "{{votes}} počet hlasov."
+
+#: Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "{{votesPercentage}} percentá hlasov."
+
+#: Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "{{votesWithLabel}} počet hlasov s popisom."
+
+#: Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "{{votesTotal}} celkový počet hlasov."
+
+#: Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "{{votesTotalWithLabel}} celkový počet hlasov s popisom."
+
+#: Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "Usporiadaj výsledky podľa"
+
+#: Admin/Poll/views/settings/results/visibility.php:8
+msgid "Show results for voters and non-voters"
+msgstr "Ukáž výsledky všetkým účastníkom"
+
+#: Admin/Poll/views/settings/results/visibility.php:17
+msgid "Show results for voters only"
+msgstr "Ukáž výsledky len účastníkom hlasovania"
+
+#: Admin/Poll/views/settings/results/visibility.php:26
+msgid "Hide results"
+msgstr "Skry výsledky"
+
+#: Admin/Poll/views/settings/results/visibility.php:34
+msgid "Hidden results message"
+msgstr "Správa o skrytých výsledkoch"
+
+#: Admin/Poll/views/settings/results/visibility.php:44
+msgid "Until quota is reached"
+msgstr "Pokiaľ nie je naplnená kvóta hlasov"
+
+#: Admin/Poll/views/settings/results/visibility.php:51
+msgid "Until end date is reached"
+msgstr "Pokiaľ nenadíde dátum ukončenia"
+
+#: Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "Popis"
+
+#: Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "Znakov ostáva."
+
+#: Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "Premenné šablóny"
+
+#: Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "{{title}} názov hlasovania."
+
+#: Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}} názov web stránky."
+
+#: Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "Blokované z dôvodu"
+
+#: Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr ""
+"Metóda sa používa na blokovanie hlasovania, ak je dosiahnutý limit hlasov."
+
+#: Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Cookies"
+
+#: Admin/Poll/views/settings/vote/frequency.php:25
+msgid "Authenticated user"
+msgstr "Prihlásený účastník (na portáli TotalSuite)"
+
+#: Admin/Poll/views/settings/vote/frequency.php:33
+msgid "Votes per session"
+msgstr "Hlasov pre dané prihlásenie"
+
+#: Admin/Poll/views/settings/vote/frequency.php:35
+msgid "How many times can the user vote using the same session."
+msgstr "Koľkokrát môže účastník hlasovať v rámci jedného prihlásenia."
+
+#: Admin/Poll/views/settings/vote/frequency.php:44
+msgid "Votes per user"
+msgstr "Hlasov na účastníka"
+
+#: Admin/Poll/views/settings/vote/frequency.php:46
+msgid "How many times can the authenticated user vote."
+msgstr "Koľkokrát môže prihlásený účastník hlasovať."
+
+#: Admin/Poll/views/settings/vote/frequency.php:55
+msgid "Votes per IP"
+msgstr "Hlasov z rovnakej IP adresy"
+
+#: Admin/Poll/views/settings/vote/frequency.php:57
+msgid "How many times can the user vote using the same IP."
+msgstr "Koľkokrát môže účastník hlasovať z jednej IP adresy."
+
+#: Admin/Poll/views/settings/vote/frequency.php:66
+msgid "Timeout (seconds)"
+msgstr "Časový limit (v minútach)"
+
+#: Admin/Poll/views/settings/vote/frequency.php:68
+msgid "The time period before the user can vote again."
+msgstr "Časový interval, po ktorom môže účastník hlasovať znovu."
+
+#: Admin/Poll/views/settings/vote/frequency.php:74
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr ""
+"Po uplynutí tejto doby bude môcť účastník hlasovať znovu. Na okamžité "
+"zastavenie hlasovania nastav hodnotu 0."
+
+#: Admin/Poll/views/settings/vote/frequency.php:77
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr ""
+"Pozor! Databáza sa bude neustále napĺňať novými záznamami, čo môže spomaliť "
+"výkon stránky."
+
+#: Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "Časový interval"
+
+#: Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "Dátum začiatku"
+
+#: Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "Hlasovanie nebude otvorené pred uplynutím tohto dátumu."
+
+#: Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "Dátum ukončenia"
+
+#: Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "Hlasovanie bude ukončené po uplynutí tohto dátumu."
+
+#: Admin/Poll/views/settings/vote/limitations.php:44
+msgid "Membership"
+msgstr "Registrácia na portáli TotalSuite"
+
+#: Admin/Poll/views/settings/vote/limitations.php:53
+msgid "Required membership roles"
+msgstr "Požadované role registrovaných členov"
+
+#: Admin/Poll/views/settings/vote/limitations.php:55
+msgid "The membership types that can vote."
+msgstr "Typy členstva oprávnené hlasovať."
+
+#: Admin/Poll/views/settings/vote/limitations.php:65
+msgid "Hold Control/Command for multiple selection."
+msgstr "Podrž Control/Command pre viacnásobný výber."
+
+#: Admin/Poll/views/settings/vote/limitations.php:76
+msgid "Quota"
+msgstr "Kvóta"
+
+#: Admin/Poll/views/settings/vote/limitations.php:85
+msgid "Number of votes"
+msgstr "Počet hlasov"
+
+#: Admin/Poll/views/settings/vote/limitations.php:87
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "Kvóta hlasov, po dosiahnutí ktorej sa už nedá hlasovať."
+
+#: Admin/Poll/views/settings/vote/limitations.php:103
+msgid "Region (IP based)"
+msgstr "Región (podľa IP adresy)"
+
+#: Admin/Poll/views/settings/vote/limitations.php:153
+msgid "Add new rule"
+msgstr "Pridaj nové pravidlo"
+
+#: Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "Originálne"
+
+#: Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "Vyber jazyk"
+
+#: Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "Otázka #{{$index+1}}"
+
+#: Admin/Privacy/Policy.php:105
+msgid "Useragent"
+msgstr "Useragent"
+
+#: Entry/Repository.php:136
+msgid "poll_id and fields are required"
+msgstr "poll_id a fields sú povinné"
+
+#: Entry/Repository.php:140 Log/Repository.php:155
+msgid "date must be a DateTime object"
+msgstr "dátum musí byť DateTime objekt"
+
+#: Entry/Repository.php:155 Log/Repository.php:173
+msgid "Unable to insert the entry."
+msgstr "Zápis sa nepodarilo zaradiť."
+
+#: Entry/Repository.php:187 Entry/Repository.php:255 Log/Repository.php:204
+#: Log/Repository.php:320
+msgid "No conditions were specified"
+msgstr "Neboli špecifikované žiadne podmienky"
+
+#: Limitations/Membership.php:28
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "Aby si mohol pokračovať, musíš mať priradené tieto role: %s."
+
+#: Limitations/Membership.php:38
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr ""
+"Pre pokračovanie sa <a href=\"%s\">prihlás</a> alebo <a href=\"%s"
+"\">zaregistruj</a>."
+
+#: Limitations/Period.php:28
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "Hlasovanie ešte nezačalo (ostáva %s)."
+
+#: Limitations/Period.php:40
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "Toto hlasovanie už skončilo (po %s)."
+
+#: Limitations/Period.php:51
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y rok"
+msgstr[1] "%y roky"
+msgstr[2] "%y rokov"
+
+#: Limitations/Period.php:53
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m mesiac"
+msgstr[1] "%m mesiace"
+msgstr[2] "%m mesiacov"
+
+#: Limitations/Period.php:55
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d deň"
+msgstr[1] "%d dni"
+msgstr[2] "%d dní"
+
+#: Limitations/Period.php:57
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h hodina"
+msgstr[1] "%h hodiny"
+msgstr[2] "%h hodín"
+
+#: Limitations/Period.php:59
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i minúta"
+msgstr[1] "%i minúty"
+msgstr[2] "%i minút"
+
+#: Limitations/Period.php:61
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s sekunda"
+msgstr[1] "%s sekundy"
+msgstr[2] "%s sekúnd"
+
+#: Limitations/Quota.php:22
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "Hlasovanie skončilo (kvóta hlasov bola dosiahnutá)."
+
+#: Limitations/Region.php:29
+msgid "This poll is not available in your region."
+msgstr "Toto hlasovanie nie je sprístupnené pre váš región."
+
+#: Log/Repository.php:151
+msgid "poll_id and action are required"
+msgstr "poll_id a action sú povinné"
+
+#: Poll/Commands/CountVote.php:123
+msgid "All questions must be answered."
+msgstr "Všetky otázky musia byť zodpovedané."
+
+#: Poll/Commands/CountVote.php:130
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "Musíš hlasovať aspoň za {{minimum}} odpoveď."
+msgstr[1] "Musíš hlasovať aspoň za {{minimum}} odpovede."
+msgstr[2] "Musíš hlasovať aspoň za {{minimum}} odpovedí."
+
+#: Poll/Commands/CountVote.php:133
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "Môžeš hlasovať len za {{maximum}} odpoveď."
+msgstr[1] "Môžeš hlasovať najviac za {{maximum}} odpovede."
+msgstr[2] "Môžeš hlasovať najviac za {{maximum}} odpovedí."
+
+#: Poll/Commands/CountVote.php:142
+msgid "Unknown choice. Please try again."
+msgstr "Neznáma odpoveď. Skús znovu."
+
+#: Poll/Commands/CountVote.php:152
+msgid "Something went wrong. Please try again."
+msgstr "Hups, niečo nefunguje ako má. Chvíľu počkaj a skús znovu."
+
+#: Poll/Form.php:212
+msgid "Continue to vote"
+msgstr "Pokračuj v hlasovaní"
+
+#: Poll/Form.php:223
+msgid "Continue to results"
+msgstr "Pozri si výsledky"
+
+#: Poll/Form.php:259
+msgid "Back to vote"
+msgstr "Naspäť na hlasovanie"
+
+#: Poll/Form.php:347
+msgid "Other"
+msgstr "Ďalšie"
+
+#: Poll/PostType.php:71
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "Hlasovanie je aktualizované. <a href=\"%s\">Pozri hlasovanie</a>"
+
+#: Poll/PostType.php:72
+msgid "Custom field updated."
+msgstr "Vlastné pole je aktualizované."
+
+#: Poll/PostType.php:73
+msgid "Custom field deleted."
+msgstr "Vlastné pole je vymazané."
+
+#: Poll/PostType.php:74
+msgid "Poll updated."
+msgstr "Hlasovanie je aktualizované."
+
+#: Poll/PostType.php:75
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "Hlasovanie je obnovené na revíziu %s"
+
+#: Poll/PostType.php:76
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "Hlasovanie je uverejnené. <a href=\"%s\">Pozri hlasovanie</a>"
+
+#: Poll/PostType.php:77
+msgid "Poll saved."
+msgstr "Hlasovanie je uložené."
+
+#: Poll/PostType.php:78
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Hlasovanie je sprístupnené. <a target=\"_blank\" href=\"%s\">Pozri "
+"hlasovanie</a>"
+
+#: Poll/PostType.php:80
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"Hlasovanie je naplánované na: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Pozri hlasovanie</a>"
+
+#: Poll/PostType.php:81
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: Poll/PostType.php:82
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr ""
+"Návrh hlasovanie je aktualizovaný. <a target=\"_blank\" href=\"%s\">Pozri "
+"hlasovanie</a>"
+
+#: Poll/PostType.php:120 Poll/PostType.php:126
+msgid "Polls"
+msgstr "Hlasovania"
+
+#: Poll/PostType.php:123 Poll/PostType.php:125
+msgid "New Poll"
+msgstr "Nové hlasovanie"
+
+#: Poll/PostType.php:124
+msgid "Edit Poll"
+msgstr "Uprav hlasovanie"
+
+#: Poll/PostType.php:127
+msgid "View Poll"
+msgstr "Pozri hlasovanie"
+
+#: Poll/PostType.php:128
+msgid "Search Polls"
+msgstr "Vyhľadaj hlasovanie"
+
+#: Poll/PostType.php:129
+msgid "No polls found"
+msgstr "Žiadne hlasovanie sa nenašlo"
+
+#: Poll/PostType.php:130
+msgid "No polls found in Trash"
+msgstr "Žiadne hlasovanie sa nenašlo v koši"
+
+#: Poll/PostType.php:131
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: Poll/PostType.php:155
+msgid "polls"
+msgstr "hlasovania"
+
+#: Poll/Renderer.php:254
+msgid "of"
+msgstr "z"
+
+#: Restrictions/IPAddress.php:43 Restrictions/LoggedInUser.php:47
+#: Restrictions/Restriction.php:76
+msgid "You cannot vote again."
+msgstr "Už viac nemôžeš hlasovať."
+
+#: Shortcodes/Poll.php:20
+msgid "Could not load the poll."
+msgstr "Hlasovanie sa nepodarilo načítať."
+
+#: Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "TotalPoll posledné hlasovanie widget"
+
+#: Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll] Posledné hlasovanie"
+
+#: Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "TotalPoll hlasovací widget"
+
+#: Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll] Hlasovanie"
+
+#: Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "Hlasovanie:"
+
+#: Widgets/Poll.php:81
+msgid "Screen:"
+msgstr "Obrazovka:"
+
+#~ msgid "Buy"
+#~ msgstr "Kúp"

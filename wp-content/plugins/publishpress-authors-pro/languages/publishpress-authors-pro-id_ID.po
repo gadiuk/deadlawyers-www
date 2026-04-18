@@ -1,0 +1,281 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Project-Id-Version: PublishPress Authors Pro\n"
+"POT-Creation-Date: 2025-02-20 15:13+0000\n"
+"PO-Revision-Date: 2026-03-04 08:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: publishpress-authors-pro.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,"
+"2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__"
+"ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Language: id-ID\n"
+
+#: modules/prosettings/prosettings.php:166
+msgid "Activated"
+msgstr "Diaktifkan"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:58
+msgid "Add a shortcode for displaying list of authors"
+msgstr "Tambahkan kode pendek untuk menampilkan daftar penulis"
+
+#: modules/automap-author/automap-author.php:53
+msgid "Add bulk action to automatically map authors to users"
+msgstr ""
+"Tambahkan tindakan massal untuk secara otomatis memetakan penulis ke "
+"pengguna"
+
+#: modules/buddypress-integration/buddypress-integration.php:54
+msgid "Add support for BuddyPress profile links."
+msgstr "Tambahkan dukungan untuk tautan profil BuddyPress."
+
+#: modules/author-list-pro/author-list-pro.php:145
+msgid "Ascending"
+msgstr "Menaik"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:62
+msgid "Author Boxes Pro"
+msgstr "Kotak Penulis Pro"
+
+#: modules/author-list-pro/author-list-pro.php:62
+msgid "Author List Pro"
+msgstr "Daftar Penulis Pro"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:277
+#: modules/author-boxes-pro/author-boxes-pro.php:357
+#: modules/author-boxes-pro/author-boxes-pro.php:437
+#: modules/author-boxes-pro/author-boxes-pro.php:515
+#: modules/author-boxes-pro/author-boxes-pro.php:593
+#: modules/author-boxes-pro/author-boxes-pro.php:746
+msgid "Authors"
+msgstr "Penulis"
+
+#: modules/author-list-pro/author-list-pro.php:109
+msgid "Authors Per Page"
+msgstr "Penulis Per Halaman"
+
+#: modules/automap-author/automap-author.php:52
+msgid "Auto map authors to users"
+msgstr "Pemetaan otomatis penulis ke pengguna"
+
+#: modules/automap-author/automap-author.php:95
+msgid "Auto map guest authors to users by the slug"
+msgstr "Pemetaan otomatis penulis tamu ke pengguna berdasarkan slug"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:196
+msgid "Boxed (Categories)"
+msgstr "Berkotak (Kategori)"
+
+#: modules/buddypress-integration/buddypress-integration.php:53
+msgid "BuddyPress Integration"
+msgstr "Integrasi BuddyPress"
+
+#: modules/buddypress-integration/buddypress-integration.php:121
+msgid "BuddyPress Profile Link"
+msgstr "Tautan Profil BuddyPress"
+
+#: modules/author-list-pro/author-list-pro.php:146
+msgid "Descending"
+msgstr "Menurun"
+
+#: modules/prosettings/prosettings.php:146
+msgid "Display PublishPress branding in the admin:"
+msgstr "Tampilkan branding PublishPress di admin:"
+
+#: modules/author-list-pro/author-list-pro.php:120
+msgid ""
+"Enable this option to show all authors, including those without any posts. "
+"Disable this option to show only authors who are assigned to posts."
+msgstr ""
+"Aktifkan opsi ini untuk menampilkan semua penulis, termasuk yang tidak "
+"memiliki pos. Nonaktifkan opsi ini untuk hanya menampilkan penulis yang "
+"ditugaskan ke pos."
+
+#: modules/prosettings/prosettings.php:181
+msgid "Enter the license key for being able to update the plugin."
+msgstr "Masukkan kunci lisensi untuk dapat memperbarui plugin."
+
+#: core/Installer.php:323, fuzzy
+msgid "Facebook"
+msgstr "Facebook"
+
+#: modules/author-list-pro/author-list-pro.php:133, fuzzy
+msgid "First Name"
+msgstr "Nama Depan"
+
+#. Author URI of the plugin
+msgid "https://publishpress.com"
+msgstr "https://publishpress.com"
+
+#. URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: modules/prosettings/prosettings.php:168
+msgid "Inactive"
+msgstr "Tidak Aktif"
+
+#: core/Installer.php:341, fuzzy
+msgid "Instagram"
+msgstr "Instagram"
+
+#: modules/author-list-pro/author-list-pro.php:153
+msgid "Last Article Date"
+msgstr "Tanggal Artikel Terakhir"
+
+#: modules/author-list-pro/author-list-pro.php:134
+msgid "Last Name"
+msgstr "Nama Belakang"
+
+#: modules/prosettings/prosettings.php:138
+msgid "License key:"
+msgstr "Kunci lisensi:"
+
+#: core/Installer.php:350, fuzzy
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:199
+msgid "List Authors Block (Categories)"
+msgstr "Daftar Penulis Blok (Kategori)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:198
+msgid "List Authors Inline (Categories)"
+msgstr "Daftar Penulis Inline (Kategori)"
+
+#: modules/author-list-pro/author-list-pro.php:131
+msgid "Name"
+msgstr "Nama"
+
+#: modules/author-list-pro/author-list-pro.php:141
+msgid "Order"
+msgstr "Urutan"
+
+#: modules/author-list-pro/author-list-pro.php:127
+msgid "Order By"
+msgstr "Urutkan Berdasarkan"
+
+#: core/Installer.php:328
+msgid "Please enter the full URL to your Facebook profile."
+msgstr "Silakan masukkan URL lengkap ke profil Facebook Anda."
+
+#: core/Installer.php:346
+msgid "Please enter the full URL to your Instagram page."
+msgstr "Silakan masukkan URL lengkap ke halaman Instagram Anda."
+
+#: core/Installer.php:355
+msgid "Please enter the full URL to your LinkedIn profile."
+msgstr "Silakan masukkan URL lengkap ke profil LinkedIn Anda."
+
+#: core/Installer.php:373
+msgid "Please enter the full URL to your TikTok profile."
+msgstr "Silakan masukkan URL lengkap ke profil TikTok Anda."
+
+#: core/Installer.php:337
+msgid "Please enter the full URL to your X profile."
+msgstr "Silakan masukkan URL lengkap ke profil X Anda."
+
+#: core/Installer.php:364
+msgid "Please enter the full URL to your YouTube channel."
+msgstr "Silakan masukkan URL lengkap ke saluran YouTube Anda."
+
+#: modules/author-list-pro/author-list-pro.php:132
+msgid "Post Counts"
+msgstr "Jumlah Postingan"
+
+#: modules/prosettings/prosettings.php:88, fuzzy
+msgid "Pro Settings"
+msgstr "Pengaturan Pro"
+
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#. Description of the plugin
+msgid ""
+"PublishPress Authors allows you to add multiple authors and guest authors "
+"to WordPress posts."
+msgstr ""
+"PublishPress Authors memungkinkan Anda menambahkan beberapa penulis dan "
+"penulis tamu ke pos WordPress."
+
+#. Name of the plugin
+msgid "PublishPress Authors Pro"
+msgstr "PublishPress Authors Pro"
+
+#: modules/author-list-pro/author-list-pro.php:171
+msgid "Search Field Dropdown"
+msgstr "Dropdown Kolom Pencarian"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:57
+msgid "Shortcode Authors List"
+msgstr "Daftar Penulis Kode Pendek"
+
+#: modules/author-list-pro/author-list-pro.php:119
+msgid "Show Empty"
+msgstr "Tampilkan Kosong"
+
+#: modules/author-list-pro/author-list-pro.php:163
+msgid "Show Search Box"
+msgstr "Tampilkan Kotak Pencarian"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:200
+msgid "Simple Name Authors Block (Categories)"
+msgstr "Blok Penulis Nama Sederhana (Kategori)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:201
+msgid "Simple Name Authors Inline (Categories)"
+msgstr "Penulis Nama Sederhana Inline (Kategori)"
+
+#: modules/prosettings/prosettings.php:177, fuzzy
+msgid "Status: "
+msgstr "Status: "
+
+#: core/Installer.php:368, fuzzy
+msgid "TikTok"
+msgstr "TikTok"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:197
+msgid "Two Columns (Categories)"
+msgstr "Dua Kolom (Kategori)"
+
+#: core/Installer.php:332, fuzzy
+msgid "X"
+msgstr "X"
+
+#: modules/author-list-pro/author-list-pro.php:172
+msgid ""
+"You can also show a dropdown menu that allows users to search on specific "
+"author fields."
+msgstr ""
+"Anda juga dapat menampilkan menu dropdown yang memungkinkan pengguna "
+"mencari di bidang penulis tertentu."
+
+#: modules/author-list-pro/author-list-pro.php:154
+msgid ""
+"You can limit the author list to users with a published post within a "
+"specific time. This option accepts date values such as 1 week ago, 1 month "
+"ago, 6 months ago, 1 year ago etc."
+msgstr ""
+"Anda dapat membatasi daftar penulis kepada pengguna yang memiliki pos yang "
+"diterbitkan dalam waktu tertentu. Opsi ini menerima nilai tanggal seperti 1 "
+"minggu yang lalu, 1 bulan yang lalu, 6 bulan yang lalu, 1 tahun yang lalu, "
+"dll."
+
+#: modules/author-list-pro/author-list-pro.php:110
+msgid "You can set the number of authors to show per page."
+msgstr "Anda dapat mengatur jumlah penulis yang ditampilkan per halaman."
+
+#: core/Installer.php:359, fuzzy
+msgid "YouTube"
+msgstr "YouTube"

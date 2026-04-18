@@ -1,0 +1,270 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Project-Id-Version: PublishPress Authors Pro\n"
+"POT-Creation-Date: 2025-02-20 15:13+0000\n"
+"PO-Revision-Date: 2026-03-04 08:48+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: publishpress-authors-pro.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,"
+"2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__"
+"ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Language: ko-KR\n"
+
+#: modules/prosettings/prosettings.php:166
+msgid "Activated"
+msgstr "활성화됨"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:58
+msgid "Add a shortcode for displaying list of authors"
+msgstr "작가 목록을 표시하기 위한 단축코드를 추가하세요"
+
+#: modules/automap-author/automap-author.php:53
+msgid "Add bulk action to automatically map authors to users"
+msgstr "작가를 사용자에게 자동으로 매핑하는 일괄 작업 추가"
+
+#: modules/buddypress-integration/buddypress-integration.php:54
+msgid "Add support for BuddyPress profile links."
+msgstr "BuddyPress 프로필 링크 지원 추가."
+
+#: modules/author-list-pro/author-list-pro.php:145
+msgid "Ascending"
+msgstr "오름차순"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:62
+msgid "Author Boxes Pro"
+msgstr "작가 상자 프로"
+
+#: modules/author-list-pro/author-list-pro.php:62
+msgid "Author List Pro"
+msgstr "작가 목록 프로"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:277
+#: modules/author-boxes-pro/author-boxes-pro.php:357
+#: modules/author-boxes-pro/author-boxes-pro.php:437
+#: modules/author-boxes-pro/author-boxes-pro.php:515
+#: modules/author-boxes-pro/author-boxes-pro.php:593
+#: modules/author-boxes-pro/author-boxes-pro.php:746
+msgid "Authors"
+msgstr "작가"
+
+#: modules/author-list-pro/author-list-pro.php:109
+msgid "Authors Per Page"
+msgstr "페이지당 작가 수"
+
+#: modules/automap-author/automap-author.php:52
+msgid "Auto map authors to users"
+msgstr "작가를 사용자에게 자동으로 매핑"
+
+#: modules/automap-author/automap-author.php:95
+msgid "Auto map guest authors to users by the slug"
+msgstr "슬러그를 통해 게스트 작가를 사용자에게 자동 매핑"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:196
+msgid "Boxed (Categories)"
+msgstr "박스형 (카테고리)"
+
+#: modules/buddypress-integration/buddypress-integration.php:53
+msgid "BuddyPress Integration"
+msgstr "BuddyPress 통합"
+
+#: modules/buddypress-integration/buddypress-integration.php:121
+msgid "BuddyPress Profile Link"
+msgstr "BuddyPress 프로필 링크"
+
+#: modules/author-list-pro/author-list-pro.php:146
+msgid "Descending"
+msgstr "내림차순"
+
+#: modules/prosettings/prosettings.php:146
+msgid "Display PublishPress branding in the admin:"
+msgstr "관리자에서 PublishPress 브랜드 표시:"
+
+#: modules/author-list-pro/author-list-pro.php:120
+msgid ""
+"Enable this option to show all authors, including those without any posts. "
+"Disable this option to show only authors who are assigned to posts."
+msgstr "이 옵션을 활성화하면 게시물이 없는 작가를 포함하여 모든 작가를 표시합니다. 이 옵션을 비활성화하면 게시물에 할당된 작가만 표시됩니다."
+
+#: modules/prosettings/prosettings.php:181
+msgid "Enter the license key for being able to update the plugin."
+msgstr "플러그인을 업데이트할 수 있는 라이센스 키를 입력하세요."
+
+#: core/Installer.php:323
+msgid "Facebook"
+msgstr "페이스북"
+
+#: modules/author-list-pro/author-list-pro.php:133
+msgid "First Name"
+msgstr "이름"
+
+#. Author URI of the plugin
+msgid "https://publishpress.com"
+msgstr "플러그인의 저자 URI"
+
+#. URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "플러그인의 URI"
+
+#: modules/prosettings/prosettings.php:168
+msgid "Inactive"
+msgstr "비활성"
+
+#: core/Installer.php:341
+msgid "Instagram"
+msgstr "인스타그램"
+
+#: modules/author-list-pro/author-list-pro.php:153
+msgid "Last Article Date"
+msgstr "마지막 기사 날짜"
+
+#: modules/author-list-pro/author-list-pro.php:134
+msgid "Last Name"
+msgstr "성"
+
+#: modules/prosettings/prosettings.php:138
+msgid "License key:"
+msgstr "라이센스 키:"
+
+#: core/Installer.php:350
+msgid "LinkedIn"
+msgstr "링크드인"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:199
+msgid "List Authors Block (Categories)"
+msgstr "작가 목록 블록 (카테고리)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:198
+msgid "List Authors Inline (Categories)"
+msgstr "작가 목록 인라인 (카테고리)"
+
+#: modules/author-list-pro/author-list-pro.php:131
+msgid "Name"
+msgstr "이름"
+
+#: modules/author-list-pro/author-list-pro.php:141
+msgid "Order"
+msgstr "순서"
+
+#: modules/author-list-pro/author-list-pro.php:127
+msgid "Order By"
+msgstr "정렬 기준"
+
+#: core/Installer.php:328
+msgid "Please enter the full URL to your Facebook profile."
+msgstr "Facebook 프로필의 전체 URL을 입력하십시오."
+
+#: core/Installer.php:346
+msgid "Please enter the full URL to your Instagram page."
+msgstr "Instagram 페이지의 전체 URL을 입력하십시오."
+
+#: core/Installer.php:355
+msgid "Please enter the full URL to your LinkedIn profile."
+msgstr "LinkedIn 프로필의 전체 URL을 입력하십시오."
+
+#: core/Installer.php:373
+msgid "Please enter the full URL to your TikTok profile."
+msgstr "TikTok 프로필의 전체 URL을 입력하십시오."
+
+#: core/Installer.php:337
+msgid "Please enter the full URL to your X profile."
+msgstr "X 프로필의 전체 URL을 입력하십시오."
+
+#: core/Installer.php:364
+msgid "Please enter the full URL to your YouTube channel."
+msgstr "YouTube 채널의 전체 URL을 입력하십시오."
+
+#: modules/author-list-pro/author-list-pro.php:132
+msgid "Post Counts"
+msgstr "게시물 수"
+
+#: modules/prosettings/prosettings.php:88
+msgid "Pro Settings"
+msgstr "프로 설정"
+
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "퍼블리시프레스"
+
+#. Description of the plugin
+msgid ""
+"PublishPress Authors allows you to add multiple authors and guest authors "
+"to WordPress posts."
+msgstr "퍼블리시프레스 저자는 여러 저자와 게스트 저자를 워드프레스 게시물에 추가할 수 있게 해줍니다."
+
+#. Name of the plugin
+msgid "PublishPress Authors Pro"
+msgstr "퍼블리시프레스 저자 프로"
+
+#: modules/author-list-pro/author-list-pro.php:171
+msgid "Search Field Dropdown"
+msgstr "검색 필드 드롭다운"
+
+#: modules/shortcode-authors-list/shortcode-authors-list.php:57
+msgid "Shortcode Authors List"
+msgstr "단축코드 저자 목록"
+
+#: modules/author-list-pro/author-list-pro.php:119
+msgid "Show Empty"
+msgstr "비우기 표시"
+
+#: modules/author-list-pro/author-list-pro.php:163
+msgid "Show Search Box"
+msgstr "검색 상자 표시"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:200
+msgid "Simple Name Authors Block (Categories)"
+msgstr "간단한 이름 저자 블록 (카테고리)"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:201
+msgid "Simple Name Authors Inline (Categories)"
+msgstr "간단한 이름 저자 인라인 (카테고리)"
+
+#: modules/prosettings/prosettings.php:177
+msgid "Status: "
+msgstr "상태: "
+
+#: core/Installer.php:368
+msgid "TikTok"
+msgstr "틱톡"
+
+#: modules/author-boxes-pro/author-boxes-pro.php:197
+msgid "Two Columns (Categories)"
+msgstr "두 개의 열 (카테고리)"
+
+#: core/Installer.php:332, fuzzy
+msgid "X"
+msgstr "X"
+
+#: modules/author-list-pro/author-list-pro.php:172
+msgid ""
+"You can also show a dropdown menu that allows users to search on specific "
+"author fields."
+msgstr "사용자가 특정 저자 필드에서 검색할 수 있게 해주는 드롭다운 메뉴를 표시할 수도 있습니다."
+
+#: modules/author-list-pro/author-list-pro.php:154
+msgid ""
+"You can limit the author list to users with a published post within a "
+"specific time. This option accepts date values such as 1 week ago, 1 month "
+"ago, 6 months ago, 1 year ago etc."
+msgstr ""
+"특정 시간 내에 게시된 게시물이 있는 사용자로 저자 목록을 제한할 수 있습니다. 이 옵션은 1주 전, 1개월 전, 6개월 전, 1년 전 "
+"등의 날짜 값을 수용합니다."
+
+#: modules/author-list-pro/author-list-pro.php:110
+msgid "You can set the number of authors to show per page."
+msgstr "페이지당 표시할 저자 수를 설정할 수 있습니다."
+
+#: core/Installer.php:359
+msgid "YouTube"
+msgstr "유튜브"

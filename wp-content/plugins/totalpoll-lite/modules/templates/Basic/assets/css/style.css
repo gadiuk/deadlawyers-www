@@ -1,0 +1,944 @@
+@-webkit-keyframes votesBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@-moz-keyframes votesBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@-o-keyframes votesBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes votesBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] {
+  font-family: {{text.fontFamily||'unset'}};
+  font-weight: {{text.fontWeight||'unset'}};
+  font-size: {{text.fontSize||'unset'}};
+  line-height: {{text.lineHeight||'unset'}};
+  text-transform: {{text.transform||'unset'}};
+  text-align: {{text.align||'unset'}};
+  box-shadow: none;
+  text-shadow: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] * {
+  box-sizing: border-box;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] div, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] span, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] applet, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] object, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] iframe, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h1, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h2, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h3, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h4, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h5, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h6, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] p, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] pre, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] a, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] abbr, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] acronym, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] address, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] big, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] cite, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] code, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] del, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dfn, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] em, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] font, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] img, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ins, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] kbd, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] q, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] s, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] samp, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] small, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] strike, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] strong, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] sub, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] sup, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] tt, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] var, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] b, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] i, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] center, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dl, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dt, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dd, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ol, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] li, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] fieldset, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] form, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] label, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] legend, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] table, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] caption, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] tbody, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] tfoot, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] thead, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] tr, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] th, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] td, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] article, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] aside, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] audio, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] canvas, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] details, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] figcaption, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] figure, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] footer, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] header, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] hgroup, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] mark, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] menu, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] meter, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] nav, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] output, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] progress, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] section, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] summary, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] time, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] video {
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  text-shadow: unset;
+  box-shadow: unset;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] article, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] aside, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dialog, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] figure, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] footer, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] header, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] hgroup, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] nav, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] section, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote {
+  display: block;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ol {
+  list-style: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] q {
+  quotes: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote:before, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote:after, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] q:before, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] q:after {
+  content: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ins {
+  text-decoration: underline;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] del {
+  text-decoration: line-through;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] mark {
+  background: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] abbr[title], div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] input[type=submit], div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] input[type=button], div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] button {
+  margin: 0;
+  padding: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] input, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] select, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] img {
+  vertical-align: middle;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] video, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] audio {
+  vertical-align: bottom;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] img {
+  max-width: 100%;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] li {
+  list-style: none inside;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul:before, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] li:before, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul:after, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] li:after {
+  display: none;
+  content: "";
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h1 {
+  font-size: 138.5%;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h2 {
+  font-size: 123.1%;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h3 {
+  font-size: 108%;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h1, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h2, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h3 {
+  margin: 1em 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h1, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h2, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h3, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h4, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h5, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] h6, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] strong {
+  font-weight: bold;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] abbr, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] acronym {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] em {
+  font-style: italic;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] blockquote, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ol, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dl {
+  margin: 1em;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ol, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dl {
+  margin-left: 2em;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ol {
+  list-style: decimal outside;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] ul {
+  list-style: disc outside;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] dd {
+  margin-left: 1em;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] th, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] td {
+  border: 1px solid #000;
+  padding: 0.5em;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] th {
+  font-weight: bold;
+  text-align: center;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] caption {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] p, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] fieldset, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] table, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] pre {
+  margin-bottom: 1em;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] a {
+  color: {{colors.primary||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] [disabled] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-container {
+  margin: auto;
+  max-width: {{layout.maxWidth||'unset'}};
+  padding-top: {{custom.container.padding.top||'unset'}};
+  padding-right: {{custom.container.padding.right||'unset'}};
+  padding-bottom: {{custom.container.padding.bottom||'unset'}};
+  padding-left: {{custom.container.padding.left||'unset'}};
+  background: {{custom.container.colors.background||'unset'}};
+  border-color: {{custom.container.colors.border||'unset'}};
+  border-width: {{custom.container.border.width||layout.width||'unset'}};
+  border-style: {{custom.container.border.style||layout.style||'unset'}};
+  border-radius: {{custom.container.border.radius||layout.radius||'unset'}};
+  color: {{custom.container.colors.color||colors.dark||'unset'}};
+  box-shadow: {{custom.container.shadows.box||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 calc(-{{layout.gutter||'1em'}}/2);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-full {
+  padding: 0 calc({{layout.gutter||'1em'}}/2);
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-full {
+    width: 100%;
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-half {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-half {
+    width: 50%;
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-third {
+  padding: 0 calc({{layout.gutter||'1em'}}/2);
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-column-third {
+    width: 33.3333333333%;
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-custom-fields {
+  font-family: {{custom.form.text.fontFamily||'unset'}};
+  font-weight: {{custom.form.text.fontWeight||'unset'}};
+  font-size: {{custom.form.text.fontSize||'unset'}};
+  line-height: {{custom.form.text.lineHeight||'unset'}};
+  text-transform: {{custom.form.text.transform||'unset'}};
+  text-align: {{custom.form.text.align||'unset'}};
+  padding-top: {{custom.form.padding.top||'unset'}};
+  padding-right: {{custom.form.padding.right||'unset'}};
+  padding-bottom: {{custom.form.padding.bottom||'unset'}};
+  padding-left: {{custom.form.padding.left||'unset'}};
+  background: {{custom.form.colors.background||'unset'}};
+  color: {{custom.form.colors.color||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-custom-fields:empty {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 calc(-{{layout.gutter||'1em'}}/2);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-page:empty {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-hidden-fields {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field {
+  padding: 0 calc({{layout.gutter||'1em'}}/2);
+  margin-bottom: {{layout.gutter||'1em'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-label {
+  display: block;
+  font-family: {{custom.form.label.text.fontFamily||'unset'}};
+  font-weight: {{custom.form.label.text.fontWeight||'unset'}};
+  font-size: {{custom.form.label.text.fontSize||'unset'}};
+  line-height: {{custom.form.label.text.lineHeight||'unset'}};
+  text-transform: {{custom.form.label.text.transform||'unset'}};
+  text-align: {{custom.form.label.text.align||'unset'}};
+  padding-top: {{custom.form.label.padding.top||'unset'}};
+  padding-right: {{custom.form.label.padding.right||'unset'}};
+  padding-bottom: {{custom.form.label.padding.bottom||'unset'}};
+  padding-left: {{custom.form.label.padding.left||'unset'}};
+  color: {{custom.form.label.colors.color||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-input {
+  display: block;
+  width: 100%;
+  font-family: {{custom.form.input.text.fontFamily||'unset'}};
+  font-weight: {{custom.form.input.text.fontWeight||'unset'}};
+  font-size: {{custom.form.input.text.fontSize||'unset'}};
+  line-height: {{custom.form.input.text.lineHeight||'unset'}};
+  text-transform: {{custom.form.input.text.transform||'unset'}};
+  text-align: {{custom.form.input.text.align||'unset'}};
+  padding-top: {{custom.form.input.padding.top||'unset'}};
+  padding-right: {{custom.form.input.padding.right||'unset'}};
+  padding-bottom: {{custom.form.input.padding.bottom||'unset'}};
+  padding-left: {{custom.form.input.padding.left||'unset'}};
+  border-width: {{custom.form.input.border.width||'unset'}};
+  border-style: {{custom.form.input.border.style||'unset'}};
+  border-radius: {{custom.form.input.border.radius||'unset'}};
+  background: {{custom.form.input.colors.background||'inherit'||'unset'}};
+  color: {{custom.form.input.colors.color||colors.dark||'unset'}};
+  border-color: {{custom.form.input.colors.border||colors.gray||'unset'}};
+  box-shadow: {{custom.form.input.shadows.box||'unset'}};
+  border-radius: {{custom.form.input.radius||layout.radius||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-input:hover {
+  background: {{custom.form.input.colors.backgroundHover||'inherit'||'unset'}};
+  color: {{custom.form.input.colors.colorHover||colors.dark||'unset'}};
+  border-color: {{custom.form.input.colors.borderHover||colors.grayDark||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-input:focus {
+  outline: none;
+  background: {{custom.form.input.colors.backgroundActive||colors.primaryContrast||'unset'}};
+  color: {{custom.form.input.colors.colorActive||colors.dark||'unset'}};
+  border-color: {{custom.form.input.colors.borderActive||colors.primary||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-input[type=checkbox], div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-input[type=radio] {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  vertical-align: middle;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-form-field-input[type=checkbox], div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-form-field-input[type=radio] {
+  margin-right: calc({{layout.gutter||'1em'}}/2);
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-form-field-input[type=checkbox], div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-form-field-input[type=radio] {
+  margin-left: calc({{layout.gutter||'1em'}}/2);
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-errors {
+  font-family: {{custom.form.error.text.fontFamily||'unset'}};
+  font-weight: {{custom.form.error.text.fontWeight||'unset'}};
+  font-size: {{custom.form.error.text.fontSize||'unset'}};
+  line-height: {{custom.form.error.text.lineHeight||'unset'}};
+  text-transform: {{custom.form.error.text.transform||'unset'}};
+  text-align: {{custom.form.error.text.align||'unset'}};
+  padding-top: {{custom.form.error.padding.top||'unset'}};
+  padding-right: {{custom.form.error.padding.right||'unset'}};
+  padding-bottom: {{custom.form.error.padding.bottom||'unset'}};
+  padding-left: {{custom.form.error.padding.left||'unset'}};
+  background: {{custom.form.error.colors.background||'unset'}};
+  color: {{custom.form.error.colors.color||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-errors:empty {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-radio .totalpoll-form-field-label {
+  display: inline-block;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-form-field-radio .totalpoll-form-field-label {
+  margin-right: calc({{layout.gutter||'1em'}}/2);
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-form-field-radio .totalpoll-form-field-label {
+  margin-left: calc({{layout.gutter||'1em'}}/2);
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-checkbox .totalpoll-form-field-label {
+  display: inline-block;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-form-field-checkbox .totalpoll-form-field-label {
+  margin-right: calc({{layout.gutter||'1em'}}/2);
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-form-field-checkbox .totalpoll-form-field-label {
+  margin-left: calc({{layout.gutter||'1em'}}/2);
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-form-field-hidden {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 calc(-{{layout.gutter||'1em'}}/2);
+  padding: {{layout.gutter||'1em'}} 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-buttons > .totalpoll-button {
+  flex: 1;
+  margin: 0 calc({{layout.gutter||'1em'}}/2);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button {
+  font-family: {{custom.button.text.fontFamily||'unset'}};
+  font-weight: {{custom.button.text.fontWeight||'unset'}};
+  font-size: {{custom.button.text.fontSize||'unset'}};
+  line-height: {{custom.button.text.lineHeight||'unset'}};
+  text-transform: {{custom.button.text.transform||'unset'}};
+  text-align: {{custom.button.text.align||'unset'}};
+  padding-top: {{custom.button.padding.top||'unset'}};
+  padding-right: {{custom.button.padding.right||'unset'}};
+  padding-bottom: {{custom.button.padding.bottom||'unset'}};
+  padding-left: {{custom.button.padding.left||'unset'}};
+  background: {{custom.button.colors.background||colors.grayLight||'unset'}};
+  color: {{custom.button.colors.color||colors.dark||'unset'}};
+  border-color: {{custom.button.colors.border||colors.gray||'unset'}};
+  border-width: {{custom.button.border.width||layout.width||'unset'}};
+  border-style: {{custom.button.border.style||layout.style||'unset'}};
+  border-radius: {{custom.button.border.radius||layout.radius||'unset'}};
+  box-shadow: {{custom.button.shadows.box||'unset'}};
+  text-shadow: {{custom.button.shadows.text||'unset'}};
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+  transition-property: background-color, border-color, color;
+  cursor: pointer;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button:hover, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button:focus, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button:active {
+  background: {{custom.button.colors.backgroundHover||colors.gray||'unset'}};
+  color: {{custom.button.colors.colorHover||colors.dark||'unset'}};
+  border-color: {{custom.button.colors.borderHover||colors.gray||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button-primary {
+  background: {{custom.button.colors.backgroundPrimary||colors.primary||'unset'}};
+  color: {{custom.button.colors.colorPrimary||colors.primaryContrast||'unset'}};
+  border-color: {{custom.button.colors.borderPrimary||colors.primaryDark||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button-primary:hover, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button-primary:focus, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button-primary:active {
+  background: {{custom.button.colors.backgroundPrimaryHover||colors.primaryDark||'unset'}};
+  color: {{custom.button.colors.colorPrimaryHover||colors.primaryContrast||'unset'}};
+  border-color: {{custom.button.colors.borderPrimaryHover||colors.primaryDark||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-button [disabled] {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message {
+  font-family: {{custom.message.text.fontFamily||'unset'}};
+  font-weight: {{custom.message.text.fontWeight||'unset'}};
+  font-size: {{custom.message.text.fontSize||'unset'}};
+  line-height: {{custom.message.text.lineHeight||'unset'}};
+  text-transform: {{custom.message.text.transform||'unset'}};
+  text-align: {{custom.message.text.align||'unset'}};
+  padding-top: {{custom.message.padding.top||'unset'}};
+  padding-right: {{custom.message.padding.right||'unset'}};
+  padding-bottom: {{custom.message.padding.bottom||'unset'}};
+  padding-left: {{custom.message.padding.left||'unset'}};
+  background: {{custom.message.colors.background||'unset'}};
+  color: {{custom.message.colors.color||'unset'}};
+  border-color: {{custom.message.colors.border||'unset'}};
+  border-width: {{custom.button.border.width||layout.width||'unset'}};
+  border-style: {{custom.button.border.style||layout.style||'unset'}};
+  border-radius: {{custom.button.border.radius||layout.radius||'unset'}};
+  box-shadow: {{custom.button.shadows.box||'unset'}};
+  margin-bottom: {{layout.gutter||'1em'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-error {
+  background: {{custom.message.colors.backgroundError||'unset'}};
+  color: {{custom.message.colors.colorError||'unset'}};
+  border-color: {{custom.message.colors.borderError||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-error a {
+  color: {{custom.message.colors.colorError||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-success {
+  background-color: #e3f5e3;
+  color: #1a661a;
+  border-color: #c6eac6;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-success a {
+  color: #1a661a;
+  text-decoration: underline;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-warning {
+  background-color: #fff6df;
+  color: #c1780a;
+  border-color: #ffdf9e;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-warning a {
+  color: #c1780a;
+  text-decoration: underline;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-info {
+  background-color: #cbebf7;
+  color: #1a5266;
+  border-color: #52889c;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message-info a {
+  color: #1a5266;
+  text-decoration: underline;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message P:first-child {
+  margin-top: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-message p:last-child {
+  margin-bottom: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-embed-container iframe, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-embed-container object, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-embed-container embed {
+  vertical-align: middle;
+  height: 100%;
+  min-height: 270px;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item .totalpoll-embed-container {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4em;
+  padding: {{layout.gutter||'1em'}};
+  border: 1px solid "colors.grayLight";
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service {
+  flex: 1;
+  padding: {{layout.gutter||'1em'}};
+  opacity: 0.85;
+  line-height: 0;
+  text-align: center;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-share-service + .totalpoll-share-service {
+  margin-left: {{layout.gutter||'1em'}};
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-share-service + .totalpoll-share-service {
+  margin-right: {{layout.gutter||'1em'}};
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service:hover, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service:focus {
+  opacity: 1;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service-facebook {
+  background: #3b5998;
+  color: white;
+  fill: white;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service-twitter {
+  background: #1da1f2;
+  color: white;
+  fill: white;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-share-service-pinterest {
+  background: #bd081c;
+  color: white;
+  fill: white;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-buttons {
+  justify-content: flex-end;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-buttons > .totalpoll-button {
+  flex: 0 0 auto;
+}
+@-webkit-keyframes votesBar {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@-moz-keyframes votesBar {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@-o-keyframes votesBar {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes votesBar {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-questions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 calc(-{{layout.gutter||'1em'}}/2);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question {
+  padding: 0 calc({{layout.gutter||'1em'}}/2);
+  margin-bottom: {{layout.gutter||'1em'}};
+  width: 100%;
+}
+@media (min-width: 768px) {
+  div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question {
+    width: calc(100%/{{layout.questionsPerRow}});
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-container {
+  font-family: {{custom.question.text.fontFamily||'unset'}};
+  font-weight: {{custom.question.text.fontWeight||'unset'}};
+  font-size: {{custom.question.text.fontSize||'unset'}};
+  line-height: {{custom.question.text.lineHeight||'unset'}};
+  text-transform: {{custom.question.text.transform||'unset'}};
+  text-align: {{custom.question.text.align||'unset'}};
+  padding-top: {{custom.question.padding.top||'unset'}};
+  padding-right: {{custom.question.padding.right||'unset'}};
+  padding-bottom: {{custom.question.padding.bottom||'unset'}};
+  padding-left: {{custom.question.padding.left||'unset'}};
+  border-width: {{custom.question.border.width||layout.width||'unset'}};
+  border-style: {{custom.question.border.style||layout.style||'unset'}};
+  border-radius: {{custom.question.border.radius||layout.radius||'unset'}};
+  border-color: {{custom.question.colors.border||'unset'}};
+  background: {{custom.question.colors.background||'unset'}};
+  color: {{custom.question.colors.color||colors.dark||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-number {
+  line-height: 1;
+  margin-top: {{layout.gutter||'1em'}};
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-question-number {
+  text-align: right;
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-question-number {
+  text-align: left;
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-content {
+  margin-bottom: {{layout.gutter||'1em'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: calc(-{{layout.gutter||'1em'}}/2);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item {
+  position: relative;
+  padding: calc({{layout.gutter||'1em'}}/2);
+  width: 100%;
+  font-family: {{custom.choice.text.fontFamily||'unset'}};
+  font-weight: {{custom.choice.text.fontWeight||'unset'}};
+  font-size: {{custom.choice.text.fontSize||'unset'}};
+  line-height: {{custom.choice.text.lineHeight||'unset'}};
+  text-transform: {{custom.choice.text.transform||'unset'}};
+  text-align: {{custom.choice.text.align||'unset'}};
+}
+@media (min-width: 768px) {
+  div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item {
+    width: calc(100%/{{layout.choicesPerRow}});
+  }
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item:last-child {
+  margin-bottom: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item:hover .totalpoll-question-choices-item-control, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item:focus .totalpoll-question-choices-item-control {
+  background: {{custom.choice.colors.backgroundHover||colors.grayLight||'unset'}};
+  border-color: {{custom.choice.colors.borderHover||colors.gray||'unset'}};
+  color: {{custom.choice.colors.colorHover||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-container {
+  border-radius: {{custom.choice.border.radius||layout.radius||'unset'}};
+  background: {{custom.choice.colors.background||'unset'}};
+  color: {{custom.choice.colors.color||'unset'}};
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-votes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: {{layout.gutter||'1em'}};
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: {{custom.votesbar.text.fontFamily||'unset'}};
+  font-weight: {{custom.votesbar.text.fontWeight||'unset'}};
+  font-size: {{custom.votesbar.text.fontSize||'unset'}};
+  line-height: {{custom.votesbar.text.lineHeight||'unset'}};
+  text-transform: {{custom.votesbar.text.transform||'unset'}};
+  text-align: {{custom.votesbar.text.align||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-votes-bar {
+  height: {{custom.votesbar.size.height||'6px'||'unset'}};
+  border-radius: {{custom.votesbar.border.radius||layout.radius||'unset'}};
+  background: {{custom.votesbar.colors.backgroundStart||colors.primary||'unset'}};
+  background: -moz-linear-gradient(left, {{custom.votesbar.colors.backgroundStart||colors.primary||'unset'}} 0%, {{custom.votesbar.colors.backgroundEnd||colors.primary||'unset'}} 100%);
+  background: -webkit-linear-gradient(left, {{custom.votesbar.colors.backgroundStart||colors.primary||'unset'}} 0%, {{custom.votesbar.colors.backgroundEnd||colors.primary||'unset'}} 100%);
+  background: linear-gradient(to right, {{custom.votesbar.colors.backgroundStart||colors.primary||'unset'}} 0%, {{custom.votesbar.colors.backgroundEnd||colors.primary||'unset'}} 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="{{custom.votesbar.colors.backgroundStart||colors.primary||'unset'}}", endColorstr="{{custom.votesbar.colors.backgroundEnd||colors.primary||'unset'}}", GradientType=1);
+  transform: scaleX(0);
+  transition-duration: 1s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  -webkit-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -moz-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -ms-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -o-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-question-choices-item-votes-bar {
+  transform-origin: left center;
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-question-choices-item-votes-bar {
+  transform-origin: right center;
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-votes-text {
+  opacity: 0.75;
+  font-size: 80%;
+  line-height: 1;
+  -webkit-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -moz-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -ms-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  -o-animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+  animation: votesBar {{custom.votesbar.effects.duration||effects.duration||'1000'||'unset'}}ms ease-in-out forwards;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-question-choices-item-votes-text {
+  margin-left: {{layout.gutter||'1em'}};
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-question-choices-item-votes-text {
+  margin-right: margin-right;
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-votes-text.is-zero {
+  margin: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content img, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content video, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content audio {
+  max-width: 100%;
+  border-radius: {{layout.radius||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content .totalpoll-embed-container {
+  display: block;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-content .totalpoll-modal-open + .totalpoll-embed-container {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-control {
+  display: flex;
+  flex-direction: row;
+  border-width: {{custom.choice.border.width||layout.width||'unset'}};
+  border-style: {{custom.choice.border.style||layout.style||'unset'}};
+  border-radius: {{custom.choice.border.radius||layout.radius||'unset'}};
+  border-color: {{custom.choice.colors.border||colors.grayLight||'unset'}};
+  background: {{custom.choice.colors.background||colors.grayLighter||'unset'}};
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-label {
+  position: relative;
+  flex: 1;
+  padding-top: {{custom.choice.padding.top||'unset'}};
+  padding-right: {{custom.choice.padding.right||'unset'}};
+  padding-bottom: {{custom.choice.padding.bottom||'unset'}};
+  padding-left: {{custom.choice.padding.left||'unset'}};
+  cursor: pointer;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-label-back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-question-choices-item-label-back {
+  left: 0;
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-question-choices-item-label-back {
+  right: right;
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-label-front {
+  position: relative;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-ltr .totalpoll-question-choices-item-selector {
+  padding-left: {{custom.choice.padding.left||layout.gutter||'1em'||'unset'}};
+}
+
+div[totalpoll-uid="{{uid||'none'}}"]#totalpoll.totalpoll-wrapper.is-rtl .totalpoll-question-choices-item-selector {
+  padding-right: padding-right;
+}
+
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector > * {
+  margin: 0;
+  padding: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector-box {
+  display: flex;
+  flex-direction: column;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid;
+  color: {{custom.choice.colors.borderChecked||colors.primaryContrast||'unset'}};
+  border-color: {{custom.choice.colors.border||colors.gray||'unset'}};
+  background: rgba(255, 255, 255, 0.75);
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector-box svg {
+  max-width: 100%;
+  max-height: 100%;
+  transform-origin: center;
+  transform: scale(0);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector input:checked + .totalpoll-question-choices-item-selector-box {
+  border-color: {{custom.choice.colors.borderChecked||colors.primaryContrast||'unset'}};
+  fill: {{custom.choice.colors.borderChecked||colors.primaryContrast||'unset'}};
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-selector input:checked + .totalpoll-question-choices-item-selector-box svg {
+  transform: scale(1);
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-html .totalpoll-question-choices-item-content {
+  display: block;
+  padding: {{layout.gutter||'1em'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-other {
+  width: 100%;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-other .totalpoll-question-choices-item-selector {
+  display: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-other .totalpoll-question-choices-item-control {
+  background: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-other .totalpoll-question-choices-item-label {
+  padding: 0;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-type-other .totalpoll-question-choices-item-label input {
+  width: 100%;
+  border: none;
+  padding: {{layout.gutter||'1em'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-checked .totalpoll-question-choices-item-control, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-checked:hover .totalpoll-question-choices-item-control, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-checked:focus .totalpoll-question-choices-item-control {
+  background: {{custom.choice.colors.backgroundChecked||colors.primary||'unset'}};
+  color: {{custom.choice.colors.colorChecked||colors.primaryContrast||'unset'}};
+  border-color: {{custom.choice.colors.borderChecked||colors.primary||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled .totalpoll-question-choices-item-selector, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled:hover .totalpoll-question-choices-item-selector, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled:focus .totalpoll-question-choices-item-selector, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled .totalpoll-question-choices-item-label, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled:hover .totalpoll-question-choices-item-label, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-disabled:focus .totalpoll-question-choices-item-label {
+  cursor: not-allowed !important;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results .totalpoll-question-choices-item-label, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results:hover .totalpoll-question-choices-item-label, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results:focus .totalpoll-question-choices-item-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0;
+  cursor: auto;
+  border-width: {{custom.choice.border.width||layout.width||'unset'}};
+  border-style: {{custom.choice.border.style||layout.style||'unset'}};
+  border-radius: {{custom.choice.border.radius||layout.radius||'unset'}};
+  border-color: {{custom.choice.colors.border||colors.grayLight||'unset'}};
+  background: {{colors.grayLighter||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results .totalpoll-question-choices-item-container, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results:hover .totalpoll-question-choices-item-container, div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-question-choices-item-results:focus .totalpoll-question-choices-item-container {
+  border-color: {{custom.choice.colors.border||colors.grayLight||'unset'}};
+  background: {{custom.choice.colors.background||'unset'}};
+  color: {{custom.choice.colors.color||'unset'}};
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-modal-open:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: none, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'%3e%3cdefs%3e%3cpath id='a' d='M0 0h24v24H0z'/%3e%3c/defs%3e%3cclipPath id='b'%3e%3cuse xlink:href='%23a' overflow='visible'/%3e%3c/clipPath%3e%3cpath clip-path='url(%23b)' fill='%23ffffff' d='M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3zM3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3zm6 12l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6zm12-6l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z'/%3e%3cpath clip-path='url(%23b)' fill='none' d='M0 0h24v24H0z'/%3e%3c/svg%3e");
+  background-color: rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center;
+  background-size: 0;
+  opacity: 0;
+  transition-duration: 200ms;
+  transition-property: all;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-modal-open:hover:after {
+  opacity: 1;
+  background-size: 36px;
+}
+div#totalpoll.totalpoll-wrapper[totalpoll-uid="{{uid||'none'}}"] .totalpoll-embed-type-audio {
+  margin: {{layout.gutter||'1em'}};
+}

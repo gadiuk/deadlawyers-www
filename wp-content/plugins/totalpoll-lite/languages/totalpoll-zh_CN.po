@@ -1,0 +1,2726 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TotalPoll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-25 19:07+0000\n"
+"PO-Revision-Date: 2019-07-09 00:38+0100\n"
+"Last-Translator: TotalSuite <support@totalsuite.net>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: plugin.php:26
+msgid ""
+"TotalPoll requires PHP 5.4+ and WordPress 4.0+ to function properly. Please "
+"contact your host to upgrade PHP and WordPress. TotalPoll has been auto-"
+"deactivated."
+msgstr ""
+"TotalPoll 需要PHP5.4+和 WordPress4.0+ 才能正常运行. 请联系您的主机升级PHP和"
+"WordPress. TotalPoll 已经被自动停用."
+
+#: src/Admin/Bootstrap.php:47 src/Admin/Bootstrap.php:48
+#: src/Admin/Dashboard/views/index.php:2
+msgid "Dashboard"
+msgstr "仪表盘"
+
+#: src/Admin/Bootstrap.php:51 src/Admin/Bootstrap.php:52
+#: src/Admin/Privacy/Policy.php:151 src/Admin/Poll/Editor.php:365
+#: src/Admin/Poll/Listing.php:80 src/Admin/Poll/Listing.php:129
+#: src/Admin/Dashboard/views/overview.php:28
+#: src/Admin/Entries/views/index.php:2
+msgid "Entries"
+msgstr "条目"
+
+#: src/Admin/Bootstrap.php:55 src/Admin/Bootstrap.php:56
+#: src/Admin/Poll/Editor.php:364 src/Admin/Poll/Listing.php:130
+#: src/Admin/Insights/views/index.php:2
+msgid "Insights"
+msgstr "深度分析"
+
+#: src/Admin/Bootstrap.php:59 src/Admin/Poll/Editor.php:366
+#: src/Admin/Poll/Listing.php:81 src/Admin/Poll/Listing.php:131
+#: src/Admin/Log/views/index.php:2
+msgid "Log"
+msgstr "日志"
+
+#: src/Admin/Bootstrap.php:60
+msgid "Logs"
+msgstr "日志"
+
+#: src/Admin/Bootstrap.php:63 src/Admin/Bootstrap.php:64
+#: src/Admin/Modules/views/index.php:2
+msgid "Modules"
+msgstr "模块"
+
+#: src/Admin/Bootstrap.php:67 src/Admin/Bootstrap.php:68
+#: src/Admin/Options/views/index.php:2 src/Admin/Poll/views/form/field.php:100
+msgid "Options"
+msgstr "选项"
+
+#: src/Admin/Bootstrap.php:349
+msgid ""
+"TotalPoll is part of <a href=\"https://totalsuite.net/\" target=\"_blank"
+"\">TotalSuite</a>, a suite of plugins that takes <a href=\"https://wordpress."
+"org/\" target=\"_blank\">WordPress</a> to the next level."
+msgstr ""
+"TotalPoll 是<a href=\"https://totalsuite.net/\" target=\"_blank"
+"\">TotalSuite</a>的一部分, 是一套可以将<a href=\"https://wordpress.org/\" "
+"target=\"_blank\">WordPress</a> 提升到一个新水平的插件。"
+
+#: src/Widgets/Poll.php:18
+msgid "TotalPoll poll widget"
+msgstr "TotalPoll 投票微件"
+
+#: src/Widgets/Poll.php:20
+msgid "[TotalPoll] Poll"
+msgstr "[TotalPoll]投票"
+
+#: src/Widgets/Poll.php:70
+msgid "Poll:"
+msgstr "投票:"
+
+#: src/Widgets/Poll.php:81
+msgid "Screen:"
+msgstr "筛选:"
+
+#: src/Widgets/Poll.php:83 src/Poll/Form.php:238 src/Admin/Options/Page.php:87
+#: src/Admin/Poll/Editor.php:288 src/Admin/Poll/Editor.php:316
+#: modules/templates/MediaContest/views/preview/shared/footer.php:13
+#: modules/templates/Basic/views/preview/shared/footer.php:13
+#: modules/templates/Versus/views/preview/shared/footer.php:13
+msgid "Vote"
+msgstr "表决"
+
+#: src/Widgets/Poll.php:84 src/Poll/Form.php:226 src/Admin/Options/Page.php:82
+#: src/Admin/Poll/Editor.php:303 src/Admin/Poll/Editor.php:318
+#: modules/templates/MediaContest/views/preview/shared/footer.php:10
+#: modules/templates/Basic/views/preview/shared/footer.php:10
+#: modules/templates/Versus/views/preview/shared/footer.php:10
+msgid "Results"
+msgstr "结果"
+
+#: src/Widgets/LatestPoll.php:18
+msgid "TotalPoll latest poll widget"
+msgstr "TotalPoll最新投票微件"
+
+#: src/Widgets/LatestPoll.php:20
+msgid "[TotalPoll] Latest Poll"
+msgstr "[TotalPoll]最新投票"
+
+#: src/Entry/Repository.php:127 src/Log/Repository.php:144
+msgid "Unable to insert the entry."
+msgstr "无法插入条目。"
+
+#: src/Entry/Repository.php:148 src/Entry/Repository.php:195
+#: src/Log/Repository.php:166 src/Log/Repository.php:264
+msgid "No conditions were specified"
+msgstr "未指定任何条件"
+
+#: src/Limitations/Region.php:29
+msgid "This poll is not available in your region."
+msgstr "您所在的区域未提供投票。"
+
+#: src/Limitations/Membership.php:27
+#, php-format
+msgid "To continue, you must be a part of these roles: %s."
+msgstr "您必须是这些角色中的一部分才可继续:%s."
+
+#: src/Limitations/Membership.php:37
+#, php-format
+msgid ""
+"To continue, please <a href=\"%s\">sign in</a> or <a href=\"%s\">register</"
+"a>."
+msgstr "若要继续,请<a href=\"%s\">登录</a> 或<a href=\"%s\">注册</a>."
+
+#: src/Limitations/Quota.php:22
+msgid "This poll has ended (votes quota has been exceeded)."
+msgstr "投票已经结束(投票限额已超出)"
+
+#: src/Limitations/Period.php:30
+#, php-format
+msgid "This poll has not started yet (%s left)."
+msgstr "投票还未开始(还剩 %s)"
+
+#: src/Limitations/Period.php:42
+#, php-format
+msgid "This poll has ended (since %s)."
+msgstr "投票已经结束(自从%s)"
+
+#: src/Limitations/Period.php:53
+msgid "%y year"
+msgid_plural "%y years"
+msgstr[0] "%y 年"
+
+#: src/Limitations/Period.php:55
+msgid "%m month"
+msgid_plural "%m months"
+msgstr[0] "%m 月"
+
+#: src/Limitations/Period.php:57
+#, php-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d日"
+
+#: src/Limitations/Period.php:59
+msgid "%h hour"
+msgid_plural "%h hours"
+msgstr[0] "%h 小时"
+
+#: src/Limitations/Period.php:61
+msgid "%i minute"
+msgid_plural "%i minutes"
+msgstr[0] "%i 分"
+
+#: src/Limitations/Period.php:63
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s 秒"
+
+#: src/Restrictions/LoggedInUser.php:53 src/Restrictions/Cookies.php:28
+#: src/Restrictions/IPAddress.php:49
+msgid "You cannot vote again."
+msgstr "您不可以再次投票."
+
+#: src/Shortcodes/Poll.php:20
+msgid "Could not load the poll."
+msgstr "投票无法加载."
+
+#: src/Poll/Form.php:89 src/Admin/Options/Page.php:203
+msgid "{{label}} has been used before."
+msgstr "{{label}} 之前已被使用过."
+
+#: src/Poll/Form.php:203
+msgid "Continue to vote"
+msgstr "继续投票"
+
+#: src/Poll/Form.php:214
+msgid "Continue to results"
+msgstr "继续到结果"
+
+#: src/Poll/Form.php:250
+msgid "Back to vote"
+msgstr "退回到投票"
+
+#: src/Poll/PostType.php:30
+#, php-format
+msgid "Poll updated. <a href=\"%s\">View poll</a>"
+msgstr "投票已更新.<a href=\"%s\">查看投票</a>"
+
+#: src/Poll/PostType.php:31
+msgid "Custom field updated."
+msgstr "已更新自定义字段."
+
+#: src/Poll/PostType.php:32
+msgid "Custom field deleted."
+msgstr "已删除自定义字段."
+
+#: src/Poll/PostType.php:33
+msgid "Poll updated."
+msgstr "投票已更新."
+
+#: src/Poll/PostType.php:34
+#, php-format
+msgid "Poll restored to revision from %s"
+msgstr "投票已恢复到来自%s 的更改版"
+
+#: src/Poll/PostType.php:35
+#, php-format
+msgid "Poll published. <a href=\"%s\">View poll</a>"
+msgstr "投票已发布.<a href=\"%s\">查看投票</a>"
+
+#: src/Poll/PostType.php:36
+msgid "Poll saved."
+msgstr "投票已保存."
+
+#: src/Poll/PostType.php:37
+#, php-format
+msgid "Poll submitted. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr "投票已提交.<a target=\"_blank\" href=\"%s\">预览投票</a>"
+
+# I need context
+# scheduled for any purpose？？or time ？？
+#: src/Poll/PostType.php:39
+#, php-format
+msgid ""
+"Poll scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview poll</a>"
+msgstr ""
+"投票已被安排: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">预览"
+"投票</a>"
+
+#: src/Poll/PostType.php:41
+#, php-format
+msgid "Poll draft updated. <a target=\"_blank\" href=\"%s\">Preview poll</a>"
+msgstr "投票起草已更新.<a target=\"_blank\" href=\"%s\">预览投票</a>"
+
+#: src/Poll/PostType.php:63 src/Poll/PostType.php:69
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:13
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:41
+msgid "Polls"
+msgstr "投票"
+
+#: src/Poll/PostType.php:64
+msgid "Poll"
+msgstr "投票"
+
+#: src/Poll/PostType.php:65 src/Admin/Dashboard/views/overview.php:8
+msgid "Create Poll"
+msgstr "创建投票"
+
+#: src/Poll/PostType.php:66 src/Poll/PostType.php:68
+msgid "New Poll"
+msgstr "新投票"
+
+#: src/Poll/PostType.php:67
+msgid "Edit Poll"
+msgstr "编辑投票"
+
+#: src/Poll/PostType.php:70
+msgid "View Poll"
+msgstr "浏览投票"
+
+#: src/Poll/PostType.php:71
+msgid "Search Polls"
+msgstr "搜索投票"
+
+#: src/Poll/PostType.php:72
+msgid "No polls found"
+msgstr "无投票搜集结果"
+
+#: src/Poll/PostType.php:73
+msgid "No polls found in Trash"
+msgstr "垃圾箱无投票搜索结果"
+
+#. Name of the plugin
+#: src/Poll/PostType.php:74
+msgid "TotalPoll"
+msgstr "TotalPoll"
+
+#: src/Poll/PostType.php:82
+msgctxt "slug"
+msgid "poll"
+msgstr "poll"
+
+#: src/Poll/PostType.php:84
+msgctxt "slug"
+msgid "polls"
+msgstr "polls"
+
+#: src/Poll/Model.php:605 src/Poll/Model.php:653 src/Poll/Model.php:689
+#: src/Admin/Options/Page.php:60
+#, php-format
+msgid "%s Vote"
+msgid_plural "%s Votes"
+msgstr[0] "%s票"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:34
+#: src/Admin/Poll/views/design/index.php:268
+#: src/Admin/Poll/views/design/tabs/effects.php:10
+msgid "None"
+msgstr "无"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:50
+msgid "After checkout"
+msgstr "检出之后"
+
+#: modules/extensions/WooCommerce/WooCommerceSettings.php:53
+msgid "This poll will be shown to customer after checkout"
+msgstr "投票将在检出之后提供给客户"
+
+#: modules/extensions/Redirect/Extension.php:36
+msgid "Redirect"
+msgstr "跳转"
+
+#: modules/extensions/Redirect/Extension.php:47
+msgid "Redirect to this URL after vote:"
+msgstr "投票后跳转到此 URL:"
+
+# REST=representational state transfer=表述性状态转移
+# using the abbreviation is fine, every Chinese programmer knows it
+#: modules/extensions/RestAPI/Extension.php:33
+msgid "REST API"
+msgstr "REST API"
+
+#: modules/extensions/RestAPI/Extension.php:34 src/Admin/Options/Page.php:236
+msgid "Advanced"
+msgstr "高级的"
+
+#: src/Admin/Ajax/Dashboard.php:58
+msgid "License key is invalid. Please double check and try again."
+msgstr "授权码无效. 请仔细查看并再次尝试."
+
+#: src/Admin/Ajax/Modules.php:55
+msgid "Module installed."
+msgstr "模块已安装."
+
+#: src/Admin/Ajax/Modules.php:69
+msgid "Module downloaded and installed."
+msgstr "模块已下载并安装."
+
+#: src/Admin/Ajax/Modules.php:91
+msgid "Module updated."
+msgstr "模块已更新."
+
+#: src/Admin/Ajax/Modules.php:105
+msgid "Module uninstalled."
+msgstr "模块已卸载."
+
+#: src/Admin/Ajax/Modules.php:119
+msgid "Module activated."
+msgstr "模块已激活."
+
+#: src/Admin/Ajax/Modules.php:133
+msgid "Module deactivated."
+msgstr "模块已关闭."
+
+#: src/Admin/Ajax/Entries.php:63
+msgid "Invalid Poll ID"
+msgstr "无效投票ID"
+
+#: src/Admin/Ajax/Polls.php:42
+msgid "Invalid Poll ID."
+msgstr "无效投票ID."
+
+#: src/Admin/Ajax/Polls.php:63
+msgid "Widget added successfully."
+msgstr "微件已成功添加."
+
+#: src/Admin/Ajax/Polls.php:65
+msgid "Invalid Sidebar ID."
+msgstr "无效sidebar ID(侧栏工具ID)"
+
+#: src/Admin/Ajax/Options.php:42 src/Admin/Ajax/Options.php:54
+msgid "Saved."
+msgstr "已储存."
+
+#: src/Admin/Ajax/Options.php:62
+msgid "Purged."
+msgstr "已清除."
+
+#: src/Admin/Ajax/Options.php:73
+msgid "Plugin is not supported."
+msgstr "无法支持该插件."
+
+#: src/Admin/Ajax/Options.php:79
+msgid "Migrated."
+msgstr "已迁移."
+
+#: src/Admin/Privacy/Policy.php:97 src/Admin/Options/Page.php:55
+#: src/Admin/Poll/Listing.php:79 src/Admin/Dashboard/views/overview.php:24
+#: src/Admin/Poll/views/choices/choice.php:29
+#: src/Admin/Poll/views/choices/choice.php:33
+#: src/Admin/Poll/views/settings/results/sort.php:15
+#: src/Admin/Poll/views/settings/choices/sort.php:15
+msgid "Votes"
+msgstr "表决结果"
+
+#: src/Admin/Privacy/Policy.php:101 src/Admin/Log/Page.php:43
+#: src/Admin/Poll/views/settings/vote/frequency.php:19
+#: src/Admin/Poll/views/settings/vote/limitations.php:116
+msgid "IP"
+msgstr "IP"
+
+#: src/Admin/Privacy/Policy.php:105
+msgid "Useragent"
+msgstr "用户代理"
+
+#: src/Admin/Privacy/Policy.php:109 src/Admin/Log/Page.php:40
+msgid "Status"
+msgstr "状态"
+
+#: src/Admin/Privacy/Policy.php:113 src/Admin/Log/Page.php:42
+#: src/Admin/Entries/views/index.php:35
+msgid "Date"
+msgstr "日期"
+
+#: src/Admin/Log/Page.php:41
+msgid "Action"
+msgstr "执行"
+
+#: src/Admin/Log/Page.php:44
+msgid "Browser"
+msgstr "浏览器"
+
+#: src/Admin/Log/Page.php:45
+msgid "User name"
+msgstr "用户名"
+
+#: src/Admin/Log/Page.php:46
+msgid "User ID"
+msgstr "用户ID"
+
+#: src/Admin/Log/Page.php:47
+msgid "User login"
+msgstr "用户登录"
+
+#: src/Admin/Log/Page.php:48
+msgid "User email"
+msgstr "用户邮箱"
+
+#: src/Admin/Log/Page.php:49
+msgid "Details"
+msgstr "详情"
+
+#: src/Admin/Options/Page.php:61
+#, php-format
+msgid "%s Votes"
+msgstr "%s 票"
+
+#: src/Admin/Options/Page.php:67
+msgid "Buttons"
+msgstr "按钮"
+
+#: src/Admin/Options/Page.php:72
+msgid "Previous page"
+msgstr "前一页"
+
+#: src/Admin/Options/Page.php:77
+msgid "Next page"
+msgstr "下一页"
+
+#: src/Admin/Options/Page.php:92
+#: modules/templates/MediaContest/views/preview/shared/footer.php:16
+#: modules/templates/Basic/views/preview/shared/footer.php:16
+#: modules/templates/Versus/views/preview/shared/footer.php:16
+msgid "Back"
+msgstr "返回"
+
+#: src/Admin/Options/Page.php:97
+msgid "Proceed"
+msgstr "前进"
+
+#: src/Admin/Options/Page.php:103
+msgid "Errors"
+msgstr "报错"
+
+#: src/Admin/Options/Page.php:109
+msgid "You cannot vote again in this poll."
+msgstr "在这个投票中您无法再次投票."
+
+#: src/Admin/Options/Page.php:115
+msgid "You have to vote for at least one choice."
+msgstr "您必须投至少一个选项."
+
+#: src/Admin/Options/Page.php:116
+#, php-format
+msgid "You have to vote for at least %d choices."
+msgstr "您必须投至少%d 个选项."
+
+#: src/Admin/Options/Page.php:122
+msgid "You cannot vote for more than one choice."
+msgstr "您不能投超过一个选项."
+
+#: src/Admin/Options/Page.php:123
+#, php-format
+msgid "You cannot vote for more than %d choices."
+msgstr "您不能投超过%d 个选项."
+
+#: src/Admin/Options/Page.php:129
+msgid "You have entered an invalid captcha code."
+msgstr "您输入了无效的验证码."
+
+#: src/Admin/Options/Page.php:135
+msgid "You cannot vote because the quota has been exceeded."
+msgstr "您无法投票,因为限额已超出."
+
+#: src/Admin/Options/Page.php:141
+msgid "You cannot see results before voting."
+msgstr "投票前您无法看到结果."
+
+#: src/Admin/Options/Page.php:147
+msgid "You cannot vote because this poll has not started yet."
+msgstr "由于投票还未开始,您无法投票."
+
+#: src/Admin/Options/Page.php:153
+msgid "You cannot vote because this poll has expired."
+msgstr "由于投票已过期,您无法投票."
+
+#: src/Admin/Options/Page.php:159
+msgid "You cannot vote because this poll is not available in your region."
+msgstr "您无法投票, 因为您所在的区域未提供投票."
+
+#: src/Admin/Options/Page.php:165
+msgid "You cannot vote because you have insufficient rights."
+msgstr "由于您没有足够的权限,您无法投票."
+
+#: src/Admin/Options/Page.php:171
+#, php-format
+msgid ""
+"You cannot vote because you are a guest, please <a href=\"%s\">sign in</a> "
+"or <a href=\"%s\">register</a>."
+msgstr ""
+"由于您是客户状态,所以无法投票,请<a href=\"%s\">登录</a> 或<a href=\"%s\">注册"
+"</a>。"
+
+#: src/Admin/Options/Page.php:177
+msgid "Voting via links has been disabled for this poll."
+msgstr "通过连接投票在此投票中不可用."
+
+#: src/Admin/Options/Page.php:183 src/Admin/Poll/views/form/field.php:44
+msgid "Validations"
+msgstr "验证"
+
+#: src/Admin/Options/Page.php:188
+msgid "{{label}} must be a valid email address."
+msgstr "{{label}}必须是有效邮箱地址."
+
+#: src/Admin/Options/Page.php:193
+msgid "{{label}} must be filled."
+msgstr "{{label}}必填."
+
+#: src/Admin/Options/Page.php:198
+msgid "{{label}} is not within the supported range."
+msgstr "{{label}}不在支持范围内."
+
+#: src/Admin/Options/Page.php:208
+msgid "{{label}} is not accepted."
+msgstr "{{label}}不被接受."
+
+#: src/Admin/Options/Page.php:213
+msgid "{{label}} does not allow this value."
+msgstr "{{label}} 该值不被允许."
+
+#: src/Admin/Options/Page.php:232
+msgid "General"
+msgstr "常规"
+
+#: src/Admin/Options/Page.php:233
+msgid "Performance"
+msgstr "性能"
+
+#: src/Admin/Options/Page.php:234
+msgid "Services"
+msgstr "服务"
+
+#: src/Admin/Options/Page.php:235
+msgid "Sharing"
+msgstr "分享"
+
+#: src/Admin/Options/Page.php:237 src/Admin/Poll/Editor.php:323
+msgid "Notifications"
+msgstr "通知"
+
+#: src/Admin/Options/Page.php:238
+msgid "Expressions"
+msgstr "表达式"
+
+#: src/Admin/Options/Page.php:239
+msgid "Migration"
+msgstr "迁移"
+
+#: src/Admin/Options/Page.php:240
+msgid "Import & Export"
+msgstr "导入&导出"
+
+#: src/Admin/Options/Page.php:241
+msgid "Debug"
+msgstr "消除漏洞"
+
+#: src/Admin/Poll/Editor.php:275
+msgid "Questions"
+msgstr "问题"
+
+#: src/Admin/Poll/Editor.php:276 src/Admin/Poll/views/form/fields.php:17
+#: src/Admin/Poll/views/translations/index.php:42
+msgid "Fields"
+msgstr "域"
+
+#: src/Admin/Poll/Editor.php:277 src/Admin/Poll/views/questions/question.php:10
+msgid "Settings"
+msgstr "设置"
+
+#: src/Admin/Poll/Editor.php:278
+msgid "Design"
+msgstr "设计"
+
+#: src/Admin/Poll/Editor.php:279 src/Admin/Dashboard/views/get-started.php:57
+msgid "Integration"
+msgstr "集成"
+
+#: src/Admin/Poll/Editor.php:280
+msgid "Translations"
+msgstr "翻译"
+
+#: src/Admin/Poll/Editor.php:291
+msgid "Limitations"
+msgstr "限制条件"
+
+#: src/Admin/Poll/Editor.php:292
+msgid "Frequency"
+msgstr "频率"
+
+#: src/Admin/Poll/Editor.php:296 src/Admin/Poll/views/questions/question.php:42
+#: src/Admin/Poll/views/questions/questions.php:18
+msgid "Choices"
+msgstr "选项"
+
+#: src/Admin/Poll/Editor.php:299 src/Admin/Poll/Editor.php:306
+msgid "Sort"
+msgstr "分类"
+
+#: src/Admin/Poll/Editor.php:307
+msgid "Visibility"
+msgstr "可见"
+
+#: src/Admin/Poll/Editor.php:308
+msgid "Format"
+msgstr "格式"
+
+#: src/Admin/Poll/Editor.php:312 src/Admin/Poll/views/questions/question.php:3
+#: src/Admin/Poll/views/translations/index.php:55
+#: src/Admin/Poll/views/settings/content/welcome.php:4
+#: src/Admin/Poll/views/settings/content/thankyou.php:4
+msgid "Content"
+msgstr "内容"
+
+#: src/Admin/Poll/Editor.php:315
+msgid "Welcome"
+msgstr "欢迎"
+
+#: src/Admin/Poll/Editor.php:317
+msgid "Thank you"
+msgstr "谢谢"
+
+#: src/Admin/Poll/Editor.php:321
+#: src/Admin/Poll/views/translations/index.php:108
+msgid "SEO"
+msgstr "SEO"
+
+#: src/Admin/Poll/Editor.php:326 src/Admin/Poll/Editor.php:351
+#: src/Admin/Poll/views/form/fields.php:9
+#: src/Admin/Poll/views/form/field.php:126
+msgid "Email"
+msgstr "邮箱"
+
+#: src/Admin/Poll/Editor.php:327
+msgid "Push"
+msgstr "推送"
+
+#: src/Admin/Poll/Editor.php:328
+msgid "WebHook"
+msgstr "Webhook"
+
+#: src/Admin/Poll/Editor.php:331
+msgid "Customization"
+msgstr "自定义"
+
+#: src/Admin/Poll/Editor.php:336 src/Admin/Modules/views/index.php:8
+msgid "Templates"
+msgstr "模板"
+
+#: src/Admin/Poll/Editor.php:337
+msgid "Layout"
+msgstr "布局"
+
+#: src/Admin/Poll/Editor.php:338
+msgid "Colors"
+msgstr "颜色"
+
+#: src/Admin/Poll/Editor.php:339
+#: modules/templates/MediaContest/views/settings.php:52
+#: modules/templates/MediaContest/views/settings.php:86
+#: modules/templates/MediaContest/views/settings.php:117
+#: modules/templates/MediaContest/views/settings.php:148
+#: modules/templates/MediaContest/views/settings.php:168
+#: modules/templates/MediaContest/views/settings.php:197
+#: modules/templates/MediaContest/views/settings.php:220
+#: modules/templates/MediaContest/views/settings.php:252
+#: modules/templates/MediaContest/views/settings.php:289
+#: modules/templates/Basic/views/settings.php:52
+#: modules/templates/Basic/views/settings.php:86
+#: modules/templates/Basic/views/settings.php:117
+#: modules/templates/Basic/views/settings.php:148
+#: modules/templates/Basic/views/settings.php:168
+#: modules/templates/Basic/views/settings.php:197
+#: modules/templates/Basic/views/settings.php:220
+#: modules/templates/Basic/views/settings.php:252
+#: modules/templates/Basic/views/settings.php:289
+#: modules/templates/Versus/views/settings.php:53
+#: modules/templates/Versus/views/settings.php:87
+#: modules/templates/Versus/views/settings.php:106
+#: modules/templates/Versus/views/settings.php:150
+#: modules/templates/Versus/views/settings.php:170
+#: modules/templates/Versus/views/settings.php:199
+#: modules/templates/Versus/views/settings.php:222
+#: modules/templates/Versus/views/settings.php:254
+#: modules/templates/Versus/views/settings.php:291
+#: src/Admin/Poll/views/form/fields.php:65
+#: src/Admin/Poll/views/form/field.php:17
+#: src/Admin/Poll/views/choices/choices.php:64
+#: src/Admin/Poll/views/choices/choices.php:113
+#: src/Admin/Poll/views/choices/choice.php:16
+msgid "Text"
+msgstr "文本"
+
+#: src/Admin/Poll/Editor.php:340
+msgid "Elements"
+msgstr "元素"
+
+#: src/Admin/Poll/Editor.php:341
+msgid "Behaviours"
+msgstr "行为"
+
+#: src/Admin/Poll/Editor.php:342
+msgid "Effects"
+msgstr "特效"
+
+#: src/Admin/Poll/Editor.php:343
+msgid "Custom CSS"
+msgstr "自定义CSS"
+
+#: src/Admin/Poll/Editor.php:347
+msgid "Shortcode"
+msgstr "短代码"
+
+#: src/Admin/Poll/Editor.php:347 src/Admin/Poll/Editor.php:348
+msgid "WordPress feature"
+msgstr "WordPress 性能"
+
+#: src/Admin/Poll/Editor.php:348
+msgid "Widget"
+msgstr "微件"
+
+#: src/Admin/Poll/Editor.php:349
+msgid "Direct link"
+msgstr "直接链接"
+
+#: src/Admin/Poll/Editor.php:349
+msgid "Standard link"
+msgstr "标准链接"
+
+#: src/Admin/Poll/Editor.php:350
+msgid "Embed"
+msgstr "嵌入"
+
+#: src/Admin/Poll/Editor.php:350
+msgid "External inclusion"
+msgstr "外部融入"
+
+#: src/Admin/Poll/Editor.php:351
+msgid "Vote links"
+msgstr "投票链接"
+
+#: src/Admin/Poll/Listing.php:144 src/Admin/Dashboard/views/overview.php:16
+msgid "Live"
+msgstr "实时"
+
+#: src/Admin/Poll/Listing.php:146
+msgid "Offline"
+msgstr "离线"
+
+#: src/Poll/Commands/CountVote.php:59
+msgid "All questions must be answered."
+msgstr "所有的问题必须回答."
+
+#: src/Poll/Commands/CountVote.php:66
+msgid "You must vote for at least {{minimum}} choice."
+msgid_plural "You must vote for at least {{minimum}} choices."
+msgstr[0] "您必须投至少{{minimum}}个选项."
+
+#: src/Poll/Commands/CountVote.php:69
+msgid "You can vote for up to {{maximum}} choice."
+msgid_plural "You can vote for up to {{maximum}} choices."
+msgstr[0] "您最多可以投{{maximum}}个选项."
+
+#: src/Poll/Commands/CountVote.php:78
+msgid "Unknown choice. Please try again."
+msgstr "未知选项. 请再次尝试."
+
+#: src/Poll/Commands/CountVote.php:89
+msgid "Something went wrong. Please try again."
+msgstr "出错. 请再次尝试."
+
+#: modules/templates/MediaContest/views/settings.php:19
+#: modules/templates/MediaContest/views/settings.php:38
+#: modules/templates/MediaContest/views/settings.php:66
+#: modules/templates/MediaContest/views/settings.php:138
+#: modules/templates/MediaContest/views/settings.php:183
+#: modules/templates/MediaContest/views/settings.php:211
+#: modules/templates/MediaContest/views/settings.php:236
+#: modules/templates/MediaContest/views/settings.php:266
+#: modules/templates/Basic/views/settings.php:19
+#: modules/templates/Basic/views/settings.php:38
+#: modules/templates/Basic/views/settings.php:66
+#: modules/templates/Basic/views/settings.php:138
+#: modules/templates/Basic/views/settings.php:183
+#: modules/templates/Basic/views/settings.php:211
+#: modules/templates/Basic/views/settings.php:236
+#: modules/templates/Basic/views/settings.php:266
+#: modules/templates/Versus/views/settings.php:20
+#: modules/templates/Versus/views/settings.php:39
+#: modules/templates/Versus/views/settings.php:67
+#: modules/templates/Versus/views/settings.php:101
+#: modules/templates/Versus/views/settings.php:123
+#: modules/templates/Versus/views/settings.php:140
+#: modules/templates/Versus/views/settings.php:185
+#: modules/templates/Versus/views/settings.php:213
+#: modules/templates/Versus/views/settings.php:238
+#: modules/templates/Versus/views/settings.php:268
+msgid "Background"
+msgstr "背景"
+
+#: modules/templates/MediaContest/views/settings.php:23
+#: modules/templates/MediaContest/views/settings.php:48
+#: modules/templates/MediaContest/views/settings.php:82
+#: modules/templates/MediaContest/views/settings.php:113
+#: modules/templates/MediaContest/views/settings.php:144
+#: modules/templates/MediaContest/views/settings.php:164
+#: modules/templates/MediaContest/views/settings.php:193
+#: modules/templates/MediaContest/views/settings.php:216
+#: modules/templates/MediaContest/views/settings.php:248
+#: modules/templates/MediaContest/views/settings.php:285
+#: modules/templates/Basic/views/settings.php:23
+#: modules/templates/Basic/views/settings.php:48
+#: modules/templates/Basic/views/settings.php:82
+#: modules/templates/Basic/views/settings.php:113
+#: modules/templates/Basic/views/settings.php:144
+#: modules/templates/Basic/views/settings.php:164
+#: modules/templates/Basic/views/settings.php:193
+#: modules/templates/Basic/views/settings.php:216
+#: modules/templates/Basic/views/settings.php:248
+#: modules/templates/Basic/views/settings.php:285
+#: modules/templates/Versus/views/settings.php:24
+#: modules/templates/Versus/views/settings.php:49
+#: modules/templates/Versus/views/settings.php:83
+#: modules/templates/Versus/views/settings.php:146
+#: modules/templates/Versus/views/settings.php:166
+#: modules/templates/Versus/views/settings.php:195
+#: modules/templates/Versus/views/settings.php:218
+#: modules/templates/Versus/views/settings.php:250
+#: modules/templates/Versus/views/settings.php:287
+msgid "Padding"
+msgstr "内边距"
+
+#: modules/templates/MediaContest/views/settings.php:39
+#: modules/templates/MediaContest/views/settings.php:67
+#: modules/templates/MediaContest/views/settings.php:104
+#: modules/templates/MediaContest/views/settings.php:139
+#: modules/templates/MediaContest/views/settings.php:160
+#: modules/templates/MediaContest/views/settings.php:184
+#: modules/templates/MediaContest/views/settings.php:212
+#: modules/templates/MediaContest/views/settings.php:237
+#: modules/templates/MediaContest/views/settings.php:267
+#: modules/templates/Basic/views/settings.php:39
+#: modules/templates/Basic/views/settings.php:67
+#: modules/templates/Basic/views/settings.php:104
+#: modules/templates/Basic/views/settings.php:139
+#: modules/templates/Basic/views/settings.php:160
+#: modules/templates/Basic/views/settings.php:184
+#: modules/templates/Basic/views/settings.php:212
+#: modules/templates/Basic/views/settings.php:237
+#: modules/templates/Basic/views/settings.php:267
+#: modules/templates/Versus/views/settings.php:40
+#: modules/templates/Versus/views/settings.php:68
+#: modules/templates/Versus/views/settings.php:102
+#: modules/templates/Versus/views/settings.php:141
+#: modules/templates/Versus/views/settings.php:162
+#: modules/templates/Versus/views/settings.php:186
+#: modules/templates/Versus/views/settings.php:214
+#: modules/templates/Versus/views/settings.php:239
+#: modules/templates/Versus/views/settings.php:269
+msgid "Color"
+msgstr "颜色"
+
+#: modules/templates/MediaContest/views/settings.php:40
+#: modules/templates/MediaContest/views/settings.php:44
+#: modules/templates/MediaContest/views/settings.php:68
+#: modules/templates/MediaContest/views/settings.php:78
+#: modules/templates/MediaContest/views/settings.php:105
+#: modules/templates/MediaContest/views/settings.php:109
+#: modules/templates/MediaContest/views/settings.php:185
+#: modules/templates/MediaContest/views/settings.php:189
+#: modules/templates/MediaContest/views/settings.php:240
+#: modules/templates/MediaContest/views/settings.php:244
+#: modules/templates/MediaContest/views/settings.php:268
+#: modules/templates/Basic/views/settings.php:40
+#: modules/templates/Basic/views/settings.php:44
+#: modules/templates/Basic/views/settings.php:68
+#: modules/templates/Basic/views/settings.php:78
+#: modules/templates/Basic/views/settings.php:105
+#: modules/templates/Basic/views/settings.php:109
+#: modules/templates/Basic/views/settings.php:185
+#: modules/templates/Basic/views/settings.php:189
+#: modules/templates/Basic/views/settings.php:240
+#: modules/templates/Basic/views/settings.php:244
+#: modules/templates/Basic/views/settings.php:268
+#: modules/templates/Versus/views/settings.php:41
+#: modules/templates/Versus/views/settings.php:45
+#: modules/templates/Versus/views/settings.php:69
+#: modules/templates/Versus/views/settings.php:79
+#: modules/templates/Versus/views/settings.php:187
+#: modules/templates/Versus/views/settings.php:191
+#: modules/templates/Versus/views/settings.php:242
+#: modules/templates/Versus/views/settings.php:246
+#: modules/templates/Versus/views/settings.php:270
+msgid "Border"
+msgstr "边框"
+
+#: modules/templates/MediaContest/views/settings.php:69
+#: modules/templates/Basic/views/settings.php:69
+#: modules/templates/Versus/views/settings.php:70
+msgid "Background (Hover)"
+msgstr "背景(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:70
+#: modules/templates/Basic/views/settings.php:70
+#: modules/templates/Versus/views/settings.php:71
+msgid "Color (Hover)"
+msgstr "颜色(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:71
+#: modules/templates/Basic/views/settings.php:71
+#: modules/templates/Versus/views/settings.php:72
+msgid "Border (Hover)"
+msgstr "边框(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:72
+#: modules/templates/Basic/views/settings.php:72
+#: modules/templates/Versus/views/settings.php:73
+msgid "Background (Checked)"
+msgstr "背景(已查看)"
+
+#: modules/templates/MediaContest/views/settings.php:73
+#: modules/templates/Basic/views/settings.php:73
+#: modules/templates/Versus/views/settings.php:74
+msgid "Color (Checked)"
+msgstr "颜色(已查看)"
+
+#: modules/templates/MediaContest/views/settings.php:74
+#: modules/templates/Basic/views/settings.php:74
+#: modules/templates/Versus/views/settings.php:75
+msgid "Border (Checked)"
+msgstr "边框(已查看)"
+
+#: modules/templates/MediaContest/views/settings.php:102
+#: modules/templates/Basic/views/settings.php:102
+msgid "Background (Start)"
+msgstr "背景(开始)"
+
+#: modules/templates/MediaContest/views/settings.php:103
+#: modules/templates/Basic/views/settings.php:103
+msgid "Background (End)"
+msgstr "背景(结束)"
+
+#: modules/templates/MediaContest/views/settings.php:121
+#: modules/templates/Basic/views/settings.php:121
+#: modules/templates/Versus/views/settings.php:111
+msgid "Height"
+msgstr "高度"
+
+#: modules/templates/MediaContest/views/settings.php:238
+#: modules/templates/Basic/views/settings.php:238
+#: modules/templates/Versus/views/settings.php:240
+msgid "Background (error)"
+msgstr "背景(错误)"
+
+#: modules/templates/MediaContest/views/settings.php:239
+#: modules/templates/Basic/views/settings.php:239
+#: modules/templates/Versus/views/settings.php:241
+msgid "Color (error)"
+msgstr "颜色(错误)"
+
+#: modules/templates/MediaContest/views/settings.php:269
+#: modules/templates/Basic/views/settings.php:269
+#: modules/templates/Versus/views/settings.php:271
+msgid "Background (hover)"
+msgstr "背景(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:270
+#: modules/templates/Basic/views/settings.php:270
+#: modules/templates/Versus/views/settings.php:272
+msgid "Color (hover)"
+msgstr "颜色(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:271
+#: modules/templates/Basic/views/settings.php:271
+#: modules/templates/Versus/views/settings.php:273
+msgid "Border (hover)"
+msgstr "边框(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:273
+#: modules/templates/Basic/views/settings.php:273
+#: modules/templates/Versus/views/settings.php:275
+msgid "Primary background"
+msgstr "主背景"
+
+#: modules/templates/MediaContest/views/settings.php:274
+#: modules/templates/Basic/views/settings.php:274
+#: modules/templates/Versus/views/settings.php:276
+msgid "Primary border"
+msgstr "主边框"
+
+#: modules/templates/MediaContest/views/settings.php:275
+#: modules/templates/Basic/views/settings.php:275
+#: modules/templates/Versus/views/settings.php:277
+msgid "Primary color"
+msgstr "主颜色"
+
+#: modules/templates/MediaContest/views/settings.php:276
+#: modules/templates/Basic/views/settings.php:276
+#: modules/templates/Versus/views/settings.php:278
+msgid "Primary background (hover)"
+msgstr "主背景(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:278
+#: modules/templates/Basic/views/settings.php:278
+#: modules/templates/Versus/views/settings.php:280
+msgid "Primary border (hover)"
+msgstr "主边框(悬停)"
+
+#: modules/templates/MediaContest/views/settings.php:280
+#: modules/templates/Basic/views/settings.php:280
+#: modules/templates/Versus/views/settings.php:282
+msgid "Primary color (hover)"
+msgstr "主颜色(悬停)"
+
+#: modules/templates/Versus/views/settings.php:110
+#: src/Admin/Poll/views/design/index.php:253
+msgid "Width"
+msgstr "宽度"
+
+#: modules/extensions/RestAPI/views/tab.php:9
+msgid "Get poll object"
+msgstr "获得投票对象"
+
+#: modules/extensions/RestAPI/views/tab.php:12
+msgid "Start by getting the poll object from this URL:"
+msgstr "通过从这个URL获得投票对象开始:"
+
+#: modules/extensions/RestAPI/views/tab.php:18
+#: modules/extensions/RestAPI/views/tab.php:38
+#: src/Admin/Poll/views/integration/embed.php:18
+#: src/Admin/Poll/views/integration/email.php:51
+#: src/Admin/Poll/views/integration/link.php:17
+#: src/Admin/Poll/views/integration/shortcode.php:18
+#: src/Admin/Poll/views/integration/shortcode.php:24
+msgid "Copy"
+msgstr "复制"
+
+#: modules/extensions/RestAPI/views/tab.php:29
+msgid "Cast a vote"
+msgstr "投票"
+
+#: modules/extensions/RestAPI/views/tab.php:32
+msgid "You can cast a vote by sending a POST request to the following URL:"
+msgstr "您可以通过向以下URL发送POST请求来进行投票:"
+
+#: modules/extensions/RestAPI/views/tab.php:79
+#: src/Admin/Poll/views/integration/widget.php:31
+#: src/Admin/Poll/views/integration/embed.php:42
+#: src/Admin/Poll/views/integration/email.php:64
+#: src/Admin/Poll/views/integration/link.php:41
+#: src/Admin/Poll/views/integration/shortcode.php:48
+msgid "Preview"
+msgstr "预览"
+
+#: modules/extensions/RestAPI/views/tab.php:82
+msgid ""
+"Open the page which you have used these API endpoints in and test poll "
+"functionality."
+msgstr "打开您已经使用API端点的页面并测试投票功能."
+
+#: modules/extensions/RestAPI/views/tab.php:88
+msgid "REST API are available only in WordPress 4.4"
+msgstr "REST API 仅在WordPress 4.4可用"
+
+#: src/Admin/Dashboard/views/sidebar.php:9
+#: src/Admin/Dashboard/views/sidebar.php:11
+msgid "Translate"
+msgstr "翻译"
+
+#: src/Admin/Dashboard/views/sidebar.php:10
+msgid ""
+"Help us translate TotalPoll to your language and get an item from our store "
+"for free."
+msgstr ""
+"帮助我们将totalpoll 翻译成您的语言并可以从我们的商店中免费获得一件物品."
+
+#: src/Admin/Dashboard/views/sidebar.php:18
+msgid "Stay in the loop"
+msgstr "请保持积极参与以获得新动态"
+
+#: src/Admin/Dashboard/views/sidebar.php:19
+#, php-format
+msgid ""
+"Get latest news about new features, products and deals plus a "
+"<strong>20% discount</strong> to use in our store!"
+msgstr ""
+"获得关于新功能、产品和促销的最新消息,外加可以在我们商店使用的<strong>20% 折扣"
+"</strong> !"
+
+#: src/Admin/Dashboard/views/sidebar.php:22
+msgid "Your email"
+msgstr "您的邮箱"
+
+#: src/Admin/Dashboard/views/sidebar.php:24
+msgid "Subscribe"
+msgstr "订阅"
+
+#: src/Admin/Dashboard/views/sidebar.php:28
+msgid "Follow us"
+msgstr "关注我们"
+
+#: src/Admin/Dashboard/views/sidebar.php:54
+msgid "Spread the word"
+msgstr "扩散消息"
+
+#: src/Admin/Dashboard/views/sidebar.php:55
+msgid ""
+"Please consider <a href=\"https://codecanyon.net/downloads/\">leaving a "
+"review</a>. You could also get a chance to win a free item from our store by "
+"tweeting about TotalPoll!"
+msgstr ""
+"请考虑<a href=\"https://codecanyon.net/downloads/\">留下评论</a>.通过对"
+"TotalPoll进行点评,您有机会从我们的商店中赢得免费物品一件!"
+
+#: src/Admin/Dashboard/views/sidebar.php:61
+msgid "Tweet"
+msgstr "点评"
+
+#: src/Admin/Dashboard/views/support.php:3
+msgid "How can we help you?"
+msgstr "您需要我们的帮助吗?"
+
+#: src/Admin/Dashboard/views/support.php:4
+msgid "Search our knowledge base for detailed answers and tutorials."
+msgstr "搜索我们的知识库以获得详尽的答案以及教程."
+
+#: src/Admin/Dashboard/views/support.php:6
+msgid "Enter some keywords"
+msgstr "填关键词"
+
+#: src/Admin/Dashboard/views/support.php:9
+msgid "Search"
+msgstr "搜索"
+
+#: src/Admin/Dashboard/views/support.php:17
+msgid "Community Support"
+msgstr "社区支持"
+
+#: src/Admin/Dashboard/views/support.php:18
+msgid "Join and ask TotalSuite community for help."
+msgstr "加入以及在TotalSuite社区寻求帮助."
+
+#: src/Admin/Dashboard/views/support.php:19
+msgid "Visit Forums"
+msgstr "访问论坛"
+
+#: src/Admin/Dashboard/views/support.php:27
+msgid "Customer Support"
+msgstr "客户支持"
+
+#: src/Admin/Dashboard/views/support.php:28
+msgid "Our support team is here to help you."
+msgstr "我们的支持团队在此为您提供帮助."
+
+#: src/Admin/Dashboard/views/support.php:29
+msgid "Send Ticket"
+msgstr "发送票据Ticket"
+
+#: src/Admin/Dashboard/views/support.php:37
+msgid "VIP Support"
+msgstr "VIP支持"
+
+#: src/Admin/Dashboard/views/support.php:38
+msgid "You're in a hurry? We've got your back!"
+msgstr "您赶时间吗?我们是您坚实的后盾!"
+
+#: src/Admin/Dashboard/views/support.php:39
+msgid "Learn More"
+msgstr "了解更多"
+
+#: src/Admin/Dashboard/views/credits.php:4
+#: src/Admin/Dashboard/views/index.php:21
+msgid "Credits"
+msgstr "信誉认可"
+
+#: src/Admin/Dashboard/views/credits.php:5
+msgid "TotalPoll made possible thanks to these projects and contributors."
+msgstr "TotalPoll 向这些项目以及贡献者致谢."
+
+#: src/Admin/Dashboard/views/whats-new.php:6
+#: src/Admin/Modules/views/manager.php:64
+#: src/Admin/Poll/views/design/tabs/templates.php:24
+msgid "Version"
+msgstr "版本"
+
+#: src/Admin/Dashboard/views/index.php:6
+msgid "Overview"
+msgstr "总结"
+
+#: src/Admin/Dashboard/views/index.php:9
+msgid "Get started"
+msgstr "开始"
+
+#: src/Admin/Dashboard/views/index.php:12
+msgid "What's new"
+msgstr "新性能"
+
+#: src/Admin/Dashboard/views/index.php:15
+msgid "Activation"
+msgstr "激活"
+
+#: src/Admin/Dashboard/views/index.php:18
+msgid "Support"
+msgstr "支持"
+
+#: src/Admin/Dashboard/views/index.php:54
+msgid "Take your website to the next level"
+msgstr "将您的网站升级到更高层次"
+
+#: src/Admin/Dashboard/views/index.php:55
+msgid ""
+"Get started with TotalSuite to take your website to the next level with "
+"feature-rich premium products."
+msgstr "开始使用TotalSuite,通过功能丰富的优质产品将您的网站提升到更高层次."
+
+#: src/Admin/Dashboard/views/index.php:56
+msgid "Get Started"
+msgstr "开始"
+
+#: src/Admin/Dashboard/views/overview.php:5
+msgid "It's time to create your first poll."
+msgstr "是时候创建您的第一个投票."
+
+#: src/Admin/Dashboard/views/overview.php:6
+msgid "There are no polls yet."
+msgstr "暂无任何投票."
+
+#: src/Admin/Dashboard/views/overview.php:14
+msgid "Untitled"
+msgstr "无标题"
+
+#: src/Admin/Dashboard/views/overview.php:16
+msgid "Pending"
+msgstr "待定"
+
+#: src/Admin/Dashboard/views/activation.php:8
+msgid "Product activated!"
+msgstr "产品已激活!"
+
+#: src/Admin/Dashboard/views/activation.php:9
+msgid "You're now receiving updates."
+msgstr "您正在接收更新."
+
+#: src/Admin/Dashboard/views/activation.php:10
+msgid "Activation code"
+msgstr "激活码"
+
+#: src/Admin/Dashboard/views/activation.php:14
+#, php-format
+msgid "Product activation for %s"
+msgstr "为 %s产品激活"
+
+#: src/Admin/Dashboard/views/activation.php:15
+msgid ""
+"Open <a href=\"https://codecanyon.net/downloads\">downloads page</a>, find "
+"the product, click \"Download\" then select on \"License certificate & "
+"purchase code (text)\"."
+msgstr ""
+"打开<a href=\"https://codecanyon.net/downloads\">下载页面</a>, 找到产品, 点"
+"击“下载”然后选择“许可证书&购买码(文本)\"."
+
+#: src/Admin/Dashboard/views/activation.php:19
+msgid "Activating"
+msgstr "正在激活"
+
+#: src/Admin/Dashboard/views/activation.php:19
+#: src/Admin/Modules/views/manager.php:45
+msgid "Activate"
+msgstr "激活"
+
+#: src/Admin/Dashboard/views/get-started.php:6
+msgid "Welcome to TotalPoll!"
+msgstr "欢迎来到TotalPoll！"
+
+#: src/Admin/Dashboard/views/get-started.php:7
+msgid ""
+"TotalPoll's user interface was built with you in mind! You can create a poll "
+"in less than a minute."
+msgstr "TotalPoll的用户界面充分考虑到客户体验而建立!您可在一分钟之内创建投票."
+
+#: src/Admin/Dashboard/views/get-started.php:11
+msgid "New features"
+msgstr "新特性"
+
+#: src/Admin/Dashboard/views/get-started.php:12
+msgid ""
+"TotalPoll 4.0 brings a lot of new features like multiple questions, live "
+"preview and insights."
+msgstr "TotalPoll 4.0 推出了很多新特性,如多项问题, 实时预览以及深度分析."
+
+#: src/Admin/Dashboard/views/get-started.php:16
+msgid "Together is Better"
+msgstr "团结会更好"
+
+#: src/Admin/Dashboard/views/get-started.php:17
+msgid ""
+"TotalPoll is now part of <a href=\"https://totalsuite.net/\">TotalSuite</a> "
+"that brings essential tools in a robust suite."
+msgstr ""
+"TotalPoll如今是<a href=\"https://totalsuite.net/\">TotalSuite</a>的一部分并为"
+"强大的套装增加了一些基础工具."
+
+#: src/Admin/Dashboard/views/get-started.php:33
+msgid "Visual Learner?"
+msgstr "视觉学习者?"
+
+#: src/Admin/Dashboard/views/get-started.php:34
+msgid ""
+"Here is a playlist of 5 videos that covers the main tasks to start your "
+"journey with TotalPoll."
+msgstr ""
+"这里是一个含有5个视频的播放列表,涵盖了在开始使用TotalPoll之前所需要做的主要任"
+"务."
+
+#: src/Admin/Dashboard/views/get-started.php:39
+msgid "Create your first poll"
+msgstr "创建您第一个投票"
+
+#: src/Admin/Dashboard/views/get-started.php:45
+msgid "Settings overview"
+msgstr "设置总结"
+
+#: src/Admin/Dashboard/views/get-started.php:51
+msgid "Design customization"
+msgstr "设计自定义"
+
+#: src/Admin/Dashboard/views/get-started.php:63
+msgid "Publish"
+msgstr "发布"
+
+#: src/Admin/Insights/views/index.php:9 src/Admin/Entries/views/index.php:12
+msgid "Please select a poll"
+msgstr "请选择一个投票"
+
+#: src/Admin/Insights/views/index.php:13 src/Admin/Entries/views/index.php:16
+#: src/Admin/Log/views/index.php:16
+msgid "From"
+msgstr "从"
+
+#: src/Admin/Insights/views/index.php:15 src/Admin/Entries/views/index.php:18
+#: src/Admin/Log/views/index.php:18
+msgid "To"
+msgstr "到"
+
+#: src/Admin/Insights/views/index.php:19 src/Admin/Entries/views/index.php:23
+#: src/Admin/Log/views/index.php:23
+msgid "Clear"
+msgstr "清楚"
+
+#: src/Admin/Insights/views/index.php:22 src/Admin/Entries/views/index.php:26
+#: src/Admin/Log/views/index.php:26
+msgid "Apply"
+msgstr "应用"
+
+#: src/Admin/Entries/views/index.php:44 src/Admin/Log/views/index.php:68
+msgid "Nothing. Nada. Niente. Nickts. Rien."
+msgstr "无."
+
+#: src/Admin/Entries/views/index.php:54 src/Admin/Log/views/index.php:77
+#: modules/templates/MediaContest/views/preview/shared/footer.php:4
+#: modules/templates/Basic/views/preview/shared/footer.php:4
+#: modules/templates/Versus/views/preview/shared/footer.php:4
+msgid "Previous"
+msgstr "前一步"
+
+#: src/Admin/Entries/views/index.php:56 src/Admin/Log/views/index.php:78
+#: modules/templates/MediaContest/views/preview/shared/footer.php:7
+#: modules/templates/Basic/views/preview/shared/footer.php:7
+#: modules/templates/Versus/views/preview/shared/footer.php:7
+msgid "Next"
+msgstr "下一步"
+
+#: src/Admin/Entries/views/index.php:60 src/Admin/Log/views/index.php:82
+msgid "Download as"
+msgstr "以...身份下载"
+
+#: src/Admin/Modules/views/index.php:5 src/Admin/Modules/views/manager.php:30
+#: src/Admin/Modules/views/install.php:20
+msgid "Install"
+msgstr "安装"
+
+#: src/Admin/Modules/views/index.php:11
+msgid "Extensions"
+msgstr "扩展"
+
+#: src/Admin/Modules/views/index.php:14
+msgid "Downloads"
+msgstr "下载"
+
+#: src/Admin/Modules/views/manager.php:21
+#: src/Admin/Poll/views/design/tabs/templates.php:22
+msgid "By"
+msgstr "按照"
+
+#: src/Admin/Modules/views/manager.php:35
+msgid "Buy"
+msgstr "购买"
+
+#: src/Admin/Modules/views/manager.php:40
+msgid "Update"
+msgstr "更新"
+
+#: src/Admin/Modules/views/manager.php:50
+msgid "Uninstall"
+msgstr "卸载"
+
+#: src/Admin/Modules/views/manager.php:57
+msgid "Deactivate"
+msgstr "停用"
+
+#: src/Admin/Modules/views/install.php:16
+msgid ""
+"If you have a template or extension in .zip format, you may install it by "
+"uploading it here."
+msgstr "如果您有zip格式的模板或者扩展,您可在此通过上传它来安装."
+
+#: src/Admin/Options/views/tabs/advanced.php:7
+msgid "Always embed CSS with HTML."
+msgstr "始终用HTML嵌入CSS."
+
+#: src/Admin/Options/views/tabs/advanced.php:10
+msgid ""
+"This option might be useful when WordPress isn't running on standard "
+"filesystem."
+msgstr "当WordPress没有在标准的文件系统中运行,这个选项也许有用."
+
+#: src/Admin/Options/views/tabs/advanced.php:17
+msgid "Render full poll when listed in polls archive."
+msgstr "当在投票存档中列出时,渲染完整投票."
+
+#: src/Admin/Options/views/tabs/advanced.php:20
+msgid "This option will render all polls instead of showing titles only."
+msgstr "这一选项将渲染所有投票而非仅显示标题."
+
+#: src/Admin/Options/views/tabs/advanced.php:27
+msgid "Disable polls archive."
+msgstr "禁用投票存档."
+
+#: src/Admin/Options/views/tabs/advanced.php:35
+msgid "Remove all data on uninstall."
+msgstr "一旦卸载移除所有数据."
+
+#: src/Admin/Options/views/tabs/advanced.php:38
+msgid ""
+"Heads up! This will remove all TotalPoll data including options, cache files "
+"and polls."
+msgstr "注意! 这将移除所有TotalPoll 数据,包括选项,缓存文件以及投票."
+
+#: src/Admin/Options/views/tabs/services.php:6
+msgid "reCaptcha by Google"
+msgstr "谷歌验证码"
+
+#: src/Admin/Options/views/tabs/services.php:14
+msgid "Site key"
+msgstr "站点秘钥"
+
+#: src/Admin/Options/views/tabs/services.php:22
+msgid "Site secret"
+msgstr "站点机密"
+
+#: src/Admin/Options/views/tabs/services.php:30
+msgid "Enable invisible captcha."
+msgstr "启用隐形验证码."
+
+#: src/Admin/Options/views/tabs/sharing.php:9
+msgid "Twitter"
+msgstr "推特"
+
+#: src/Admin/Options/views/tabs/sharing.php:19
+msgid "Facebook"
+msgstr "脸书"
+
+#: src/Admin/Options/views/tabs/sharing.php:29
+msgid "Google+"
+msgstr "Google+"
+
+#: src/Admin/Options/views/tabs/sharing.php:39
+msgid "Pinterest"
+msgstr "Pinterest"
+
+#: src/Admin/Options/views/tabs/notifications.php:4
+msgid "Poll title: {{title}}"
+msgstr "投票标题:{{title}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:5
+msgid "Choices: {{choices}}"
+msgstr "选项:{{choices}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:6
+msgid "User IP: {{ip}}"
+msgstr "用户IP:{{ip}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:7
+msgid "User browser: {{browser}}"
+msgstr "用户浏览器:{{browser}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:8
+msgid "Vote date: {{date}}"
+msgstr "投票日期:{{date}}"
+
+#: src/Admin/Options/views/tabs/notifications.php:12
+#: src/Admin/Poll/views/settings/seo/index.php:5
+msgid "Title"
+msgstr "标题"
+
+#: src/Admin/Options/views/tabs/notifications.php:18
+msgid "Plain text body"
+msgstr "纯文本主体"
+
+#: src/Admin/Options/views/tabs/notifications.php:24
+msgid "HTML template"
+msgstr "HTML模板"
+
+#: src/Admin/Options/views/tabs/performance.php:7
+msgid "Asynchronous loading"
+msgstr "异步加载"
+
+#: src/Admin/Options/views/tabs/performance.php:10
+msgid ""
+"This can be useful when you would like to bypass cache mechanisms and "
+"plugins."
+msgstr "当您想要绕过缓存机制以及插件,这个可能有用."
+
+#: src/Admin/Options/views/tabs/performance.php:17
+msgid "Full checks on page load."
+msgstr "一旦页面加载进行全面检查."
+
+#: src/Admin/Options/views/tabs/performance.php:20
+msgid ""
+"This may put high load on your server because TotalPoll will hit the "
+"database frequently."
+msgstr "这也许会给服务器带来高负荷,因为TotalPoll会频繁碰撞数据库."
+
+#: src/Admin/Options/views/tabs/performance.php:25
+msgid "Clear cache"
+msgstr "清除缓存"
+
+#: src/Admin/Options/views/tabs/import-export.php:7
+msgid "Import data"
+msgstr "导入数据"
+
+#: src/Admin/Options/views/tabs/import-export.php:10
+msgid "Import settings"
+msgstr "导入设置"
+
+#: src/Admin/Options/views/tabs/import-export.php:14
+msgid "TotalPoll uses standard WordPress import mechanism."
+msgstr "TotalPoll使用标准的WordPress导入机制."
+
+#: src/Admin/Options/views/tabs/import-export.php:22
+msgid "Export data"
+msgstr "导出数据"
+
+#: src/Admin/Options/views/tabs/import-export.php:25
+msgid "Export settings"
+msgstr "导出设置"
+
+#: src/Admin/Options/views/tabs/import-export.php:29
+msgid "TotalPoll uses standard WordPress export mechanism."
+msgstr "TotalPoll使用标准的WordPress导出机制."
+
+#: src/Admin/Options/views/tabs/general.php:7
+msgid "Structured Data"
+msgstr "结构数据"
+
+#: src/Admin/Options/views/tabs/general.php:10
+msgid ""
+"Improve your appearance in search engine through <a href=\"https://"
+"developers.google.com/search/docs/guides/intro-structured-data\" target="
+"\"_blank\">Structured Data</a> implementation.."
+msgstr ""
+"通过<a href=\"https://developers.google.com/search/docs/guides/intro-"
+"structured-data\" target=\"_blank\">结构数据</a>执行来提高您在搜索引擎结果中"
+"的出现."
+
+#: src/Admin/Options/views/tabs/migration.php:13
+msgid "No polls to migrate."
+msgstr "没有投票迁移."
+
+#: src/Admin/Options/views/tabs/migration.php:14
+msgid "Polls migrated successfully."
+msgstr "投票迁移成功."
+
+#: src/Admin/Options/views/tabs/migration.php:15
+msgid "Polls to migrate."
+msgstr "投票迁移."
+
+#: src/Admin/Options/views/tabs/migration.php:22
+msgid "Migrate"
+msgstr "迁移"
+
+#: src/Admin/Options/views/tabs/migration.php:23
+msgid "Migrated"
+msgstr "已迁移"
+
+#: src/Admin/Options/views/tabs/migration.php:24
+msgid "Migrating"
+msgstr "正在迁移"
+
+#: src/Admin/Poll/views/form/fields.php:5
+msgid "Preset"
+msgstr "预设"
+
+#: src/Admin/Poll/views/form/fields.php:7
+msgid "First name"
+msgstr "名字"
+
+#: src/Admin/Poll/views/form/fields.php:8
+msgid "Last name"
+msgstr "姓氏"
+
+#: src/Admin/Poll/views/form/fields.php:10
+msgid "Phone"
+msgstr "电话号码"
+
+#: src/Admin/Poll/views/form/fields.php:11
+msgid "Gender"
+msgstr "性别"
+
+#: src/Admin/Poll/views/form/fields.php:12
+msgid "Country"
+msgstr "国家"
+
+#: src/Admin/Poll/views/form/fields.php:13
+msgid "Agreement"
+msgstr "协议"
+
+#: src/Admin/Poll/views/form/fields.php:23
+#: src/Admin/Poll/views/choices/choices.php:12
+msgid "Collapse"
+msgstr "折叠"
+
+#: src/Admin/Poll/views/form/fields.php:25
+#: src/Admin/Poll/views/choices/choices.php:16
+msgid "Expand"
+msgstr "展开"
+
+#: src/Admin/Poll/views/form/fields.php:27
+#: src/Admin/Poll/views/choices/choices.php:24
+msgid "Bulk"
+msgstr "批量"
+
+#: src/Admin/Poll/views/form/fields.php:33
+#: src/Admin/Poll/views/choices/choices.php:44
+msgid "Delete All"
+msgstr "删除所有"
+
+#: src/Admin/Poll/views/form/fields.php:40
+msgid "One field per line."
+msgstr "每行一个字段."
+
+#: src/Admin/Poll/views/form/fields.php:41
+#: src/Admin/Poll/views/choices/choices.php:57
+msgid "Insert"
+msgstr "插入"
+
+#: src/Admin/Poll/views/form/fields.php:45
+msgid "No custom fields yet. Add some by clicking on buttons below."
+msgstr "还没有自定义字段.通过按以下按钮来添加."
+
+#: src/Admin/Poll/views/form/fields.php:58
+#: src/Admin/Poll/views/questions/questions.php:35
+#: src/Admin/Poll/views/choices/choices.php:104
+msgid "Move here"
+msgstr "移动到这里"
+
+#: src/Admin/Poll/views/form/fields.php:69
+#: src/Admin/Poll/views/form/field.php:18
+msgid "Textarea"
+msgstr "文本域"
+
+#: src/Admin/Poll/views/form/fields.php:73
+#: src/Admin/Poll/views/form/field.php:19
+msgid "Select"
+msgstr "选择"
+
+#: src/Admin/Poll/views/form/fields.php:77
+#: src/Admin/Poll/views/form/field.php:20
+msgid "Checkbox"
+msgstr "复选框"
+
+#: src/Admin/Poll/views/form/fields.php:81
+#: src/Admin/Poll/views/form/field.php:21
+msgid "Radio"
+msgstr "单选按钮"
+
+#: src/Admin/Poll/views/form/field.php:22
+msgid "Required"
+msgstr "必填项"
+
+#: src/Admin/Poll/views/form/field.php:31
+#: src/Admin/Poll/views/form/field.php:189
+#: src/Admin/Poll/views/questions/questions.php:24
+#: src/Admin/Poll/views/choices/choice.php:57
+#: src/Admin/Poll/views/settings/vote/limitations.php:142
+msgid "Delete"
+msgstr "删除"
+
+#: src/Admin/Poll/views/form/field.php:41
+msgid "Basic"
+msgstr "基本"
+
+#: src/Admin/Poll/views/form/field.php:47
+#: src/Admin/Poll/views/choices/choices.php:80
+#: src/Admin/Poll/views/choices/choices.php:137
+#: src/Admin/Poll/views/choices/choice.php:20
+msgid "HTML"
+msgstr "HTML"
+
+#: src/Admin/Poll/views/form/field.php:62
+#: src/Admin/Poll/views/choices/choice-image.php:11
+#: src/Admin/Poll/views/choices/choice-html.php:5
+#: src/Admin/Poll/views/choices/choice-text.php:4
+#: src/Admin/Poll/views/choices/choice-video.php:19
+#: src/Admin/Poll/views/choices/choice-audio.php:16
+#: src/Admin/Poll/views/settings/results/sort.php:20
+#: src/Admin/Poll/views/settings/choices/sort.php:20
+msgid "Label"
+msgstr "标签"
+
+#: src/Admin/Poll/views/form/field.php:64
+msgid "Field label"
+msgstr "字段标签"
+
+#: src/Admin/Poll/views/form/field.php:73
+msgid "Name"
+msgstr "名称"
+
+#: src/Admin/Poll/views/form/field.php:75
+msgid "Field name"
+msgstr "字段名称"
+
+#: src/Admin/Poll/views/form/field.php:83
+msgid "Default value"
+msgstr "默认值"
+
+#: src/Admin/Poll/views/form/field.php:85
+#: src/Admin/Poll/views/form/field.php:88
+msgid "Field default value"
+msgstr "字段默认值"
+
+#: src/Admin/Poll/views/form/field.php:92
+msgid "Default value per line."
+msgstr "每行默认值."
+
+# option_key is a code????
+# if it is not a code,
+# the translation is  选项_键
+#: src/Admin/Poll/views/form/field.php:102
+msgid "option_key:Option label"
+msgstr "option_key:选项标签"
+
+#: src/Admin/Poll/views/form/field.php:105
+msgid "Option per line."
+msgstr "每行选项."
+
+#: src/Admin/Poll/views/form/field.php:108
+msgid "Option format is \"option : label\""
+msgstr "选择格式是\"选项 : 标签”"
+
+#: src/Admin/Poll/views/form/field.php:117
+msgid "Filled (required)"
+msgstr "已填(必填)"
+
+#: src/Admin/Poll/views/form/field.php:135
+msgid "Unique"
+msgstr "唯一的"
+
+#: src/Admin/Poll/views/form/field.php:136
+msgid "This field value must be unique in entries table."
+msgstr "条目表格中该字段值必须是唯一的."
+
+#: src/Admin/Poll/views/form/field.php:145
+msgid "Filter by list"
+msgstr "按列表过滤"
+
+#: src/Admin/Poll/views/form/field.php:155
+#: src/Admin/Poll/views/settings/vote/limitations.php:115
+msgid "Type"
+msgstr "类型"
+
+#: src/Admin/Poll/views/form/field.php:158
+msgid "Value"
+msgstr "值"
+
+#: src/Admin/Poll/views/form/field.php:168
+#: src/Admin/Poll/views/settings/vote/limitations.php:124
+msgid "Allow"
+msgstr "允许"
+
+#: src/Admin/Poll/views/form/field.php:171
+#: src/Admin/Poll/views/settings/vote/limitations.php:125
+msgid "Deny"
+msgstr "否决"
+
+#: src/Admin/Poll/views/form/field.php:176
+msgid "* means wildcard."
+msgstr "*代表通配符."
+
+#: src/Admin/Poll/views/form/field.php:200
+msgid "Add new value"
+msgstr "添加新值"
+
+#: src/Admin/Poll/views/form/field.php:214
+msgid "Regular Expression"
+msgstr "正则表达式"
+
+#: src/Admin/Poll/views/form/field.php:220
+msgid "Expression"
+msgstr "表达式"
+
+#: src/Admin/Poll/views/form/field.php:221
+msgid "Run user input against a regular expression."
+msgstr "运行违背正则表达式的用户输入."
+
+#: src/Admin/Poll/views/form/field.php:226
+msgid "Must be a valid regular expression."
+msgstr "必须是有效的正则表达式."
+
+#: src/Admin/Poll/views/form/field.php:231
+msgid "Error message"
+msgstr "报错信息"
+
+#: src/Admin/Poll/views/form/field.php:232
+msgid "This message will be shown if the validation failed."
+msgstr "如果验证失败,该条信息将被显示."
+
+#: src/Admin/Poll/views/form/field.php:237
+msgid "{{label}} for a field label."
+msgstr "{{label}} 为一个字段标签."
+
+#: src/Admin/Poll/views/form/field.php:242
+msgid "Comparison"
+msgstr "对比"
+
+#: src/Admin/Poll/views/form/field.php:246
+msgid "Must match"
+msgstr "必须匹配"
+
+#: src/Admin/Poll/views/form/field.php:250
+msgid "Must not match"
+msgstr "不要匹配"
+
+#: src/Admin/Poll/views/form/field.php:259
+msgid "Field CSS classes"
+msgstr "字段CSS类别"
+
+#: src/Admin/Poll/views/form/field.php:261
+msgid "Field classes"
+msgstr "字段类别"
+
+#: src/Admin/Poll/views/form/field.php:268
+msgid "Template"
+msgstr "模板"
+
+#: src/Admin/Poll/views/form/field.php:270
+msgid "Field template"
+msgstr "字段模板"
+
+#: src/Admin/Poll/views/form/field.php:275
+msgid "full column"
+msgstr "全列"
+
+#: src/Admin/Poll/views/form/field.php:279
+msgid "1/2 column"
+msgstr "1/2列"
+
+#: src/Admin/Poll/views/form/field.php:283
+msgid "1/3 column"
+msgstr "1/3列"
+
+#: src/Admin/Poll/views/form/field.php:287
+msgid "{{label}} for field label."
+msgstr "{{label}} 为字段标签."
+
+#: src/Admin/Poll/views/form/field.php:290
+msgid "{{errors}} for field errors."
+msgstr "{{errors}} 为字段报错."
+
+#: src/Admin/Poll/views/form/field.php:293
+msgid "{{field}} for field input."
+msgstr "{{field}} 为字段输入."
+
+#: src/Admin/Poll/views/questions/questions.php:15
+#: src/Admin/Poll/views/integration/email.php:41
+msgid "Question"
+msgstr "问题"
+
+#: src/Admin/Poll/views/questions/questions.php:31
+msgid "New Question"
+msgstr "新问题"
+
+#: src/Admin/Poll/views/design/sidebar.php:5
+msgid "Active template"
+msgstr "激活模板"
+
+#: src/Admin/Poll/views/design/sidebar.php:12
+msgid "Change"
+msgstr "改变"
+
+#: src/Admin/Poll/views/design/sidebar.php:25
+#: src/Admin/Poll/views/choices/choice.php:40
+msgid "Reset"
+msgstr "重置"
+
+#: src/Admin/Poll/views/design/index.php:44
+#: src/Admin/Poll/views/design/index.php:188
+msgid "Font family"
+msgstr "字体族群"
+
+#: src/Admin/Poll/views/design/index.php:52
+#: src/Admin/Poll/views/design/index.php:196
+msgid "Font size"
+msgstr "字体大小"
+
+#: src/Admin/Poll/views/design/index.php:58
+#: src/Admin/Poll/views/design/index.php:202
+msgid "Line height"
+msgstr "行高"
+
+#: src/Admin/Poll/views/design/index.php:66
+#: src/Admin/Poll/views/design/index.php:210
+msgid "Align"
+msgstr "对齐"
+
+#: src/Admin/Poll/views/design/index.php:70
+#: src/Admin/Poll/views/design/index.php:90
+#: src/Admin/Poll/views/design/index.php:214
+#: src/Admin/Poll/views/design/index.php:265
+msgid "Inherit"
+msgstr "继承"
+
+#: src/Admin/Poll/views/design/index.php:73
+#: src/Admin/Poll/views/design/index.php:119
+#: src/Admin/Poll/views/design/index.php:217
+#: src/Admin/Poll/views/design/index.php:313
+msgid "Right"
+msgstr "右"
+
+#: src/Admin/Poll/views/design/index.php:76
+#: src/Admin/Poll/views/design/index.php:220
+msgid "Center"
+msgstr "中心"
+
+#: src/Admin/Poll/views/design/index.php:79
+#: src/Admin/Poll/views/design/index.php:133
+#: src/Admin/Poll/views/design/index.php:223
+#: src/Admin/Poll/views/design/index.php:325
+msgid "Left"
+msgstr "左"
+
+#: src/Admin/Poll/views/design/index.php:85
+#: src/Admin/Poll/views/design/index.php:229
+msgid "Transform"
+msgstr "变形"
+
+#: src/Admin/Poll/views/design/index.php:93
+#: src/Admin/Poll/views/design/index.php:234
+msgid "Normal"
+msgstr "正常"
+
+#: src/Admin/Poll/views/design/index.php:96
+#: src/Admin/Poll/views/design/index.php:237
+msgid "UPPERCASE"
+msgstr "大写"
+
+#: src/Admin/Poll/views/design/index.php:99
+#: src/Admin/Poll/views/design/index.php:240
+msgid "lowercase"
+msgstr "小写"
+
+#: src/Admin/Poll/views/design/index.php:102
+#: src/Admin/Poll/views/design/index.php:243
+msgid "Capitalize"
+msgstr "开头字母大写"
+
+#: src/Admin/Poll/views/design/index.php:112
+#: src/Admin/Poll/views/design/index.php:307
+msgid "Top"
+msgstr "顶端"
+
+#: src/Admin/Poll/views/design/index.php:126
+#: src/Admin/Poll/views/design/index.php:319
+msgid "Bottom"
+msgstr "底部"
+
+#: src/Admin/Poll/views/design/index.php:261
+msgid "Style"
+msgstr "样式"
+
+#: src/Admin/Poll/views/design/index.php:271
+msgid "Solid"
+msgstr "实线"
+
+#: src/Admin/Poll/views/design/index.php:274
+msgid "Double"
+msgstr "双线"
+
+#: src/Admin/Poll/views/design/index.php:277
+msgid "Dashed"
+msgstr "虚线"
+
+#: src/Admin/Poll/views/design/index.php:280
+msgid "Dotted"
+msgstr "点状线"
+
+#: src/Admin/Poll/views/design/index.php:283
+msgid "Groove"
+msgstr "凹槽边框"
+
+#: src/Admin/Poll/views/design/index.php:286
+msgid "Hidden"
+msgstr "隐藏边框"
+
+#: src/Admin/Poll/views/design/index.php:289
+msgid "Ridge"
+msgstr "菱形边框"
+
+#: src/Admin/Poll/views/design/index.php:297
+msgid "Radius"
+msgstr "圆角边框"
+
+#: src/Admin/Poll/views/translations/index.php:6
+msgid "Original"
+msgstr "原始"
+
+#: src/Admin/Poll/views/translations/index.php:11
+msgid "Select language"
+msgstr "选择语言"
+
+#: src/Admin/Poll/views/translations/index.php:20
+msgid "Question #{{$index+1}}"
+msgstr "问题#{{$index+1}}"
+
+#: src/Admin/Poll/views/integration/widget.php:8
+msgid "Add it to sidebar"
+msgstr "添加至侧边栏"
+
+#: src/Admin/Poll/views/integration/widget.php:11
+msgid "Start by adding this poll to one of available sidebars:"
+msgstr "开始添加投票至其中一个可用侧边栏:"
+
+#: src/Admin/Poll/views/integration/widget.php:15
+msgid "Select a sidebar"
+msgstr "选择侧边栏"
+
+#: src/Admin/Poll/views/integration/widget.php:34
+msgid ""
+"Open the page which you have the same sidebar and test poll functionality."
+msgstr "打开有同样侧边栏的页面并检测投票功能."
+
+#: src/Admin/Poll/views/integration/embed.php:8
+msgid "Copy code"
+msgstr "复制代码"
+
+#: src/Admin/Poll/views/integration/embed.php:11
+msgid "Start by copying the following HTML code:"
+msgstr "开始复制以下HTML代码:"
+
+#: src/Admin/Poll/views/integration/embed.php:29
+msgid "Paste the code"
+msgstr "粘贴代码"
+
+#: src/Admin/Poll/views/integration/embed.php:32
+msgid "Paste the copied code into an HTML page."
+msgstr "粘贴所复制的代码到HTML页面."
+
+#: src/Admin/Poll/views/integration/embed.php:45
+msgid ""
+"Open the page which you have pasted the code in and test poll functionality."
+msgstr "打开您已经粘贴代码的页面并测试投票功能."
+
+#: src/Admin/Poll/views/integration/email.php:8
+msgid "Prepare email template"
+msgstr "准备邮件模板"
+
+#: src/Admin/Poll/views/integration/email.php:11
+msgid "Start by preparing your email template with your questions and choices."
+msgstr "开始准备您的邮件模板并附上问题和选项."
+
+#: src/Admin/Poll/views/integration/email.php:21
+msgid "Adjust choices links"
+msgstr "调整选项链接"
+
+#: src/Admin/Poll/views/integration/email.php:24
+msgid "Copy and paste choices links from the following list:"
+msgstr "从以下列表中复制并粘贴选项链接:"
+
+#: src/Admin/Poll/views/integration/email.php:67
+msgid "Send a test email to yourself and test poll functionality."
+msgstr "向自己发送测试邮件并测试投票功能."
+
+#: src/Admin/Poll/views/integration/link.php:8
+msgid "Copy the link"
+msgstr "复制链接"
+
+#: src/Admin/Poll/views/integration/link.php:11
+msgid "Start by copying the following link:"
+msgstr "开始复制以下链接:"
+
+#: src/Admin/Poll/views/integration/link.php:28
+msgid "Paste the link"
+msgstr "粘贴链接"
+
+#: src/Admin/Poll/views/integration/link.php:31
+msgid "Paste the copied link anywhere like pages and posts."
+msgstr "粘贴已经复制的链接在任何地方如页面和文章."
+
+#: src/Admin/Poll/views/integration/link.php:44
+msgid ""
+"Open the page which you have pasted the link in and test poll functionality."
+msgstr "打开您已经粘贴链接的页面并测试投票功能."
+
+#: src/Admin/Poll/views/integration/shortcode.php:8
+msgid "Copy shortcode"
+msgstr "复制短代码"
+
+#: src/Admin/Poll/views/integration/shortcode.php:11
+msgid "Start by copying the following shortcode:"
+msgstr "开始复制以下短代码:"
+
+#: src/Admin/Poll/views/integration/shortcode.php:35
+msgid "Paste the shortcode"
+msgstr "粘贴短代码"
+
+#: src/Admin/Poll/views/integration/shortcode.php:38
+msgid ""
+"Paste the copied shortcode into an area that support shortcodes like pages "
+"and posts."
+msgstr "粘贴已复制的短代码到支持短代码的区域,如页面和文章."
+
+#: src/Admin/Poll/views/integration/shortcode.php:51
+msgid ""
+"Open the page which you have pasted the shortcode in and test poll "
+"functionality."
+msgstr "打开您已粘贴短代码的页面并测试投票功能."
+
+#: src/Admin/Poll/views/choices/choice-image.php:13
+#: src/Admin/Poll/views/choices/choice-html.php:7
+#: src/Admin/Poll/views/choices/choice-text.php:5
+#: src/Admin/Poll/views/choices/choice-video.php:21
+#: src/Admin/Poll/views/choices/choice-audio.php:18
+msgid "Choice label"
+msgstr "选择标签"
+
+#: src/Admin/Poll/views/choices/choice-image.php:18
+msgid "Image URL"
+msgstr "图片URL"
+
+#: src/Admin/Poll/views/choices/choice-image.php:20
+msgid "Full size image URL"
+msgstr "实际尺寸图片URL"
+
+#: src/Admin/Poll/views/choices/choice-image.php:24
+#: src/Admin/Poll/views/choices/choice-video.php:36
+#: src/Admin/Poll/views/choices/choice-video.php:61
+#: src/Admin/Poll/views/choices/choice-audio.php:30
+#: src/Admin/Poll/views/choices/choice-audio.php:52
+msgid "Upload"
+msgstr "上传"
+
+#: src/Admin/Poll/views/choices/choice-image.php:29
+#: src/Admin/Poll/views/choices/choice-video.php:53
+#: src/Admin/Poll/views/choices/choice-audio.php:45
+msgid "Thumbnail URL"
+msgstr "缩略图URL"
+
+#: src/Admin/Poll/views/choices/choice-image.php:31
+#: src/Admin/Poll/views/choices/choice-video.php:55
+#: src/Admin/Poll/views/choices/choice-audio.php:47
+msgid "Thumbnail image URL"
+msgstr "缩略图图像URL"
+
+#: src/Admin/Poll/views/choices/choice-image.php:36
+#: src/Admin/Poll/views/choices/choice-video.php:65
+#: src/Admin/Poll/views/choices/choice-audio.php:56
+msgid "Available sizes"
+msgstr "可用尺寸"
+
+#: src/Admin/Poll/views/choices/choices.php:28
+msgid "Shuffle"
+msgstr "随机排列"
+
+#: src/Admin/Poll/views/choices/choices.php:32
+msgid "Random Votes"
+msgstr "随机投票"
+
+#: src/Admin/Poll/views/choices/choices.php:40
+msgid "Filter"
+msgstr "过滤"
+
+#: src/Admin/Poll/views/choices/choices.php:48
+msgid "Reset Votes"
+msgstr "重置投票"
+
+#: src/Admin/Poll/views/choices/choices.php:55
+msgid "One choice per line."
+msgstr "每行一个选项."
+
+#: src/Admin/Poll/views/choices/choices.php:68
+#: src/Admin/Poll/views/choices/choices.php:119
+#: src/Admin/Poll/views/choices/choice.php:17
+msgid "Image"
+msgstr "图像"
+
+#: src/Admin/Poll/views/choices/choices.php:72
+#: src/Admin/Poll/views/choices/choices.php:125
+#: src/Admin/Poll/views/choices/choice.php:18
+msgid "Video"
+msgstr "视频"
+
+#: src/Admin/Poll/views/choices/choices.php:76
+#: src/Admin/Poll/views/choices/choices.php:131
+#: src/Admin/Poll/views/choices/choice.php:19
+msgid "Audio"
+msgstr "音频"
+
+#: src/Admin/Poll/views/choices/choices.php:86
+msgid "No choices yet. Add some by clicking on buttons below."
+msgstr "还没有选项. 通过点击以下按钮添加."
+
+#: src/Admin/Poll/views/choices/choice-video.php:27
+msgid "Video URL"
+msgstr "视频URL"
+
+#: src/Admin/Poll/views/choices/choice-video.php:29
+msgid "Full size video URL"
+msgstr "实际尺寸视频URL"
+
+#: src/Admin/Poll/views/choices/choice-video.php:43
+#: src/Admin/Poll/views/choices/choice-audio.php:36
+msgid "Yes"
+msgstr "是"
+
+#: src/Admin/Poll/views/choices/choice-video.php:47
+#: src/Admin/Poll/views/choices/choice-audio.php:39
+msgid "No"
+msgstr "否"
+
+#: src/Admin/Poll/views/choices/choice-audio.php:23
+msgid "Audio URL"
+msgstr "音频URL"
+
+#: src/Admin/Poll/views/choices/choice-audio.php:25
+msgid "Full size audio URL"
+msgstr "实际尺寸音频URL"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:4
+msgid "OneSignal App ID"
+msgstr "OneSignal 应用ID"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:4
+msgid "Get one"
+msgstr "得到一个"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:10
+msgid "OneSignal API Key"
+msgstr "OneSignal API 秘钥"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:24
+#: src/Admin/Poll/views/settings/notifications/email.php:11
+#: src/Admin/Poll/views/settings/notifications/webhook.php:50
+msgid "Send notification when"
+msgstr "当......发送通知"
+
+#: src/Admin/Poll/views/settings/notifications/push.php:29
+#: src/Admin/Poll/views/settings/notifications/email.php:16
+#: src/Admin/Poll/views/settings/notifications/webhook.php:55
+msgid "New vote has been casted"
+msgstr "新投票已被投掷"
+
+#: src/Admin/Poll/views/settings/notifications/email.php:4
+msgid "Recipient email"
+msgstr "接收者邮件"
+
+#: src/Admin/Poll/views/settings/notifications/webhook.php:4
+msgid "URL"
+msgstr "URL"
+
+#: src/Admin/Poll/views/settings/notifications/webhook.php:9
+msgid "This URL will receive an HTTP POST with the following body"
+msgstr "此URL将接受一个带有以下主体的HTTP POST"
+
+#: src/Admin/Poll/views/settings/results/sort.php:4
+msgid "Sort results by"
+msgstr "分类结果按照"
+
+#: src/Admin/Poll/views/settings/results/sort.php:10
+#: src/Admin/Poll/views/settings/choices/sort.php:10
+msgid "Position"
+msgstr "位置"
+
+#: src/Admin/Poll/views/settings/results/sort.php:25
+#: src/Admin/Poll/views/settings/choices/sort.php:25
+msgid "Random"
+msgstr "随机"
+
+#: src/Admin/Poll/views/settings/results/sort.php:34
+#: src/Admin/Poll/views/settings/choices/sort.php:34
+msgid "Direction"
+msgstr "方向"
+
+#: src/Admin/Poll/views/settings/results/sort.php:40
+#: src/Admin/Poll/views/settings/choices/sort.php:40
+msgid "Descending"
+msgstr "降序"
+
+#: src/Admin/Poll/views/settings/results/sort.php:45
+#: src/Admin/Poll/views/settings/choices/sort.php:45
+msgid "Ascending"
+msgstr "升序"
+
+#: src/Admin/Poll/views/settings/results/format.php:4
+msgid "Votes format"
+msgstr "投票格式"
+
+#: src/Admin/Poll/views/settings/results/format.php:6
+msgid "How votes are presented"
+msgstr "投票如何被展现"
+
+#: src/Admin/Poll/views/settings/results/format.php:11
+msgid "{{votes}} for votes number."
+msgstr "{{votes}}为投票数量."
+
+#: src/Admin/Poll/views/settings/results/format.php:16
+msgid "{{votesPercentage}} for votes percentage."
+msgstr "{{votesPercentage}} 为投票百分比."
+
+#: src/Admin/Poll/views/settings/results/format.php:21
+msgid "{{votesWithLabel}} for votes with label."
+msgstr "{{votesWithLabel}} 为带标签投票."
+
+#: src/Admin/Poll/views/settings/results/format.php:26
+msgid "{{votesTotal}} for total votes."
+msgstr "{{votesTotal}}为总投票数."
+
+#: src/Admin/Poll/views/settings/results/format.php:31
+msgid "{{votesTotalWithLabel}} for total votes with label."
+msgstr "{{votesTotalWithLabel}} 为带标签总投票数."
+
+#: src/Admin/Poll/views/settings/results/visibility.php:8
+msgid "Show results for voters and non-voters"
+msgstr "为投票者和非投票者显示结果"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:17
+msgid "Show results for voters only"
+msgstr "仅为投票者显示结果"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:26
+msgid "Hide results"
+msgstr "隐藏结果"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:34
+msgid "Hidden results message"
+msgstr "隐藏结果信息"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:44
+msgid "Until quota is reached"
+msgstr "直到达到定额"
+
+#: src/Admin/Poll/views/settings/results/visibility.php:51
+msgid "Until end date is reached"
+msgstr "直到结束日期"
+
+#: src/Admin/Poll/views/settings/customization/index.php:8
+msgid "Customization?<br>We have got your back!"
+msgstr "自定义?<br>我们会给您提供支持!"
+
+#: src/Admin/Poll/views/settings/customization/index.php:9
+msgid ""
+"If you need custom feature just let us know we will be happy to serve you!"
+msgstr "如果您需要自定义特性,请让我们知晓,我们会很荣幸为您服务!"
+
+#: src/Admin/Poll/views/settings/customization/index.php:11
+msgid "Get a quote"
+msgstr "获得报价"
+
+#: src/Admin/Poll/views/settings/seo/index.php:13
+msgid "Description"
+msgstr "描述"
+
+#: src/Admin/Poll/views/settings/seo/index.php:19
+msgid "Characters left."
+msgstr "所剩字符."
+
+#: src/Admin/Poll/views/settings/seo/index.php:25
+msgid "Template variables"
+msgstr "模板变量"
+
+#: src/Admin/Poll/views/settings/seo/index.php:28
+msgid "{{title}} for poll title."
+msgstr "{{title}} 为投票标题。"
+
+#: src/Admin/Poll/views/settings/seo/index.php:31
+msgid "{{sitename}} for website title."
+msgstr "{{sitename}} 为网站标题."
+
+#: src/Admin/Poll/views/settings/content/results.php:4
+#: src/Admin/Poll/views/settings/content/vote.php:4
+msgid "Above"
+msgstr "以上"
+
+#: src/Admin/Poll/views/settings/content/results.php:6
+msgid "This content will be shown above results."
+msgstr "该内容将在结果之上显示."
+
+#: src/Admin/Poll/views/settings/content/results.php:14
+#: src/Admin/Poll/views/settings/content/vote.php:14
+msgid "Below"
+msgstr "以下"
+
+#: src/Admin/Poll/views/settings/content/results.php:16
+msgid "This content will be shown below results."
+msgstr "该内容将在结果之下显示."
+
+#: src/Admin/Poll/views/settings/content/vote.php:6
+msgid "This content will be shown above question and choices."
+msgstr "该内容将在问题与选项之上显示."
+
+#: src/Admin/Poll/views/settings/content/vote.php:16
+msgid "This content will be shown below question and choices."
+msgstr "该内容将在问题与选项之下显示."
+
+#: src/Admin/Poll/views/settings/choices/sort.php:4
+msgid "Sort choices by"
+msgstr "分类选项按照"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:4
+msgid "Block based on"
+msgstr "阻止基于"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:7
+msgid "The methods used to block exceeding the limits of voting."
+msgstr "这些方法用于防止超过投票限额."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:13
+msgid "Cookies"
+msgstr "Cookies"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:25
+msgid "Authenticated user"
+msgstr "身份验证的用户"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:33
+msgid "Votes per session"
+msgstr "每时间段投票数"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:35
+msgid "How many times can the user vote using the same session."
+msgstr "用户可以用相同的时间段投票多少次."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:44
+msgid "Votes per user"
+msgstr "每个用户投票数"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:46
+msgid "How many times can the authenticated user vote."
+msgstr "身份验证用户可以投票多少次."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:55
+msgid "Votes per IP"
+msgstr "每个IP投票数"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:57
+msgid "How many times can the user vote using the same IP."
+msgstr "用户可以使用同一IP投票多少次."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:66
+msgid "Timeout (seconds)"
+msgstr "超时(秒)"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:68
+msgid "The time period before the user can vote again."
+msgstr "在用户可以再次投票的时间周期。"
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:74
+msgid ""
+"After this period, users will be able to vote again. To lock the vote "
+"permanently, use 0 as a value."
+msgstr "这一时期之后，用户可以再次投票.要永久锁住该投票,请用0作为值."
+
+#: src/Admin/Poll/views/settings/vote/frequency.php:77
+msgid ""
+"Heads up! The database will be filled with permanent records which may "
+"affect the overall performance."
+msgstr "注意!数据库将被永久数据填充,也许会影响整体的性能表现."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:7
+msgid "Time period"
+msgstr "时间区域"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:16
+msgid "Start date"
+msgstr "开始时间"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:18
+msgid "Voting will be closed before reaching this date."
+msgstr "到达该日期之前投票将关闭."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:27
+msgid "End date"
+msgstr "结束日期"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:29
+msgid "Voting will be closed after reaching this date."
+msgstr "到达该日期之后投票将被关闭."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:44
+msgid "Membership"
+msgstr "会员"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:53
+msgid "Required membership roles"
+msgstr "必要的会员角色"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:55
+msgid "The membership types that can vote."
+msgstr "可以投票的会员类型."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:65
+msgid "Hold Control/Command for multiple selection."
+msgstr "多个选项请按住 control/command 键."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:76
+msgid "Quota"
+msgstr "定额"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:85
+msgid "Number of votes"
+msgstr "投票数量"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:87
+msgid "The quota where the poll will not accept votes after reaching."
+msgstr "投票达到定额后,将不再接收投票."
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:103
+msgid "Region (IP based)"
+msgstr "区域(基于IP)"
+
+#: src/Admin/Poll/views/settings/vote/limitations.php:153
+msgid "Add new rule"
+msgstr "添加新规则"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:3
+msgid "AJAX"
+msgstr "AJAX"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:5
+msgid "Load poll in-place without reloading the whole page."
+msgstr "无需重新加载整个页面便可原位加载投票."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:8
+msgid "Scroll up after vote submission"
+msgstr "提交投票后向上滚动"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:10
+msgid "Scroll up to poll viewport after submitting a vote."
+msgstr "提交投票之后向上滚动到视口."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:13
+msgid "One-click vote"
+msgstr "一键部署投票"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:15
+msgid "The user will be able to vote by clicking on the choice directly."
+msgstr "通过直接点击选项,用户将能够进行投票."
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:18
+msgid "Question by question"
+msgstr "问题接着问题"
+
+#: src/Admin/Poll/views/design/tabs/behaviours.php:20
+msgid "Display questions one by one."
+msgstr "逐个显示问题."
+
+#: src/Admin/Poll/views/design/tabs/templates.php:12
+#: src/Admin/Poll/views/design/tabs/templates.php:41
+msgid "Customized Template"
+msgstr "自定义模板"
+
+#: src/Admin/Poll/views/design/tabs/templates.php:46
+msgid "Customization service"
+msgstr "自定义服务"
+
+#: src/Admin/Poll/views/design/tabs/templates.php:50
+msgid "Get Quote"
+msgstr "获得报价"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:4
+msgid "Transition"
+msgstr "过渡"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:15
+msgid "Fade"
+msgstr "消减"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:20
+msgid "Slide"
+msgstr "滑动"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:29
+msgid "Animation duration"
+msgstr "动画时长"
+
+#: src/Admin/Poll/views/design/tabs/effects.php:30
+msgid "Animation and transition duration"
+msgstr "动画与过渡时长"
+
+#: src/Admin/Poll/views/design/tabs/text.php:3
+msgid "Typography"
+msgstr "字体排印"
+
+#: src/Admin/Poll/views/design/tabs/custom-css.php:1
+msgid "Add your own CSS here"
+msgstr "在此添加您自己的CSS"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:3
+msgid "Primary"
+msgstr "主要"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:7
+msgid "Secondary"
+msgstr "次要"
+
+#: src/Admin/Poll/views/design/tabs/colors.php:11
+msgid "Accent"
+msgstr "强调"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:3
+msgid "Choices per row"
+msgstr "每行选项"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:8
+msgid "Questions per row"
+msgstr "每行问题"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:13
+msgid "Maximum width"
+msgstr "最大宽度"
+
+#: src/Admin/Poll/views/design/tabs/layout.php:17
+msgid "Gutter"
+msgstr "槽宽"
+
+#. Description of the plugin
+msgid "Yet another powerful plugin."
+msgstr "另外一个强大的插件."
+
+#. URI of the plugin
+msgid "https://totalpoll.com"
+msgstr "https://totalpoll.com"
+
+#. Author of the plugin
+msgid "TotalSuite"
+msgstr "TotalSuite"
+
+#. Author URI of the plugin
+msgid "http://totalsuite.net"
+msgstr "http://totalsuite.net"
