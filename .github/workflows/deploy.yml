@@ -14,7 +14,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      DEPLOY_PATH: /home/dls0/deadlawyers.org/www
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup SSH key and known hosts
         shell: bash
         env:
@@ -30,9 +35,8 @@ jobs:
           ssh-keygen -y -f ~/.ssh/id_ed25519 >/dev/null
           touch ~/.ssh/known_hosts
           ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
-          echo "Deploy target: ${DEPLOY_HOST}:${PORT}"
 
-      - name: Deploy to production (www)
+      - name: Upload typography plugin (www)
         shell: bash
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -41,6 +45,7 @@ jobs:
         run: |
           set -euo pipefail
           PORT="${DEPLOY_PORT:-22}"
+
           ssh \
             -p "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -51,10 +56,29 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" '
-              set -euo pipefail
-              cd /home/dls0/deadlawyers.org
-              git fetch origin
-              git checkout main
-              git pull --ff-only origin main
-            '
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
+
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            wp-content/mu-plugins/dls-typography-pair.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php"
+
+          ssh \
+            -p "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php'"
