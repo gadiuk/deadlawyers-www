@@ -22,6 +22,7 @@ jobs:
       PLUGIN_PATH_AUTHOR_ACTIVATOR: wp-content/mu-plugins/00-dls-native-authors-activate.php
       PLUGIN_PATH_ACTIVE_AUTHORS: wp-content/mu-plugins/dls-most-active-authors-shortcode.php
       PLUGIN_PATH_CATEGORY_SHOWCASE: wp-content/mu-plugins/dls-category-showcase-shortcode.php
+      PLUGIN_PATH_CATEGORY_SINGLE: wp-content/mu-plugins/zz-dls-category-showcase-single-category.php
     steps:
       - name: Download MU plugins from repository
         shell: bash
@@ -54,10 +55,17 @@ jobs:
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${PLUGIN_PATH_CATEGORY_SHOWCASE}?ref=${GITHUB_SHA}" \
             -o /tmp/dls-category-showcase-shortcode.php
 
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${PLUGIN_PATH_CATEGORY_SINGLE}?ref=${GITHUB_SHA}" \
+            -o /tmp/zz-dls-category-showcase-single-category.php
+
           test -s /tmp/dls-typography-pair.php
           test -s /tmp/00-dls-native-authors-activate.php
           test -s /tmp/dls-most-active-authors-shortcode.php
           test -s /tmp/dls-category-showcase-shortcode.php
+          test -s /tmp/zz-dls-category-showcase-single-category.php
 
       - name: Setup SSH key and known hosts
         shell: bash
@@ -149,6 +157,19 @@ jobs:
             /tmp/dls-category-showcase-shortcode.php \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-showcase-shortcode.php"
 
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            /tmp/zz-dls-category-showcase-single-category.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+
           ssh \
             -p "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -159,4 +180,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-most-active-authors-shortcode.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-showcase-shortcode.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-most-active-authors-shortcode.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-showcase-shortcode.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php'"
