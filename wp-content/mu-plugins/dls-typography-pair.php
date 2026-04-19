@@ -23,8 +23,7 @@ function dls_typography_pair_css_www() {
   --global-heading-font-family: var(--dls-font-heading);
 }
 
-body,
-.editor-styles-wrapper {
+body {
   font-family: var(--dls-font-body);
   font-size: clamp(1rem, 0.94rem + 0.35vw, 1.125rem);
   line-height: 1.72;
@@ -121,8 +120,7 @@ label,
 }
 
 @media (max-width: 782px) {
-  body,
-  .editor-styles-wrapper {
+  body {
     font-size: 1.0625rem;
   }
 
@@ -145,10 +143,3 @@ function dls_typography_pair_enqueue_frontend_www() {
 	wp_add_inline_style( $handle, dls_typography_pair_css_www() );
 }
 add_action( 'wp_enqueue_scripts', 'dls_typography_pair_enqueue_frontend_www', 30 );
-
-function dls_typography_pair_enqueue_editor_www() {
-	$handle = 'dls-typography-pair-editor';
-	wp_enqueue_style( $handle, dls_typography_pair_fonts_url(), array(), null );
-	wp_add_inline_style( $handle, dls_typography_pair_css_www() );
-}
-add_action( 'enqueue_block_editor_assets', 'dls_typography_pair_enqueue_editor_www' );
