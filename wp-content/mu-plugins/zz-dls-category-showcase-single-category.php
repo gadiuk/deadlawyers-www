@@ -1,12 +1,43 @@
 <?php
 /**
  * Plugin Name: DLS Category Showcase Single Category Mode
- * Description: Forces dls_category_showcase to render only one category when categories attribute is provided.
- * Version: 1.0.0
+ * Description: Forces dls_category_showcase to render one explicit category and hides duplicate internal sidebar.
+ * Version: 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
+
+if ( ! function_exists( 'dls_category_showcase_strip_internal_sidebar' ) ) {
+	/**
+	 * Remove shortcode-internal sidebar and collapse shell to one column.
+	 *
+	 * @param string $html Shortcode HTML.
+	 * @return string
+	 */
+	function dls_category_showcase_strip_internal_sidebar( $html ) {
+		if ( '' === trim( (string) $html ) ) {
+			return '';
+		}
+
+		$html = preg_replace(
+			'#\s*<aside class="dls-category-showcase__sidebar"[^>]*>.*?</aside>\s*#is',
+			'',
+			(string) $html,
+			1
+		);
+
+		$html = str_replace(
+			'dls-category-showcase__shell',
+			'dls-category-showcase__shell dls-category-showcase__shell--no-sidebar',
+			(string) $html
+		);
+
+		$inline_style = '<style>.dls-category-showcase__shell.dls-category-showcase__shell--no-sidebar{grid-template-columns:minmax(0,1fr)!important;}</style>';
+
+		return $inline_style . $html;
+	}
 }
 
 if ( ! function_exists( 'dls_category_showcase_single_category_wrapper' ) ) {
@@ -33,7 +64,9 @@ if ( ! function_exists( 'dls_category_showcase_single_category_wrapper' ) ) {
 			$atts['sections'] = 1;
 		}
 
-		return dls_category_showcase_shortcode( $atts );
+		$output = dls_category_showcase_shortcode( $atts );
+
+		return dls_category_showcase_strip_internal_sidebar( $output );
 	}
 }
 
