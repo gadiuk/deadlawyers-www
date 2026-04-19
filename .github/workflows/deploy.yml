@@ -18,20 +18,30 @@ jobs:
       contents: read
     env:
       DEPLOY_PATH: /home/dls0/deadlawyers.org/www
-      PLUGIN_PATH: wp-content/mu-plugins/dls-typography-pair.php
+      PLUGIN_PATH_TYPO: wp-content/mu-plugins/dls-typography-pair.php
+      PLUGIN_PATH_AUTHOR_ACTIVATOR: wp-content/mu-plugins/00-dls-native-authors-activate.php
     steps:
-      - name: Download typography plugin from repository
+      - name: Download MU plugins from repository
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+
           curl -fsSL \
             -H "Authorization: Bearer ${GH_TOKEN}" \
             -H "Accept: application/vnd.github.raw" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${PLUGIN_PATH}?ref=${GITHUB_SHA}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${PLUGIN_PATH_TYPO}?ref=${GITHUB_SHA}" \
             -o /tmp/dls-typography-pair.php
+
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${PLUGIN_PATH_AUTHOR_ACTIVATOR}?ref=${GITHUB_SHA}" \
+            -o /tmp/00-dls-native-authors-activate.php
+
           test -s /tmp/dls-typography-pair.php
+          test -s /tmp/00-dls-native-authors-activate.php
 
       - name: Setup SSH key and known hosts
         shell: bash
@@ -49,7 +59,7 @@ jobs:
           touch ~/.ssh/known_hosts
           ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Upload typography plugin (www)
+      - name: Upload MU plugins (www)
         shell: bash
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -84,6 +94,19 @@ jobs:
             /tmp/dls-typography-pair.php \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php"
 
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            /tmp/00-dls-native-authors-activate.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php"
+
           ssh \
             -p "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -94,4 +117,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php'"
