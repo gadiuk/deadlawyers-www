@@ -197,9 +197,18 @@ if (!function_exists('dls_native_authors_activate_restore_author_by_slug')) {
 
                     foreach ((array) $assignments as $assignment) {
                         $uid = absint($assignment['user_id'] ?? 0);
-                        if ($uid > 0) {
-                            $role_map[$uid] = 'author';
+                        if ($uid < 1) {
+                            continue;
                         }
+
+                        $role = 'author';
+                        if (function_exists('dls_native_authors_normalize_post_role')) {
+                            $role = dls_native_authors_normalize_post_role($assignment['post_role'] ?? 'author');
+                        } elseif (!empty($assignment['post_role']) && strtolower((string) $assignment['post_role']) === 'editor') {
+                            $role = 'editor';
+                        }
+
+                        $role_map[$uid] = $role;
                     }
 
                     if (!isset($role_map[$user_id])) {
