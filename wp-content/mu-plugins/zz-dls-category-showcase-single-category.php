@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Showcase Single Category Mode
  * Description: Forces dls_category_showcase to render one explicit category and hides duplicate internal sidebar.
- * Version: 1.1.0
+ * Version: 1.1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,21 +17,28 @@ if ( ! function_exists( 'dls_category_showcase_strip_internal_sidebar' ) ) {
 	 * @return string
 	 */
 	function dls_category_showcase_strip_internal_sidebar( $html ) {
-		if ( '' === trim( (string) $html ) ) {
+		$html = (string) $html;
+		if ( '' === trim( $html ) ) {
 			return '';
 		}
 
-		$html = preg_replace(
-			'#\s*<aside class="dls-category-showcase__sidebar"[^>]*>.*?</aside>\s*#is',
-			'',
-			(string) $html,
-			1
-		);
+		$token_pos = strpos( $html, 'dls-category-showcase__sidebar' );
+		if ( false !== $token_pos ) {
+			$before      = substr( $html, 0, $token_pos );
+			$aside_start = strrpos( $before, '<aside' );
+			$aside_end   = strpos( $html, '</aside>', $token_pos );
 
-		$html = str_replace(
-			'dls-category-showcase__shell',
+			if ( false !== $aside_start && false !== $aside_end ) {
+				$aside_end = $aside_end + strlen( '</aside>' );
+				$html      = substr( $html, 0, $aside_start ) . substr( $html, $aside_end );
+			}
+		}
+
+		$html = preg_replace(
+			'/\bdls-category-showcase__shell\b/',
 			'dls-category-showcase__shell dls-category-showcase__shell--no-sidebar',
-			(string) $html
+			$html,
+			1
 		);
 
 		$inline_style = '<style>.dls-category-showcase__shell.dls-category-showcase__shell--no-sidebar{grid-template-columns:minmax(0,1fr)!important;}</style>';
