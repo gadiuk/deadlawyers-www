@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Showcase Shortcode
  * Description: Front-page style category sections with featured + supporting posts.
- * Version: 1.0.0
+ * Version: 1.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,6 +37,7 @@ if ( ! function_exists( 'dls_category_showcase_styles' ) ) {
 }
 
 .dls-category-showcase__title {
+  color: #000 !important;
   font-size: clamp(1.55rem, 2.8vw, 2.3rem);
   line-height: 1.1;
   margin: 0 0 .35rem;
@@ -62,6 +63,85 @@ if ( ! function_exists( 'dls_category_showcase_styles' ) ) {
   font-size: .84rem;
   line-height: 1;
   padding: .5rem .7rem;
+  text-decoration: none;
+}
+
+.dls-category-showcase__shell {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 340px);
+}
+
+.dls-category-showcase__main {
+  min-width: 0;
+}
+
+.dls-category-showcase__sidebar {
+  min-width: 0;
+}
+
+.dls-category-showcase__sidebar-inner {
+  position: sticky;
+  top: 1rem;
+}
+
+.dls-category-showcase__sidebar .widget,
+.dls-category-showcase__sidebar-fallback,
+.dls-category-showcase__videos {
+  background: var(--dls-cs-card);
+  border: 1px solid var(--dls-cs-border);
+  border-radius: 14px;
+  margin: 0 0 .85rem;
+  padding: .9rem;
+}
+
+.dls-category-showcase__sidebar .widget:last-child,
+.dls-category-showcase__videos:last-child {
+  margin-bottom: 0;
+}
+
+.dls-category-showcase__videos-title,
+.dls-category-showcase__sidebar-fallback-title {
+  font-size: 1.02rem;
+  margin: 0 0 .7rem;
+}
+
+.dls-category-showcase__videos-grid {
+  display: grid;
+  gap: .75rem;
+}
+
+.dls-category-showcase__video-item {
+  border: 1px solid var(--dls-cs-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dls-category-showcase__video-head {
+  background: #0f0f0f;
+  color: #fff;
+  font-size: .84rem;
+  line-height: 1.2;
+  margin: 0;
+  padding: .55rem .65rem;
+}
+
+.dls-category-showcase__video-embed {
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.dls-category-showcase__video-embed iframe,
+.dls-category-showcase__video-embed video {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.dls-category-showcase__video-link {
+  display: inline-block;
+  font-size: .9rem;
+  padding: .65rem;
   text-decoration: none;
 }
 
@@ -167,6 +247,16 @@ if ( ! function_exists( 'dls_category_showcase_styles' ) ) {
   gap: .75rem;
 }
 
+@media (max-width: 1100px) {
+  .dls-category-showcase__shell {
+    grid-template-columns: 1fr;
+  }
+
+  .dls-category-showcase__sidebar-inner {
+    position: static;
+  }
+}
+
 @media (max-width: 900px) {
   .dls-category-showcase__grid {
     grid-template-columns: 1fr;
@@ -204,7 +294,7 @@ if ( ! function_exists( 'dls_category_showcase_enqueue_styles' ) ) {
 			return;
 		}
 
-		wp_register_style( $handle, false, array(), '1.0.0' );
+		wp_register_style( $handle, false, array(), '1.1.0' );
 		wp_enqueue_style( $handle );
 		wp_add_inline_style( $handle, dls_category_showcase_styles() );
 	}
@@ -224,7 +314,7 @@ if ( ! function_exists( 'dls_category_showcase_resolve_terms' ) ) {
 
 		$categories = trim( (string) $categories );
 		if ( '' !== $categories ) {
-			$parts   = array_filter( array_map( 'trim', explode( ',', $categories ) ) );
+			$parts    = array_filter( array_map( 'trim', explode( ',', $categories ) ) );
 			$term_ids = array();
 			$slugs    = array();
 
@@ -324,7 +414,7 @@ if ( ! function_exists( 'dls_category_showcase_render_meta' ) ) {
 	 * @return string
 	 */
 	function dls_category_showcase_render_meta( $post_id ) {
-		$date = get_the_date( 'Y-m-d', $post_id );
+		$date   = get_the_date( 'Y-m-d', $post_id );
 		$author = get_the_author_meta( 'display_name', (int) get_post_field( 'post_author', $post_id ) );
 
 		$parts = array();
@@ -340,6 +430,95 @@ if ( ! function_exists( 'dls_category_showcase_render_meta' ) ) {
 		}
 
 		return implode( ' | ', $parts );
+	}
+}
+
+if ( ! function_exists( 'dls_category_showcase_render_sidebar_widgets' ) ) {
+	/**
+	 * Render default right sidebar widgets.
+	 *
+	 * @return string
+	 */
+	function dls_category_showcase_render_sidebar_widgets() {
+		$sidebar_ids = apply_filters(
+			'dls_category_showcase_sidebar_ids',
+			array( 'sidebar1', 'sidebar-primary', 'primary-sidebar', 'main-sidebar', 'kadence-sidebar' )
+		);
+
+		ob_start();
+		$rendered = false;
+
+		foreach ( $sidebar_ids as $sidebar_id ) {
+			if ( is_active_sidebar( $sidebar_id ) ) {
+				if ( dynamic_sidebar( $sidebar_id ) ) {
+					$rendered = true;
+				}
+				break;
+			}
+		}
+
+		if ( ! $rendered ) {
+			?>
+			<div class="dls-category-showcase__sidebar-fallback">
+				<h4 class="dls-category-showcase__sidebar-fallback-title"><?php echo esc_html__( 'Панель сайту', 'default' ); ?></h4>
+				<?php echo do_shortcode( '[dls_most_active_authors limit="8" days="365" title="Найактивніші автори"]' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			</div>
+			<?php
+		}
+
+		return (string) ob_get_clean();
+	}
+}
+
+if ( ! function_exists( 'dls_category_showcase_render_videos' ) ) {
+	/**
+	 * Render videos/podcast block.
+	 *
+	 * @param array<int,array<string,string>> $videos Video list.
+	 * @param string                          $title  Block title.
+	 * @return string
+	 */
+	function dls_category_showcase_render_videos( $videos, $title ) {
+		$items = array();
+		foreach ( $videos as $video ) {
+			$url = isset( $video['url'] ) ? esc_url_raw( (string) $video['url'] ) : '';
+			if ( '' === $url ) {
+				continue;
+			}
+			$items[] = array(
+				'label' => isset( $video['label'] ) ? sanitize_text_field( (string) $video['label'] ) : '',
+				'url'   => $url,
+			);
+		}
+
+		if ( empty( $items ) ) {
+			return '';
+		}
+
+		ob_start();
+		?>
+		<section class="dls-category-showcase__videos" aria-label="Project videos and podcasts">
+			<h3 class="dls-category-showcase__videos-title"><?php echo esc_html( $title ); ?></h3>
+			<div class="dls-category-showcase__videos-grid">
+				<?php foreach ( $items as $item ) : ?>
+					<?php $embed = wp_oembed_get( $item['url'], array( 'width' => 1200 ) ); ?>
+					<article class="dls-category-showcase__video-item">
+						<?php if ( '' !== $item['label'] ) : ?>
+							<h4 class="dls-category-showcase__video-head"><?php echo esc_html( $item['label'] ); ?></h4>
+						<?php endif; ?>
+						<div class="dls-category-showcase__video-embed">
+							<?php if ( $embed ) : ?>
+								<?php echo $embed; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<?php else : ?>
+								<a class="dls-category-showcase__video-link" href="<?php echo esc_url( $item['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $item['url'] ); ?></a>
+							<?php endif; ?>
+						</div>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		</section>
+		<?php
+		return (string) ob_get_clean();
 	}
 }
 
@@ -366,6 +545,11 @@ if ( ! function_exists( 'dls_category_showcase_shortcode' ) ) {
 				'posts_per_category' => 5,
 				'show_excerpt'       => 1,
 				'excerpt_words'      => 24,
+				'show_videos'        => 1,
+				'videos_title'       => 'Відео про проєкт',
+				'intro_video'        => 'https://youtu.be/ii7ZQVW7NF8',
+				'podcast_one'        => 'https://www.youtube.com/watch?v=lPLVSWD2JLk&t=1s',
+				'podcast_two'        => 'https://www.youtube.com/watch?v=wY_55HCSOPU',
 			),
 			$atts,
 			'dls_category_showcase'
@@ -374,12 +558,36 @@ if ( ! function_exists( 'dls_category_showcase_shortcode' ) ) {
 		$sections           = max( 1, min( 12, absint( $atts['sections'] ) ) );
 		$posts_per_category = max( 2, min( 12, absint( $atts['posts_per_category'] ) ) );
 		$show_excerpt       = ! in_array( strtolower( (string) $atts['show_excerpt'] ), array( '0', 'false', 'no' ), true );
+		$show_videos        = ! in_array( strtolower( (string) $atts['show_videos'] ), array( '0', 'false', 'no' ), true );
 		$excerpt_words      = max( 8, min( 80, absint( $atts['excerpt_words'] ) ) );
 
 		$terms = dls_category_showcase_resolve_terms( $atts['categories'], $sections );
 		if ( empty( $terms ) ) {
 			return '';
 		}
+
+		$videos_html = '';
+		if ( $show_videos ) {
+			$videos_html = dls_category_showcase_render_videos(
+				array(
+					array(
+						'label' => '1) Intro video about this project',
+						'url'   => (string) $atts['intro_video'],
+					),
+					array(
+						'label' => '2) Podcast 1',
+						'url'   => (string) $atts['podcast_one'],
+					),
+					array(
+						'label' => '3) Podcast 2',
+						'url'   => (string) $atts['podcast_two'],
+					),
+				),
+				(string) $atts['videos_title']
+			);
+		}
+
+		$sidebar_html = dls_category_showcase_render_sidebar_widgets();
 
 		ob_start();
 		?>
@@ -398,63 +606,77 @@ if ( ! function_exists( 'dls_category_showcase_shortcode' ) ) {
 				</nav>
 			</header>
 
-			<?php foreach ( $terms as $term ) : ?>
-				<?php
-				$posts = dls_category_showcase_get_posts( $term->term_id, $posts_per_category );
-				if ( empty( $posts ) ) {
-					continue;
-				}
+			<div class="dls-category-showcase__shell">
+				<div class="dls-category-showcase__main">
+					<?php if ( '' !== $videos_html ) : ?>
+						<?php echo $videos_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php endif; ?>
 
-				$featured = array_shift( $posts );
-				?>
-				<section class="dls-category-showcase__section" id="dls-cat-<?php echo esc_attr( (string) $term->term_id ); ?>">
-					<div class="dls-category-showcase__section-head">
-						<h3 class="dls-category-showcase__section-title">
-							<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
-						</h3>
-						<a class="dls-category-showcase__all" href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html__( 'Усі матеріали', 'default' ); ?></a>
-					</div>
+					<?php foreach ( $terms as $term ) : ?>
+						<?php
+						$posts = dls_category_showcase_get_posts( $term->term_id, $posts_per_category );
+						if ( empty( $posts ) ) {
+							continue;
+						}
 
-					<div class="dls-category-showcase__grid">
-						<article class="dls-category-showcase__featured">
-							<a class="dls-category-showcase__featured-image" href="<?php echo esc_url( get_permalink( $featured->ID ) ); ?>">
-								<?php if ( has_post_thumbnail( $featured->ID ) ) : ?>
-									<?php echo get_the_post_thumbnail( $featured->ID, 'large' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-								<?php endif; ?>
-							</a>
-							<div class="dls-category-showcase__featured-body">
-								<div class="dls-category-showcase__meta"><?php echo esc_html( dls_category_showcase_render_meta( $featured->ID ) ); ?></div>
-								<h4 class="dls-category-showcase__featured-title">
-									<a href="<?php echo esc_url( get_permalink( $featured->ID ) ); ?>"><?php echo esc_html( get_the_title( $featured->ID ) ); ?></a>
-								</h4>
-								<?php if ( $show_excerpt ) : ?>
-									<p class="dls-category-showcase__featured-excerpt">
-										<?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_excerpt( $featured->ID ) ), $excerpt_words, '…' ) ); ?>
-									</p>
-								<?php endif; ?>
+						$featured = array_shift( $posts );
+						?>
+						<section class="dls-category-showcase__section" id="dls-cat-<?php echo esc_attr( (string) $term->term_id ); ?>">
+							<div class="dls-category-showcase__section-head">
+								<h3 class="dls-category-showcase__section-title">
+									<a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a>
+								</h3>
+								<a class="dls-category-showcase__all" href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html__( 'Усі матеріали', 'default' ); ?></a>
 							</div>
-						</article>
 
-						<div class="dls-category-showcase__cards">
-							<?php foreach ( $posts as $post_item ) : ?>
-								<article class="dls-category-showcase__card">
-									<a class="dls-category-showcase__card-image" href="<?php echo esc_url( get_permalink( $post_item->ID ) ); ?>">
-										<?php if ( has_post_thumbnail( $post_item->ID ) ) : ?>
-											<?php echo get_the_post_thumbnail( $post_item->ID, 'medium' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+							<div class="dls-category-showcase__grid">
+								<article class="dls-category-showcase__featured">
+									<a class="dls-category-showcase__featured-image" href="<?php echo esc_url( get_permalink( $featured->ID ) ); ?>">
+										<?php if ( has_post_thumbnail( $featured->ID ) ) : ?>
+											<?php echo get_the_post_thumbnail( $featured->ID, 'large' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 										<?php endif; ?>
 									</a>
-									<div class="dls-category-showcase__card-body">
-										<div class="dls-category-showcase__meta"><?php echo esc_html( dls_category_showcase_render_meta( $post_item->ID ) ); ?></div>
-										<h5 class="dls-category-showcase__card-title">
-											<a href="<?php echo esc_url( get_permalink( $post_item->ID ) ); ?>"><?php echo esc_html( get_the_title( $post_item->ID ) ); ?></a>
-										</h5>
+									<div class="dls-category-showcase__featured-body">
+										<div class="dls-category-showcase__meta"><?php echo esc_html( dls_category_showcase_render_meta( $featured->ID ) ); ?></div>
+										<h4 class="dls-category-showcase__featured-title">
+											<a href="<?php echo esc_url( get_permalink( $featured->ID ) ); ?>"><?php echo esc_html( get_the_title( $featured->ID ) ); ?></a>
+										</h4>
+										<?php if ( $show_excerpt ) : ?>
+											<p class="dls-category-showcase__featured-excerpt">
+												<?php echo esc_html( wp_trim_words( wp_strip_all_tags( get_the_excerpt( $featured->ID ) ), $excerpt_words, '…' ) ); ?>
+											</p>
+										<?php endif; ?>
 									</div>
 								</article>
-							<?php endforeach; ?>
-						</div>
+
+								<div class="dls-category-showcase__cards">
+									<?php foreach ( $posts as $post_item ) : ?>
+										<article class="dls-category-showcase__card">
+											<a class="dls-category-showcase__card-image" href="<?php echo esc_url( get_permalink( $post_item->ID ) ); ?>">
+												<?php if ( has_post_thumbnail( $post_item->ID ) ) : ?>
+													<?php echo get_the_post_thumbnail( $post_item->ID, 'medium' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+												<?php endif; ?>
+											</a>
+											<div class="dls-category-showcase__card-body">
+												<div class="dls-category-showcase__meta"><?php echo esc_html( dls_category_showcase_render_meta( $post_item->ID ) ); ?></div>
+												<h5 class="dls-category-showcase__card-title">
+													<a href="<?php echo esc_url( get_permalink( $post_item->ID ) ); ?>"><?php echo esc_html( get_the_title( $post_item->ID ) ); ?></a>
+												</h5>
+											</div>
+										</article>
+									<?php endforeach; ?>
+								</div>
+							</div>
+						</section>
+					<?php endforeach; ?>
+				</div>
+
+				<aside class="dls-category-showcase__sidebar" aria-label="Right sidebar">
+					<div class="dls-category-showcase__sidebar-inner">
+						<?php echo $sidebar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</div>
-				</section>
-			<?php endforeach; ?>
+				</aside>
+			</div>
 		</section>
 		<?php
 		return (string) ob_get_clean();
