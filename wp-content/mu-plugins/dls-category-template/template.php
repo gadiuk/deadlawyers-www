@@ -40,60 +40,58 @@ $pagination  = paginate_links(
 
 get_header();
 ?>
-<div class="content-container site-container">
-    <div class="dls-cat-page">
-        <header class="dls-cat-page__hero">
-            <p class="dls-cat-page__eyebrow"><?php echo esc_html__( 'Рубрика', 'default' ); ?></p>
-            <h1 class="dls-cat-page__title"><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
-            <div class="dls-cat-page__meta">
-                <?php
-                printf(
-                    /* translators: %d: number of posts in category. */
-                    esc_html__( 'Матеріалів: %d', 'default' ),
-                    (int) $post_count
-                );
-                ?>
-            </div>
-            <?php if ( '' !== $description ) : ?>
-                <p class="dls-cat-page__description"><?php echo esc_html( $description ); ?></p>
-            <?php endif; ?>
-        </header>
-
-        <div class="dls-cat-page-shell">
-            <main id="primary" class="content-area dls-cat-page__main">
-                <div id="main" class="site-main">
-                    <div class="dls-cat-page__stack">
-                        <?php if ( $lead_post instanceof WP_Post ) : ?>
-                            <?php dls_cat_tpl_render_lead( $lead_post ); ?>
-                        <?php elseif ( empty( $main_posts ) ) : ?>
-                            <article class="dls-cat-story dls-cat-story--lead">
-                                <div class="dls-cat-story__body">
-                                    <p class="dls-cat-empty"><?php echo esc_html__( 'У цій рубриці ще немає опублікованих матеріалів.', 'default' ); ?></p>
-                                </div>
-                            </article>
-                        <?php endif; ?>
-
-                        <?php dls_cat_tpl_render_grid( $main_posts ); ?>
-
-                        <?php if ( $pagination ) : ?>
-                            <nav class="dls-cat-pagination" aria-label="<?php echo esc_attr__( 'Навігація рубрики', 'default' ); ?>">
-                                <?php echo wp_kses_post( $pagination ); ?>
-                            </nav>
-                        <?php endif; ?>
+<div class="content-container site-container dls-cat-page-shell">
+    <main id="primary" class="content-area dls-cat-page__main">
+        <div id="main" class="site-main">
+            <div class="dls-cat-page">
+                <header class="dls-cat-page__hero">
+                    <p class="dls-cat-page__eyebrow"><?php echo esc_html__( 'Рубрика', 'default' ); ?></p>
+                    <h1 class="dls-cat-page__title"><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
+                    <div class="dls-cat-page__meta">
+                        <?php
+                        printf(
+                            /* translators: %d: number of posts in category. */
+                            esc_html__( 'Матеріалів: %d', 'default' ),
+                            (int) $post_count
+                        );
+                        ?>
                     </div>
-                </div>
-            </main>
+                    <?php if ( '' !== $description ) : ?>
+                        <p class="dls-cat-page__description"><?php echo esc_html( $description ); ?></p>
+                    <?php endif; ?>
+                </header>
 
-            <aside id="secondary" role="complementary" class="widget-area primary-sidebar dls-cat-page__rail">
-                <div class="dls-cat-page__rail-inner">
-                    <section class="dls-cat-sidebar-card">
-                        <h2 class="dls-cat-sidebar-card__title"><?php echo esc_html__( 'Останні вакансії', 'default' ); ?></h2>
-                        <?php dls_cat_tpl_render_jobs( $jobs ); ?>
-                    </section>
+                <div class="dls-cat-page__stack">
+                    <?php if ( $lead_post instanceof WP_Post ) : ?>
+                        <?php dls_cat_tpl_render_lead( $lead_post ); ?>
+                    <?php elseif ( empty( $main_posts ) ) : ?>
+                        <article class="dls-cat-story dls-cat-story--lead">
+                            <div class="dls-cat-story__body">
+                                <p class="dls-cat-empty"><?php echo esc_html__( 'У цій рубриці ще немає опублікованих матеріалів.', 'default' ); ?></p>
+                            </div>
+                        </article>
+                    <?php endif; ?>
+
+                    <?php dls_cat_tpl_render_grid( $main_posts ); ?>
+
+                    <?php if ( $pagination ) : ?>
+                        <nav class="dls-cat-pagination" aria-label="<?php echo esc_attr__( 'Навігація рубрики', 'default' ); ?>">
+                            <?php echo wp_kses_post( $pagination ); ?>
+                        </nav>
+                    <?php endif; ?>
                 </div>
-            </aside>
+            </div>
         </div>
-    </div>
+    </main>
+
+    <aside id="secondary" role="complementary" class="widget-area primary-sidebar dls-cat-page__rail">
+        <div class="dls-cat-page__rail-inner">
+            <section class="dls-cat-sidebar-card">
+                <h2 class="dls-cat-sidebar-card__title"><?php echo esc_html__( 'Останні вакансії', 'default' ); ?></h2>
+                <?php dls_cat_tpl_render_jobs( $jobs ); ?>
+            </section>
+        </div>
+    </aside>
 </div>
 <?php
 get_footer();
