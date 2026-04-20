@@ -19,19 +19,25 @@ jobs:
     env:
       DEPLOY_PATH: /home/dls0/deadlawyers.org/www
     steps:
-      - name: Download hotfix MU plugin from repository
+      - name: Download category hotfix files from repository
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          plugin_path="wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
-          curl -fsSL \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github.raw" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${plugin_path}?ref=${GITHUB_SHA}" \
-            -o /tmp/zz-dls-category-showcase-single-category.php
-          test -s /tmp/zz-dls-category-showcase-single-category.php
+
+          for plugin_path in \
+            "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php" \
+            "wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php"
+          do
+            out_file="/tmp/$(basename "$plugin_path")"
+            curl -fsSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github.raw" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${plugin_path}?ref=${GITHUB_SHA}" \
+              -o "$out_file"
+            test -s "$out_file"
+          done
 
       - name: Setup SSH key and known hosts
         shell: bash
@@ -49,7 +55,7 @@ jobs:
           touch ~/.ssh/known_hosts
           ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Upload category hotfix (www)
+      - name: Upload category hotfix files (www)
         shell: bash
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -71,18 +77,23 @@ jobs:
             -o StrictHostKeyChecking=yes \
             "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
 
-          scp \
-            -P "$PORT" \
-            -i ~/.ssh/id_ed25519 \
-            -o IdentitiesOnly=yes \
-            -o IdentityAgent=none \
-            -o PreferredAuthentications=publickey \
-            -o PubkeyAuthentication=yes \
-            -o PasswordAuthentication=no \
-            -o KbdInteractiveAuthentication=no \
-            -o StrictHostKeyChecking=yes \
-            /tmp/zz-dls-category-showcase-single-category.php \
-            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+          for file in \
+            zz-dls-category-showcase-single-category.php \
+            zz-dls-category-showcase-single-category-template.php
+          do
+            scp \
+              -P "$PORT" \
+              -i ~/.ssh/id_ed25519 \
+              -o IdentitiesOnly=yes \
+              -o IdentityAgent=none \
+              -o PreferredAuthentications=publickey \
+              -o PubkeyAuthentication=yes \
+              -o PasswordAuthentication=no \
+              -o KbdInteractiveAuthentication=no \
+              -o StrictHostKeyChecking=yes \
+              "/tmp/${file}" \
+              "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/${file}"
+          done
 
           ssh \
             -p "$PORT" \
@@ -94,4 +105,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
