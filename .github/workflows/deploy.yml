@@ -19,7 +19,7 @@ jobs:
     env:
       DEPLOY_PATH: /home/dls0/deadlawyers.org/www
     steps:
-      - name: Download category template files from repository
+      - name: Download MU plugin files from repository
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -40,6 +40,13 @@ jobs:
             -o /tmp/dls-category-template-template.php
           test -s /tmp/dls-category-template-template.php
 
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/wp-content/mu-plugins/dls-typography-pair.php?ref=${GITHUB_SHA}" \
+            -o /tmp/dls-typography-pair.php
+          test -s /tmp/dls-typography-pair.php
+
       - name: Setup SSH key and known hosts
         shell: bash
         env:
@@ -56,7 +63,7 @@ jobs:
           touch ~/.ssh/known_hosts
           ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Upload category template files (www)
+      - name: Upload MU plugin files (www)
         shell: bash
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -104,6 +111,19 @@ jobs:
             /tmp/dls-category-template-template.php \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php"
 
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            /tmp/dls-typography-pair.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php"
+
           ssh \
             -p "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -114,4 +134,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
