@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Template
  * Description: Routes category archives through a dedicated DLS template stored outside the MU root.
- * Version: 4.0.0
+ * Version: 4.1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -279,7 +279,7 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 
 .dls-featured-jobs-list {
   display: grid;
-  gap: .85rem;
+  gap: .8rem;
 }
 
 .dls-featured-job__link {
@@ -291,11 +291,38 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   grid-template-columns: 64px minmax(0, 1fr);
   padding: .8rem;
   text-decoration: none;
+  transition: box-shadow .18s ease, transform .18s ease, border-color .18s ease, background .18s ease;
 }
 
 .dls-featured-job__link:hover {
   box-shadow: 0 12px 28px rgba(17, 17, 17, 0.06);
   transform: translateY(-1px);
+}
+
+.dls-featured-job--featured .dls-featured-job__link {
+  background: linear-gradient(180deg, rgba(255, 246, 229, 0.98), rgba(255, 255, 255, 0.98));
+  border-color: rgba(183, 131, 38, 0.24);
+  box-shadow: 0 16px 30px rgba(183, 131, 38, 0.08);
+}
+
+.dls-featured-job__eyebrow {
+  align-items: center;
+  display: flex;
+  gap: .45rem;
+  margin-bottom: .32rem;
+}
+
+.dls-featured-job__badge {
+  background: #111;
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+  padding: .28rem .45rem;
+  text-transform: uppercase;
 }
 
 .dls-featured-job__logo {
@@ -330,7 +357,7 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 
 .dls-featured-job__title {
   color: #111;
-  font-size: 1rem;
+  font-size: .98rem;
   font-weight: 700;
   line-height: 1.18;
 }
@@ -413,7 +440,7 @@ if ( ! function_exists( 'dls_cat_tpl_enqueue' ) ) {
         }
 
         $handle = 'dls-category-template';
-        wp_register_style( $handle, false, array(), '4.0.0' );
+        wp_register_style( $handle, false, array(), '4.1.0' );
         wp_enqueue_style( $handle );
         wp_add_inline_style( $handle, dls_cat_tpl_styles() );
     }
@@ -577,15 +604,15 @@ if ( ! function_exists( 'dls_cat_tpl_extract_company' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
     /**
-     * Fetch jobs for the category page rail.
+     * Fetch latest jobs for the category page rail.
      *
      * @param int $limit Item limit.
      * @return array<int,array<string,mixed>>
      */
     function dls_cat_tpl_fetch_jobs( $limit ) {
-        $limit = max( 1, min( 12, absint( $limit ) ) );
+        $limit = max( 1, min( 15, absint( $limit ) ) );
 
-        $cache_key = 'dls_cat_tpl_jobs_v4';
+        $cache_key = 'dls_cat_tpl_jobs_v5';
         $cached    = get_transient( $cache_key );
 
         if ( is_array( $cached ) ) {
@@ -593,11 +620,11 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
         }
 
         $response = wp_remote_get(
-            'https://jobs.deadlawyers.org/wp-json/wp/v2/job-listings?per_page=24&_embed=1',
+            'https://jobs.deadlawyers.org/wp-json/wp/v2/job-listings?per_page=30&_embed=1',
             array(
                 'timeout'     => 8,
                 'redirection' => 2,
-                'user-agent'  => 'DeadLawyers-WWW-CategoryTemplate/4.0; ' . home_url( '/' ),
+                'user-agent'  => 'DeadLawyers-WWW-CategoryTemplate/4.1; ' . home_url( '/' ),
             )
         );
 
@@ -610,8 +637,7 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
             return array();
         }
 
-        $featured = array();
-        $regular  = array();
+        $jobs = array();
 
         foreach ( $rows as $row ) {
             if ( ! is_array( $row ) ) {
@@ -625,24 +651,27 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
                 continue;
             }
 
-            $job = array(
+            $featured_raw = $row['meta']['_featured'] ?? '';
+            $is_featured  = false;
+
+            if ( is_bool( $featured_raw ) ) {
+                $is_featured = $featured_raw;
+            } else {
+                $is_featured = in_array( strtolower( (string) $featured_raw ), array( '1', 'true', 'yes', 'on' ), true );
+            }
+
+            $jobs[] = array(
                 'title'       => $title,
                 'link'        => $link,
                 'company'     => dls_cat_tpl_extract_company( $title, $row ),
                 'region'      => dls_cat_tpl_extract_term_name( $row, 'job_listing_region' ),
                 'work_mode'   => dls_cat_tpl_extract_work_mode( $row ),
                 'logo'        => dls_cat_tpl_extract_logo_url( $row ),
-                'is_featured' => in_array( (string) ( $row['meta']['_featured'] ?? '' ), array( '1', 'true' ), true ),
+                'is_featured' => $is_featured,
             );
-
-            if ( $job['is_featured'] ) {
-                $featured[] = $job;
-            } else {
-                $regular[] = $job;
-            }
         }
 
-        $jobs = array_slice( array_merge( $featured, $regular ), 0, 12 );
+        $jobs = array_slice( $jobs, 0, 15 );
         set_transient( $cache_key, $jobs, 5 * MINUTE_IN_SECONDS );
 
         return array_slice( $jobs, 0, $limit );
@@ -788,7 +817,7 @@ if ( ! function_exists( 'dls_cat_tpl_render_grid' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_render_jobs' ) ) {
     /**
-     * Render featured jobs list.
+     * Render latest jobs list.
      *
      * @param array<int,array<string,mixed>> $jobs Jobs payload.
      * @return void
@@ -805,8 +834,13 @@ if ( ! function_exists( 'dls_cat_tpl_render_jobs' ) ) {
             if ( ! is_array( $job ) || empty( $job['title'] ) || empty( $job['link'] ) ) {
                 continue;
             }
+
+            $job_classes = 'dls-featured-job';
+            if ( ! empty( $job['is_featured'] ) ) {
+                $job_classes .= ' dls-featured-job--featured';
+            }
             ?>
-            <article class="dls-featured-job">
+            <article class="<?php echo esc_attr( $job_classes ); ?>">
                 <a class="dls-featured-job__link" href="<?php echo esc_url( (string) $job['link'] ); ?>" target="_blank" rel="noopener noreferrer">
                     <div class="dls-featured-job__logo">
                         <?php if ( ! empty( $job['logo'] ) ) : ?>
@@ -816,6 +850,11 @@ if ( ! function_exists( 'dls_cat_tpl_render_jobs' ) ) {
                         <?php endif; ?>
                     </div>
                     <div class="dls-featured-job__content">
+                        <?php if ( ! empty( $job['is_featured'] ) ) : ?>
+                            <div class="dls-featured-job__eyebrow">
+                                <span class="dls-featured-job__badge"><?php echo esc_html__( 'Топ', 'default' ); ?></span>
+                            </div>
+                        <?php endif; ?>
                         <div class="dls-featured-job__title"><?php echo esc_html( (string) $job['title'] ); ?></div>
                         <?php if ( ! empty( $job['company'] ) ) : ?>
                             <div class="dls-featured-job__company"><?php echo esc_html( (string) $job['company'] ); ?></div>
