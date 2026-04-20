@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Typography Pair
  * Description: Applies PT Serif + IBM Plex Sans typography with readable heading and body rhythm.
- * Version: 1.2.0
+ * Version: 1.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,15 +19,125 @@ function dls_typography_pair_css_www() {
   --dls-font-body: 'PT Serif', Georgia, 'Times New Roman', serif;
   --dls-font-heading: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --dls-font-ui: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --dls-color-accent: #d68a18;
+  --dls-color-accent-rgb: 214, 138, 24;
+  --dls-color-accent-soft: #f6e7ca;
+  --dls-color-ink: #111111;
+  --dls-color-ink-rgb: 17, 17, 17;
   --global-body-font-family: var(--dls-font-body);
   --global-heading-font-family: var(--dls-font-heading);
+  --global-palette1: var(--dls-color-accent);
+  --global-palette1rgb: var(--dls-color-accent-rgb);
+  --global-palette2: var(--dls-color-ink);
+  --global-palette2rgb: var(--dls-color-ink-rgb);
 }
 
 body {
+  color: var(--dls-color-ink);
   font-family: var(--dls-font-body);
   font-size: clamp(1rem, 0.94rem + 0.35vw, 1.125rem);
   line-height: 1.72;
   text-rendering: optimizeLegibility;
+}
+
+body a {
+  color: var(--dls-color-ink);
+}
+
+body a:hover,
+body a:focus {
+  color: var(--dls-color-accent);
+}
+
+.kadence-sticky-header .main-navigation .current-menu-item > a,
+.kadence-sticky-header .main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_item > a,
+.main-navigation a:hover,
+.main-navigation a:focus,
+.header-navigation .header-menu-container a:hover,
+.header-navigation .header-menu-container a:focus,
+.widget a:hover,
+.widget a:focus,
+.footer-navigation a:hover,
+.footer-navigation a:focus,
+.entry-meta a:hover,
+.entry-taxonomies a:hover,
+.kadence-breadcrumbs a:hover,
+.kadence-breadcrumbs a:focus,
+.has-theme-palette1-color,
+.has-theme-palette-1-color,
+.has-kb-palette1-color,
+.has-kb-theme-color,
+.kt-color-primary,
+.kb-color-primary {
+  color: var(--dls-color-accent) !important;
+}
+
+.has-theme-palette1-background-color,
+.has-theme-palette-1-background-color,
+.has-kb-palette1-background-color,
+.has-kb-theme-color-background-color,
+.kt-highlight,
+.kb-highlight {
+  background-color: var(--dls-color-accent) !important;
+}
+
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+.wp-block-button__link,
+.button,
+.kb-button,
+.kt-button,
+.kadence-button,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  background: var(--dls-color-accent);
+  border-color: var(--dls-color-accent);
+  color: var(--dls-color-ink);
+}
+
+button:hover,
+button:focus,
+input[type='button']:hover,
+input[type='button']:focus,
+input[type='submit']:hover,
+input[type='submit']:focus,
+input[type='reset']:hover,
+input[type='reset']:focus,
+.wp-block-button__link:hover,
+.wp-block-button__link:focus,
+.button:hover,
+.button:focus,
+.kb-button:hover,
+.kb-button:focus,
+.kt-button:hover,
+.kt-button:focus,
+.kadence-button:hover,
+.kadence-button:focus,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+  background: var(--dls-color-ink);
+  border-color: var(--dls-color-ink);
+  color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(var(--dls-color-accent-rgb), 0.75);
+  box-shadow: 0 0 0 3px rgba(var(--dls-color-accent-rgb), 0.14);
+}
+
+mark,
+ins,
+::selection {
+  background: rgba(var(--dls-color-accent-rgb), 0.22);
+  color: var(--dls-color-ink);
 }
 
 .entry-content,
@@ -63,6 +173,7 @@ h6,
 .entry-hero h1,
 .entry-hero .entry-title,
 .site-title {
+  color: var(--dls-color-ink);
   font-family: var(--dls-font-heading) !important;
   letter-spacing: -0.01em;
   text-wrap: balance;
@@ -117,7 +228,7 @@ label,
 .wp-block-post-content li a,
 .wp-block-post-content blockquote a,
 .wp-block-post-content td a {
-  background-image: linear-gradient(120deg, rgba(230, 194, 109, 0.18), rgba(230, 194, 109, 0.34));
+  background-image: linear-gradient(120deg, rgba(var(--dls-color-accent-rgb), 0.18), rgba(var(--dls-color-accent-rgb), 0.34));
   background-position: 0 92%;
   background-repeat: no-repeat;
   background-size: 100% .48em;
@@ -380,7 +491,7 @@ function dls_typography_pair_enqueue_frontend_www() {
 	wp_add_inline_style( $handle, dls_typography_pair_css_www() );
 
 	$script_handle = 'dls-typography-pair-js';
-	wp_register_script( $script_handle, false, array(), '1.2.0', true );
+	wp_register_script( $script_handle, false, array(), '1.3.0', true );
 	wp_enqueue_script( $script_handle );
 	wp_add_inline_script( $script_handle, dls_typography_pair_js_www() );
 }
