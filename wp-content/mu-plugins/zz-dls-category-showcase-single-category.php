@@ -1,217 +1,389 @@
 <?php
 /**
- * Plugin Name: DLS Category Archive Template
- * Description: Safe category template with homepage-like cards and right rail jobs/content.
- * Version: 2.1.0
+ * Plugin Name: DLS Category Template
+ * Description: Routes category archives through a dedicated DLS template with editorial layout and jobs rail.
+ * Version: 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+if ( ! function_exists( 'dls_cat_tpl_is_request' ) ) {
+    /**
+     * Determine whether the current request should use the DLS category template.
+     *
+     * @return bool
+     */
+    function dls_cat_tpl_is_request() {
+        return ! is_admin() && ! wp_doing_ajax() && ! is_feed() && is_category();
+    }
+}
+
 if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
     /**
-     * Inline CSS for category template.
+     * Inline styles for the category template.
      *
      * @return string
      */
     function dls_cat_tpl_styles() {
         return <<<'CSS'
-.dls-cat-template .entry-content-wrap {
-  padding: clamp(1rem, 1.8vw, 1.6rem);
+.dls-cat-page-shell {
+  align-items: start;
+  display: grid;
+  gap: clamp(1.25rem, 2vw, 2rem);
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, .9fr);
 }
 
-.dls-cat-template .entry.single-entry.dls-category-archive-entry {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
+.dls-cat-page__main,
+.dls-cat-page__rail,
+.dls-cat-page__rail-inner,
+.dls-cat-page,
+.dls-cat-page__stack,
+.dls-cat-page__grid,
+.dls-cat-story,
+.dls-featured-job,
+.dls-featured-job__content {
+  min-width: 0;
 }
 
-.dls-cat-template .dls-cat-kicker {
-  color: rgba(17, 17, 17, 0.65);
+.dls-cat-page {
+  color: #151515;
+}
+
+.dls-cat-page__hero {
+  background: linear-gradient(180deg, rgba(255, 245, 228, 0.92), rgba(255, 251, 245, 0.88));
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(183, 131, 38, 0.08);
+  margin-bottom: clamp(1rem, 2vw, 1.4rem);
+  padding: clamp(1.25rem, 2vw, 1.8rem);
+}
+
+.dls-cat-page__eyebrow {
+  color: rgba(17, 17, 17, 0.6);
   font-size: .82rem;
-  font-weight: 600;
-  letter-spacing: .04em;
-  margin: 0 0 .25rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin: 0 0 .45rem;
   text-transform: uppercase;
 }
 
-.dls-cat-template .dls-cat-title {
+.dls-cat-page__title {
   color: #000;
-  font-size: clamp(1.9rem, 3.2vw, 2.85rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  letter-spacing: -.03em;
+  line-height: .95;
   margin: 0;
+  text-wrap: balance;
 }
 
-.dls-cat-template .dls-cat-desc {
-  color: rgba(17, 17, 17, 0.78);
-  line-height: 1.56;
-  margin: .7rem 0 0;
-  max-width: 74ch;
+.dls-cat-page__meta {
+  color: rgba(17, 17, 17, 0.62);
+  font-size: .95rem;
+  margin-top: .8rem;
 }
 
-.dls-cat-template .dls-cat-main {
+.dls-cat-page__description {
+  color: rgba(17, 17, 17, 0.8);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin: .9rem 0 0;
+  max-width: 72ch;
+}
+
+.dls-cat-page__stack {
   display: grid;
-  gap: 1rem;
+  gap: clamp(1rem, 1.6vw, 1.35rem);
 }
 
-.dls-cat-template .dls-cat-lead {
-  background: #fff;
+.dls-cat-story {
+  background: rgba(255, 251, 245, 0.9);
   border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: 16px;
+  border-radius: 24px;
+  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.04);
   overflow: hidden;
 }
 
-.dls-cat-template .dls-cat-lead .dls-story-card__media,
-.dls-cat-template .dls-story-card .dls-story-card__media {
-  background: rgba(17, 17, 17, 0.04);
+.dls-cat-story__media {
+  background: rgba(17, 17, 17, 0.05);
   display: block;
 }
 
-.dls-cat-template .dls-cat-lead .dls-story-card__media {
-  aspect-ratio: 16/8.4;
+.dls-cat-story--lead .dls-cat-story__media {
+  aspect-ratio: 16 / 8.5;
 }
 
-.dls-cat-template .dls-story-card .dls-story-card__media {
-  aspect-ratio: 16/9;
+.dls-cat-story--card .dls-cat-story__media {
+  aspect-ratio: 16 / 10;
 }
 
-.dls-cat-template .dls-story-card__media img {
+.dls-cat-story__media img {
   display: block;
   height: 100%;
   object-fit: cover;
   width: 100%;
 }
 
-.dls-cat-template .dls-cat-lead .dls-story-card__body,
-.dls-cat-template .dls-story-card .dls-story-card__body {
-  padding: .95rem 1rem 1rem;
+.dls-cat-story__body {
+  padding: 1rem 1.1rem 1.15rem;
 }
 
-.dls-cat-template .dls-story-card__meta {
-  color: rgba(17, 17, 17, 0.64);
-  font-size: .79rem;
-  margin-bottom: .35rem;
+.dls-cat-story__meta {
+  color: rgba(17, 17, 17, 0.58);
+  font-size: .8rem;
+  font-weight: 600;
+  margin-bottom: .42rem;
 }
 
-.dls-cat-template .dls-story-card__title {
-  color: #000;
-  line-height: 1.15;
-  margin: 0;
-}
-
-.dls-cat-template .dls-story-card__title,
-.dls-cat-template .dls-story-card__excerpt,
-.dls-cat-template .dls-story-card__meta,
-.dls-cat-side-list a,
+.dls-cat-story__title,
+.dls-cat-story__excerpt,
+.dls-cat-sidebar-list a,
 .dls-featured-job__title,
 .dls-featured-job__company,
-.dls-featured-job__type {
+.dls-featured-job__type,
+.dls-cat-empty {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
 
-.dls-cat-template .dls-cat-lead .dls-story-card__title {
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+.dls-cat-story__title {
+  color: #000;
+  letter-spacing: -.02em;
+  line-height: 1.06;
+  margin: 0;
 }
 
-.dls-cat-template .dls-story-card--compact .dls-story-card__title {
-  font-size: clamp(1.02rem, 1.2vw, 1.2rem);
+.dls-cat-story--lead .dls-cat-story__title {
+  font-size: clamp(1.55rem, 2.6vw, 2.2rem);
 }
 
-.dls-cat-template .dls-story-card__title a {
+.dls-cat-story--card .dls-cat-story__title {
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+}
+
+.dls-cat-story__title a {
   color: inherit;
   text-decoration: none;
 }
 
-.dls-cat-template .dls-story-card__excerpt {
-  color: rgba(17, 17, 17, 0.8);
-  line-height: 1.54;
-  margin: .5rem 0 0;
+.dls-cat-story__title a:hover {
+  opacity: .8;
 }
 
-.dls-cat-template .dls-story-grid {
+.dls-cat-story__excerpt {
+  color: rgba(17, 17, 17, 0.8);
+  line-height: 1.62;
+  margin: .6rem 0 0;
+}
+
+.dls-cat-page__grid {
   display: grid;
-  gap: .9rem;
+  gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.dls-cat-template .dls-story-card {
-  background: #fff;
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: 14px;
-  overflow: hidden;
+.dls-cat-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
 }
 
-.dls-cat-template .dls-cat-pagination {
-  margin-top: .2rem;
-}
-
-.dls-cat-template .dls-cat-pagination .page-numbers {
-  border: 1px solid rgba(17, 17, 17, 0.14);
-  border-radius: 9px;
-  display: inline-block;
-  margin: 0 .22rem .22rem 0;
-  min-width: 2rem;
-  padding: .4rem .58rem;
-  text-align: center;
+.dls-cat-pagination .page-numbers {
+  background: rgba(255, 251, 245, 0.9);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 999px;
+  color: #111;
+  display: inline-flex;
+  justify-content: center;
+  min-width: 2.4rem;
+  padding: .5rem .8rem;
   text-decoration: none;
 }
 
-.dls-cat-template .dls-cat-pagination .page-numbers.current {
+.dls-cat-pagination .page-numbers.current {
   background: #111;
   border-color: #111;
   color: #fff;
 }
 
-.dls-cat-side-list {
+.dls-cat-page__rail-inner {
   display: grid;
-  gap: .58rem;
+  gap: 1rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.dls-cat-sidebar-card {
+  background: rgba(255, 251, 245, 0.94);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.04);
+  padding: 1rem;
+}
+
+.dls-cat-sidebar-card__title {
+  color: #111;
+  font-size: 1.2rem;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin: 0 0 .85rem;
+}
+
+.dls-cat-sidebar-list {
+  display: grid;
+  gap: .7rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.dls-cat-side-list a {
+.dls-cat-sidebar-list li {
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  padding-top: .7rem;
+}
+
+.dls-cat-sidebar-list li:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.dls-cat-sidebar-list a {
   color: #111;
-  display: inline-block;
-  font-size: .93rem;
+  display: block;
   line-height: 1.35;
   text-decoration: none;
 }
 
-.dls-cat-side-list time {
-  color: rgba(17, 17, 17, 0.62);
+.dls-cat-sidebar-list a:hover {
+  opacity: .78;
+}
+
+.dls-cat-sidebar-list time {
+  color: rgba(17, 17, 17, 0.55);
   display: block;
   font-size: .78rem;
-  margin-top: .1rem;
+  margin-top: .2rem;
+}
+
+.dls-featured-jobs-list {
+  display: grid;
+  gap: .85rem;
+}
+
+.dls-featured-job__link {
+  background: #fff;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 18px;
+  display: grid;
+  gap: .75rem;
+  grid-template-columns: 64px minmax(0, 1fr);
+  padding: .8rem;
+  text-decoration: none;
+}
+
+.dls-featured-job__link:hover {
+  box-shadow: 0 12px 28px rgba(17, 17, 17, 0.06);
+  transform: translateY(-1px);
 }
 
 .dls-featured-job__logo {
-  background: rgba(17, 17, 17, 0.05);
+  align-items: center;
+  background: rgba(17, 17, 17, 0.04);
+  border-radius: 16px;
+  display: flex;
+  height: 64px;
+  justify-content: center;
+  overflow: hidden;
+  width: 64px;
 }
 
-.dls-featured-job__logo .dls-job-logo-fallback {
+.dls-featured-job__logo img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.dls-job-logo-fallback {
   align-items: center;
-  color: rgba(17, 17, 17, 0.68);
+  color: rgba(17, 17, 17, 0.62);
   display: flex;
   font-size: .72rem;
   height: 100%;
   justify-content: center;
-  min-height: 54px;
-  padding: .3rem;
+  padding: .35rem;
   text-align: center;
+  width: 100%;
 }
 
-@media (max-width: 1024px) {
-  .dls-cat-template .dls-story-grid {
-    grid-template-columns: 1fr;
+.dls-featured-job__title {
+  color: #111;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.dls-featured-job__company {
+  color: rgba(17, 17, 17, 0.72);
+  font-size: .9rem;
+  line-height: 1.25;
+  margin-top: .28rem;
+}
+
+.dls-featured-job__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .36rem;
+  margin-top: .55rem;
+}
+
+.dls-featured-job__type {
+  background: rgba(243, 236, 226, 0.95);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 999px;
+  color: rgba(17, 17, 17, 0.7);
+  font-size: .74rem;
+  padding: .16rem .52rem;
+}
+
+.dls-cat-empty {
+  color: rgba(17, 17, 17, 0.68);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 1120px) {
+  .dls-cat-page-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dls-cat-page__rail-inner {
+    position: static;
+    top: auto;
   }
 }
 
-@media (max-width: 767px) {
-  .dls-cat-template .entry-content-wrap {
-    padding: 1rem;
+@media (max-width: 820px) {
+  .dls-cat-page__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dls-cat-page__hero,
+  .dls-cat-sidebar-card,
+  .dls-cat-story {
+    border-radius: 18px;
+  }
+
+  .dls-featured-job__link {
+    grid-template-columns: 56px minmax(0, 1fr);
+  }
+
+  .dls-featured-job__logo {
+    height: 56px;
+    width: 56px;
   }
 }
 CSS;
@@ -220,29 +392,49 @@ CSS;
 
 if ( ! function_exists( 'dls_cat_tpl_enqueue' ) ) {
     /**
-     * Enqueue styles on category pages only.
+     * Enqueue inline styles for the category template.
      *
      * @return void
      */
     function dls_cat_tpl_enqueue() {
-        if ( ! is_category() ) {
+        if ( ! dls_cat_tpl_is_request() ) {
             return;
         }
 
-        $frontpage_css = trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/dls-frontpage.css';
-        wp_enqueue_style( 'dls-frontpage-category', $frontpage_css, array(), null );
-
         $handle = 'dls-category-template';
-        wp_register_style( $handle, false, array(), '2.1.0' );
+        wp_register_style( $handle, false, array(), '3.0.0' );
         wp_enqueue_style( $handle );
         wp_add_inline_style( $handle, dls_cat_tpl_styles() );
     }
 }
 add_action( 'wp_enqueue_scripts', 'dls_cat_tpl_enqueue', 40 );
 
+if ( ! function_exists( 'dls_cat_tpl_use_template' ) ) {
+    /**
+     * Swap in the custom category template.
+     *
+     * @param string $template Current template path.
+     * @return string
+     */
+    function dls_cat_tpl_use_template( $template ) {
+        if ( ! dls_cat_tpl_is_request() ) {
+            return $template;
+        }
+
+        $custom_template = __DIR__ . '/zz-dls-category-showcase-single-category-template.php';
+
+        if ( file_exists( $custom_template ) ) {
+            return $custom_template;
+        }
+
+        return $template;
+    }
+}
+add_filter( 'template_include', 'dls_cat_tpl_use_template', PHP_INT_MAX );
+
 if ( ! function_exists( 'dls_cat_tpl_extract_term_name' ) ) {
     /**
-     * Extract first taxonomy term name from embedded REST payload.
+     * Extract a taxonomy term label from embedded REST payload.
      *
      * @param array<string,mixed> $job      Job payload.
      * @param string              $taxonomy Taxonomy name.
@@ -275,7 +467,7 @@ if ( ! function_exists( 'dls_cat_tpl_extract_term_name' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_extract_logo_url' ) ) {
     /**
-     * Extract logo URL from embedded featured media payload.
+     * Extract job logo URL from embedded media.
      *
      * @param array<string,mixed> $job Job payload.
      * @return string
@@ -304,7 +496,7 @@ if ( ! function_exists( 'dls_cat_tpl_extract_logo_url' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_extract_work_mode' ) ) {
     /**
-     * Extract readable work mode from job class list.
+     * Convert job listing type classes into readable labels.
      *
      * @param array<string,mixed> $job Job payload.
      * @return string
@@ -348,7 +540,7 @@ if ( ! function_exists( 'dls_cat_tpl_extract_work_mode' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_extract_company' ) ) {
     /**
-     * Extract company name from title or image alt.
+     * Extract company name from title or media alt text.
      *
      * @param string              $title Job title.
      * @param array<string,mixed> $job   Job payload.
@@ -374,7 +566,7 @@ if ( ! function_exists( 'dls_cat_tpl_extract_company' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
     /**
-     * Fetch jobs for right rail.
+     * Fetch jobs for the category page rail.
      *
      * @param int $limit Item limit.
      * @return array<int,array<string,mixed>>
@@ -382,8 +574,9 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
     function dls_cat_tpl_fetch_jobs( $limit ) {
         $limit = max( 1, min( 12, absint( $limit ) ) );
 
-        $cache_key = 'dls_cat_tpl_jobs_v1';
-        $cached = get_transient( $cache_key );
+        $cache_key = 'dls_cat_tpl_jobs_v2';
+        $cached    = get_transient( $cache_key );
+
         if ( is_array( $cached ) ) {
             return array_slice( $cached, 0, $limit );
         }
@@ -393,7 +586,7 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
             array(
                 'timeout'     => 8,
                 'redirection' => 2,
-                'user-agent'  => 'DeadLawyers-WWW-CategoryTemplate/2.1; ' . home_url( '/' ),
+                'user-agent'  => 'DeadLawyers-WWW-CategoryTemplate/3.0; ' . home_url( '/' ),
             )
         );
 
@@ -407,7 +600,7 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
         }
 
         $featured = array();
-        $regular = array();
+        $regular  = array();
 
         foreach ( $rows as $row ) {
             if ( ! is_array( $row ) ) {
@@ -415,7 +608,7 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
             }
 
             $title = wp_strip_all_tags( (string) ( $row['title']['rendered'] ?? '' ) );
-            $link = esc_url_raw( (string) ( $row['link'] ?? '' ) );
+            $link  = esc_url_raw( (string) ( $row['link'] ?? '' ) );
 
             if ( '' === $title || '' === $link ) {
                 continue;
@@ -447,11 +640,11 @@ if ( ! function_exists( 'dls_cat_tpl_fetch_jobs' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_sidebar_posts' ) ) {
     /**
-     * Fetch extra posts for right rail from same category.
+     * Fetch extra posts from the same category for the side rail.
      *
-     * @param int   $term_id      Category ID.
-     * @param int[] $exclude_ids  IDs already in main feed.
-     * @param int   $limit        Item limit.
+     * @param int   $term_id     Category ID.
+     * @param int[] $exclude_ids Posts already displayed in the main query.
+     * @param int   $limit       Item limit.
      * @return WP_Post[]
      */
     function dls_cat_tpl_sidebar_posts( $term_id, $exclude_ids, $limit ) {
@@ -459,7 +652,7 @@ if ( ! function_exists( 'dls_cat_tpl_sidebar_posts' ) ) {
             array(
                 'post_type'              => 'post',
                 'post_status'            => 'publish',
-                'posts_per_page'         => max( 1, min( 12, absint( $limit ) ) ),
+                'posts_per_page'         => max( 1, min( 10, absint( $limit ) ) ),
                 'ignore_sticky_posts'    => true,
                 'no_found_rows'          => true,
                 'update_post_meta_cache' => false,
@@ -475,7 +668,7 @@ if ( ! function_exists( 'dls_cat_tpl_sidebar_posts' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_post_meta_line' ) ) {
     /**
-     * Build compact meta line for post cards.
+     * Build the compact meta line for article cards.
      *
      * @param WP_Post $post Post object.
      * @return string
@@ -485,13 +678,14 @@ if ( ! function_exists( 'dls_cat_tpl_post_meta_line' ) ) {
             return '';
         }
 
-        $date = get_the_date( 'Y-m-d', $post->ID );
+        $date   = get_the_date( 'Y-m-d', $post->ID );
         $author = get_the_author_meta( 'display_name', (int) get_post_field( 'post_author', $post->ID ) );
+        $parts  = array();
 
-        $parts = array();
         if ( '' !== trim( (string) $author ) ) {
             $parts[] = trim( (string) $author );
         }
+
         if ( '' !== trim( (string) $date ) ) {
             $parts[] = trim( (string) $date );
         }
@@ -502,7 +696,7 @@ if ( ! function_exists( 'dls_cat_tpl_post_meta_line' ) ) {
 
 if ( ! function_exists( 'dls_cat_tpl_render_lead' ) ) {
     /**
-     * Render lead article card.
+     * Render the lead article.
      *
      * @param WP_Post $post Lead post.
      * @return void
@@ -512,56 +706,62 @@ if ( ! function_exists( 'dls_cat_tpl_render_lead' ) ) {
             return;
         }
 
-        $title = get_the_title( $post->ID );
-        $url = get_permalink( $post->ID );
-        $excerpt = wp_trim_words( wp_strip_all_tags( get_the_excerpt( $post->ID ) ), 38, '…' );
+        $title   = get_the_title( $post->ID );
+        $url     = get_permalink( $post->ID );
+        $excerpt = wp_trim_words( wp_strip_all_tags( get_the_excerpt( $post->ID ) ), 42, '…' );
         ?>
-        <article class="dls-story-card dls-story-card--lead dls-cat-lead">
-            <a class="dls-story-card__media" href="<?php echo esc_url( $url ); ?>">
+        <article class="dls-cat-story dls-cat-story--lead">
+            <a class="dls-cat-story__media" href="<?php echo esc_url( $url ); ?>">
                 <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
                     <?php echo get_the_post_thumbnail( $post->ID, 'large' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <?php endif; ?>
             </a>
-            <div class="dls-story-card__body">
-                <div class="dls-story-card__meta"><?php echo esc_html( dls_cat_tpl_post_meta_line( $post ) ); ?></div>
-                <h2 class="dls-story-card__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></h2>
-                <p class="dls-story-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+            <div class="dls-cat-story__body">
+                <div class="dls-cat-story__meta"><?php echo esc_html( dls_cat_tpl_post_meta_line( $post ) ); ?></div>
+                <h2 class="dls-cat-story__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></h2>
+                <?php if ( '' !== $excerpt ) : ?>
+                    <p class="dls-cat-story__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+                <?php endif; ?>
             </div>
         </article>
         <?php
     }
 }
 
-if ( ! function_exists( 'dls_cat_tpl_render_compact' ) ) {
+if ( ! function_exists( 'dls_cat_tpl_render_grid' ) ) {
     /**
-     * Render compact article cards.
+     * Render secondary article cards.
      *
-     * @param WP_Post[] $posts Compact posts.
+     * @param WP_Post[] $posts Posts to render.
      * @return void
      */
-    function dls_cat_tpl_render_compact( $posts ) {
+    function dls_cat_tpl_render_grid( $posts ) {
+        $posts = is_array( $posts ) ? array_filter( $posts, 'is_a' ) : array();
+
         if ( empty( $posts ) ) {
             return;
         }
         ?>
-        <div class="dls-story-grid dls-cat-grid">
+        <div class="dls-cat-page__grid">
             <?php foreach ( $posts as $post ) : ?>
                 <?php if ( ! ( $post instanceof WP_Post ) ) { continue; } ?>
                 <?php
-                $title = get_the_title( $post->ID );
-                $url = get_permalink( $post->ID );
+                $title   = get_the_title( $post->ID );
+                $url     = get_permalink( $post->ID );
                 $excerpt = wp_trim_words( wp_strip_all_tags( get_the_excerpt( $post->ID ) ), 24, '…' );
                 ?>
-                <article class="dls-story-card dls-story-card--compact">
-                    <a class="dls-story-card__media" href="<?php echo esc_url( $url ); ?>">
+                <article class="dls-cat-story dls-cat-story--card">
+                    <a class="dls-cat-story__media" href="<?php echo esc_url( $url ); ?>">
                         <?php if ( has_post_thumbnail( $post->ID ) ) : ?>
                             <?php echo get_the_post_thumbnail( $post->ID, 'medium_large' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         <?php endif; ?>
                     </a>
-                    <div class="dls-story-card__body">
-                        <div class="dls-story-card__meta"><?php echo esc_html( dls_cat_tpl_post_meta_line( $post ) ); ?></div>
-                        <h3 class="dls-story-card__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></h3>
-                        <p class="dls-story-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+                    <div class="dls-cat-story__body">
+                        <div class="dls-cat-story__meta"><?php echo esc_html( dls_cat_tpl_post_meta_line( $post ) ); ?></div>
+                        <h3 class="dls-cat-story__title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a></h3>
+                        <?php if ( '' !== $excerpt ) : ?>
+                            <p class="dls-cat-story__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+                        <?php endif; ?>
                     </div>
                 </article>
             <?php endforeach; ?>
@@ -570,150 +770,54 @@ if ( ! function_exists( 'dls_cat_tpl_render_compact' ) ) {
     }
 }
 
-if ( ! function_exists( 'dls_cat_tpl_render' ) ) {
+if ( ! function_exists( 'dls_cat_tpl_render_jobs' ) ) {
     /**
-     * Render category template output.
+     * Render featured jobs list.
      *
+     * @param array<int,array<string,mixed>> $jobs Jobs payload.
      * @return void
      */
-    function dls_cat_tpl_render() {
-        if ( is_admin() || wp_doing_ajax() || is_feed() || ! is_category() ) {
+    function dls_cat_tpl_render_jobs( $jobs ) {
+        if ( empty( $jobs ) ) {
+            echo '<p class="dls-cat-empty">' . esc_html__( 'Вакансії тимчасово недоступні. Перевірте трохи пізніше.', 'default' ) . '</p>';
             return;
         }
 
-        $term = get_queried_object();
-        if ( ! ( $term instanceof WP_Term ) || 'category' !== (string) $term->taxonomy ) {
-            return;
-        }
+        echo '<div class="dls-featured-jobs-list">';
 
-        global $wp_query;
-
-        $posts = is_array( $wp_query->posts ) ? $wp_query->posts : array();
-        $lead = null;
-        if ( ! empty( $posts ) ) {
-            $lead = array_shift( $posts );
-        }
-
-        $main_ids = array();
-        if ( is_array( $wp_query->posts ) ) {
-            foreach ( $wp_query->posts as $main_post ) {
-                if ( $main_post instanceof WP_Post ) {
-                    $main_ids[] = (int) $main_post->ID;
-                }
+        foreach ( $jobs as $job ) {
+            if ( ! is_array( $job ) || empty( $job['title'] ) || empty( $job['link'] ) ) {
+                continue;
             }
-        }
-
-        $sidebar_posts = dls_cat_tpl_sidebar_posts( (int) $term->term_id, $main_ids, 8 );
-        $jobs = dls_cat_tpl_fetch_jobs( 8 );
-
-        get_header();
-        ?>
-        <div id="primary" class="content-area dls-cat-template">
-            <div class="content-container site-container">
-                <div id="main" class="site-main">
-                    <div class="content-wrap">
-                        <article class="entry single-entry dls-category-archive-entry">
-                            <div class="entry-content-wrap">
-                                <header class="entry-header post-title title-align-left title-tablet-align-inherit title-mobile-align-inherit">
-                                    <p class="dls-cat-kicker"><?php echo esc_html__( 'Рубрика', 'default' ); ?></p>
-                                    <h1 class="entry-title dls-cat-title"><?php echo esc_html( single_cat_title( '', false ) ); ?></h1>
-                                    <?php $description = trim( wp_strip_all_tags( (string) term_description( $term, 'category' ) ) ); ?>
-                                    <?php if ( '' !== $description ) : ?>
-                                        <p class="dls-cat-desc"><?php echo esc_html( $description ); ?></p>
-                                    <?php endif; ?>
-                                </header>
-
-                                <div class="entry-content single-content dls-cat-main">
-                                    <?php if ( $lead instanceof WP_Post ) : ?>
-                                        <?php dls_cat_tpl_render_lead( $lead ); ?>
-                                    <?php endif; ?>
-
-                                    <?php dls_cat_tpl_render_compact( $posts ); ?>
-
-                                    <?php
-                                    $pagination = paginate_links(
-                                        array(
-                                            'type'      => 'list',
-                                            'prev_text' => '←',
-                                            'next_text' => '→',
-                                        )
-                                    );
-                                    if ( $pagination ) :
-                                        ?>
-                                        <nav class="dls-cat-pagination" aria-label="<?php echo esc_attr__( 'Навігація рубрики', 'default' ); ?>">
-                                            <?php echo wp_kses_post( $pagination ); ?>
-                                        </nav>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </article>
+            ?>
+            <article class="dls-featured-job">
+                <a class="dls-featured-job__link" href="<?php echo esc_url( (string) $job['link'] ); ?>" target="_blank" rel="noopener noreferrer">
+                    <div class="dls-featured-job__logo">
+                        <?php if ( ! empty( $job['logo'] ) ) : ?>
+                            <img src="<?php echo esc_url( (string) $job['logo'] ); ?>" alt="<?php echo esc_attr( (string) ( $job['company'] ?? $job['title'] ) ); ?>" loading="lazy">
+                        <?php else : ?>
+                            <div class="dls-job-logo-fallback"><?php echo esc_html__( 'Logo', 'default' ); ?></div>
+                        <?php endif; ?>
                     </div>
-                </div>
-
-                <aside id="secondary" role="complementary" class="primary-sidebar widget-area sidebar-link-style-plain">
-                    <div class="sidebar-inner-wrap dls-core-sidebar-inner">
-                        <div class="dls-side-stack">
-                            <section class="dls-sidebar-card">
-                                <h2 class="dls-sidebar-title"><?php echo esc_html__( 'Контент рубрики', 'default' ); ?></h2>
-                                <?php if ( ! empty( $sidebar_posts ) ) : ?>
-                                    <ul class="dls-cat-side-list">
-                                        <?php foreach ( $sidebar_posts as $side_post ) : ?>
-                                            <?php if ( ! ( $side_post instanceof WP_Post ) ) { continue; } ?>
-                                            <li>
-                                                <a href="<?php echo esc_url( get_permalink( $side_post->ID ) ); ?>"><?php echo esc_html( get_the_title( $side_post->ID ) ); ?></a>
-                                                <time datetime="<?php echo esc_attr( get_the_date( 'c', $side_post->ID ) ); ?>"><?php echo esc_html( get_the_date( 'Y-m-d', $side_post->ID ) ); ?></time>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php else : ?>
-                                    <p class="dls-sidebar-empty"><?php echo esc_html__( 'Ще немає додаткових матеріалів у цій рубриці.', 'default' ); ?></p>
-                                <?php endif; ?>
-                            </section>
-
-                            <section class="dls-sidebar-card">
-                                <h2 class="dls-sidebar-title"><?php echo esc_html__( 'Топові вакансії', 'default' ); ?></h2>
-                                <div class="dls-featured-jobs-list">
-                                    <?php if ( ! empty( $jobs ) ) : ?>
-                                        <?php foreach ( $jobs as $job ) : ?>
-                                            <article class="dls-featured-job">
-                                                <a class="dls-featured-job__link" href="<?php echo esc_url( (string) $job['link'] ); ?>" target="_blank" rel="noopener noreferrer">
-                                                    <div class="dls-featured-job__logo">
-                                                        <?php if ( ! empty( $job['logo'] ) ) : ?>
-                                                            <img src="<?php echo esc_url( (string) $job['logo'] ); ?>" alt="<?php echo esc_attr( (string) $job['company'] ); ?>" loading="lazy">
-                                                        <?php else : ?>
-                                                            <div class="dls-job-logo-fallback"><?php echo esc_html__( 'Logo', 'default' ); ?></div>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                    <div class="dls-featured-job__content">
-                                                        <div class="dls-featured-job__title"><?php echo esc_html( (string) $job['title'] ); ?></div>
-                                                        <?php if ( ! empty( $job['company'] ) ) : ?>
-                                                            <div class="dls-featured-job__company"><?php echo esc_html( (string) $job['company'] ); ?></div>
-                                                        <?php endif; ?>
-                                                        <div class="dls-featured-job__meta">
-                                                            <?php if ( ! empty( $job['region'] ) ) : ?>
-                                                                <span class="dls-featured-job__type"><?php echo esc_html( (string) $job['region'] ); ?></span>
-                                                            <?php endif; ?>
-                                                            <?php if ( ! empty( $job['work_mode'] ) ) : ?>
-                                                                <span class="dls-featured-job__type"><?php echo esc_html( (string) $job['work_mode'] ); ?></span>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </article>
-                                        <?php endforeach; ?>
-                                    <?php else : ?>
-                                        <p class="dls-sidebar-empty"><?php echo esc_html__( 'Вакансії тимчасово недоступні. Перевірте трохи пізніше.', 'default' ); ?></p>
-                                    <?php endif; ?>
-                                </div>
-                            </section>
+                    <div class="dls-featured-job__content">
+                        <div class="dls-featured-job__title"><?php echo esc_html( (string) $job['title'] ); ?></div>
+                        <?php if ( ! empty( $job['company'] ) ) : ?>
+                            <div class="dls-featured-job__company"><?php echo esc_html( (string) $job['company'] ); ?></div>
+                        <?php endif; ?>
+                        <div class="dls-featured-job__meta">
+                            <?php if ( ! empty( $job['region'] ) ) : ?>
+                                <span class="dls-featured-job__type"><?php echo esc_html( (string) $job['region'] ); ?></span>
+                            <?php endif; ?>
+                            <?php if ( ! empty( $job['work_mode'] ) ) : ?>
+                                <span class="dls-featured-job__type"><?php echo esc_html( (string) $job['work_mode'] ); ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
-                </aside>
-            </div>
-        </div>
-        <?php
-        get_footer();
-        exit;
+                </a>
+            </article>
+            <?php
+        }
+
+        echo '</div>';
     }
 }
-add_action( 'template_redirect', 'dls_cat_tpl_render', 9 );
