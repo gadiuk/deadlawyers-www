@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Template
  * Description: Routes category archives through a dedicated DLS template stored outside the MU root.
- * Version: 4.1.0
+ * Version: 4.1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -218,6 +218,10 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   color: #fff;
 }
 
+.dls-cat-page__rail {
+  padding-top: clamp(1.55rem, 2.4vw, 2.15rem);
+}
+
 .dls-cat-page__rail-inner {
   display: grid;
   gap: 1rem;
@@ -396,6 +400,10 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .dls-cat-page__rail {
+    padding-top: 0;
+  }
+
   .dls-cat-page__rail-inner {
     position: static;
     top: auto;
@@ -440,7 +448,7 @@ if ( ! function_exists( 'dls_cat_tpl_enqueue' ) ) {
         }
 
         $handle = 'dls-category-template';
-        wp_register_style( $handle, false, array(), '4.1.0' );
+        wp_register_style( $handle, false, array(), '4.1.1' );
         wp_enqueue_style( $handle );
         wp_add_inline_style( $handle, dls_cat_tpl_styles() );
     }
