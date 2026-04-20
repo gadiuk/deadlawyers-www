@@ -34,6 +34,7 @@ jobs:
             "wp-content/mu-plugins/dls-most-active-authors-shortcode.php"
             "wp-content/mu-plugins/dls-category-showcase-shortcode.php"
             "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+            "wp-content/mu-plugins/zz-dls-category-archive-template.php"
           )
 
           for plugin_path in "${FILES[@]}"; do
@@ -91,7 +92,8 @@ jobs:
             dls-native-authors-admin-dropdowns.php \
             dls-most-active-authors-shortcode.php \
             dls-category-showcase-shortcode.php \
-            zz-dls-category-showcase-single-category.php
+            zz-dls-category-showcase-single-category.php \
+            zz-dls-category-archive-template.php
           do
             scp \
               -P "$PORT" \
