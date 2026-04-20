@@ -21,6 +21,12 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   padding: clamp(1rem, 1.8vw, 1.6rem);
 }
 
+.dls-cat-template .entry.single-entry.dls-category-archive-entry {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
 .dls-cat-template .dls-cat-kicker {
   color: rgba(17, 17, 17, 0.65);
   font-size: .82rem;
@@ -92,6 +98,17 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   color: #000;
   line-height: 1.15;
   margin: 0;
+}
+
+.dls-cat-template .dls-story-card__title,
+.dls-cat-template .dls-story-card__excerpt,
+.dls-cat-template .dls-story-card__meta,
+.dls-cat-side-list a,
+.dls-featured-job__title,
+.dls-featured-job__company,
+.dls-featured-job__type {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .dls-cat-template .dls-cat-lead .dls-story-card__title {
@@ -595,7 +612,7 @@ if ( ! function_exists( 'dls_cat_tpl_render' ) ) {
             <div class="content-container site-container">
                 <div id="main" class="site-main">
                     <div class="content-wrap">
-                        <article class="entry content-bg single-entry dls-category-archive-entry">
+                        <article class="entry single-entry dls-category-archive-entry">
                             <div class="entry-content-wrap">
                                 <header class="entry-header post-title title-align-left title-tablet-align-inherit title-mobile-align-inherit">
                                     <p class="dls-cat-kicker"><?php echo esc_html__( 'Рубрика', 'default' ); ?></p>
