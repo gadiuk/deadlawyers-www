@@ -35,11 +35,16 @@ if (!function_exists('dls_category_archive_template_styles')) {
   --dls-ct-muted: rgba(17, 17, 17, 0.66);
   --dls-ct-border: rgba(17, 17, 17, 0.08);
   --dls-ct-shadow: 0 16px 34px rgba(0, 0, 0, 0.06);
-  background: radial-gradient(circle at 90% 4%, rgba(205, 178, 130, 0.25), transparent 35%), var(--dls-ct-bg);
-  border: 1px solid var(--dls-ct-border);
-  border-radius: 26px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   margin: clamp(1.1rem, 2.2vw, 1.9rem) 0;
-  padding: clamp(1rem, 2.3vw, 1.8rem);
+  padding: 0;
+}
+
+.dls-category-template,
+.dls-category-template * {
+  box-sizing: border-box;
 }
 
 .dls-category-template__head {
@@ -79,10 +84,8 @@ if (!function_exists('dls_category_archive_template_styles')) {
 }
 
 .dls-category-template__lead,
-.dls-category-template__card,
-.dls-category-template__widget,
-.dls-category-template__job {
-  background: var(--dls-ct-card);
+.dls-category-template__card {
+  background: rgba(255, 255, 255, 0);
   border: 1px solid var(--dls-ct-border);
   border-radius: 16px;
   overflow: hidden;
@@ -133,6 +136,14 @@ if (!function_exists('dls_category_archive_template_styles')) {
   text-decoration: underline;
 }
 
+.dls-category-template__lead-title,
+.dls-category-template__card-title,
+.dls-category-template__lead-excerpt,
+.dls-category-template__meta {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .dls-category-template__lead-excerpt {
   color: var(--dls-ct-muted);
   line-height: 1.6;
@@ -165,6 +176,30 @@ if (!function_exists('dls_category_archive_template_styles')) {
   gap: .82rem;
   position: sticky;
   top: 1rem;
+}
+
+.dls-category-template__sidebar .widget {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--dls-ct-border);
+  border-radius: 14px;
+  margin: 0 0 .85rem;
+  padding: .85rem;
+}
+
+.dls-category-template__sidebar .widget:last-child {
+  margin-bottom: 0;
+}
+
+.dls-category-template__sidebar .widget,
+.dls-category-template__sidebar .widget * {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.dls-category-template__sidebar .widget-title,
+.dls-category-template__sidebar .wp-block-heading {
+  color: #000;
+  margin: 0 0 .6rem;
 }
 
 .dls-category-template__widget {
@@ -298,8 +333,7 @@ if (!function_exists('dls_category_archive_template_styles')) {
 
 @media (max-width: 720px) {
   .dls-category-template {
-    border-radius: 16px;
-    padding: .92rem;
+    padding: 0;
   }
 
   .dls-category-template__grid {
@@ -329,126 +363,6 @@ if (!function_exists('dls_category_archive_template_enqueue_styles')) {
 }
 add_action('wp_enqueue_scripts', 'dls_category_archive_template_enqueue_styles', 40);
 
-if (!function_exists('dls_category_archive_template_fetch_jobs')) {
-    /**
-     * Fetch featured jobs from Jobs site API with short transient cache.
-     *
-     * @return array<int, array<string, mixed>>
-     */
-    function dls_category_archive_template_fetch_jobs() {
-        $api_url = (string) apply_filters(
-            'dls_category_archive_template_jobs_api_url',
-            'https://jobs.deadlawyers.org/wp-json/wp/v2/job-listings?per_page=6&orderby=date&order=desc&_embed=1'
-        );
-
-        if ($api_url === '') {
-            return [];
-        }
-
-        $cache_key = 'dls_ct_jobs_' . md5($api_url);
-        $cached = get_transient($cache_key);
-
-        if (is_array($cached)) {
-            return $cached;
-        }
-
-        $response = wp_remote_get(
-            $api_url,
-            [
-                'timeout'    => 6,
-                'sslverify'  => true,
-                'user-agent' => 'deadlawyers-www/category-template',
-            ]
-        );
-
-        if (is_wp_error($response)) {
-            set_transient($cache_key, [], 180);
-            return [];
-        }
-
-        $code = (int) wp_remote_retrieve_response_code($response);
-        $body = (string) wp_remote_retrieve_body($response);
-
-        if ($code < 200 || $code >= 300 || $body === '') {
-            set_transient($cache_key, [], 180);
-            return [];
-        }
-
-        $data = json_decode($body, true);
-        if (!is_array($data)) {
-            set_transient($cache_key, [], 180);
-            return [];
-        }
-
-        set_transient($cache_key, $data, 600);
-        return $data;
-    }
-}
-
-if (!function_exists('dls_category_archive_template_job_terms')) {
-    /**
-     * Resolve taxonomy terms from embedded job payload.
-     *
-     * @param array<string, mixed> $job Job payload.
-     * @param string[]             $taxonomies Candidate taxonomy slugs.
-     * @return string
-     */
-    function dls_category_archive_template_job_terms($job, $taxonomies) {
-        if (!is_array($job) || empty($job['_embedded']['wp:term']) || !is_array($job['_embedded']['wp:term'])) {
-            return '';
-        }
-
-        foreach ((array) $job['_embedded']['wp:term'] as $term_group) {
-            if (!is_array($term_group)) {
-                continue;
-            }
-
-            foreach ($term_group as $term) {
-                if (!is_array($term)) {
-                    continue;
-                }
-
-                $taxonomy = (string) ($term['taxonomy'] ?? '');
-                $name = trim((string) ($term['name'] ?? ''));
-
-                if ($name === '' || !in_array($taxonomy, $taxonomies, true)) {
-                    continue;
-                }
-
-                return $name;
-            }
-        }
-
-        return '';
-    }
-}
-
-if (!function_exists('dls_category_archive_template_job_logo_url')) {
-    /**
-     * Extract thumbnail URL for job card.
-     *
-     * @param array<string, mixed> $job Job payload.
-     * @return string
-     */
-    function dls_category_archive_template_job_logo_url($job) {
-        if (!is_array($job) || empty($job['_embedded']['wp:featuredmedia'][0]) || !is_array($job['_embedded']['wp:featuredmedia'][0])) {
-            return '';
-        }
-
-        $media = $job['_embedded']['wp:featuredmedia'][0];
-
-        if (!empty($media['media_details']['sizes']['thumbnail']['source_url'])) {
-            return esc_url_raw((string) $media['media_details']['sizes']['thumbnail']['source_url']);
-        }
-
-        if (!empty($media['source_url'])) {
-            return esc_url_raw((string) $media['source_url']);
-        }
-
-        return '';
-    }
-}
-
 if (!function_exists('dls_category_archive_template_post_meta')) {
     /**
      * Build compact meta line for post cards.
@@ -472,6 +386,48 @@ if (!function_exists('dls_category_archive_template_post_meta')) {
         $pieces[] = get_the_date('Y-m-d', $post_id);
 
         return implode(' | ', array_filter($pieces));
+    }
+}
+
+if (!function_exists('dls_category_archive_template_render_sidebar_widgets')) {
+    /**
+     * Render the same sidebar widget area used by posts.
+     *
+     * @return string
+     */
+    function dls_category_archive_template_render_sidebar_widgets() {
+        $sidebar_ids = (array) apply_filters(
+            'dls_category_archive_template_sidebar_ids',
+            ['sidebar1', 'sidebar-primary', 'primary-sidebar', 'main-sidebar', 'kadence-sidebar']
+        );
+
+        ob_start();
+        $rendered = false;
+
+        foreach ($sidebar_ids as $sidebar_id) {
+            $sidebar_id = trim((string) $sidebar_id);
+            if ($sidebar_id === '') {
+                continue;
+            }
+
+            if (is_active_sidebar($sidebar_id)) {
+                if (dynamic_sidebar($sidebar_id)) {
+                    $rendered = true;
+                    break;
+                }
+            }
+        }
+
+        if (!$rendered) {
+            ?>
+            <section class="dls-category-template__widget">
+                <h2 class="dls-category-template__widget-title"><?php echo esc_html__('Права панель', 'default'); ?></h2>
+                <p><?php echo esc_html__('Увімкніть віджети в основному сайдбарі, щоб показати блок вакансій та інші модулі.', 'default'); ?></p>
+            </section>
+            <?php
+        }
+
+        return (string) ob_get_clean();
     }
 }
 
@@ -502,22 +458,9 @@ if (!function_exists('dls_category_archive_template_render')) {
             'paged'               => $paged,
         ]);
 
-        $content_query = new WP_Query([
-            'post_type'           => 'post',
-            'post_status'         => 'publish',
-            'cat'                 => (int) $term->term_id,
-            'posts_per_page'      => 8,
-            'ignore_sticky_posts' => true,
-        ]);
-
-        $jobs = dls_category_archive_template_fetch_jobs();
         $current_title = single_cat_title('', false);
         $term_description = trim((string) term_description($term->term_id, 'category'));
-
-        $term_link = get_term_link($term);
-        if (is_wp_error($term_link)) {
-            $term_link = home_url('/');
-        }
+        $sidebar_html = dls_category_archive_template_render_sidebar_widgets();
 
         status_header(200);
 
@@ -606,76 +549,9 @@ if (!function_exists('dls_category_archive_template_render')) {
                             <?php endif; ?>
                         </div>
 
-                        <aside class="dls-category-template__rail" aria-label="Right panel">
+                        <aside class="dls-category-template__rail dls-category-template__sidebar" aria-label="Right panel">
                             <div class="dls-category-template__rail-inner">
-                                <section class="dls-category-template__widget">
-                                    <h2 class="dls-category-template__widget-title"><?php echo esc_html__('Контент рубрики', 'default'); ?></h2>
-                                    <ul class="dls-category-template__links">
-                                        <?php if ($content_query->have_posts()) : ?>
-                                            <?php while ($content_query->have_posts()) : $content_query->the_post(); ?>
-                                                <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-                                            <?php endwhile; ?>
-                                        <?php else : ?>
-                                            <li><a href="<?php echo esc_url($term_link); ?>"><?php echo esc_html__('Усі матеріали рубрики', 'default'); ?></a></li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </section>
-
-                                <section class="dls-category-template__widget">
-                                    <h2 class="dls-category-template__widget-title"><?php echo esc_html__('Топові вакансії', 'default'); ?></h2>
-                                    <div class="dls-category-template__jobs">
-                                        <?php if (!empty($jobs)) : ?>
-                                            <?php foreach ($jobs as $job) : ?>
-                                                <?php
-                                                if (!is_array($job)) {
-                                                    continue;
-                                                }
-
-                                                $job_title = trim((string) ($job['title']['rendered'] ?? ''));
-                                                $job_url = trim((string) ($job['link'] ?? ''));
-                                                $company = dls_category_archive_template_job_terms($job, ['company', 'job_company', 'job_listing_company', 'listing_company']);
-                                                $region = dls_category_archive_template_job_terms($job, ['region', 'job_region', 'job_listing_region']);
-                                                $mode = dls_category_archive_template_job_terms($job, ['job_listing_type', 'job_type', 'employment_type', 'work_mode']);
-                                                $logo_url = dls_category_archive_template_job_logo_url($job);
-                                                ?>
-                                                <?php if ($job_title !== '' && $job_url !== '') : ?>
-                                                    <article class="dls-category-template__job">
-                                                        <div class="dls-category-template__job-logo">
-                                                            <?php if ($logo_url !== '') : ?>
-                                                                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($job_title); ?>">
-                                                            <?php else : ?>
-                                                                <span class="dls-category-template__job-logo-fallback">Job</span>
-                                                            <?php endif; ?>
-                                                        </div>
-                                                        <div>
-                                                            <h3 class="dls-category-template__job-title">
-                                                                <a href="<?php echo esc_url($job_url); ?>" target="_blank" rel="noopener"><?php echo esc_html(wp_strip_all_tags($job_title)); ?></a>
-                                                            </h3>
-                                                            <div class="dls-category-template__job-meta">
-                                                                <?php
-                                                                $job_meta = array_filter([$company, $region, $mode]);
-                                                                echo esc_html(!empty($job_meta) ? implode(' | ', $job_meta) : 'jobs.deadlawyers.org');
-                                                                ?>
-                                                            </div>
-                                                        </div>
-                                                    </article>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                                        <?php else : ?>
-                                            <article class="dls-category-template__job">
-                                                <div class="dls-category-template__job-logo">
-                                                    <span class="dls-category-template__job-logo-fallback">Job</span>
-                                                </div>
-                                                <div>
-                                                    <h3 class="dls-category-template__job-title">
-                                                        <a href="https://jobs.deadlawyers.org/" target="_blank" rel="noopener"><?php echo esc_html__('Переглянути вакансії', 'default'); ?></a>
-                                                    </h3>
-                                                    <div class="dls-category-template__job-meta">jobs.deadlawyers.org</div>
-                                                </div>
-                                            </article>
-                                        <?php endif; ?>
-                                    </div>
-                                </section>
+                                <?php echo $sidebar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </div>
                         </aside>
                     </div>
