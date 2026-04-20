@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Typography Pair
  * Description: Applies PT Serif + IBM Plex Sans typography with readable heading and body rhythm.
- * Version: 1.3.0
+ * Version: 1.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -24,6 +24,9 @@ function dls_typography_pair_css_www() {
   --dls-color-accent-soft: #f6e7ca;
   --dls-color-ink: #111111;
   --dls-color-ink-rgb: 17, 17, 17;
+  --dls-rail-card-bg: rgba(255, 251, 245, 0.94);
+  --dls-rail-card-border: rgba(17, 17, 17, 0.08);
+  --dls-rail-card-shadow: 0 14px 32px rgba(17, 17, 17, 0.04);
   --global-body-font-family: var(--dls-font-body);
   --global-heading-font-family: var(--dls-font-heading);
   --global-palette1: var(--dls-color-accent);
@@ -38,6 +41,20 @@ body {
   font-size: clamp(1rem, 0.94rem + 0.35vw, 1.125rem);
   line-height: 1.72;
   text-rendering: optimizeLegibility;
+}
+
+.site-header,
+.site-header .site-main-header-wrap,
+.site-header .site-above-header-wrap,
+.site-header .site-below-header-wrap,
+.site-header .site-header-row-container-inner,
+.site-header .site-header-row {
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08) !important;
 }
 
 body a {
@@ -271,6 +288,56 @@ label,
   color: #111;
 }
 
+body.single-post #secondary > section,
+body.single-post #secondary > .widget,
+body.single-post #secondary .wp-block-group,
+body.category #secondary > section,
+body.category #secondary > .widget,
+body.category #secondary .wp-block-group,
+body.archive #secondary > section,
+body.archive #secondary > .widget,
+body.archive #secondary .wp-block-group {
+  background: var(--dls-rail-card-bg);
+  border: 1px solid var(--dls-rail-card-border);
+  border-radius: 22px;
+  box-shadow: var(--dls-rail-card-shadow);
+  padding: 1rem;
+}
+
+body.single-post #secondary > section h1,
+body.single-post #secondary > section h2,
+body.single-post #secondary > section h3,
+body.single-post #secondary > .widget h1,
+body.single-post #secondary > .widget h2,
+body.single-post #secondary > .widget h3,
+body.single-post #secondary .wp-block-group h1,
+body.single-post #secondary .wp-block-group h2,
+body.single-post #secondary .wp-block-group h3,
+body.category #secondary > section h1,
+body.category #secondary > section h2,
+body.category #secondary > section h3,
+body.category #secondary > .widget h1,
+body.category #secondary > .widget h2,
+body.category #secondary > .widget h3,
+body.category #secondary .wp-block-group h1,
+body.category #secondary .wp-block-group h2,
+body.category #secondary .wp-block-group h3,
+body.archive #secondary > section h1,
+body.archive #secondary > section h2,
+body.archive #secondary > section h3,
+body.archive #secondary > .widget h1,
+body.archive #secondary > .widget h2,
+body.archive #secondary > .widget h3,
+body.archive #secondary .wp-block-group h1,
+body.archive #secondary .wp-block-group h2,
+body.archive #secondary .wp-block-group h3 {
+  color: var(--dls-color-ink);
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 .85rem;
+}
+
 body.single-post .dls-post-people {
   border-top: 1px solid rgba(17, 17, 17, 0.1);
   margin-top: 2rem;
@@ -491,7 +558,7 @@ function dls_typography_pair_enqueue_frontend_www() {
 	wp_add_inline_style( $handle, dls_typography_pair_css_www() );
 
 	$script_handle = 'dls-typography-pair-js';
-	wp_register_script( $script_handle, false, array(), '1.3.0', true );
+	wp_register_script( $script_handle, false, array(), '1.4.0', true );
 	wp_enqueue_script( $script_handle );
 	wp_add_inline_script( $script_handle, dls_typography_pair_js_www() );
 }
