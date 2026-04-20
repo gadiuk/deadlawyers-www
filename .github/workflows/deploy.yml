@@ -34,6 +34,7 @@ jobs:
             "wp-content/mu-plugins/dls-most-active-authors-shortcode.php"
             "wp-content/mu-plugins/dls-category-showcase-shortcode.php"
             "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+            "wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php"
             "wp-content/mu-plugins/zz-dls-category-archive-template.php"
           )
 
@@ -93,6 +94,7 @@ jobs:
             dls-most-active-authors-shortcode.php \
             dls-category-showcase-shortcode.php \
             zz-dls-category-showcase-single-category.php \
+            zz-dls-category-showcase-single-category-template.php \
             zz-dls-category-archive-template.php
           do
             scp \
@@ -119,4 +121,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
