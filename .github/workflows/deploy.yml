@@ -19,34 +19,19 @@ jobs:
     env:
       DEPLOY_PATH: /home/dls0/deadlawyers.org/www
     steps:
-      - name: Download MU plugins from repository
+      - name: Download hotfix MU plugin from repository
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-
-          FILES=(
-            "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
-            "wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php"
-            "wp-content/mu-plugins/zz-dls-category-archive-template.php"
-            "wp-content/mu-plugins/dls-typography-pair.php"
-            "wp-content/mu-plugins/00-dls-native-authors-activate.php"
-            "wp-content/mu-plugins/dls-native-authors.php"
-            "wp-content/mu-plugins/dls-native-authors-admin-dropdowns.php"
-            "wp-content/mu-plugins/dls-most-active-authors-shortcode.php"
-            "wp-content/mu-plugins/dls-category-showcase-shortcode.php"
-          )
-
-          for plugin_path in "${FILES[@]}"; do
-            out_file="/tmp/$(basename "$plugin_path")"
-            curl -fsSL \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github.raw" \
-              "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${plugin_path}?ref=${GITHUB_SHA}" \
-              -o "$out_file"
-            test -s "$out_file"
-          done
+          plugin_path="wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${plugin_path}?ref=${GITHUB_SHA}" \
+            -o /tmp/zz-dls-category-showcase-single-category.php
+          test -s /tmp/zz-dls-category-showcase-single-category.php
 
       - name: Setup SSH key and known hosts
         shell: bash
@@ -64,7 +49,7 @@ jobs:
           touch ~/.ssh/known_hosts
           ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Upload MU plugins (www)
+      - name: Upload category hotfix (www)
         shell: bash
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -86,30 +71,18 @@ jobs:
             -o StrictHostKeyChecking=yes \
             "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
 
-          for file in \
-            zz-dls-category-showcase-single-category.php \
-            zz-dls-category-showcase-single-category-template.php \
-            zz-dls-category-archive-template.php \
-            dls-typography-pair.php \
-            00-dls-native-authors-activate.php \
-            dls-native-authors.php \
-            dls-native-authors-admin-dropdowns.php \
-            dls-most-active-authors-shortcode.php \
-            dls-category-showcase-shortcode.php
-          do
-            scp \
-              -P "$PORT" \
-              -i ~/.ssh/id_ed25519 \
-              -o IdentitiesOnly=yes \
-              -o IdentityAgent=none \
-              -o PreferredAuthentications=publickey \
-              -o PubkeyAuthentication=yes \
-              -o PasswordAuthentication=no \
-              -o KbdInteractiveAuthentication=no \
-              -o StrictHostKeyChecking=yes \
-              "/tmp/${file}" \
-              "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/${file}"
-          done
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            /tmp/zz-dls-category-showcase-single-category.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
 
           ssh \
             -p "$PORT" \
@@ -121,4 +94,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php'"
