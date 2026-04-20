@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Typography Pair
  * Description: Applies PT Serif + IBM Plex Sans typography with readable heading and body rhythm.
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -193,12 +193,17 @@ body.single-post .dls-post-person {
   column-gap: .9rem;
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
+  justify-items: start;
+  row-gap: .18rem;
 }
 
 body.single-post .dls-post-person__avatar {
+  align-self: start;
   border-radius: 999px;
   display: block;
+  grid-row: 1 / span 2;
   height: 56px;
+  justify-self: start;
   overflow: hidden;
   width: 56px;
 }
@@ -211,13 +216,15 @@ body.single-post .dls-post-person__avatar-img {
 }
 
 body.single-post .dls-post-person__name {
-  align-self: end;
+  align-self: start;
   color: #111 !important;
   font-family: var(--dls-font-ui);
   font-size: 1rem;
   font-weight: 700;
+  justify-self: start;
   line-height: 1.2;
   margin: 0;
+  text-align: left;
   text-decoration: none;
 }
 
@@ -229,20 +236,57 @@ body.single-post .dls-post-person__name:hover {
 body.single-post .dls-post-person__bio {
   color: rgba(17, 17, 17, 0.72);
   grid-column: 2;
+  justify-self: start;
   line-height: 1.55;
-  margin: .22rem 0 0;
+  margin: .12rem 0 0;
+  max-width: 62ch;
+  text-align: left;
+}
+
+body.single-post .entry-content .wp-block-media-text,
+body.single-post .single-content .wp-block-media-text,
+body.single-post .wp-block-post-content .wp-block-media-text {
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: 1.7rem 0;
+}
+
+body.single-post .entry-content .wp-block-media-text__content,
+body.single-post .single-content .wp-block-media-text__content,
+body.single-post .wp-block-post-content .wp-block-media-text__content {
+  background: linear-gradient(180deg, rgba(255, 249, 240, 0.95), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.04);
+  padding: clamp(1rem, 2.2vw, 1.45rem) !important;
+}
+
+body.single-post .entry-content .wp-block-media-text__content > :first-child,
+body.single-post .single-content .wp-block-media-text__content > :first-child,
+body.single-post .wp-block-post-content .wp-block-media-text__content > :first-child {
+  margin-top: 0;
+}
+
+body.single-post .entry-content .wp-block-media-text__content > :last-child,
+body.single-post .single-content .wp-block-media-text__content > :last-child,
+body.single-post .wp-block-post-content .wp-block-media-text__content > :last-child {
+  margin-bottom: 0;
 }
 
 @media (min-width: 1025px) {
   body.single-post.has-sidebar:not(.has-left-sidebar) .content-container {
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 26%);
-    column-gap: clamp(1.5rem, 2vw, 2.25rem);
+    column-gap: clamp(1.35rem, 1.8vw, 2rem);
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 24%);
+  }
+
+  body.single-post.has-sidebar:not(.has-left-sidebar) .content-area {
+    padding-left: clamp(.75rem, 1.1vw, 1.1rem);
   }
 
   body.single-post .entry-content,
   body.single-post .single-content,
   body.single-post .wp-block-post-content {
-    max-width: 78ch;
+    max-width: 82ch;
   }
 }
 
@@ -336,7 +380,7 @@ function dls_typography_pair_enqueue_frontend_www() {
 	wp_add_inline_style( $handle, dls_typography_pair_css_www() );
 
 	$script_handle = 'dls-typography-pair-js';
-	wp_register_script( $script_handle, false, array(), '1.1.0', true );
+	wp_register_script( $script_handle, false, array(), '1.2.0', true );
 	wp_enqueue_script( $script_handle );
 	wp_add_inline_script( $script_handle, dls_typography_pair_js_www() );
 }
