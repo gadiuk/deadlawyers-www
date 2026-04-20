@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Template
  * Description: Routes category archives through a dedicated DLS template stored outside the MU root.
- * Version: 4.1.2
+ * Version: 4.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -42,8 +42,8 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 .dls-cat-page-shell {
   align-items: start;
   display: grid;
-  gap: clamp(1.25rem, 2vw, 2rem);
-  grid-template-columns: minmax(0, 1.7fr) minmax(300px, .9fr);
+  gap: clamp(1.4rem, 2vw, 2.1rem);
+  grid-template-columns: minmax(0, 1.75fr) minmax(310px, .85fr);
 }
 
 .dls-cat-page__main,
@@ -63,56 +63,56 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 }
 
 .dls-cat-page__hero {
-  background: linear-gradient(180deg, rgba(255, 245, 228, 0.92), rgba(255, 251, 245, 0.88));
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: 28px;
-  box-shadow: 0 18px 40px rgba(183, 131, 38, 0.08);
-  margin-bottom: clamp(1rem, 2vw, 1.4rem);
-  padding: clamp(1.25rem, 2vw, 1.8rem);
+  background: linear-gradient(180deg, rgba(255, 248, 236, 0.92), rgba(255, 252, 247, 0.88));
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 30px;
+  box-shadow: 0 18px 42px rgba(183, 131, 38, 0.07);
+  margin-bottom: clamp(1rem, 1.9vw, 1.35rem);
+  padding: clamp(1.15rem, 1.9vw, 1.7rem);
 }
 
 .dls-cat-page__eyebrow {
-  color: rgba(17, 17, 17, 0.6);
-  font-size: .82rem;
+  color: rgba(17, 17, 17, 0.56);
+  font-size: .78rem;
   font-weight: 700;
-  letter-spacing: .08em;
-  margin: 0 0 .45rem;
+  letter-spacing: .12em;
+  margin: 0 0 .55rem;
   text-transform: uppercase;
 }
 
 .dls-cat-page__title {
   color: #000;
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  letter-spacing: -.03em;
-  line-height: .95;
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+  letter-spacing: -.04em;
+  line-height: .96;
   margin: 0;
   text-wrap: balance;
 }
 
 .dls-cat-page__meta {
-  color: rgba(17, 17, 17, 0.62);
-  font-size: .95rem;
-  margin-top: .8rem;
+  color: rgba(17, 17, 17, 0.6);
+  font-size: .98rem;
+  margin-top: .85rem;
 }
 
 .dls-cat-page__description {
-  color: rgba(17, 17, 17, 0.8);
-  font-size: 1.02rem;
-  line-height: 1.65;
-  margin: .9rem 0 0;
-  max-width: 72ch;
+  color: rgba(17, 17, 17, 0.78);
+  font-size: 1rem;
+  line-height: 1.63;
+  margin: .85rem 0 0;
+  max-width: 68ch;
 }
 
 .dls-cat-page__stack {
   display: grid;
-  gap: clamp(1rem, 1.6vw, 1.35rem);
+  gap: clamp(1rem, 1.6vw, 1.3rem);
 }
 
 .dls-cat-story {
-  background: rgba(255, 251, 245, 0.9);
-  border: 1px solid rgba(17, 17, 17, 0.08);
-  border-radius: 24px;
-  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.04);
+  background: rgba(255, 251, 245, 0.88);
+  border: 1px solid rgba(17, 17, 17, 0.07);
+  border-radius: 26px;
+  box-shadow: 0 14px 34px rgba(17, 17, 17, 0.035);
   overflow: hidden;
 }
 
@@ -122,7 +122,7 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 }
 
 .dls-cat-story--lead .dls-cat-story__media {
-  aspect-ratio: 16 / 8.5;
+  aspect-ratio: 16 / 8.2;
 }
 
 .dls-cat-story--card .dls-cat-story__media {
@@ -137,19 +137,18 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 }
 
 .dls-cat-story__body {
-  padding: 1rem 1.1rem 1.15rem;
+  padding: 1.05rem 1.15rem 1.2rem;
 }
 
 .dls-cat-story__meta {
-  color: rgba(17, 17, 17, 0.58);
-  font-size: .8rem;
+  color: rgba(17, 17, 17, 0.56);
+  font-size: .79rem;
   font-weight: 600;
-  margin-bottom: .42rem;
+  margin-bottom: .48rem;
 }
 
 .dls-cat-story__title,
 .dls-cat-story__excerpt,
-.dls-cat-sidebar-list a,
 .dls-featured-job__title,
 .dls-featured-job__company,
 .dls-featured-job__type,
@@ -160,17 +159,17 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 
 .dls-cat-story__title {
   color: #000;
-  letter-spacing: -.02em;
-  line-height: 1.06;
+  letter-spacing: -.025em;
+  line-height: 1.04;
   margin: 0;
 }
 
 .dls-cat-story--lead .dls-cat-story__title {
-  font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.5rem, 2.45vw, 2.08rem);
 }
 
 .dls-cat-story--card .dls-cat-story__title {
-  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  font-size: clamp(1.06rem, 1.5vw, 1.28rem);
 }
 
 .dls-cat-story__title a {
@@ -179,13 +178,13 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
 }
 
 .dls-cat-story__title a:hover {
-  opacity: .8;
+  opacity: .82;
 }
 
 .dls-cat-story__excerpt {
-  color: rgba(17, 17, 17, 0.8);
+  color: rgba(17, 17, 17, 0.78);
   line-height: 1.62;
-  margin: .6rem 0 0;
+  margin: .62rem 0 0;
 }
 
 .dls-cat-page__grid {
@@ -198,6 +197,7 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   display: flex;
   flex-wrap: wrap;
   gap: .45rem;
+  padding-top: .2rem;
 }
 
 .dls-cat-pagination .page-numbers {
@@ -245,45 +245,9 @@ if ( ! function_exists( 'dls_cat_tpl_styles' ) ) {
   margin: 0 0 .85rem;
 }
 
-.dls-cat-sidebar-list {
-  display: grid;
-  gap: .7rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.dls-cat-sidebar-list li {
-  border-top: 1px solid rgba(17, 17, 17, 0.08);
-  padding-top: .7rem;
-}
-
-.dls-cat-sidebar-list li:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.dls-cat-sidebar-list a {
-  color: #111;
-  display: block;
-  line-height: 1.35;
-  text-decoration: none;
-}
-
-.dls-cat-sidebar-list a:hover {
-  opacity: .78;
-}
-
-.dls-cat-sidebar-list time {
-  color: rgba(17, 17, 17, 0.55);
-  display: block;
-  font-size: .78rem;
-  margin-top: .2rem;
-}
-
 .dls-featured-jobs-list {
   display: grid;
-  gap: .8rem;
+  gap: .82rem;
 }
 
 .dls-featured-job__link {
@@ -448,7 +412,7 @@ if ( ! function_exists( 'dls_cat_tpl_enqueue' ) ) {
         }
 
         $handle = 'dls-category-template';
-        wp_register_style( $handle, false, array(), '4.1.2' );
+        wp_register_style( $handle, false, array(), '4.2.0' );
         wp_enqueue_style( $handle );
         wp_add_inline_style( $handle, dls_cat_tpl_styles() );
     }
