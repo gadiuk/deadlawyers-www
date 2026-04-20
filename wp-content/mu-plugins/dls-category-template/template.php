@@ -25,19 +25,10 @@ foreach ( (array) $wp_query->posts as $maybe_post ) {
 }
 
 $lead_post = ! empty( $main_posts ) ? array_shift( $main_posts ) : null;
-$exclude   = array();
-
-foreach ( (array) $wp_query->posts as $query_post ) {
-    if ( $query_post instanceof WP_Post ) {
-        $exclude[] = (int) $query_post->ID;
-    }
-}
-
-$sidebar_posts = dls_cat_tpl_sidebar_posts( (int) $term->term_id, $exclude, 6 );
-$jobs          = dls_cat_tpl_fetch_jobs( 6 );
-$description   = trim( wp_strip_all_tags( (string) term_description( $term, 'category' ) ) );
-$post_count    = (int) $term->count;
-$pagination    = paginate_links(
+$jobs      = dls_cat_tpl_fetch_jobs( 15 );
+$description = trim( wp_strip_all_tags( (string) term_description( $term, 'category' ) ) );
+$post_count  = (int) $term->count;
+$pagination  = paginate_links(
     array(
         'type'      => 'plain',
         'current'   => max( 1, (int) get_query_var( 'paged' ) ),
@@ -96,24 +87,7 @@ get_header();
     <aside id="secondary" role="complementary" class="widget-area primary-sidebar dls-cat-page__rail">
         <div class="dls-cat-page__rail-inner">
             <section class="dls-cat-sidebar-card">
-                <h2 class="dls-cat-sidebar-card__title"><?php echo esc_html__( 'Контент рубрики', 'default' ); ?></h2>
-                <?php if ( ! empty( $sidebar_posts ) ) : ?>
-                    <ul class="dls-cat-sidebar-list">
-                        <?php foreach ( $sidebar_posts as $side_post ) : ?>
-                            <?php if ( ! ( $side_post instanceof WP_Post ) ) { continue; } ?>
-                            <li>
-                                <a href="<?php echo esc_url( get_permalink( $side_post->ID ) ); ?>"><?php echo esc_html( get_the_title( $side_post->ID ) ); ?></a>
-                                <time datetime="<?php echo esc_attr( get_the_date( 'c', $side_post->ID ) ); ?>"><?php echo esc_html( get_the_date( 'Y-m-d', $side_post->ID ) ); ?></time>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php else : ?>
-                    <p class="dls-cat-empty"><?php echo esc_html__( 'Ще немає додаткових матеріалів у цій рубриці.', 'default' ); ?></p>
-                <?php endif; ?>
-            </section>
-
-            <section class="dls-cat-sidebar-card">
-                <h2 class="dls-cat-sidebar-card__title"><?php echo esc_html__( 'Топові вакансії', 'default' ); ?></h2>
+                <h2 class="dls-cat-sidebar-card__title"><?php echo esc_html__( 'Останні вакансії', 'default' ); ?></h2>
                 <?php dls_cat_tpl_render_jobs( $jobs ); ?>
             </section>
         </div>
