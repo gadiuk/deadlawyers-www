@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DLS Category Template
  * Description: Routes category archives through a dedicated DLS template with editorial layout and jobs rail.
- * Version: 3.0.0
+ * Version: 3.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -402,7 +402,7 @@ if ( ! function_exists( 'dls_cat_tpl_enqueue' ) ) {
         }
 
         $handle = 'dls-category-template';
-        wp_register_style( $handle, false, array(), '3.0.0' );
+        wp_register_style( $handle, false, array(), '3.0.1' );
         wp_enqueue_style( $handle );
         wp_add_inline_style( $handle, dls_cat_tpl_styles() );
     }
@@ -736,15 +736,20 @@ if ( ! function_exists( 'dls_cat_tpl_render_grid' ) ) {
      * @return void
      */
     function dls_cat_tpl_render_grid( $posts ) {
-        $posts = is_array( $posts ) ? array_filter( $posts, 'is_a' ) : array();
+        $grid_posts = array();
 
-        if ( empty( $posts ) ) {
+        foreach ( (array) $posts as $post ) {
+            if ( $post instanceof WP_Post ) {
+                $grid_posts[] = $post;
+            }
+        }
+
+        if ( empty( $grid_posts ) ) {
             return;
         }
         ?>
         <div class="dls-cat-page__grid">
-            <?php foreach ( $posts as $post ) : ?>
-                <?php if ( ! ( $post instanceof WP_Post ) ) { continue; } ?>
+            <?php foreach ( $grid_posts as $post ) : ?>
                 <?php
                 $title   = get_the_title( $post->ID );
                 $url     = get_permalink( $post->ID );
