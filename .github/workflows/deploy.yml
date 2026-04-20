@@ -27,15 +27,15 @@ jobs:
           set -euo pipefail
 
           FILES=(
+            "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
+            "wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php"
+            "wp-content/mu-plugins/zz-dls-category-archive-template.php"
             "wp-content/mu-plugins/dls-typography-pair.php"
             "wp-content/mu-plugins/00-dls-native-authors-activate.php"
             "wp-content/mu-plugins/dls-native-authors.php"
             "wp-content/mu-plugins/dls-native-authors-admin-dropdowns.php"
             "wp-content/mu-plugins/dls-most-active-authors-shortcode.php"
             "wp-content/mu-plugins/dls-category-showcase-shortcode.php"
-            "wp-content/mu-plugins/zz-dls-category-showcase-single-category.php"
-            "wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php"
-            "wp-content/mu-plugins/zz-dls-category-archive-template.php"
           )
 
           for plugin_path in "${FILES[@]}"; do
@@ -87,15 +87,15 @@ jobs:
             "${DEPLOY_USER}@${DEPLOY_HOST}" "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
 
           for file in \
+            zz-dls-category-showcase-single-category.php \
+            zz-dls-category-showcase-single-category-template.php \
+            zz-dls-category-archive-template.php \
             dls-typography-pair.php \
             00-dls-native-authors-activate.php \
             dls-native-authors.php \
             dls-native-authors-admin-dropdowns.php \
             dls-most-active-authors-shortcode.php \
-            dls-category-showcase-shortcode.php \
-            zz-dls-category-showcase-single-category.php \
-            zz-dls-category-showcase-single-category-template.php \
-            zz-dls-category-archive-template.php
+            dls-category-showcase-shortcode.php
           do
             scp \
               -P "$PORT" \
@@ -121,4 +121,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php'"
