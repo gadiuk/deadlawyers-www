@@ -1505,14 +1505,85 @@ if (!function_exists('dls_native_authors_get_post_assignments')) {
         $assignments = dls_native_authors_normalize_assignments($stored);
 
         if (empty($assignments)) {
-            foreach (dls_native_authors_get_stored_ids($post_id) as $user_id) {
+            $legacy_assignments = dls_native_authors_get_legacy_assignments_for_post($post_id);
+
+            if (!empty($legacy_assignments)) {
+                $assignments = $legacy_assignments;
+            } else {
+                foreach (dls_native_authors_get_stored_ids($post_id) as $user_id) {
+                    $assignments[] = [
+                        'author_type' => 'user',
+                        'user_id'     => $user_id,
+                        'term_id'     => 0,
+                        'post_role'   => 'author',
+                    ];
+                }
+            }
+        }
+
+        return dls_native_authors_normalize_assignments($assignments);
+    }
+}
+
+if (!function_exists('dls_native_authors_get_legacy_assignments_for_post')) {
+    function dls_native_authors_get_legacy_assignments_for_post($post_id) {
+        $post_id = absint($post_id);
+        if ($post_id < 1 || !taxonomy_exists('author')) {
+            return [];
+        }
+
+        $terms = wp_get_post_terms($post_id, 'author');
+        if (empty($terms) || is_wp_error($terms)) {
+            return [];
+        }
+
+        $assignments = [];
+        $seen = [];
+
+        foreach ($terms as $term) {
+            if (!($term instanceof WP_Term)) {
+                continue;
+            }
+
+            $term_id = (int) $term->term_id;
+            if ($term_id < 1) {
+                continue;
+            }
+
+            $linked_user_id = dls_native_authors_extract_user_id_from_term($term_id);
+
+            if ($linked_user_id > 0) {
+                $key = 'user:' . $linked_user_id;
+                if (isset($seen[$key])) {
+                    continue;
+                }
+
+                $seen[$key] = true;
                 $assignments[] = [
                     'author_type' => 'user',
-                    'user_id'     => $user_id,
+                    'user_id'     => $linked_user_id,
                     'term_id'     => 0,
                     'post_role'   => 'author',
                 ];
+                continue;
             }
+
+            if (!dls_native_authors_is_guest_author_term($term)) {
+                continue;
+            }
+
+            $key = 'guest:' . $term_id;
+            if (isset($seen[$key])) {
+                continue;
+            }
+
+            $seen[$key] = true;
+            $assignments[] = [
+                'author_type' => 'guest',
+                'user_id'     => 0,
+                'term_id'     => $term_id,
+                'post_role'   => 'author',
+            ];
         }
 
         return dls_native_authors_normalize_assignments($assignments);
@@ -1656,6 +1727,51 @@ if (!function_exists('dls_native_authors_save_assignments_for_post')) {
         }
 
         dls_native_authors_store_ids($post_id, dls_native_authors_sanitize_ids($user_ids));
+
+        if (!taxonomy_exists('author')) {
+            return;
+        }
+
+        $selected_guest_term_ids = [];
+        foreach ($assignments as $assignment) {
+            if (($assignment['author_type'] ?? 'user') !== 'guest') {
+                continue;
+            }
+
+            $term_id = absint($assignment['term_id'] ?? 0);
+            if ($term_id > 0) {
+                $selected_guest_term_ids[] = $term_id;
+            }
+        }
+
+        $selected_guest_term_ids = array_values(array_unique(array_map('absint', $selected_guest_term_ids)));
+        $existing_terms = wp_get_post_terms($post_id, 'author');
+        $terms_to_keep = [];
+
+        if (is_array($existing_terms) && !is_wp_error($existing_terms)) {
+            foreach ($existing_terms as $term) {
+                if (!($term instanceof WP_Term)) {
+                    continue;
+                }
+
+                $term_id = (int) $term->term_id;
+                if ($term_id < 1) {
+                    continue;
+                }
+
+                if (dls_native_authors_extract_user_id_from_term($term_id) > 0) {
+                    $terms_to_keep[] = $term_id;
+                    continue;
+                }
+
+                if (!dls_native_authors_is_guest_author_term($term)) {
+                    $terms_to_keep[] = $term_id;
+                }
+            }
+        }
+
+        $final_term_ids = array_values(array_unique(array_merge($terms_to_keep, $selected_guest_term_ids)));
+        wp_set_post_terms($post_id, $final_term_ids, 'author', false);
     }
 }
 
