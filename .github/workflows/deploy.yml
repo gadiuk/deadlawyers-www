@@ -47,6 +47,13 @@ jobs:
             -o /tmp/dls-typography-pair.php
           test -s /tmp/dls-typography-pair.php
 
+          curl -fsSL \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github.raw" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/wp-content/mu-plugins/dls-writing-desk.php?ref=${GITHUB_SHA}" \
+            -o /tmp/dls-writing-desk.php
+          test -s /tmp/dls-writing-desk.php
+
       - name: Setup SSH key and known hosts
         shell: bash
         env:
@@ -124,6 +131,19 @@ jobs:
             /tmp/dls-typography-pair.php \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php"
 
+          scp \
+            -P "$PORT" \
+            -i ~/.ssh/id_ed25519 \
+            -o IdentitiesOnly=yes \
+            -o IdentityAgent=none \
+            -o PreferredAuthentications=publickey \
+            -o PubkeyAuthentication=yes \
+            -o PasswordAuthentication=no \
+            -o KbdInteractiveAuthentication=no \
+            -o StrictHostKeyChecking=yes \
+            /tmp/dls-writing-desk.php \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk.php"
+
           ssh \
             -p "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -134,4 +154,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
