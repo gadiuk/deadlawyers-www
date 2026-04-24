@@ -68,6 +68,54 @@ if (!function_exists('dls_writing_desk_normalize_language')) {
     }
 }
 
+if (!function_exists('dls_writing_desk_wp_timezone')) {
+    function dls_writing_desk_wp_timezone() {
+        if (function_exists('wp_timezone')) {
+            return wp_timezone();
+        }
+
+        $timezone_string = trim((string) get_option('timezone_string'));
+        if ($timezone_string !== '') {
+            try {
+                return new DateTimeZone($timezone_string);
+            } catch (Exception $exception) {
+            }
+        }
+
+        $offset = (float) get_option('gmt_offset', 0);
+        $hours = (int) $offset;
+        $minutes = (int) round(abs($offset - $hours) * 60);
+        $sign = $offset < 0 ? '-' : '+';
+
+        return new DateTimeZone(sprintf('%s%02d:%02d', $sign, abs($hours), $minutes));
+    }
+}
+
+if (!function_exists('dls_writing_desk_current_timestamp')) {
+    function dls_writing_desk_current_timestamp() {
+        if (function_exists('current_datetime')) {
+            return current_datetime()->getTimestamp();
+        }
+
+        return current_time('timestamp');
+    }
+}
+
+if (!function_exists('dls_writing_desk_wp_date')) {
+    function dls_writing_desk_wp_date($format, $timestamp = null) {
+        $timestamp = is_numeric($timestamp) ? (int) $timestamp : time();
+
+        if (function_exists('wp_date')) {
+            return wp_date($format, $timestamp, dls_writing_desk_wp_timezone());
+        }
+
+        $date = new DateTime('@' . $timestamp);
+        $date->setTimezone(dls_writing_desk_wp_timezone());
+
+        return $date->format($format);
+    }
+}
+
 if (!function_exists('dls_writing_desk_get_post_language')) {
     function dls_writing_desk_get_post_language($post_id) {
         $post_id = absint($post_id);
@@ -585,7 +633,7 @@ if (!function_exists('dls_writing_desk_current_datetime_value')) {
             }
         }
 
-        return wp_date('Y-m-d\TH:i', time() + 3600, wp_timezone());
+        return dls_writing_desk_wp_date('Y-m-d\TH:i', time() + 3600);
     }
 }
 
@@ -1012,7 +1060,7 @@ if (!function_exists('dls_writing_desk_filter_frontend_content')) {
         }
 
         $intro = dls_writing_desk_render_frontend_intro($post_id);
-        $has_block_markup = preg_match('/<(p|h[1-6]|ul|ol|blockquote|figure|pre|table|div|section|article)/i', (string) $content) === 1;
+        $has_block_markup = preg_match('/<(p|h[1-6]|ul|ol|blockquote|figure|pre|table|div|section|article)\b/i', (string) $content) === 1;
         if (!$has_block_markup) {
             $content = wpautop($content);
         }
@@ -1675,6 +1723,12 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     filterRecentPosts();
                 });
 
+                $(document).on("submit", "form[action*=\"admin-post.php\"]", function () {
+                    if (window.tinyMCE && typeof tinyMCE.triggerSave === "function") {
+                        tinyMCE.triggerSave();
+                    }
+                });
+
                 if (window.tinyMCE) {
                     $(document).on("tinymce-editor-init", function (event, editor) {
                         if (editor && editor.id === "dls_writing_desk_content") {
@@ -1716,7 +1770,7 @@ if (!function_exists('dls_writing_desk_save_post')) {
         $publish_at_raw = sanitize_text_field((string) ($_POST['dls_writing_desk_publish_at'] ?? ''));
         $author_values = array_values(array_filter(array_map('sanitize_text_field', (array) ($_POST['dls_writing_desk_authors'] ?? []))));
 
-        $publish_dt = DateTimeImmutable::createFromFormat('Y-m-d\TH:i', $publish_at_raw, wp_timezone());
+        $publish_dt = DateTimeImmutable::createFromFormat('Y-m-d\TH:i', $publish_at_raw, dls_writing_desk_wp_timezone());
         $post_date = current_time('mysql');
         $post_date_gmt = current_time('mysql', true);
 
@@ -1727,7 +1781,7 @@ if (!function_exists('dls_writing_desk_save_post')) {
 
         $post_status = $requested_status;
         if ($requested_status === 'publish' && $publish_dt instanceof DateTimeImmutable) {
-            $now_ts = current_datetime()->getTimestamp();
+            $now_ts = dls_writing_desk_current_timestamp();
             if ($publish_dt->getTimestamp() > ($now_ts + 60)) {
                 $post_status = 'future';
             }
