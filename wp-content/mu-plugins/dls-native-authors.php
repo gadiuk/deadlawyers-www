@@ -378,6 +378,11 @@ if (!function_exists('dls_native_authors_render_metabox')) {
 }
 
 add_action('add_meta_boxes', function () {
+    // Keep the legacy checkbox UI dormant once the newer metabox exists.
+    if (function_exists('dls_native_authors_render_metabox_v2')) {
+        return;
+    }
+
     foreach (dls_native_authors_meta_box_post_types() as $post_type) {
         add_meta_box(
             'dls-native-authors-box',
@@ -391,6 +396,11 @@ add_action('add_meta_boxes', function () {
 });
 
 add_action('save_post', function ($post_id, $post) {
+    // Legacy saver for the old checkbox UI; newer handlers take over below.
+    if (function_exists('dls_native_authors_render_metabox_v2')) {
+        return;
+    }
+
     if (!($post instanceof WP_Post)) {
         return;
     }
@@ -1635,6 +1645,11 @@ if (!function_exists('dls_native_authors_render_metabox_v2')) {
 }
 
 add_action('add_meta_boxes', function () {
+    // The dedicated admin dropdown plugin owns the post editor UI when loaded.
+    if (function_exists('dls_na_ui_render_metabox')) {
+        return;
+    }
+
     foreach (dls_native_authors_meta_box_post_types() as $post_type) {
         remove_meta_box('dls-native-authors-box', $post_type, 'side');
 
@@ -1650,6 +1665,11 @@ add_action('add_meta_boxes', function () {
 }, 100);
 
 add_action('save_post', function ($post_id, $post) {
+    // Let the dedicated admin dropdown plugin handle saving when it is active.
+    if (function_exists('dls_na_ui_render_metabox')) {
+        return;
+    }
+
     if (!($post instanceof WP_Post)) {
         return;
     }
@@ -2588,6 +2608,9 @@ add_action('admin_init', function () {
 });
 
 add_action('save_post', function ($post_id, $post) {
+    // Duplicate saver kept from earlier migrations; keep it inactive.
+    return;
+
     if (!is_admin() || !($post instanceof WP_Post)) {
         return;
     }
