@@ -115,6 +115,16 @@ if (!function_exists('dls_user_multi_role_admin_menu')) {
             return;
         }
 
+        add_menu_page(
+            'Role Manager',
+            'Role Manager',
+            'manage_options',
+            'dls-additional-roles',
+            'dls_user_multi_role_render_admin_page',
+            'dashicons-admin-users',
+            58
+        );
+
         add_users_page(
             'Additional Roles',
             'Additional Roles',

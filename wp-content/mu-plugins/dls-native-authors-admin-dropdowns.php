@@ -190,6 +190,19 @@ if (!function_exists('dls_na_ui_base_users')) {
     }
 }
 
+if (!function_exists('dls_na_ui_admin_fallback_users')) {
+    function dls_na_ui_admin_fallback_users() {
+        $admins = get_users([
+            'role'    => 'administrator',
+            'orderby' => 'display_name',
+            'order'   => 'ASC',
+            'number'  => 5000,
+        ]);
+
+        return is_array($admins) ? $admins : [];
+    }
+}
+
 if (!function_exists('dls_na_ui_base_guest_authors')) {
     function dls_na_ui_base_guest_authors() {
         if (taxonomy_exists('author')) {
@@ -295,8 +308,9 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
         $mode = strtolower(trim((string) $mode));
         $items = [];
         $seen = [];
+        $candidate_users = array_merge((array) dls_na_ui_base_users(), (array) dls_na_ui_admin_fallback_users());
 
-        foreach ((array) dls_na_ui_base_users() as $user) {
+        foreach ($candidate_users as $user) {
             if (!($user instanceof WP_User)) {
                 continue;
             }
