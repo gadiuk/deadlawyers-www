@@ -1844,6 +1844,93 @@ if (!function_exists('dls_writing_desk_render_frontend_intro')) {
     }
 }
 
+if (!function_exists('dls_writing_desk_selected_author_meta')) {
+    function dls_writing_desk_selected_author_meta($post_id) {
+        $post_id = absint($post_id);
+        if ($post_id < 1) {
+            return [];
+        }
+
+        $selected = function_exists('dls_writing_desk_get_selected_people')
+            ? dls_writing_desk_get_selected_people($post_id)
+            : ['author' => ''];
+        $selection = function_exists('dls_writing_desk_parse_selection')
+            ? dls_writing_desk_parse_selection((string) ($selected['author'] ?? ''))
+            : [];
+
+        if (empty($selection) && taxonomy_exists('author')) {
+            $terms = get_the_terms($post_id, 'author');
+            if (is_array($terms)) {
+                foreach ($terms as $term) {
+                    if ($term instanceof WP_Term) {
+                        $user_id = function_exists('dls_writing_desk_extract_user_id_from_author_term')
+                            ? dls_writing_desk_extract_user_id_from_author_term((int) $term->term_id)
+                            : 0;
+                        $selection = $user_id > 0
+                            ? ['author_type' => 'user', 'user_id' => $user_id]
+                            : ['author_type' => 'guest', 'term_id' => (int) $term->term_id];
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (empty($selection)) {
+            return [];
+        }
+
+        if (($selection['author_type'] ?? 'user') === 'guest') {
+            $term_id = absint($selection['term_id'] ?? 0);
+            $term = function_exists('dls_native_authors_get_guest_author_term')
+                ? dls_native_authors_get_guest_author_term($term_id)
+                : dls_writing_desk_get_guest_author_term($term_id);
+            if (!($term instanceof WP_Term)) {
+                return [];
+            }
+
+            $link = get_term_link($term);
+            return [
+                'name' => (string) $term->name,
+                'url'  => is_wp_error($link) ? '' : (string) $link,
+            ];
+        }
+
+        $user_id = absint($selection['user_id'] ?? 0);
+        $user = $user_id > 0 ? get_userdata($user_id) : false;
+        if (!($user instanceof WP_User)) {
+            return [];
+        }
+
+        return [
+            'name' => (string) $user->display_name,
+            'url'  => get_author_posts_url($user_id),
+        ];
+    }
+}
+
+if (!function_exists('dls_writing_desk_replace_kadence_author_meta')) {
+    function dls_writing_desk_replace_kadence_author_meta($author_output) {
+        if (is_admin() || !is_singular('post')) {
+            return $author_output;
+        }
+
+        $meta = dls_writing_desk_selected_author_meta(get_the_ID());
+        $name = trim((string) ($meta['name'] ?? ''));
+        if ($name === '') {
+            return $author_output;
+        }
+
+        $label = '<span class="meta-label">Від</span>';
+        $url = trim((string) ($meta['url'] ?? ''));
+        $author = $url !== ''
+            ? '<span class="author vcard"><a class="url fn n" href="' . esc_url($url) . '">' . esc_html($name) . '</a></span>'
+            : '<span class="author vcard"><span class="fn n">' . esc_html($name) . '</span></span>';
+
+        return '<span class="posted-by">' . $label . $author . '</span>';
+    }
+}
+add_filter('kadence_author_meta_output', 'dls_writing_desk_replace_kadence_author_meta', 20);
+
 if (!function_exists('dls_writing_desk_normalize_saved_content')) {
     function dls_writing_desk_normalize_saved_content($content) {
         $content = trim(str_replace(["\r\n", "\r"], "\n", (string) $content));
@@ -1884,6 +1971,41 @@ if (!function_exists('dls_writing_desk_normalize_saved_content')) {
         return wp_kses_post(wpautop($content));
     }
 }
+
+if (!function_exists('dls_writing_desk_restore_frontend_paragraphs')) {
+    function dls_writing_desk_restore_frontend_paragraphs($content) {
+        if (is_admin() || !is_singular('post') || !in_the_loop() || !is_main_query()) {
+            return $content;
+        }
+
+        $content = (string) $content;
+        if ($content === '') {
+            return $content;
+        }
+
+        $content = preg_replace_callback('/<p\b([^>]*)>(.*?)<\/p>/is', static function ($matches) {
+            $inner = (string) ($matches[2] ?? '');
+            if (stripos($inner, '<br') === false && strpos($inner, "\n") === false) {
+                return (string) ($matches[0] ?? '');
+            }
+
+            $parts = preg_split('/(?:<br\s*\/?>\s*)+|\n+/i', $inner);
+            $parts = array_values(array_filter(array_map('trim', (array) $parts)));
+            if (count($parts) < 2) {
+                return (string) ($matches[0] ?? '');
+            }
+
+            return '<p>' . implode('</p><p>', array_map('wp_kses_post', $parts)) . '</p>';
+        }, $content);
+
+        if (preg_match('/<(p|h[1-6]|ul|ol|figure|blockquote|table|pre|div)\b/i', $content) !== 1 && strpos($content, "\n") !== false) {
+            return wpautop($content);
+        }
+
+        return $content;
+    }
+}
+add_filter('the_content', 'dls_writing_desk_restore_frontend_paragraphs', 99);
 
 if (!function_exists('dls_writing_desk_compare_text')) {
     function dls_writing_desk_compare_text($text) {
@@ -2279,7 +2401,7 @@ if (!function_exists('dls_writing_desk_frontend_styles')) {
             return;
         }
 
-        echo '<style>.dls-writing-desk-frontend-intro{margin:0 0 1.8em}.dls-writing-desk-frontend-kicker{margin:0 0 .7em;color:#8a6133;font:700 12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}.dls-writing-desk-frontend-lead{margin:0 0 1.4em;font-size:1.25em;line-height:1.7;color:#443225}.single-post .entry-content>p,.single-post .single-content>p,.single-post .wp-block-post-content>p{margin-top:0;margin-bottom:1.45em}.single-post .entry-content>p:last-child,.single-post .single-content>p:last-child,.single-post .wp-block-post-content>p:last-child{margin-bottom:0}</style>';
+        echo '<style>.dls-writing-desk-frontend-intro{margin:0 0 1.8em}.dls-writing-desk-frontend-kicker{margin:0 0 .7em;color:#8a6133;font:700 12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}.dls-writing-desk-frontend-lead{margin:0 0 1.4em;font-size:1.25em;line-height:1.7;color:#443225}.single-post .entry-content p,.single-post .single-content p,.single-post .wp-block-post-content p{margin-top:0!important;margin-bottom:1.45em!important}.single-post .entry-content p:last-child,.single-post .single-content p:last-child,.single-post .wp-block-post-content p:last-child{margin-bottom:0!important}</style>';
     }
 }
 add_action('wp_head', 'dls_writing_desk_frontend_styles');
@@ -4489,6 +4611,8 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                                         'toolbar1'          => 'formatselect,bold,italic,link,blockquote,bullist,numlist,undo,redo,removeformat',
                                                         'toolbar2'         => '',
                                                         'block_formats'    => 'Paragraph=p;Heading 2=h2;Heading 3=h3;Quote=blockquote',
+                                                        'forced_root_block' => 'p',
+                                                        'remove_linebreaks' => false,
                                                         'menubar'          => false,
                                                         'branding'         => false,
                                                         'content_style'    => 'body{max-width:740px;margin:0 auto;padding:0;font-family:Georgia,serif;font-size:21px;line-height:1.8;color:#201814;}p{margin:0 0 1.2em;}h2{margin:1.8em 0 .7em;font-size:1.8em;line-height:1.2;}h3{margin:1.6em 0 .6em;font-size:1.35em;line-height:1.3;}blockquote{margin:1.8em 0;padding:0 0 0 1.1em;border-left:3px solid #b1865a;color:#5b4432;font-style:italic;}ul,ol{margin:0 0 1.2em 1.4em;}a{color:#7d2010;}',
