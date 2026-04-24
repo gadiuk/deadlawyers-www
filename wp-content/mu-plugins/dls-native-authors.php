@@ -547,6 +547,43 @@ add_action('pre_get_posts', function ($query) {
     $query->set('order', 'DESC');
 }, 99);
 
+add_action('wp', function () {
+    if (is_admin()) {
+        return;
+    }
+
+    global $wp_query, $authordata;
+
+    if (!($wp_query instanceof WP_Query) || !$wp_query->is_main_query()) {
+        return;
+    }
+
+    $author_id = absint($wp_query->get('dls_author_user_id'));
+    if ($author_id < 1) {
+        $author_id = absint($wp_query->get('author'));
+    }
+
+    if ($author_id < 1) {
+        return;
+    }
+
+    $user = get_userdata($author_id);
+    if (!($user instanceof WP_User)) {
+        return;
+    }
+
+    $wp_query->queried_object = $user;
+    $wp_query->queried_object_id = (int) $user->ID;
+    $wp_query->is_author = true;
+    $wp_query->is_archive = true;
+    $wp_query->is_home = false;
+    $wp_query->is_404 = false;
+    $wp_query->set('author', (int) $user->ID);
+    $wp_query->set('author_name', (string) $user->user_nicename);
+
+    $authordata = $user;
+}, 20);
+
 if (!function_exists('dls_native_authors_extract_user_id_from_term')) {
     function dls_native_authors_extract_user_id_from_term($term_id) {
         $term_id = absint($term_id);
