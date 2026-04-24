@@ -1113,7 +1113,7 @@ if (!function_exists('dls_writing_desk_recent_posts')) {
         $args = [
             'post_type'      => 'post',
             'post_status'    => ['draft', 'pending', 'future', 'publish', 'private'],
-            'posts_per_page' => 200,
+            'posts_per_page' => -1,
             'orderby'        => 'modified',
             'order'          => 'DESC',
         ];
@@ -1376,6 +1376,13 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 background: #d9c7a9;
                 color: #2f251d;
             }
+            .dls-writing-desk__button--disabled,
+            .dls-writing-desk__button--disabled:visited {
+                background: #efe6d7;
+                color: #8a7a67;
+                cursor: default;
+                pointer-events: none;
+            }
             .dls-writing-desk__notice {
                 margin: 0 0 16px;
                 border: 0;
@@ -1391,6 +1398,22 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
             }
             .dls-writing-desk__main {
                 min-width: 0;
+            }
+            .dls-writing-desk__story-sheet {
+                background: #fffdfa;
+                border: 1px solid rgba(36,28,21,0.08);
+                border-radius: 26px;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+                padding: 34px 38px 22px;
+            }
+            .dls-writing-desk__story-head {
+                margin-bottom: 18px;
+            }
+            .dls-writing-desk__story-head > * + * {
+                margin-top: 10px;
+            }
+            .dls-writing-desk__story-editor {
+                margin-top: 10px;
             }
             .dls-writing-desk__side {
                 display: flex;
@@ -1416,6 +1439,9 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
             .dls-writing-desk__field:last-child {
                 margin-bottom: 0;
             }
+            .dls-writing-desk__field--story {
+                margin-bottom: 0;
+            }
             .dls-writing-desk__label {
                 display: flex;
                 justify-content: space-between;
@@ -1439,24 +1465,37 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 font: 400 16px/1.5 "Helvetica Neue", Arial, sans-serif;
             }
             .dls-writing-desk__input--kicker {
-                font: 600 13px/1.3 "Helvetica Neue", Arial, sans-serif;
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                font: 600 12px/1.3 "Helvetica Neue", Arial, sans-serif;
                 text-transform: uppercase;
-                letter-spacing: 0.16em;
+                letter-spacing: 0.18em;
                 color: #8a6133;
-                background: rgba(255,250,241,0.9);
+                background: transparent;
+                box-shadow: none;
             }
             .dls-writing-desk__input--title {
-                font: 700 34px/1.1 "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-                border-radius: 18px;
-                padding: 20px 22px;
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+                font: 700 52px/1.04 "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+                letter-spacing: -0.03em;
             }
             .dls-writing-desk__textarea {
                 min-height: 120px;
                 resize: vertical;
             }
             .dls-writing-desk__textarea--lead {
-                min-height: 110px;
-                font: 400 20px/1.6 "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+                min-height: 92px;
+                border: 0;
+                border-radius: 0;
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+                font: 400 28px/1.42 "Iowan Old Style", "Palatino Linotype", Georgia, serif;
                 color: #3f3024;
             }
             .dls-writing-desk__input--small,
@@ -1581,17 +1620,32 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
             .dls-writing-desk__share-row .dls-writing-desk__input {
                 flex: 1 1 auto;
             }
-            #wp-dls_writing_desk_content-wrap .wp-editor-container {
-                border: 1px solid rgba(49,35,25,0.16);
-                border-radius: 18px;
-                overflow: hidden;
+            #wp-dls_writing_desk_content-wrap {
+                margin-top: 8px;
             }
+            #wp-dls_writing_desk_content-wrap .wp-editor-container {
+                border: 0;
+                border-radius: 0;
+                overflow: visible;
+                background: transparent;
+            }
+            #wp-dls_writing_desk_content-wrap .quicktags-toolbar,
             #wp-dls_writing_desk_content-wrap .mce-toolbar-grp {
-                background: #f7f0e4;
-                border-bottom: 1px solid rgba(49,35,25,0.08);
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            #wp-dls_writing_desk_content-wrap .wp-editor-tabs {
+                display: none;
+            }
+            #wp-dls_writing_desk_content-wrap .mce-tinymce {
+                border: 0;
+                box-shadow: none;
             }
             #dls_writing_desk_content_ifr {
-                min-height: 560px !important;
+                min-height: 620px !important;
                 background: #fffdfa;
             }
             @media (max-width: 1180px) {
@@ -1610,11 +1664,14 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 .dls-writing-desk__title {
                     font-size: 28px;
                 }
+                .dls-writing-desk__story-sheet {
+                    padding: 24px 20px 18px;
+                }
                 .dls-writing-desk__input--title {
-                    font-size: 28px;
+                    font-size: 34px;
                 }
                 .dls-writing-desk__textarea--lead {
-                    font-size: 18px;
+                    font-size: 22px;
                 }
                 .dls-writing-desk__share-row {
                     flex-direction: column;
@@ -2005,8 +2062,10 @@ if (!function_exists('dls_writing_desk_render_page')) {
                 </div>
                 <div class="dls-writing-desk__actions">
                     <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(add_query_arg(['page' => 'dls-writing-desk'], admin_url('admin.php'))); ?>">New Draft</a>
-                    <?php if ($post instanceof WP_Post && $view_url !== '') : ?>
+                    <?php if ($view_url !== '') : ?>
                         <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url($view_url); ?>" target="_blank" rel="noopener">Preview</a>
+                    <?php else : ?>
+                        <span class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__button--disabled">Preview</span>
                     <?php endif; ?>
                     <?php if ($post instanceof WP_Post) : ?>
                         <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(get_edit_post_link($post->ID, '')); ?>">Open WordPress Editor</a>
@@ -2054,46 +2113,40 @@ if (!function_exists('dls_writing_desk_render_page')) {
 
                         <div class="dls-writing-desk__editor-grid">
                             <div class="dls-writing-desk__main">
-                                <div class="dls-writing-desk__field">
-                                    <div class="dls-writing-desk__label"><span>Kicker</span><span>Section / label</span></div>
-                                    <input id="dls-writing-desk-kicker" class="dls-writing-desk__input dls-writing-desk__input--kicker" type="text" name="dls_writing_desk_kicker" value="<?php echo esc_attr($kicker); ?>" placeholder="Story label, series, case, or topic">
-                                </div>
+                                <div class="dls-writing-desk__story-sheet">
+                                    <div class="dls-writing-desk__story-head">
+                                        <input id="dls-writing-desk-kicker" class="dls-writing-desk__input dls-writing-desk__input--kicker" type="text" name="dls_writing_desk_kicker" value="<?php echo esc_attr($kicker); ?>" placeholder="Kicker">
+                                        <input id="dls-writing-desk-title" class="dls-writing-desk__input dls-writing-desk__input--title" type="text" name="dls_writing_desk_title" value="<?php echo esc_attr($post instanceof WP_Post ? $post->post_title : ''); ?>" placeholder="Title">
+                                        <textarea id="dls-writing-desk-lead" class="dls-writing-desk__textarea dls-writing-desk__textarea--lead" name="dls_writing_desk_lead" placeholder="Lead"><?php echo esc_textarea($lead); ?></textarea>
+                                    </div>
 
-                                <div class="dls-writing-desk__field">
-                                    <div class="dls-writing-desk__label"><span>Title</span><span>Headline</span></div>
-                                    <input id="dls-writing-desk-title" class="dls-writing-desk__input dls-writing-desk__input--title" type="text" name="dls_writing_desk_title" value="<?php echo esc_attr($post instanceof WP_Post ? $post->post_title : ''); ?>" placeholder="Write the headline here">
-                                </div>
-
-                                <div class="dls-writing-desk__field">
-                                    <div class="dls-writing-desk__label"><span>Lead</span><span>Opening lines</span></div>
-                                    <textarea id="dls-writing-desk-lead" class="dls-writing-desk__textarea dls-writing-desk__textarea--lead" name="dls_writing_desk_lead" placeholder="Write the lead the way Medium does it: one strong paragraph that pulls the reader into the story."><?php echo esc_textarea($lead); ?></textarea>
-                                </div>
-
-                                <div class="dls-writing-desk__field">
-                                    <div class="dls-writing-desk__label"><span>Story</span><span>Body</span></div>
-                                    <?php
-                                    wp_editor(
-                                        $post instanceof WP_Post ? $post->post_content : '',
-                                        'dls_writing_desk_content',
-                                        [
-                                            'textarea_name' => 'dls_writing_desk_content',
-                                            'media_buttons' => true,
-                                            'textarea_rows' => 24,
-                                            'teeny'         => false,
-                                            'quicktags'     => false,
-                                            'tinymce'       => [
-                                                'wp_autoresize_on' => true,
-                                                'toolbar1'         => 'formatselect,bold,italic,link,blockquote,bullist,numlist,undo,redo,removeformat',
-                                                'toolbar2'         => '',
-                                                'block_formats'    => 'Paragraph=p;Heading 2=h2;Heading 3=h3;Quote=blockquote',
-                                                'menubar'          => false,
-                                                'branding'         => false,
-                                                'content_style'    => 'body{max-width:740px;margin:0 auto;padding:28px 34px;font-family:Georgia,serif;font-size:21px;line-height:1.8;color:#201814;}p{margin:0 0 1.2em;}h2{margin:1.8em 0 .7em;font-size:1.8em;line-height:1.2;}h3{margin:1.6em 0 .6em;font-size:1.35em;line-height:1.3;}blockquote{margin:1.8em 0;padding:0 0 0 1.1em;border-left:3px solid #b1865a;color:#5b4432;font-style:italic;}ul,ol{margin:0 0 1.2em 1.4em;}a{color:#7d2010;}',
-                                            ],
-                                        ]
-                                    );
-                                    ?>
-                                    <p class="dls-writing-desk__muted dls-writing-desk__toolbar-note">Use the format menu for paragraph, heading and quote styles. The code tab is removed here on purpose.</p>
+                                    <div class="dls-writing-desk__field dls-writing-desk__field--story">
+                                        <div class="dls-writing-desk__story-editor">
+                                            <?php
+                                            wp_editor(
+                                                $post instanceof WP_Post ? $post->post_content : '',
+                                                'dls_writing_desk_content',
+                                                [
+                                                    'textarea_name' => 'dls_writing_desk_content',
+                                                    'media_buttons' => true,
+                                                    'textarea_rows' => 24,
+                                                    'teeny'         => false,
+                                                    'quicktags'     => false,
+                                                    'tinymce'       => [
+                                                        'wp_autoresize_on' => true,
+                                                        'toolbar1'         => 'formatselect,bold,italic,link,blockquote,bullist,numlist,undo,redo,removeformat',
+                                                        'toolbar2'         => '',
+                                                        'block_formats'    => 'Paragraph=p;Heading 2=h2;Heading 3=h3;Quote=blockquote',
+                                                        'menubar'          => false,
+                                                        'branding'         => false,
+                                                        'content_style'    => 'body{max-width:740px;margin:0 auto;padding:0;font-family:Georgia,serif;font-size:21px;line-height:1.8;color:#201814;}p{margin:0 0 1.2em;}h2{margin:1.8em 0 .7em;font-size:1.8em;line-height:1.2;}h3{margin:1.6em 0 .6em;font-size:1.35em;line-height:1.3;}blockquote{margin:1.8em 0;padding:0 0 0 1.1em;border-left:3px solid #b1865a;color:#5b4432;font-style:italic;}ul,ol{margin:0 0 1.2em 1.4em;}a{color:#7d2010;}',
+                                                    ],
+                                                ]
+                                            );
+                                            ?>
+                                        </div>
+                                        <p class="dls-writing-desk__muted dls-writing-desk__toolbar-note">Use the format menu for paragraph, heading and quote styles.</p>
+                                    </div>
                                 </div>
                             </div>
 
