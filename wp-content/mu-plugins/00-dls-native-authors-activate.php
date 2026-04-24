@@ -144,6 +144,7 @@ add_action('wp_enqueue_scripts', function () {
   padding: 20px 22px;
   box-shadow: 0 24px 48px rgba(24, 28, 31, .08);
   position: static;
+  overflow: hidden;
 }
 .ppma-author-pages-author-box-wrap .pp-multiple-authors-boxes-ul {
   margin: 0;
@@ -161,15 +162,20 @@ add_action('wp_enqueue_scripts', function () {
 .ppma-author-pages-author-box-wrap .pp-author-boxes-avatar {
   width: 72px;
   min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .ppma-author-pages-author-box-wrap .pp-author-boxes-avatar .avatar {
   width: 72px !important;
   height: 72px !important;
   border-radius: 16px;
   object-fit: cover;
+  display: block;
 }
 .ppma-author-pages-author-box-wrap .pp-author-boxes-avatar-details {
   text-align: left;
+  min-width: 0;
 }
 .ppma-author-pages-author-box-wrap .pp-author-boxes-name {
   margin: 0 0 6px;
@@ -197,6 +203,10 @@ add_action('wp_enqueue_scripts', function () {
 .ppma-author-pages-author-box-wrap .ppma-category-group-title {
   display: none !important;
 }
+.ppma-author-pages-author-box-wrap .multiple-authors-description,
+.ppma-author-pages-author-box-wrap .pp-author-boxes-meta {
+  display: none !important;
+}
 .ppma-page-content.list {
   display: grid;
   gap: 22px;
@@ -210,10 +220,11 @@ add_action('wp_enqueue_scripts', function () {
   box-shadow: 0 14px 32px rgba(24, 28, 31, .06);
 }
 .ppma-page-content.list .article-content {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 0;
-  align-items: stretch;
+  display: grid !important;
+  grid-template-columns: 220px minmax(0, 1fr) !important;
+  gap: 0 !important;
+  align-items: stretch !important;
+  margin-bottom: 0 !important;
 }
 .ppma-page-content.list .article-image {
   position: relative;
@@ -221,13 +232,22 @@ add_action('wp_enqueue_scripts', function () {
   min-height: 220px;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  width: 220px !important;
+  min-width: 220px !important;
+  max-width: 220px !important;
+  flex: 0 0 220px !important;
+  border-radius: 22px 0 0 22px;
 }
 .ppma-page-content.list .article-image img {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: none !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  object-fit: cover !important;
   object-position: center;
   display: block;
 }
@@ -239,6 +259,7 @@ add_action('wp_enqueue_scripts', function () {
 }
 .ppma-page-content.list .article-body {
   padding: 28px 30px 24px;
+  min-width: 0;
 }
 .ppma-page-content.list .category-link {
   display: inline-block;
@@ -387,7 +408,11 @@ add_action('wp_enqueue_scripts', function () {
     grid-template-columns: 1fr;
   }
   .ppma-page-content.list .article-image {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
     min-height: 220px;
+    border-radius: 22px 22px 0 0;
   }
   .ppma-page-content.list .article-body {
     padding: 22px 20px 20px;
@@ -420,6 +445,20 @@ document.addEventListener('DOMContentLoaded', function () {
     img.addEventListener('error', function () {
       card.classList.add('has-no-image');
     }, { once: true });
+  });
+
+  document.querySelectorAll('.ppma-author-pages-author-box-wrap, .single .pp-multiple-authors-boxes-wrapper, .single-post .pp-multiple-authors-boxes-wrapper').forEach(function (box) {
+    box.querySelectorAll('*').forEach(function (node) {
+      if ((node.textContent || '').replace(/\s+/g, ' ').trim() === '[Писанина]') {
+        node.remove();
+      }
+    });
+
+    box.childNodes.forEach(function (node) {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.indexOf('[Писанина]') !== -1) {
+        node.textContent = node.textContent.replace('[Писанина]', '').trim();
+      }
+    });
   });
 });
 </script>
