@@ -697,16 +697,35 @@ if (!function_exists('dls_writing_desk_get_hierarchical_terms')) {
 if (!function_exists('dls_writing_desk_extra_taxonomies')) {
     function dls_writing_desk_extra_taxonomies() {
         $candidates = [
-            'companies'   => 'Галераб',
-            'company'     => 'Галераб',
+            'companies'   => 'Галери',
+            'company'     => 'Галери',
+            'organizations' => 'Галери',
+            'organization' => 'Галери',
+            'firms'       => 'Галери',
+            'firm'        => 'Галери',
             'individuals' => 'Юристи',
             'individual'  => 'Юристи',
             'people'      => 'Юристи',
             'person'      => 'Юристи',
+            'lawyers'     => 'Юристи',
+            'lawyer'      => 'Юристи',
             'post_tag'    => 'Tags',
         ];
 
         $items = [];
+        $registered = get_taxonomies([], 'objects');
+        foreach ($registered as $taxonomy => $obj) {
+            if (!$obj || !is_object_in_taxonomy('post', $taxonomy) || $taxonomy === 'category') {
+                continue;
+            }
+
+            $label_text = strtolower((string) $taxonomy . ' ' . (string) ($obj->name ?? '') . ' ' . (string) ($obj->label ?? '') . ' ' . (string) ($obj->labels->name ?? ''));
+            if (preg_match('/compan|organi[sz]ation|firm|галер|галер/i', $label_text)) {
+                $candidates[$taxonomy] = 'Галери';
+            } elseif (preg_match('/individual|person|people|lawyer|юрист/i', $label_text)) {
+                $candidates[$taxonomy] = 'Юристи';
+            }
+        }
 
         foreach ($candidates as $taxonomy => $label) {
             if (!taxonomy_exists($taxonomy)) {
@@ -1622,7 +1641,7 @@ if (!function_exists('dls_writing_desk_access_elements')) {
             'people'          => 'Author / editor selector',
             'categories'      => 'Categories',
             'create_categories' => 'Create new categories',
-            'taxonomies'      => 'Галераб, Юристи and tags',
+            'taxonomies'      => 'Галери, Юристи and tags',
             'social'          => 'Facebook / LinkedIn preparation',
             'featured_image'  => 'Featured image',
         ];
@@ -2174,7 +2193,7 @@ if (!function_exists('dls_writing_desk_checklist_items')) {
                 'required' => true,
             ],
             'company' => [
-                'label' => 'Галераб tagged',
+                'label' => 'Галери tagged',
                 'note' => 'Optional, but useful when the story mentions a company.',
                 'required' => false,
             ],
@@ -2203,8 +2222,8 @@ if (!function_exists('dls_writing_desk_checklist_state')) {
             'category_jurisdiction' => dls_writing_desk_has_category_group($category_ids, 'jurisdiction'),
             'category_topic' => dls_writing_desk_has_category_group($category_ids, 'topic'),
             'author' => trim((string) $author_value) !== '',
-            'company' => dls_writing_desk_taxonomy_has_selection($selected_taxonomies, ['companies', 'company']),
-            'individual' => dls_writing_desk_taxonomy_has_selection($selected_taxonomies, ['individuals', 'individual', 'people', 'person']),
+            'company' => dls_writing_desk_taxonomy_has_selection($selected_taxonomies, ['companies', 'company', 'organizations', 'organization', 'firms', 'firm']),
+            'individual' => dls_writing_desk_taxonomy_has_selection($selected_taxonomies, ['individuals', 'individual', 'people', 'person', 'lawyers', 'lawyer']),
             'tags' => dls_writing_desk_taxonomy_has_selection($selected_taxonomies, ['post_tag']),
         ];
     }
@@ -2662,6 +2681,14 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 color: #826956;
                 font-size: 12px;
             }
+            .dls-writing-desk__check:has(input:checked) {
+                border-color: rgba(47,111,73,0.28);
+                background: #f1f7ed;
+            }
+            .dls-writing-desk__check:has(input:checked) span:first-of-type {
+                color: #234d31;
+                font-weight: 700;
+            }
             .dls-writing-desk__tag-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -2932,6 +2959,9 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 text-transform: uppercase;
                 letter-spacing: 0.08em;
             }
+            .dls-writing-desk__autosave-status {
+                color: #8a6133;
+            }
             .dls-writing-desk__footer-actions {
                 margin-top: 22px;
                 padding-top: 18px;
@@ -3016,10 +3046,15 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
 
         wp_register_script('dls-writing-desk', false, ['jquery'], '1.2.0', true);
         wp_enqueue_script('dls-writing-desk');
+        $autosave_post_id = absint($_GET['desk_post'] ?? 0);
+        $autosave_notice = sanitize_key((string) ($_GET['desk_notice'] ?? ''));
         wp_add_inline_script('dls-writing-desk', 'window.DLSWritingDesk = ' . wp_json_encode([
             'homeHost' => strtolower((string) wp_parse_url(home_url('/'), PHP_URL_HOST)),
             'canOverrideChecklist' => current_user_can('manage_options'),
             'canEditOthersPosts' => current_user_can('edit_others_posts'),
+            'autosaveKey' => 'dls_writing_desk_autosave_' . get_current_user_id() . '_' . $autosave_post_id,
+            'newDraftAutosaveKey' => 'dls_writing_desk_autosave_' . get_current_user_id() . '_0',
+            'clearAutosave' => in_array($autosave_notice, ['saved', 'published', 'updated', 'scheduled', 'checklist_blocked'], true),
         ]) . ';', 'before');
         wp_add_inline_script('dls-writing-desk', '
             (function ($) {
@@ -3029,11 +3064,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
 
                 function updateCounts() {
                     var title = $("#dls-writing-desk-title").val() || "";
-                    $(".dls-writing-desk__title-count").text(title.length + " chars");
-
                     var lead = $("#dls-writing-desk-lead").val() || "";
-                    $(".dls-writing-desk__lead-count").text(lead.length + " chars");
-
                     var editorText = "";
                     if (window.tinyMCE && tinyMCE.get("dls_writing_desk_content")) {
                         editorText = tinyMCE.get("dls_writing_desk_content").getContent({ format: "text" });
@@ -3041,9 +3072,13 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                         editorText = $("#dls_writing_desk_content").val() || "";
                     }
 
-                    editorText = stripHtml(editorText);
-                    var words = editorText === "" ? 0 : editorText.split(/\s+/).length;
-                    $(".dls-writing-desk__word-count").text(words + " words");
+                    var fullText = stripHtml([title, lead, editorText].join(" "));
+                    var words = fullText === "" ? 0 : fullText.split(/\s+/).length;
+                    var charsWithSpaces = fullText.length;
+                    var charsNoSpaces = fullText.replace(/\s+/g, "").length;
+                    $(".dls-writing-desk__word-count").text(words + " слів");
+                    $(".dls-writing-desk__title-count").text(charsNoSpaces + " символів без пробілів");
+                    $(".dls-writing-desk__lead-count").text(charsWithSpaces + " символів з пробілами");
                 }
 
                 function setPreview(previewSelector, url, placeholder) {
@@ -3085,6 +3120,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                         $(targetInput).val(data.id ? String(data.id) : "");
                         setPreview(targetPreview, data.url || "", placeholder);
                         updateChecklist();
+                        scheduleLocalDraftSave();
                     });
 
                     frame.open();
@@ -3151,12 +3187,13 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
 
                     var language = ($("#dls-writing-desk-language").val() || "").toString().toLowerCase();
                     var query = (list.prevAll(".dls-writing-desk__input--search:first").val() || "").toString().toLowerCase();
+                    var languageRequired = list.data("language-required") === 1 || list.data("language-required") === "1";
 
                     list.find(".dls-writing-desk__check, .dls-writing-desk__tag").each(function () {
                         var item = $(this);
                         var itemLanguage = (item.data("lang") || "").toString().toLowerCase();
                         var haystack = (item.data("search") || item.text() || "").toString().toLowerCase();
-                        var languageHidden = itemLanguage !== "" && language !== "" && itemLanguage !== language;
+                        var languageHidden = language !== "" && (languageRequired ? itemLanguage !== language : (itemLanguage !== "" && itemLanguage !== language));
                         var queryHidden = query !== "" && haystack.indexOf(query) === -1;
 
                         item.toggleClass("is-hidden", languageHidden || queryHidden);
@@ -3179,6 +3216,107 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                         var haystack = (item.data("search") || item.text() || "").toString().toLowerCase();
                         item.toggleClass("is-hidden", query !== "" && haystack.indexOf(query) === -1);
                     });
+                }
+
+                function writingForm() {
+                    return $("form input[name=\'action\'][value=\'dls_writing_desk_save\']").closest("form");
+                }
+
+                function autosaveKey() {
+                    return ((window.DLSWritingDesk || {}).autosaveKey || "").toString();
+                }
+
+                function saveLocalDraft() {
+                    var key = autosaveKey();
+                    var form = writingForm();
+                    if (!key || !form.length || !window.localStorage) {
+                        return;
+                    }
+
+                    if (window.tinyMCE && typeof tinyMCE.triggerSave === "function") {
+                        tinyMCE.triggerSave();
+                    }
+
+                    var fields = [];
+                    form.find("input, textarea, select").each(function () {
+                        var el = $(this);
+                        var name = el.attr("name") || "";
+                        var type = (el.attr("type") || this.tagName || "").toLowerCase();
+                        if (!name || name === "action" || name.indexOf("_nonce") !== -1 || name === "_wp_http_referer" || type === "submit" || type === "button") {
+                            return;
+                        }
+
+                        fields.push({
+                            name: name,
+                            type: type,
+                            value: el.val(),
+                            checked: el.is(":checked")
+                        });
+                    });
+
+                    try {
+                        window.localStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), fields: fields }));
+                        $(".dls-writing-desk__autosave-status").text("Saved locally");
+                    } catch (e) {}
+                }
+
+                var autosaveTimer = null;
+                function scheduleLocalDraftSave() {
+                    window.clearTimeout(autosaveTimer);
+                    autosaveTimer = window.setTimeout(saveLocalDraft, 700);
+                    $(".dls-writing-desk__autosave-status").text("Saving locally...");
+                }
+
+                function restoreLocalDraft() {
+                    var key = autosaveKey();
+                    var form = writingForm();
+                    if (!key || !form.length || !window.localStorage) {
+                        return;
+                    }
+
+                    if (!!((window.DLSWritingDesk || {}).clearAutosave)) {
+                        window.localStorage.removeItem(key);
+                        if ((window.DLSWritingDesk || {}).newDraftAutosaveKey) {
+                            window.localStorage.removeItem((window.DLSWritingDesk || {}).newDraftAutosaveKey);
+                        }
+                        return;
+                    }
+
+                    var payload = null;
+                    try {
+                        payload = JSON.parse(window.localStorage.getItem(key) || "null");
+                    } catch (e) {
+                        payload = null;
+                    }
+                    if (!payload || !Array.isArray(payload.fields)) {
+                        return;
+                    }
+
+                    payload.fields.forEach(function (field) {
+                        var matches = form.find("[name]").filter(function () {
+                            return ($(this).attr("name") || "") === field.name;
+                        });
+                        if (!matches.length) {
+                            return;
+                        }
+
+                        if (field.type === "checkbox" || field.type === "radio") {
+                            matches.each(function () {
+                                if (String($(this).val()) === String(field.value)) {
+                                    $(this).prop("checked", !!field.checked);
+                                }
+                            });
+                            return;
+                        }
+
+                        matches.val(field.value);
+                    });
+
+                    if (window.tinyMCE && tinyMCE.get("dls_writing_desk_content")) {
+                        tinyMCE.get("dls_writing_desk_content").setContent($("#dls_writing_desk_content").val() || "");
+                    }
+
+                    $(".dls-writing-desk__autosave-status").text("Restored local draft");
                 }
 
                 function getEditorHtml() {
@@ -3358,6 +3496,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     $("#dls-writing-desk-thumbnail-id").val("");
                     setThumb("");
                     updateChecklist();
+                    scheduleLocalDraftSave();
                 });
 
                 $(document).on("click", ".dls-writing-desk__select-media", function (event) {
@@ -3376,6 +3515,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     if (preview) {
                         setPreview(preview, "", placeholder);
                     }
+                    scheduleLocalDraftSave();
                 });
 
                 $(document).on("click", ".dls-writing-desk__copy-link", function (event) {
@@ -3410,14 +3550,17 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 $(document).on("change", "input[name=\'dls_writing_desk_categories[]\']", function () {
                     limitTopicCategories(this);
                     updateChecklist();
+                    scheduleLocalDraftSave();
                 });
-                $(document).on("change", ".dls-writing-desk__tag-list[data-taxonomy-list] input", function () {
+                $(document).on("change", ".dls-writing-desk__tag-list[data-taxonomy-list] input, .dls-writing-desk__checklist[data-taxonomy-list] input", function () {
                     if ($(this).is(":checked")) {
                         $(this).closest(".dls-writing-desk__block").find(".dls-writing-desk__new-taxonomy").val("");
-                        filterChecklist($(this).closest(".dls-writing-desk__tag-list"));
+                        filterChecklist($(this).closest(".dls-writing-desk__tag-list, .dls-writing-desk__checklist"));
                     }
+                    scheduleLocalDraftSave();
                 });
                 $(document).on("input change", "#dls-writing-desk-author, #dls-writing-desk-thumbnail-id, .dls-writing-desk__checklist input, .dls-writing-desk__tag-list input, .dls-writing-desk__new-taxonomy, .dls-writing-desk__task input", updateChecklist);
+                $(document).on("input change", "form input, form textarea, form select", scheduleLocalDraftSave);
                 $(document).on("change", "#dls-writing-desk-language", applyLanguageFilter);
                 $(document).on("input", ".dls-writing-desk__input--search", function () {
                     var target = $(this).data("target") || "";
@@ -3430,6 +3573,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     }
                 });
                 $(document).ready(function () {
+                    restoreLocalDraft();
                     updateCounts();
                     applyLanguageFilter();
                     filterRecentPosts();
@@ -3440,6 +3584,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     if (window.tinyMCE && typeof tinyMCE.triggerSave === "function") {
                         tinyMCE.triggerSave();
                     }
+                    saveLocalDraft();
                 });
 
                 if (window.tinyMCE) {
@@ -3447,6 +3592,8 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                         if (editor && editor.id === "dls_writing_desk_content") {
                             editor.on("keyup change setcontent", updateCounts);
                             editor.on("keyup change setcontent", updateChecklist);
+                            editor.on("keyup change setcontent", scheduleLocalDraftSave);
+                            restoreLocalDraft();
                             updateCounts();
                             updateChecklist();
                         }
@@ -4309,9 +4456,10 @@ if (!function_exists('dls_writing_desk_render_page')) {
                         <input type="hidden" name="dls_writing_desk_post_id" value="<?php echo esc_attr((string) $post_id); ?>">
 
                         <div class="dls-writing-desk__statline">
-                            <span class="dls-writing-desk__word-count">0 words</span>
-                            <span class="dls-writing-desk__title-count">0 chars</span>
-                            <span class="dls-writing-desk__lead-count">0 chars</span>
+                            <span class="dls-writing-desk__word-count">0 слів</span>
+                            <span class="dls-writing-desk__title-count">0 символів без пробілів</span>
+                            <span class="dls-writing-desk__lead-count">0 символів з пробілами</span>
+                            <span class="dls-writing-desk__autosave-status">Autosave ready</span>
                         </div>
 
                         <div class="dls-writing-desk__editor-grid">
@@ -4581,9 +4729,9 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                     $selected_ids = array_map('intval', (array) ($selected_taxonomies[$taxonomy] ?? []));
                                     $list_id = 'dls-writing-desk-taxonomy-' . $taxonomy;
                                     $checklist_group = '';
-                                    if (in_array($taxonomy, ['companies', 'company'], true)) {
+                                    if (in_array($taxonomy, ['companies', 'company', 'organizations', 'organization', 'firms', 'firm'], true)) {
                                         $checklist_group = 'company';
-                                    } elseif (in_array($taxonomy, ['individuals', 'individual', 'people', 'person'], true)) {
+                                    } elseif (in_array($taxonomy, ['individuals', 'individual', 'people', 'person', 'lawyers', 'lawyer'], true)) {
                                         $checklist_group = 'individual';
                                     } elseif ($taxonomy === 'post_tag') {
                                         $checklist_group = 'tags';
@@ -4595,18 +4743,24 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                         <?php if (empty($terms)) : ?>
                                             <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">Type a name above to create it when you save.</p>
                                         <?php else : ?>
-                                            <div id="<?php echo esc_attr($list_id); ?>" class="dls-writing-desk__tag-list" data-taxonomy-list="<?php echo esc_attr($taxonomy); ?>" data-checklist-group="<?php echo esc_attr($checklist_group); ?>">
+                                            <div id="<?php echo esc_attr($list_id); ?>" class="dls-writing-desk__checklist" data-taxonomy-list="<?php echo esc_attr($taxonomy); ?>" data-checklist-group="<?php echo esc_attr($checklist_group); ?>" data-language-required="1">
                                                 <?php foreach ($terms as $entry) : ?>
                                                     <?php
                                                     $term = $entry['term'] ?? null;
+                                                    $depth = (int) ($entry['depth'] ?? 0);
                                                     $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
                                                     if (!($term instanceof WP_Term)) {
                                                         continue;
                                                     }
                                                     ?>
-                                                    <label class="dls-writing-desk__tag" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name . ' ' . $term->description)); ?>">
+                                                    <label class="dls-writing-desk__check<?php echo $depth > 0 ? ' dls-writing-desk__check--child' : ''; ?>" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name . ' ' . $term->description)); ?>">
                                                         <input type="checkbox" name="<?php echo esc_attr($field_name); ?>[]" value="<?php echo esc_attr((string) $term->term_id); ?>" <?php checked(in_array((int) $term->term_id, $selected_ids, true)); ?>>
-                                                        <span><?php echo esc_html($term->name); ?></span>
+                                                        <span>
+                                                            <?php echo esc_html($term->name); ?>
+                                                            <?php if (!empty($term->description)) : ?>
+                                                                <span class="dls-writing-desk__check-note"><?php echo esc_html(wp_trim_words((string) $term->description, 12)); ?></span>
+                                                            <?php endif; ?>
+                                                        </span>
                                                     </label>
                                                 <?php endforeach; ?>
                                             </div>
