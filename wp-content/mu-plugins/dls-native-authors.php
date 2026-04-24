@@ -153,9 +153,10 @@ if (!function_exists('dls_native_authors_get_users')) {
 
             $has_allowed_role = empty($allowed_roles) ? true : !empty(array_intersect($allowed_roles, $roles));
             $can_edit = user_can($user, 'edit_posts');
+            $can_manage = user_can($user, 'manage_options') || user_can($user, 'edit_others_posts');
             $is_known_author = isset($known_lookup[$user_id]);
 
-            if (!$can_edit && !$has_allowed_role && !$is_known_author) {
+            if (!$can_edit && !$can_manage && !$has_allowed_role && !$is_known_author) {
                 continue;
             }
 
