@@ -32,6 +32,12 @@ if (!function_exists('dls_native_authors_allowed_roles')) {
     }
 }
 
+if (!function_exists('dls_native_authors_publishpress_available')) {
+    function dls_native_authors_publishpress_available() {
+        return class_exists('\\MultipleAuthors\\Classes\\Objects\\Author');
+    }
+}
+
 if (!function_exists('dls_native_authors_get_known_author_user_ids')) {
     function dls_native_authors_get_known_author_user_ids() {
         global $wpdb;
@@ -478,6 +484,10 @@ add_action('pre_get_posts', function ($query) {
         return;
     }
 
+    if (dls_native_authors_publishpress_available()) {
+        return;
+    }
+
     $author_id = absint($query->get('author'));
     $author_slug = '';
     $author_display_name = '';
@@ -549,6 +559,10 @@ add_action('pre_get_posts', function ($query) {
 
 add_action('wp', function () {
     if (is_admin()) {
+        return;
+    }
+
+    if (dls_native_authors_publishpress_available()) {
         return;
     }
 
@@ -1193,6 +1207,10 @@ add_filter('request', function ($query_vars) {
         return $query_vars;
     }
 
+    if (dls_native_authors_publishpress_available()) {
+        return $query_vars;
+    }
+
     if (empty($query_vars['author_name']) || !empty($query_vars['author'])) {
         return $query_vars;
     }
@@ -1439,6 +1457,75 @@ if (!function_exists('dls_native_authors_get_guest_author_url')) {
     }
 }
 
+if (!function_exists('dls_native_authors_get_author_term_id_for_user')) {
+    function dls_native_authors_get_author_term_id_for_user($user_id) {
+        $user_id = absint($user_id);
+        if ($user_id < 1 || !taxonomy_exists('author')) {
+            return 0;
+        }
+
+        $direct = get_terms([
+            'taxonomy'   => 'author',
+            'hide_empty' => false,
+            'number'     => 1,
+            'fields'     => 'ids',
+            'meta_query' => [
+                [
+                    'key'   => 'user_id',
+                    'value' => $user_id,
+                ],
+            ],
+        ]);
+
+        if (is_array($direct) && !empty($direct)) {
+            return absint(reset($direct));
+        }
+
+        $legacy = get_terms([
+            'taxonomy'   => 'author',
+            'hide_empty' => false,
+            'number'     => 1,
+            'fields'     => 'ids',
+            'meta_query' => [
+                [
+                    'key'     => 'user_id_' . $user_id,
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ]);
+
+        if (is_array($legacy) && !empty($legacy)) {
+            $term_id = absint(reset($legacy));
+            if ($term_id > 0) {
+                update_term_meta($term_id, 'user_id', $user_id);
+            }
+
+            return $term_id;
+        }
+
+        return 0;
+    }
+}
+
+if (!function_exists('dls_native_authors_get_user_author_url')) {
+    function dls_native_authors_get_user_author_url($user_id) {
+        $user_id = absint($user_id);
+        if ($user_id < 1) {
+            return '';
+        }
+
+        $term_id = dls_native_authors_get_author_term_id_for_user($user_id);
+        if ($term_id > 0) {
+            $url = get_term_link($term_id, 'author');
+            if (!is_wp_error($url) && is_string($url) && $url !== '') {
+                return $url;
+            }
+        }
+
+        return (string) get_author_posts_url($user_id);
+    }
+}
+
 if (!function_exists('dls_native_authors_normalize_assignments')) {
     function dls_native_authors_normalize_assignments($assignments) {
         $normalized = [];
@@ -1503,21 +1590,32 @@ if (!function_exists('dls_native_authors_get_post_assignments')) {
 
         $stored = get_post_meta($post_id, '_dls_post_author_assignments', true);
         $assignments = dls_native_authors_normalize_assignments($stored);
+        $legacy_assignments = dls_native_authors_get_legacy_assignments_for_post($post_id);
+
+        if (!empty($legacy_assignments)) {
+            $legacy_guests = [];
+
+            foreach ($legacy_assignments as $legacy_row) {
+                if (($legacy_row['author_type'] ?? 'user') === 'guest') {
+                    $legacy_guests[] = $legacy_row;
+                }
+            }
+
+            if (empty($assignments)) {
+                $assignments = $legacy_assignments;
+            } elseif (!empty($legacy_guests)) {
+                $assignments = array_merge($assignments, $legacy_guests);
+            }
+        }
 
         if (empty($assignments)) {
-            $legacy_assignments = dls_native_authors_get_legacy_assignments_for_post($post_id);
-
-            if (!empty($legacy_assignments)) {
-                $assignments = $legacy_assignments;
-            } else {
-                foreach (dls_native_authors_get_stored_ids($post_id) as $user_id) {
-                    $assignments[] = [
-                        'author_type' => 'user',
-                        'user_id'     => $user_id,
-                        'term_id'     => 0,
-                        'post_role'   => 'author',
-                    ];
-                }
+            foreach (dls_native_authors_get_stored_ids($post_id) as $user_id) {
+                $assignments[] = [
+                    'author_type' => 'user',
+                    'user_id'     => $user_id,
+                    'term_id'     => 0,
+                    'post_role'   => 'author',
+                ];
             }
         }
 
@@ -1630,7 +1728,7 @@ if (!function_exists('dls_native_authors_get_post_people_with_roles')) {
                 'user_id'     => $user_id,
                 'user'        => $user,
                 'name'        => (string) $user->display_name,
-                'url'         => (string) get_author_posts_url($user_id),
+                'url'         => dls_native_authors_get_user_author_url($user_id),
                 'post_role'   => $post_role,
             ];
         }
@@ -1732,19 +1830,25 @@ if (!function_exists('dls_native_authors_save_assignments_for_post')) {
             return;
         }
 
-        $selected_guest_term_ids = [];
+        $selected_author_term_ids = [];
         foreach ($assignments as $assignment) {
-            if (($assignment['author_type'] ?? 'user') !== 'guest') {
+            $author_type = (string) ($assignment['author_type'] ?? 'user');
+
+            if ($author_type === 'guest') {
+                $term_id = absint($assignment['term_id'] ?? 0);
+                if ($term_id > 0) {
+                    $selected_author_term_ids[] = $term_id;
+                }
                 continue;
             }
 
-            $term_id = absint($assignment['term_id'] ?? 0);
-            if ($term_id > 0) {
-                $selected_guest_term_ids[] = $term_id;
+            $user_term_id = dls_native_authors_get_author_term_id_for_user(absint($assignment['user_id'] ?? 0));
+            if ($user_term_id > 0) {
+                $selected_author_term_ids[] = $user_term_id;
             }
         }
 
-        $selected_guest_term_ids = array_values(array_unique(array_map('absint', $selected_guest_term_ids)));
+        $selected_author_term_ids = array_values(array_unique(array_map('absint', $selected_author_term_ids)));
         $existing_terms = wp_get_post_terms($post_id, 'author');
         $terms_to_keep = [];
 
@@ -1759,18 +1863,14 @@ if (!function_exists('dls_native_authors_save_assignments_for_post')) {
                     continue;
                 }
 
-                if (dls_native_authors_extract_user_id_from_term($term_id) > 0) {
-                    $terms_to_keep[] = $term_id;
-                    continue;
-                }
-
-                if (!dls_native_authors_is_guest_author_term($term)) {
+                $linked_user_id = dls_native_authors_extract_user_id_from_term($term_id);
+                if ($linked_user_id < 1 && !dls_native_authors_is_guest_author_term($term)) {
                     $terms_to_keep[] = $term_id;
                 }
             }
         }
 
-        $final_term_ids = array_values(array_unique(array_merge($terms_to_keep, $selected_guest_term_ids)));
+        $final_term_ids = array_values(array_unique(array_merge($terms_to_keep, $selected_author_term_ids)));
         wp_set_post_terms($post_id, $final_term_ids, 'author', false);
     }
 }
