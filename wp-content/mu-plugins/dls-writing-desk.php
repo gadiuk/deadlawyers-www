@@ -1626,8 +1626,9 @@ if (!function_exists('dls_writing_desk_filter_frontend_content')) {
 
         $intro = dls_writing_desk_render_frontend_intro($post_id);
 
-        $has_block_markup = preg_match('/<(p|h[1-6]|ul|ol|blockquote|figure|pre|table|div|section|article)\b/i', (string) $content) === 1;
-        if (!$has_block_markup) {
+        $has_paragraphs = preg_match('/<p\b/i', (string) $content) === 1;
+        $has_block_editor_markup = function_exists('has_blocks') && has_blocks((string) $content);
+        if (!$has_paragraphs && !$has_block_editor_markup) {
             $content = wpautop($content);
         }
 
@@ -2436,7 +2437,7 @@ if (!function_exists('dls_writing_desk_save_post')) {
 
         $title = sanitize_text_field((string) ($_POST['dls_writing_desk_title'] ?? ''));
         $kicker = sanitize_text_field((string) ($_POST['dls_writing_desk_kicker'] ?? ''));
-        $content = wp_kses_post((string) ($_POST['dls_writing_desk_content'] ?? ''));
+        $content = wp_kses_post((string) wp_unslash($_POST['dls_writing_desk_content'] ?? ''));
         $lead = sanitize_textarea_field((string) ($_POST['dls_writing_desk_lead'] ?? ''));
         $language = dls_writing_desk_normalize_language($_POST['dls_writing_desk_language'] ?? '');
         $thumbnail_id = absint($_POST['dls_writing_desk_thumbnail_id'] ?? 0);
