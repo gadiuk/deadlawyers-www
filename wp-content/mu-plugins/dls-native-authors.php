@@ -2193,6 +2193,26 @@ add_action('kadence_single_after_entry_content', function () {
     echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }, 25);
 
+if (!function_exists('dls_native_authors_normalize_telegram_username')) {
+    function dls_native_authors_normalize_telegram_username($value) {
+        $value = trim((string) $value);
+        if ($value === '') {
+            return '';
+        }
+
+        $value = preg_replace('/^https?:\/\/(?:www\.)?t\.me\//i', '', $value);
+        $value = preg_replace('/^@+/', '', (string) $value);
+        $value = preg_replace('/[^A-Za-z0-9_]/', '', (string) $value);
+
+        return $value === '' ? '' : '@' . $value;
+    }
+}
+
+add_filter('user_contactmethods', function ($methods) {
+    $methods['telegram'] = 'Telegram username';
+    return $methods;
+});
+
 add_action('admin_menu', function () {
     add_users_page(
         'DLS Author Profiles',
@@ -2224,6 +2244,7 @@ add_action('admin_menu', function () {
                     $short_bio = sanitize_textarea_field((string) ($row['short_bio'] ?? ''));
                     $avatar_url = esc_url_raw((string) ($row['avatar_url'] ?? ''));
                     $avatar_id = absint($row['avatar_id'] ?? 0);
+                    $telegram = dls_native_authors_normalize_telegram_username($row['telegram'] ?? '');
 
                     if ($display_name !== '') {
                         wp_update_user([
@@ -2237,6 +2258,12 @@ add_action('admin_menu', function () {
                         delete_user_meta($user_id, '_dls_author_short_bio');
                     } else {
                         update_user_meta($user_id, '_dls_author_short_bio', $short_bio);
+                    }
+
+                    if ($telegram === '') {
+                        delete_user_meta($user_id, '_dls_author_telegram');
+                    } else {
+                        update_user_meta($user_id, '_dls_author_telegram', $telegram);
                     }
 
                     if ($avatar_id > 0) {
@@ -2275,6 +2302,7 @@ add_action('admin_menu', function () {
                     $short_bio = sanitize_textarea_field((string) ($row['short_bio'] ?? ''));
                     $avatar_url = esc_url_raw((string) ($row['avatar_url'] ?? ''));
                     $avatar_id = absint($row['avatar_id'] ?? 0);
+                    $telegram = dls_native_authors_normalize_telegram_username($row['telegram'] ?? '');
 
                     if ($display_name !== '' && $display_name !== $term->name) {
                         wp_update_term($term_id, 'author', ['name' => $display_name]);
@@ -2288,6 +2316,14 @@ add_action('admin_menu', function () {
                     } else {
                         update_term_meta($term_id, '_dls_author_short_bio', $short_bio);
                         update_term_meta($term_id, '_dls_guest_author_short_bio', $short_bio);
+                    }
+
+                    if ($telegram === '') {
+                        delete_term_meta($term_id, '_dls_author_telegram');
+                        delete_term_meta($term_id, '_dls_guest_author_telegram');
+                    } else {
+                        update_term_meta($term_id, '_dls_author_telegram', $telegram);
+                        update_term_meta($term_id, '_dls_guest_author_telegram', $telegram);
                     }
 
                     if ($avatar_id > 0) {
@@ -2330,6 +2366,7 @@ add_action('admin_menu', function () {
                 $short_bio = sanitize_textarea_field((string) ($_POST['dls_guest_author_short_bio'] ?? ''));
                 $avatar_url = esc_url_raw((string) ($_POST['dls_guest_author_avatar_url'] ?? ''));
                 $avatar_id = absint($_POST['dls_guest_author_avatar_id'] ?? 0);
+                $telegram = dls_native_authors_normalize_telegram_username($_POST['dls_guest_author_telegram'] ?? '');
                 $slug = sanitize_title((string) ($_POST['dls_guest_author_slug'] ?? ''));
                 $create_second = !empty($_POST['dls_guest_author_create_second']);
                 $second_name = sanitize_text_field((string) ($_POST['dls_guest_author_name_second'] ?? ''));
@@ -2421,6 +2458,11 @@ add_action('admin_menu', function () {
                                 update_term_meta($term_id, '_dls_guest_author_short_bio', $entry_bio);
                             }
 
+                            if ($telegram !== '') {
+                                update_term_meta($term_id, '_dls_author_telegram', $telegram);
+                                update_term_meta($term_id, '_dls_guest_author_telegram', $telegram);
+                            }
+
                             if ($avatar_id > 0) {
                                 update_term_meta($term_id, '_dls_author_avatar_id', $avatar_id);
                                 update_term_meta($term_id, '_dls_guest_author_avatar_id', $avatar_id);
@@ -2470,6 +2512,7 @@ add_action('admin_menu', function () {
             echo '<tr><th scope="row"><label for="dls-guest-author-language">Primary Language</label></th><td><select id="dls-guest-author-language" name="dls_guest_author_language"><option value="uk">UK</option><option value="en">EN</option></select></td></tr>';
             echo '<tr><th scope="row"><label for="dls-guest-author-name">Primary Name</label></th><td><input id="dls-guest-author-name" type="text" class="regular-text" name="dls_guest_author_name" value=""></td></tr>';
             echo '<tr><th scope="row"><label for="dls-guest-author-slug">Primary Slug</label></th><td><input id="dls-guest-author-slug" type="text" class="regular-text" name="dls_guest_author_slug" value=""><p class="description">Optional. Language suffix is added automatically when needed.</p></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-telegram">Telegram Username</label></th><td><input id="dls-guest-author-telegram" type="text" class="regular-text" name="dls_guest_author_telegram" value="" placeholder="@username"><p class="description">Used in Telegram Broadcast below the message.</p></td></tr>';
             echo '<tr><th scope="row"><label for="dls-guest-author-short-bio">Primary Short Bio</label></th><td><textarea id="dls-guest-author-short-bio" class="large-text" style="min-height:90px" name="dls_guest_author_short_bio"></textarea></td></tr>';
             echo '<tr><th scope="row">Second Language</th><td><label><input type="checkbox" name="dls_guest_author_create_second" value="1"> Create second language version at the same time</label></td></tr>';
             echo '<tr><th scope="row"><label for="dls-guest-author-language-second">Second Language</label></th><td><select id="dls-guest-author-language-second" name="dls_guest_author_language_second"><option value="en">EN</option><option value="uk">UK</option></select></td></tr>';
@@ -2491,7 +2534,7 @@ add_action('admin_menu', function () {
 
             echo '<h2>Users</h2>';
             echo '<table class="widefat striped">';
-            echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:140px">WP Role</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
+            echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:150px">Telegram</th><th style="width:140px">WP Role</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
             echo '<tbody>';
 
             foreach ($users as $user) {
@@ -2504,10 +2547,12 @@ add_action('admin_menu', function () {
                 $short_bio = (string) get_user_meta($user_id, '_dls_author_short_bio', true);
                 $avatar_url = (string) get_user_meta($user_id, '_dls_author_avatar_url', true);
                 $avatar_id = absint(get_user_meta($user_id, '_dls_author_avatar_id', true));
+                $telegram = dls_native_authors_normalize_telegram_username(get_user_meta($user_id, '_dls_author_telegram', true));
 
                 echo '<tr>';
                 echo '<td>' . dls_native_authors_get_user_avatar_html($user_id, 48, 'dls-author-profile-avatar') . '</td>';
                 echo '<td><input type="text" style="width:100%" name="dls_author_profiles[' . esc_attr($user_id) . '][display_name]" value="' . esc_attr($user->display_name) . '"></td>';
+                echo '<td><input type="text" style="width:100%" name="dls_author_profiles[' . esc_attr($user_id) . '][telegram]" value="' . esc_attr($telegram) . '" placeholder="@username"></td>';
                 echo '<td><code>' . esc_html($wp_role) . '</code></td>';
                 echo '<td><textarea style="width:100%; min-height:76px" name="dls_author_profiles[' . esc_attr($user_id) . '][short_bio]">' . esc_textarea($short_bio) . '</textarea></td>';
                 echo '<td>';
@@ -2522,11 +2567,11 @@ add_action('admin_menu', function () {
 
             echo '<h2 style="margin-top:28px">Guest Authors</h2>';
             echo '<table class="widefat striped">';
-            echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:140px">Type</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
+            echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:150px">Telegram</th><th style="width:140px">Type</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
             echo '<tbody>';
 
             if (empty($guest_authors)) {
-                echo '<tr><td colspan="5">No guest authors yet.</td></tr>';
+                echo '<tr><td colspan="6">No guest authors yet.</td></tr>';
             } else {
                 foreach ($guest_authors as $term) {
                     if (!($term instanceof WP_Term)) {
@@ -2544,10 +2589,15 @@ add_action('admin_menu', function () {
                     if ($avatar_id < 1) {
                         $avatar_id = absint(get_term_meta($term_id, '_dls_guest_author_avatar_id', true));
                     }
+                    $telegram = dls_native_authors_normalize_telegram_username(get_term_meta($term_id, '_dls_author_telegram', true));
+                    if ($telegram === '') {
+                        $telegram = dls_native_authors_normalize_telegram_username(get_term_meta($term_id, '_dls_guest_author_telegram', true));
+                    }
 
                     echo '<tr>';
                     echo '<td>' . dls_native_authors_get_guest_author_avatar_html($term_id, 48, 'dls-author-profile-avatar') . '</td>';
                     echo '<td><input type="text" style="width:100%" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][display_name]" value="' . esc_attr($term->name) . '"></td>';
+                    echo '<td><input type="text" style="width:100%" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][telegram]" value="' . esc_attr($telegram) . '" placeholder="@username"></td>';
                     echo '<td><code>guest author' . ($guest_lang !== '' ? ' (' . esc_html(strtoupper($guest_lang)) . ')' : '') . '</code></td>';
                     echo '<td><textarea style="width:100%; min-height:76px" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][short_bio]">' . esc_textarea($short_bio) . '</textarea></td>';
                     echo '<td>';

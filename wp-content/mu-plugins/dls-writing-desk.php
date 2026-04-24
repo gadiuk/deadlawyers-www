@@ -1393,31 +1393,168 @@ if (!function_exists('dls_writing_desk_telegram_reply_markup')) {
     }
 }
 
+if (!function_exists('dls_writing_desk_normalize_telegram_username')) {
+    function dls_writing_desk_normalize_telegram_username($value) {
+        $value = trim((string) $value);
+        if ($value === '') {
+            return '';
+        }
+
+        $value = preg_replace('/^https?:\/\/(?:www\.)?t\.me\//i', '', $value);
+        $value = preg_replace('/^@+/', '', (string) $value);
+        $value = preg_replace('/[^A-Za-z0-9_]/', '', (string) $value);
+
+        return $value === '' ? '' : '@' . $value;
+    }
+}
+
+if (!function_exists('dls_writing_desk_telegram_username_from_meta')) {
+    function dls_writing_desk_telegram_username_from_meta($type, $id) {
+        $id = absint($id);
+        if ($id < 1) {
+            return '';
+        }
+
+        $keys = [
+            '_dls_author_telegram',
+            '_dls_guest_author_telegram',
+            '_dls_author_telegram_username',
+            '_dls_telegram_username',
+            'telegram_username',
+            'telegram',
+        ];
+
+        foreach ($keys as $key) {
+            $raw = $type === 'term'
+                ? get_term_meta($id, $key, true)
+                : get_user_meta($id, $key, true);
+            $username = dls_writing_desk_normalize_telegram_username($raw);
+            if ($username !== '') {
+                return $username;
+            }
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('dls_writing_desk_telegram_author_nicknames')) {
+    function dls_writing_desk_telegram_author_nicknames($post_id) {
+        $post_id = absint($post_id);
+        if ($post_id < 1) {
+            return [];
+        }
+
+        $items = [];
+
+        if (function_exists('dls_native_authors_get_post_people_with_roles')) {
+            foreach ((array) dls_native_authors_get_post_people_with_roles($post_id) as $person) {
+                if (($person['post_role'] ?? 'author') !== 'author') {
+                    continue;
+                }
+
+                if (($person['author_type'] ?? 'user') === 'guest') {
+                    $items[] = dls_writing_desk_telegram_username_from_meta('term', (int) ($person['term_id'] ?? 0));
+                } else {
+                    $items[] = dls_writing_desk_telegram_username_from_meta('user', (int) ($person['user_id'] ?? 0));
+                }
+            }
+        } else {
+            $selected = dls_writing_desk_parse_selection((string) (dls_writing_desk_get_selected_people($post_id)['author'] ?? ''));
+            if (!empty($selected) && ($selected['author_type'] ?? 'user') === 'guest') {
+                $items[] = dls_writing_desk_telegram_username_from_meta('term', (int) ($selected['term_id'] ?? 0));
+            } elseif (!empty($selected)) {
+                $items[] = dls_writing_desk_telegram_username_from_meta('user', (int) ($selected['user_id'] ?? 0));
+            }
+        }
+
+        return array_values(array_unique(array_filter($items)));
+    }
+}
+
+if (!function_exists('dls_writing_desk_telegram_footer_links')) {
+    function dls_writing_desk_telegram_footer_links() {
+        $defaults = [
+            ['label' => 'Канал', 'url' => 'https://t.me/DeadLawyers'],
+            ['label' => 'Чят', 'url' => ''],
+            ['label' => 'Вакансії', 'url' => 'https://jobs.deadlawyers.org'],
+            ['label' => 'Події', 'url' => ''],
+            ['label' => 'Кіноклуб', 'url' => ''],
+        ];
+
+        $stored = get_option('dls_writing_desk_telegram_footer_links', []);
+        if (!is_array($stored)) {
+            return $defaults;
+        }
+
+        $items = [];
+        foreach ($defaults as $index => $default) {
+            $row = is_array($stored[$index] ?? null) ? $stored[$index] : [];
+            $label = sanitize_text_field((string) ($row['label'] ?? $default['label']));
+            $url = esc_url_raw((string) ($row['url'] ?? $default['url']));
+            $items[] = [
+                'label' => $label !== '' ? $label : $default['label'],
+                'url'   => $url,
+            ];
+        }
+
+        return $items;
+    }
+}
+
+if (!function_exists('dls_writing_desk_telegram_footer_text')) {
+    function dls_writing_desk_telegram_footer_text() {
+        $parts = [];
+        foreach (dls_writing_desk_telegram_footer_links() as $link) {
+            $label = trim((string) ($link['label'] ?? ''));
+            $url = trim((string) ($link['url'] ?? ''));
+            if ($label === '') {
+                continue;
+            }
+
+            $parts[] = $url !== ''
+                ? '<a href="' . esc_url($url) . '">' . esc_html($label) . '</a>'
+                : esc_html($label);
+        }
+
+        return implode(' | ', $parts);
+    }
+}
+
 if (!function_exists('dls_writing_desk_telegram_text')) {
     function dls_writing_desk_telegram_text($post_id, $settings) {
         $post_id = absint($post_id);
         $description = trim((string) ($settings['description'] ?? ''));
-        if ($description !== '') {
-            return $description;
-        }
-
         $parts = [];
-        $title = get_the_title($post_id);
-        if ($title !== '') {
-            $parts[] = $title;
+
+        if ($description !== '') {
+            $parts[] = $description;
+        } else {
+            $title = get_the_title($post_id);
+            if ($title !== '') {
+                $parts[] = $title;
+            }
+
+            $lead = trim((string) get_post_field('post_excerpt', $post_id));
+            if ($lead !== '') {
+                $parts[] = $lead;
+            }
+
+            $url = get_permalink($post_id);
+            if (is_string($url) && $url !== '') {
+                $parts[] = $url;
+            }
         }
 
-        $lead = trim((string) get_post_field('post_excerpt', $post_id));
-        if ($lead !== '') {
-            $parts[] = $lead;
+        $author_nicknames = dls_writing_desk_telegram_author_nicknames($post_id);
+        if (!empty($author_nicknames)) {
+            $parts[] = implode(', ', array_map('esc_html', $author_nicknames));
         }
 
-        $url = get_permalink($post_id);
-        if (is_string($url) && $url !== '') {
-            $parts[] = $url;
-        }
+        $text = esc_html(implode("\n\n", array_filter($parts)));
+        $footer = dls_writing_desk_telegram_footer_text();
 
-        return implode("\n\n", array_filter($parts));
+        return $footer !== '' ? trim($text . "\n\n" . $footer) : $text;
     }
 }
 
@@ -1494,6 +1631,7 @@ if (!function_exists('dls_writing_desk_send_telegram_destination')) {
         $image_url = $image_id > 0 ? (string) wp_get_attachment_image_url($image_id, 'large') : '';
         $body = [
             'chat_id'              => $chat_id,
+            'parse_mode'           => 'HTML',
             'disable_notification' => !empty($settings['silent']) ? 'true' : 'false',
         ];
 
@@ -1651,6 +1789,19 @@ if (!function_exists('dls_writing_desk_save_social_destinations')) {
         }
 
         update_option('dls_writing_desk_destinations', $items, false);
+
+        $footer_rows = isset($_POST['dls_writing_desk_telegram_footer']) ? (array) wp_unslash($_POST['dls_writing_desk_telegram_footer']) : [];
+        $footer_links = [];
+        foreach (dls_writing_desk_telegram_footer_links() as $index => $default_link) {
+            $row = is_array($footer_rows[$index] ?? null) ? $footer_rows[$index] : [];
+            $label = sanitize_text_field((string) ($row['label'] ?? ($default_link['label'] ?? '')));
+            $url = esc_url_raw((string) ($row['url'] ?? ($default_link['url'] ?? '')));
+            $footer_links[] = [
+                'label' => $label,
+                'url'   => $url,
+            ];
+        }
+        update_option('dls_writing_desk_telegram_footer_links', $footer_links, false);
 
         $redirect_url = add_query_arg([
             'page'        => 'dls-writing-desk-destinations',
@@ -3741,11 +3892,12 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     var target = $(this).data("target") || "";
                     var preview = $(this).data("preview") || "";
                     var placeholder = $(this).data("placeholder") || "No image selected";
+                    var defaultImage = $(this).data("defaultImage") || "";
                     if (target) {
                         $(target).val("");
                     }
                     if (preview) {
-                        setPreview(preview, "", placeholder);
+                        setPreview(preview, defaultImage, placeholder);
                     }
                     scheduleLocalDraftSave();
                 });
@@ -4185,6 +4337,7 @@ if (!function_exists('dls_writing_desk_render_destinations_page')) {
 
         $destinations = dls_writing_desk_get_social_destinations();
         $platforms = dls_writing_desk_destination_platforms();
+        $telegram_footer_links = dls_writing_desk_telegram_footer_links();
         $notice_message = dls_writing_desk_notice_message($_GET['desk_notice'] ?? '');
         ?>
         <div class="wrap dls-writing-desk">
@@ -4233,6 +4386,25 @@ if (!function_exists('dls_writing_desk_render_destinations_page')) {
                                     <td><input class="dls-writing-desk__input" type="text" name="dls_writing_desk_destinations[<?php echo esc_attr((string) $index); ?>][destination]" value="<?php echo esc_attr((string) $destination['destination']); ?>" placeholder="Page ID, URL, or @channel"></td>
                                     <td><input class="dls-writing-desk__input" type="text" name="dls_writing_desk_destinations[<?php echo esc_attr((string) $index); ?>][token]" value="<?php echo esc_attr((string) $destination['token']); ?>" placeholder="Access token or bot token"></td>
                                     <td><label><input type="checkbox" name="dls_writing_desk_destinations[<?php echo esc_attr((string) $index); ?>][active]" value="1" <?php checked(!empty($destination['active'])); ?>> Active</label></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <h2 style="margin-top:28px;">Telegram footer</h2>
+                    <p class="dls-writing-desk__admin-sub" style="margin-bottom:12px;">These links are appended to every Telegram message.</p>
+                    <table class="dls-writing-desk__admin-table widefat striped">
+                        <thead>
+                            <tr>
+                                <th>Label</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($telegram_footer_links as $index => $footer_link) : ?>
+                                <tr>
+                                    <td><input class="dls-writing-desk__input" type="text" name="dls_writing_desk_telegram_footer[<?php echo esc_attr((string) $index); ?>][label]" value="<?php echo esc_attr((string) ($footer_link['label'] ?? '')); ?>"></td>
+                                    <td><input class="dls-writing-desk__input" type="url" name="dls_writing_desk_telegram_footer[<?php echo esc_attr((string) $index); ?>][url]" value="<?php echo esc_attr((string) ($footer_link['url'] ?? '')); ?>" placeholder="https://..."></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
@@ -4496,7 +4668,10 @@ if (!function_exists('dls_writing_desk_render_telegram_page')) {
                                         $settings = is_array($social_settings[$key] ?? null) ? $social_settings[$key] : [];
                                         $telegram_buttons = dls_writing_desk_sanitize_telegram_buttons($settings['buttons'] ?? [], (string) ($settings['button_text'] ?? ''), (string) ($settings['button_url'] ?? ''));
                                         $social_image_id = absint($settings['image_id'] ?? 0);
-                                        $social_image_url = $social_image_id > 0 ? (string) wp_get_attachment_image_url($social_image_id, 'medium') : '';
+                                        $featured_image_id = absint(get_post_thumbnail_id($post->ID));
+                                        $featured_image_url = $featured_image_id > 0 ? (string) wp_get_attachment_image_url($featured_image_id, 'medium') : '';
+                                        $social_image_url = $social_image_id > 0 ? (string) wp_get_attachment_image_url($social_image_id, 'medium') : $featured_image_url;
+                                        $social_image_note = $social_image_id > 0 ? 'Custom Telegram image' : 'Featured image will be used by default';
                                         $preview_id = 'dls-writing-desk-social-preview-' . $key;
                                         $input_id = 'dls-writing-desk-social-image-' . $key;
                                         $buttons_list_id = 'dls-writing-desk-telegram-buttons-' . $key;
@@ -4560,12 +4735,13 @@ if (!function_exists('dls_writing_desk_render_telegram_page')) {
                                                     <?php if ($social_image_url !== '') : ?>
                                                         <img src="<?php echo esc_url($social_image_url); ?>" alt="">
                                                     <?php else : ?>
-                                                        <span>No custom Telegram image</span>
+                                                        <span>No featured image yet</span>
                                                     <?php endif; ?>
                                                 </div>
+                                                <p class="dls-writing-desk__muted" style="margin:0;"><?php echo esc_html($social_image_note); ?></p>
                                                 <div class="dls-writing-desk__actions">
-                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__select-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Attach Photo</button>
-                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Remove</button>
+                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__select-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="Featured image will be used">Attach Photo</button>
+                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="Featured image will be used" data-default-image="<?php echo esc_attr($featured_image_url); ?>">Use Featured</button>
                                                 </div>
                                             </div>
                                         </div>
