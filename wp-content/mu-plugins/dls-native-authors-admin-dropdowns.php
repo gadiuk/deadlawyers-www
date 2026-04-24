@@ -90,26 +90,54 @@ if (!function_exists('dls_na_ui_detect_user_language')) {
     }
 }
 
-if (!function_exists('dls_na_ui_filter_users_by_language')) {
-    function dls_na_ui_filter_users_by_language($users, $lang) {
+if (!function_exists('dls_na_ui_detect_guest_author_language')) {
+    function dls_na_ui_detect_guest_author_language($term) {
+        if (!($term instanceof WP_Term)) {
+            return '';
+        }
+
+        $slug = strtolower((string) $term->slug);
+        $name = (string) $term->name;
+
+        if ($slug !== '') {
+            if (preg_match('/(?:^|[-_])en(?:$|[-_0-9])/', $slug)) {
+                return 'en';
+            }
+
+            if (preg_match('/(?:^|[-_])uk(?:$|[-_0-9])/', $slug)) {
+                return 'uk';
+            }
+        }
+
+        if ($name !== '' && preg_match('/[А-Яа-яЇїІіЄєҐґ]/u', $name)) {
+            return 'uk';
+        }
+
+        if ($name !== '' && preg_match('/[A-Za-z]/', $name)) {
+            return 'en';
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('dls_na_ui_filter_options_by_language')) {
+    function dls_na_ui_filter_options_by_language($items, $lang) {
         $lang = strtolower(trim((string) $lang));
         if (!in_array($lang, ['uk', 'en'], true)) {
-            return $users;
+            return $items;
         }
 
         $filtered = [];
 
-        foreach ((array) $users as $user) {
-            if (!($user instanceof WP_User)) {
-                continue;
-            }
-
-            if (dls_na_ui_detect_user_language($user) === $lang) {
-                $filtered[] = $user;
+        foreach ((array) $items as $item) {
+            $item_lang = strtolower(trim((string) ($item['lang'] ?? '')));
+            if ($item_lang === $lang) {
+                $filtered[] = $item;
             }
         }
 
-        return !empty($filtered) ? $filtered : $users;
+        return !empty($filtered) ? $filtered : $items;
     }
 }
 
@@ -130,49 +158,217 @@ if (!function_exists('dls_na_ui_base_users')) {
     }
 }
 
-if (!function_exists('dls_na_ui_dropdown_users')) {
-    function dls_na_ui_dropdown_users($post_id, $mode = 'author', $ensure_user_id = 0) {
-        $mode = strtolower(trim((string) $mode));
-        $users = dls_na_ui_base_users();
-        $allowed = [];
+if (!function_exists('dls_na_ui_base_guest_authors')) {
+    function dls_na_ui_base_guest_authors() {
+        if (function_exists('dls_native_authors_get_guest_author_terms')) {
+            $terms = dls_native_authors_get_guest_author_terms();
+            if (is_array($terms)) {
+                return $terms;
+            }
+        }
 
-        foreach ((array) $users as $user) {
+        return [];
+    }
+}
+
+if (!function_exists('dls_na_ui_build_selection_value')) {
+    function dls_na_ui_build_selection_value($author_type, $id) {
+        $author_type = strtolower(trim((string) $author_type));
+        $id = absint($id);
+
+        if ($id < 1) {
+            return '';
+        }
+
+        return ($author_type === 'guest' ? 'guest:' : 'user:') . $id;
+    }
+}
+
+if (!function_exists('dls_na_ui_parse_selection_value')) {
+    function dls_na_ui_parse_selection_value($value) {
+        $value = strtolower(trim((string) $value));
+        if ($value === '') {
+            return [];
+        }
+
+        $parts = explode(':', $value, 2);
+        if (count($parts) !== 2) {
+            return [];
+        }
+
+        $author_type = $parts[0] === 'guest' ? 'guest' : 'user';
+        $id = absint($parts[1]);
+
+        if ($id < 1) {
+            return [];
+        }
+
+        if ($author_type === 'guest') {
+            if (!function_exists('dls_native_authors_get_guest_author_term')) {
+                return [];
+            }
+
+            $term = dls_native_authors_get_guest_author_term($id);
+            if (!($term instanceof WP_Term)) {
+                return [];
+            }
+
+            return [
+                'author_type' => 'guest',
+                'term_id'     => $id,
+                'user_id'     => 0,
+                'label'       => (string) $term->name,
+            ];
+        }
+
+        $user = get_userdata($id);
+        if (!($user instanceof WP_User)) {
+            return [];
+        }
+
+        return [
+            'author_type' => 'user',
+            'term_id'     => 0,
+            'user_id'     => $id,
+            'label'       => (string) $user->display_name,
+        ];
+    }
+}
+
+if (!function_exists('dls_na_ui_dropdown_options')) {
+    function dls_na_ui_dropdown_options($post_id, $mode = 'author', $ensure_value = '') {
+        $mode = strtolower(trim((string) $mode));
+        $items = [];
+
+        foreach ((array) dls_na_ui_base_users() as $user) {
             if (!($user instanceof WP_User)) {
                 continue;
             }
 
-            if (dls_na_ui_user_has_role($user, ['administrator'])) {
-                continue;
-            }
-
             if ($mode === 'editor') {
-                if (!dls_na_ui_user_has_role($user, ['editor'])) {
+                if (!dls_na_ui_user_has_role($user, ['editor', 'administrator'])) {
                     continue;
                 }
             } else {
-                if (!dls_na_ui_user_has_role($user, ['author', 'editor'])) {
+                if (!dls_na_ui_user_has_role($user, ['author', 'editor', 'administrator'])) {
                     continue;
                 }
             }
 
-            $allowed[$user->ID] = $user;
+            $role_badge = '';
+            if (dls_na_ui_user_has_role($user, ['administrator'])) {
+                $role_badge = ' (administrator)';
+            } elseif (dls_na_ui_user_has_role($user, ['editor'])) {
+                $role_badge = ' (editor)';
+            }
+
+            $items[] = [
+                'value' => dls_na_ui_build_selection_value('user', (int) $user->ID),
+                'label' => (string) $user->display_name . $role_badge,
+                'lang'  => dls_na_ui_detect_user_language($user),
+                'sort'  => (string) $user->display_name,
+            ];
+        }
+
+        if ($mode !== 'editor') {
+            foreach ((array) dls_na_ui_base_guest_authors() as $term) {
+                if (!($term instanceof WP_Term)) {
+                    continue;
+                }
+
+                $items[] = [
+                    'value' => dls_na_ui_build_selection_value('guest', (int) $term->term_id),
+                    'label' => (string) $term->name . ' (guest)',
+                    'lang'  => dls_na_ui_detect_guest_author_language($term),
+                    'sort'  => (string) $term->name,
+                ];
+            }
         }
 
         $lang = dls_na_ui_detect_post_language($post_id);
-        $filtered = dls_na_ui_filter_users_by_language(array_values($allowed), $lang);
+        $filtered = dls_na_ui_filter_options_by_language($items, $lang);
 
-        if ($ensure_user_id > 0 && !isset($allowed[$ensure_user_id])) {
-            $extra = get_userdata($ensure_user_id);
-            if ($extra instanceof WP_User) {
-                $filtered[] = $extra;
+        if ($ensure_value !== '') {
+            $known_values = array_column($filtered, 'value');
+            if (!in_array($ensure_value, $known_values, true)) {
+                $extra = dls_na_ui_parse_selection_value($ensure_value);
+                if (!empty($extra)) {
+                    $extra_label = trim((string) ($extra['label'] ?? ''));
+                    if (($extra['author_type'] ?? 'user') === 'guest') {
+                        $extra_label .= ' (guest)';
+                    }
+
+                    if ($extra_label !== '') {
+                        $filtered[] = [
+                            'value' => $ensure_value,
+                            'label' => $extra_label,
+                            'lang'  => '',
+                            'sort'  => (string) ($extra['label'] ?? ''),
+                        ];
+                    }
+                }
             }
         }
 
         usort($filtered, static function ($a, $b) {
-            return strnatcasecmp((string) $a->display_name, (string) $b->display_name);
+            return strnatcasecmp((string) ($a['sort'] ?? $a['label'] ?? ''), (string) ($b['sort'] ?? $b['label'] ?? ''));
         });
 
         return $filtered;
+    }
+}
+
+if (!function_exists('dls_na_ui_assignment_value')) {
+    function dls_na_ui_assignment_value($row) {
+        if (!is_array($row)) {
+            return '';
+        }
+
+        $author_type = strtolower(trim((string) ($row['author_type'] ?? 'user')));
+        if ($author_type === 'guest') {
+            return dls_na_ui_build_selection_value('guest', absint($row['term_id'] ?? 0));
+        }
+
+        return dls_na_ui_build_selection_value('user', absint($row['user_id'] ?? 0));
+    }
+}
+
+if (!function_exists('dls_na_ui_role_badge_for_label')) {
+    function dls_na_ui_role_badge_for_label($value) {
+        $parsed = dls_na_ui_parse_selection_value($value);
+        if (empty($parsed) || ($parsed['author_type'] ?? 'user') !== 'user') {
+            return '';
+        }
+
+        $user = get_userdata((int) ($parsed['user_id'] ?? 0));
+        if (!($user instanceof WP_User)) {
+            return '';
+        }
+
+        if (dls_na_ui_user_has_role($user, ['administrator'])) {
+            return ' (administrator)';
+        }
+
+        if (dls_na_ui_user_has_role($user, ['editor'])) {
+            return ' (editor)';
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('dls_na_ui_validate_editor_selection')) {
+    function dls_na_ui_validate_editor_selection($selection) {
+        if (!is_array($selection) || ($selection['author_type'] ?? 'user') !== 'user') {
+            return [];
+        }
+
+        $user = get_userdata((int) ($selection['user_id'] ?? 0));
+        if (!($user instanceof WP_User) || !dls_na_ui_user_has_role($user, ['editor', 'administrator'])) {
+            return [];
+        }
+
+        return $selection;
     }
 }
 
@@ -195,29 +391,29 @@ if (!function_exists('dls_na_ui_render_metabox')) {
 
         wp_nonce_field('dls_na_ui_save_authors', 'dls_na_ui_nonce');
 
-        $selected_author = 0;
-        $selected_editor = 0;
+        $selected_author = '';
+        $selected_editor = '';
 
         foreach (dls_na_ui_get_post_assignments($post->ID) as $row) {
-            $user_id = absint($row['user_id'] ?? 0);
             $post_role = strtolower(trim((string) ($row['post_role'] ?? 'author')));
+            $selection_value = dls_na_ui_assignment_value($row);
 
-            if ($user_id < 1) {
+            if ($selection_value === '') {
                 continue;
             }
 
-            if ($post_role === 'editor' && $selected_editor < 1) {
-                $selected_editor = $user_id;
+            if ($post_role === 'editor' && $selected_editor === '') {
+                $selected_editor = $selection_value;
                 continue;
             }
 
-            if ($post_role !== 'editor' && $selected_author < 1) {
-                $selected_author = $user_id;
+            if ($post_role !== 'editor' && $selected_author === '') {
+                $selected_author = $selection_value;
             }
         }
 
-        $author_users = dls_na_ui_dropdown_users($post->ID, 'author', $selected_author);
-        $editor_users = dls_na_ui_dropdown_users($post->ID, 'editor', $selected_editor);
+        $author_options = dls_na_ui_dropdown_options($post->ID, 'author', $selected_author);
+        $editor_options = dls_na_ui_dropdown_options($post->ID, 'editor', $selected_editor);
 
         $lang = dls_na_ui_detect_post_language($post->ID);
         $lang_label = $lang === 'uk' ? 'UK' : ($lang === 'en' ? 'EN' : 'All');
@@ -227,19 +423,28 @@ if (!function_exists('dls_na_ui_render_metabox')) {
         echo '<p style="margin:0 0 8px"><label for="dls-primary-author"><strong>Author</strong></label></p>';
         echo '<select id="dls-primary-author" name="dls_primary_author" style="width:100%; margin:0 0 12px">';
         echo '<option value="">— Not set —</option>';
-        foreach ($author_users as $user) {
-            $user_id = (int) $user->ID;
-            $role_badge = dls_na_ui_user_has_role($user, ['editor']) ? ' (editor)' : '';
-            echo '<option value="' . esc_attr($user_id) . '"' . selected($selected_author, $user_id, false) . '>' . esc_html($user->display_name . $role_badge) . '</option>';
+        foreach ($author_options as $item) {
+            $value = (string) ($item['value'] ?? '');
+            $label = (string) ($item['label'] ?? '');
+            if ($value === '' || $label === '') {
+                continue;
+            }
+
+            echo '<option value="' . esc_attr($value) . '"' . selected($selected_author, $value, false) . '>' . esc_html($label) . '</option>';
         }
         echo '</select>';
 
         echo '<p style="margin:0 0 8px"><label for="dls-primary-editor"><strong>Editor</strong></label></p>';
         echo '<select id="dls-primary-editor" name="dls_primary_editor" style="width:100%; margin:0">';
         echo '<option value="">— Not set —</option>';
-        foreach ($editor_users as $user) {
-            $user_id = (int) $user->ID;
-            echo '<option value="' . esc_attr($user_id) . '"' . selected($selected_editor, $user_id, false) . '>' . esc_html($user->display_name) . '</option>';
+        foreach ($editor_options as $item) {
+            $value = (string) ($item['value'] ?? '');
+            $label = (string) ($item['label'] ?? '');
+            if ($value === '' || $label === '') {
+                continue;
+            }
+
+            echo '<option value="' . esc_attr($value) . '"' . selected($selected_editor, $value, false) . '>' . esc_html($label) . '</option>';
         }
         echo '</select>';
     }
@@ -285,48 +490,26 @@ add_action('save_post', static function ($post_id, $post) {
         return;
     }
 
-    $author_id = isset($_POST['dls_primary_author']) ? absint(wp_unslash($_POST['dls_primary_author'])) : 0;
-    $editor_id = isset($_POST['dls_primary_editor']) ? absint(wp_unslash($_POST['dls_primary_editor'])) : 0;
+    $author_value = isset($_POST['dls_primary_author']) ? sanitize_text_field(wp_unslash($_POST['dls_primary_author'])) : '';
+    $editor_value = isset($_POST['dls_primary_editor']) ? sanitize_text_field(wp_unslash($_POST['dls_primary_editor'])) : '';
 
-    $selected_ids = [];
+    $selected_items = [];
     $role_map = [];
 
-    if ($author_id > 0 && get_userdata($author_id)) {
-        $selected_ids[] = $author_id;
-        $role_map[$author_id] = 'author';
+    $author_selection = dls_na_ui_parse_selection_value($author_value);
+    if (!empty($author_selection)) {
+        $selected_items[] = $author_selection;
+        $role_map[$author_value] = 'author';
     }
 
-    if ($editor_id > 0 && get_userdata($editor_id)) {
-        $editor_user = get_userdata($editor_id);
-
-        if (dls_na_ui_user_has_role($editor_user, ['editor'])) {
-            $selected_ids[] = $editor_id;
-            $role_map[$editor_id] = 'editor';
-        }
+    $editor_selection = dls_na_ui_validate_editor_selection(dls_na_ui_parse_selection_value($editor_value));
+    if (!empty($editor_selection)) {
+        $selected_items[] = $editor_selection;
+        $role_map[$editor_value] = 'editor';
     }
 
-    $selected_ids = array_values(array_unique(array_map('absint', $selected_ids)));
-
-    $assignments = [];
-    foreach ($selected_ids as $user_id) {
-        $assignments[] = [
-            'user_id'   => $user_id,
-            'post_role' => $role_map[$user_id] ?? 'author',
-        ];
-    }
-
-    if (empty($assignments)) {
-        delete_post_meta($post_id, '_dls_post_author_assignments');
-        delete_post_meta($post_id, '_dls_post_authors');
-        delete_post_meta($post_id, '_dls_post_author');
+    if (function_exists('dls_native_authors_save_assignments_for_post')) {
+        dls_native_authors_save_assignments_for_post($post_id, $selected_items, $role_map);
         return;
-    }
-
-    update_post_meta($post_id, '_dls_post_author_assignments', $assignments);
-    update_post_meta($post_id, '_dls_post_authors', $selected_ids);
-
-    delete_post_meta($post_id, '_dls_post_author');
-    foreach ($selected_ids as $user_id) {
-        add_post_meta($post_id, '_dls_post_author', $user_id, false);
     }
 }, 999, 2);
