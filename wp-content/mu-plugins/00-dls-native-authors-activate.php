@@ -31,7 +31,9 @@ if (!function_exists('dls_publishpress_authors_force_options')) {
             $options->show_editor_author_box_selection = 'yes';
             $options->enable_plugin_author_pages = 'yes';
             $options->show_author_pages_bio = 'yes';
+            $options->layout = 'inline_avatar';
             $options->author_pages_layout = 'list';
+            $options->author_pages_bio_layout = 'inline_avatar';
 
             return $options;
         }
@@ -44,7 +46,9 @@ if (!function_exists('dls_publishpress_authors_force_options')) {
         $options['show_editor_author_box_selection'] = 'yes';
         $options['enable_plugin_author_pages'] = 'yes';
         $options['show_author_pages_bio'] = 'yes';
+        $options['layout'] = 'inline_avatar';
         $options['author_pages_layout'] = 'list';
+        $options['author_pages_bio_layout'] = 'inline_avatar';
 
         return $options;
     }
@@ -119,8 +123,8 @@ add_action('wp_enqueue_scripts', function () {
 }
 .ppma-page-header {
   display: grid;
-  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 42px;
   align-items: start;
   margin-bottom: 42px;
 }
@@ -137,6 +141,8 @@ add_action('wp_enqueue_scripts', function () {
   border-radius: 22px;
   padding: 24px;
   box-shadow: 0 24px 48px rgba(24, 28, 31, .08);
+  position: sticky;
+  top: 24px;
 }
 .ppma-page-content.list {
   display: grid;
@@ -152,12 +158,13 @@ add_action('wp_enqueue_scripts', function () {
 }
 .ppma-page-content.list .article-content {
   display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
   gap: 0;
 }
 .ppma-page-content.list .article-image {
   background: #e9dfd2;
   min-height: 100%;
+  overflow: hidden;
 }
 .ppma-page-content.list .article-image img {
   display: block;
@@ -165,6 +172,12 @@ add_action('wp_enqueue_scripts', function () {
   height: 100%;
   min-height: 100%;
   object-fit: cover;
+}
+.ppma-page-content.list .article-content.has-no-image {
+  grid-template-columns: 1fr;
+}
+.ppma-page-content.list .article-content.has-no-image .article-image {
+  display: none;
 }
 .ppma-page-content.list .article-body {
   padding: 28px 30px 24px;
@@ -187,6 +200,9 @@ add_action('wp_enqueue_scripts', function () {
   color: #161616;
   text-decoration: none;
 }
+.ppma-page-content.list .article-title a:hover {
+  color: #8b5e3c;
+}
 .ppma-page-content.list .article-meta {
   display: flex;
   flex-wrap: wrap;
@@ -199,6 +215,9 @@ add_action('wp_enqueue_scripts', function () {
   font-size: 16px;
   line-height: 1.7;
   color: #2e2e2e;
+}
+.ppma-page-content.list .article-entry-excerpt p:last-child {
+  margin-bottom: 0;
 }
 .ppma-page-content.list .tags-links {
   display: flex;
@@ -219,16 +238,101 @@ add_action('wp_enqueue_scripts', function () {
 .ppma-article-pagination {
   margin-top: 14px;
 }
+.single-post .pp-multiple-authors-boxes-wrapper,
+.single .pp-multiple-authors-boxes-wrapper {
+  margin-top: 42px;
+  padding: 28px 30px;
+  border: 1px solid rgba(34,34,34,.09);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #f7f1ea 0%, #fffdfa 100%);
+  box-shadow: 0 18px 40px rgba(24, 28, 31, .07);
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-multiple-authors-boxes-ul,
+.single .pp-multiple-authors-boxes-wrapper .pp-multiple-authors-boxes-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-multiple-authors-boxes-li,
+.single .pp-multiple-authors-boxes-wrapper .pp-multiple-authors-boxes-li {
+  display: grid !important;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin: 0;
+  padding: 0;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar {
+  width: 96px;
+  min-width: 96px;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar .avatar,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar .avatar {
+  width: 96px !important;
+  height: 96px !important;
+  border-radius: 18px;
+  object-fit: cover;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar-details,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-avatar-details {
+  display: block;
+  text-align: left;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-name,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-name {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-name a,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-name a {
+  color: #171717;
+  text-decoration: none;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #3b3b3b;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description p:first-child,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description p:first-child {
+  margin-top: 0;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description p:last-child,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-description p:last-child {
+  margin-bottom: 0;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-meta,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-meta {
+  margin-top: 12px;
+}
+.single-post .pp-multiple-authors-boxes-wrapper .pp-author-boxes-meta a,
+.single .pp-multiple-authors-boxes-wrapper .pp-author-boxes-meta a {
+  color: #8b5e3c;
+  text-decoration: none;
+  font-weight: 600;
+}
 @media (max-width: 900px) {
   .ppma-page-header,
   .ppma-page-content.list .article-content {
     grid-template-columns: 1fr;
+  }
+  .ppma-author-pages-author-box-wrap {
+    position: static;
   }
   .ppma-page-content.list .article-image {
     min-height: 220px;
   }
   .ppma-page-content.list .article-body {
     padding: 22px 20px 20px;
+  }
+  .single-post .pp-multiple-authors-boxes-wrapper,
+  .single .pp-multiple-authors-boxes-wrapper {
+    padding: 22px 20px;
   }
 }
 CSS;
@@ -237,3 +341,25 @@ CSS;
     wp_enqueue_style('dls-publishpress-author-layout');
     wp_add_inline_style('dls-publishpress-author-layout', $css);
 }, 30);
+
+add_action('wp_footer', function () {
+    if (!is_tax('author') && !is_author()) {
+        return;
+    }
+    ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.ppma-page-content.list .article-content').forEach(function (card) {
+    var img = card.querySelector('.article-image img');
+    if (!img || !img.getAttribute('src')) {
+      card.classList.add('has-no-image');
+      return;
+    }
+    img.addEventListener('error', function () {
+      card.classList.add('has-no-image');
+    }, { once: true });
+  });
+});
+</script>
+    <?php
+}, 40);
