@@ -8,8 +8,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Keep the native-author stack on for the normal WordPress editor.
-// The Writing Desk is controlled separately.
+// Keep the custom native-author stack off so PublishPress Authors
+// remains the only live author system.
 if (!defined('DLS_NATIVE_AUTHORS_ACTIVE')) {
-    define('DLS_NATIVE_AUTHORS_ACTIVE', true);
+    define('DLS_NATIVE_AUTHORS_ACTIVE', false);
 }
