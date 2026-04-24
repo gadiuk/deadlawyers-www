@@ -1145,6 +1145,56 @@ if (!function_exists('dls_writing_desk_recent_posts')) {
     }
 }
 
+if (!function_exists('dls_writing_desk_telegram_posts')) {
+    function dls_writing_desk_telegram_posts() {
+        $args = [
+            'post_type'      => 'post',
+            'post_status'    => ['draft', 'pending', 'future', 'publish', 'private'],
+            'posts_per_page' => -1,
+            'orderby'        => 'modified',
+            'order'          => 'DESC',
+            'meta_query'     => [
+                [
+                    'key'     => '_dls_writing_desk_telegram_log',
+                    'compare' => 'EXISTS',
+                ],
+            ],
+        ];
+
+        if (!current_user_can('edit_others_posts')) {
+            $args['author'] = get_current_user_id();
+        }
+
+        $posts = get_posts($args);
+        $items = [];
+        foreach ($posts as $post) {
+            if (!($post instanceof WP_Post)) {
+                continue;
+            }
+
+            $log = dls_writing_desk_get_telegram_log($post->ID);
+            if (empty($log)) {
+                continue;
+            }
+
+            $has_public_status = false;
+            foreach ($log as $row) {
+                $status = sanitize_key((string) ($row['status'] ?? ''));
+                if (in_array($status, ['sent', 'scheduled', 'failed'], true)) {
+                    $has_public_status = true;
+                    break;
+                }
+            }
+
+            if ($has_public_status) {
+                $items[] = $post;
+            }
+        }
+
+        return $items;
+    }
+}
+
 if (!function_exists('dls_writing_desk_destination_platforms')) {
     function dls_writing_desk_destination_platforms() {
         return [
@@ -2513,7 +2563,20 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 align-items: start;
             }
             .dls-writing-desk__shell--telegram {
-                grid-template-columns: 360px minmax(0, 1fr);
+                grid-template-columns: 320px minmax(0, 1fr) 380px;
+            }
+            .dls-writing-desk__telegram-main {
+                min-width: 0;
+            }
+            .dls-writing-desk__telegram-form {
+                display: contents;
+            }
+            .dls-writing-desk__telegram-rail {
+                position: sticky;
+                top: 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
             }
             .dls-writing-desk__panel,
             .dls-writing-desk__editor,
@@ -2761,6 +2824,9 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
             .dls-writing-desk__post-link.is-active {
                 background: linear-gradient(135deg, #2b1f17, #4a3324);
                 color: #fff8f0;
+            }
+            .dls-writing-desk__post-link--telegram {
+                border-left: 4px solid #159bd6;
             }
             .dls-writing-desk__post-title {
                 display: block;
@@ -3051,6 +3117,49 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 gap: 18px;
                 align-items: start;
             }
+            .dls-writing-desk__telegram-composer {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .dls-writing-desk__telegram-settings-card {
+                border: 1px solid rgba(36,28,21,0.1);
+                border-radius: 18px;
+                background: rgba(255,255,255,0.82);
+                overflow: hidden;
+            }
+            .dls-writing-desk__telegram-setting-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 14px;
+                align-items: center;
+                padding: 14px 16px;
+                border-bottom: 1px solid rgba(36,28,21,0.08);
+                font: 700 13px/1.35 "Helvetica Neue", Arial, sans-serif;
+            }
+            .dls-writing-desk__telegram-setting-row:last-child {
+                border-bottom: 0;
+            }
+            .dls-writing-desk__telegram-setting-row input[type="checkbox"] {
+                transform: scale(1.12);
+            }
+            .dls-writing-desk__telegram-channel-title {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .dls-writing-desk__telegram-channel-dot {
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                background: #159bd6;
+                color: #fff;
+                font: 800 14px/1 "Helvetica Neue", Arial, sans-serif;
+            }
             .dls-writing-desk__post-preview {
                 max-height: 520px;
                 overflow: auto;
@@ -3135,7 +3244,8 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
 	                .dls-writing-desk__telegram-preview {
 	                    grid-template-columns: 1fr;
 	                }
-                .dls-writing-desk__panel {
+                .dls-writing-desk__panel,
+                .dls-writing-desk__telegram-rail {
                     position: static;
                 }
             }
@@ -4240,7 +4350,7 @@ if (!function_exists('dls_writing_desk_render_telegram_page')) {
             $post_id = 0;
         }
 
-        $recent_posts = dls_writing_desk_recent_posts();
+        $telegram_posts = dls_writing_desk_telegram_posts();
         $notice_message = dls_writing_desk_notice_message($_GET['desk_notice'] ?? '');
         $view_url = dls_writing_desk_preview_link($post);
         $social_destinations = array_values(array_filter(
@@ -4265,8 +4375,8 @@ if (!function_exists('dls_writing_desk_render_telegram_page')) {
             <div class="dls-writing-desk__topbar">
                 <div class="dls-writing-desk__brand">
                     <span class="dls-writing-desk__eyebrow">Dead Lawyers Society / Telegram Broadcast</span>
-                    <h1 class="dls-writing-desk__title">Prepare Telegram separately from writing.</h1>
-                    <p class="dls-writing-desk__sub">Choose a post, then prepare channel-specific messages, images and Telegram options.</p>
+                    <h1 class="dls-writing-desk__title">Telegram Broadcast</h1>
+                    <p class="dls-writing-desk__sub">Published Telegram posts on the left, message preview in the center, channel controls on the right.</p>
                 </div>
                 <div class="dls-writing-desk__actions">
                     <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk')); ?>">Writing Desk</a>
@@ -4287,148 +4397,186 @@ if (!function_exists('dls_writing_desk_render_telegram_page')) {
             <div class="dls-writing-desk__shell dls-writing-desk__shell--telegram">
                 <aside class="dls-writing-desk__panel">
                     <div class="dls-writing-desk__field">
-                        <div class="dls-writing-desk__label"><span>Posts</span><span><?php echo esc_html((string) count($recent_posts)); ?></span></div>
-                        <input id="dls-writing-desk-post-search" class="dls-writing-desk__input dls-writing-desk__input--search" type="search" data-target="#dls-writing-desk-post-list" placeholder="Search posts">
+                        <div class="dls-writing-desk__label"><span>Published Telegram</span><span><?php echo esc_html((string) count($telegram_posts)); ?></span></div>
+                        <input id="dls-writing-desk-post-search" class="dls-writing-desk__input dls-writing-desk__input--search" type="search" data-target="#dls-writing-desk-post-list" placeholder="Search Telegram posts">
                     </div>
                     <div id="dls-writing-desk-post-list" class="dls-writing-desk__posts">
-                        <?php foreach ($recent_posts as $recent_post) : ?>
+                        <?php if (empty($telegram_posts)) : ?>
+                            <p class="dls-writing-desk__muted">No Telegram posts have been sent yet.</p>
+                        <?php endif; ?>
+                        <?php foreach ($telegram_posts as $recent_post) : ?>
                             <?php if (!($recent_post instanceof WP_Post)) { continue; } ?>
-                            <?php $is_active = $post instanceof WP_Post && $post->ID === $recent_post->ID; ?>
-                            <a class="dls-writing-desk__post-link<?php echo $is_active ? ' is-active' : ''; ?>" data-search="<?php echo esc_attr(strtolower(get_the_title($recent_post->ID) . ' ' . $recent_post->post_status)); ?>" href="<?php echo esc_url(add_query_arg(['page' => 'dls-writing-desk-telegram', 'desk_post' => $recent_post->ID], admin_url('admin.php'))); ?>">
+                            <?php
+                            $is_active = $post instanceof WP_Post && $post->ID === $recent_post->ID;
+                            $history_log = dls_writing_desk_get_telegram_log($recent_post->ID);
+                            $history_bits = [];
+                            foreach ($history_log as $row) {
+                                $status = sanitize_key((string) ($row['status'] ?? ''));
+                                if ($status !== '') {
+                                    $history_bits[] = $status;
+                                }
+                            }
+                            $history_label = !empty($history_bits) ? implode(', ', array_unique($history_bits)) : ucfirst((string) $recent_post->post_status);
+                            ?>
+                            <a class="dls-writing-desk__post-link dls-writing-desk__post-link--telegram<?php echo $is_active ? ' is-active' : ''; ?>" data-search="<?php echo esc_attr(strtolower(get_the_title($recent_post->ID) . ' ' . $history_label)); ?>" href="<?php echo esc_url(add_query_arg(['page' => 'dls-writing-desk-telegram', 'desk_post' => $recent_post->ID], admin_url('admin.php'))); ?>">
                                 <span class="dls-writing-desk__post-title"><?php echo esc_html(get_the_title($recent_post->ID) !== '' ? get_the_title($recent_post->ID) : 'Untitled Draft'); ?></span>
-                                <span class="dls-writing-desk__post-meta"><?php echo esc_html(ucfirst((string) $recent_post->post_status)); ?> / <?php echo esc_html(get_the_modified_date('Y-m-d', $recent_post->ID)); ?></span>
+                                <span class="dls-writing-desk__post-meta"><?php echo esc_html($history_label); ?> / <?php echo esc_html(get_the_modified_date('Y-m-d', $recent_post->ID)); ?></span>
                             </a>
                         <?php endforeach; ?>
                     </div>
                 </aside>
 
-                <section class="dls-writing-desk__editor">
-                    <?php if (!($post instanceof WP_Post)) : ?>
+                <?php if (!($post instanceof WP_Post)) : ?>
+                    <section class="dls-writing-desk__editor dls-writing-desk__telegram-main">
                         <div class="dls-writing-desk__admin-card">
                             <h2 class="dls-writing-desk__admin-title">Choose a post</h2>
-                            <p class="dls-writing-desk__admin-sub">Select a post from the left panel before preparing a Telegram broadcast.</p>
+                            <p class="dls-writing-desk__admin-sub">Open a story from Writing Desk, then use Telegram Broadcast to prepare the channel messages.</p>
+                            <div class="dls-writing-desk__panel-actions" style="margin-top:16px;">
+                                <a class="dls-writing-desk__button dls-writing-desk__button--accent" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk')); ?>">Open Writing Desk</a>
+                            </div>
                         </div>
-                    <?php else : ?>
-                        <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-                            <?php wp_nonce_field('dls_writing_desk_telegram_save', 'dls_writing_desk_telegram_nonce'); ?>
-                            <input type="hidden" name="action" value="dls_writing_desk_telegram_save">
-                            <input type="hidden" name="dls_writing_desk_post_id" value="<?php echo esc_attr((string) $post->ID); ?>">
+                    </section>
+                    <aside class="dls-writing-desk__telegram-rail">
+                        <div class="dls-writing-desk__block">
+                            <h3>Channels</h3>
+                            <p class="dls-writing-desk__muted">Choose a post first.</p>
+                        </div>
+                    </aside>
+                <?php else : ?>
+                    <form class="dls-writing-desk__telegram-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                        <?php wp_nonce_field('dls_writing_desk_telegram_save', 'dls_writing_desk_telegram_nonce'); ?>
+                        <input type="hidden" name="action" value="dls_writing_desk_telegram_save">
+                        <input type="hidden" name="dls_writing_desk_post_id" value="<?php echo esc_attr((string) $post->ID); ?>">
 
-                            <div class="dls-writing-desk__story-sheet">
-	                                <div class="dls-writing-desk__block">
-	                                    <div class="dls-writing-desk__label"><span>Selected Post</span><span><?php echo esc_html(ucfirst((string) $post->post_status)); ?></span></div>
-	                                    <h2 style="margin:0;"><?php echo esc_html(get_the_title($post->ID) !== '' ? get_the_title($post->ID) : 'Untitled Draft'); ?></h2>
-	                                    <?php if (trim((string) $post->post_excerpt) !== '') : ?>
-	                                        <p class="dls-writing-desk__muted"><?php echo esc_html(wp_trim_words((string) $post->post_excerpt, 34)); ?></p>
-	                                    <?php endif; ?>
-	                                </div>
-
-	                                <div class="dls-writing-desk__telegram-preview">
-	                                    <div class="dls-writing-desk__block">
-	                                        <h3>Post Preview</h3>
-	                                        <div class="dls-writing-desk__post-preview">
-	                                            <h1><?php echo esc_html(get_the_title($post->ID) !== '' ? get_the_title($post->ID) : 'Untitled Draft'); ?></h1>
-	                                            <?php if (trim((string) $post->post_excerpt) !== '') : ?>
-	                                                <p class="dls-writing-desk__post-preview-lead"><?php echo esc_html((string) $post->post_excerpt); ?></p>
-	                                            <?php endif; ?>
-	                                            <?php echo wp_kses_post($post_preview_content); ?>
-	                                        </div>
-	                                    </div>
-	                                    <div class="dls-writing-desk__block">
-	                                        <h3>Schedule</h3>
-	                                        <input class="dls-writing-desk__input dls-writing-desk__input--datetime" type="datetime-local" name="dls_writing_desk_telegram_publish_at" value="<?php echo esc_attr($telegram_publish_at_value); ?>">
-	                                        <p class="dls-writing-desk__muted">Leave empty to send now. Choose a future date and time to schedule Telegram posting.</p>
-	                                    </div>
-	                                </div>
-
-	                                <div class="dls-writing-desk__block">
-                                    <h3>Telegram Channels</h3>
-                                    <?php if (empty($social_destinations)) : ?>
-                                        <p class="dls-writing-desk__muted">No Telegram channels yet. Add them on the Social Destinations page.</p>
-                                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-destinations')); ?>">Open Social Destinations</a>
-                                    <?php else : ?>
-                                        <?php foreach ($social_destinations as $destination) : ?>
-                                            <?php
-                                            $key = (string) ($destination['key'] ?? '');
-                                            $settings = is_array($social_settings[$key] ?? null) ? $social_settings[$key] : [];
-                                            $telegram_buttons = dls_writing_desk_sanitize_telegram_buttons($settings['buttons'] ?? [], (string) ($settings['button_text'] ?? ''), (string) ($settings['button_url'] ?? ''));
-                                            $social_image_id = absint($settings['image_id'] ?? 0);
-                                            $social_image_url = $social_image_id > 0 ? (string) wp_get_attachment_image_url($social_image_id, 'medium') : '';
-                                            $preview_id = 'dls-writing-desk-social-preview-' . $key;
-                                            $input_id = 'dls-writing-desk-social-image-' . $key;
-                                            $buttons_list_id = 'dls-writing-desk-telegram-buttons-' . $key;
-                                            $buttons_template_id = 'tmpl-dls-writing-desk-telegram-button-' . $key;
-                                            $telegram_status = is_array($telegram_log[$key] ?? null) ? $telegram_log[$key] : [];
-                                            ?>
-                                            <div class="dls-writing-desk__social-card dls-writing-desk__social-card--telegram">
-                                                <div class="dls-writing-desk__label"><span><?php echo esc_html((string) $destination['name']); ?></span><span><?php echo esc_html((string) $destination['destination']); ?></span></div>
-                                                <?php if (!empty($telegram_status)) : ?>
-                                                    <div class="dls-writing-desk__delivery-status dls-writing-desk__delivery-status--<?php echo esc_attr((string) ($telegram_status['status'] ?? '')); ?>">
-                                                        <?php echo esc_html((string) ($telegram_status['message'] ?? '')); ?>
-                                                        <?php if (!empty($telegram_status['message_id'])) : ?>
-                                                            <span>#<?php echo esc_html((string) absint($telegram_status['message_id'])); ?></span>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                <?php endif; ?>
-                                                <label class="dls-writing-desk__check" style="margin-bottom:12px;">
-                                                    <input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][enabled]" value="1" <?php checked(!empty($settings['enabled'])); ?>>
-                                                    <span>Send to this Telegram channel</span>
-                                                </label>
-                                                <textarea class="dls-writing-desk__textarea dls-writing-desk__textarea--telegram-message" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][description]" placeholder="Telegram message for this channel. If empty, the post title, lead and link will be used."><?php echo esc_textarea((string) ($settings['description'] ?? '')); ?></textarea>
-                                                <div class="dls-writing-desk__field" style="margin-top:12px;">
-                                                    <div class="dls-writing-desk__label"><span>Buttons</span><span>Text only or link</span></div>
-                                                    <div id="<?php echo esc_attr($buttons_list_id); ?>" class="dls-writing-desk__telegram-button-list" data-next-index="<?php echo esc_attr((string) count($telegram_buttons)); ?>">
-                                                        <?php foreach ($telegram_buttons as $button_index => $button) : ?>
-                                                            <div class="dls-writing-desk__telegram-button-row">
-                                                                <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][<?php echo esc_attr((string) $button_index); ?>][text]" value="<?php echo esc_attr((string) ($button['text'] ?? '')); ?>" placeholder="Button text">
-                                                                <input class="dls-writing-desk__input dls-writing-desk__input--small" type="url" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][<?php echo esc_attr((string) $button_index); ?>][url]" value="<?php echo esc_attr((string) ($button['url'] ?? '')); ?>" placeholder="Optional URL">
-                                                                <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-telegram-button" type="button">Remove</button>
-                                                            </div>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                    <script type="text/html" id="<?php echo esc_attr($buttons_template_id); ?>">
-                                                        <div class="dls-writing-desk__telegram-button-row">
-                                                            <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][__index__][text]" value="" placeholder="Button text">
-                                                            <input class="dls-writing-desk__input dls-writing-desk__input--small" type="url" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][__index__][url]" value="" placeholder="Optional URL">
-                                                            <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-telegram-button" type="button">Remove</button>
-                                                        </div>
-                                                    </script>
-                                                    <div class="dls-writing-desk__panel-actions" style="margin-top:10px;">
-                                                        <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__add-telegram-button" type="button" data-target="#<?php echo esc_attr($buttons_list_id); ?>" data-template="#<?php echo esc_attr($buttons_template_id); ?>">Add Button</button>
-                                                    </div>
-                                                    <p class="dls-writing-desk__muted">A button can be just text, or text with a URL.</p>
-                                                </div>
-                                                <div class="dls-writing-desk__telegram-options">
-                                                    <label><input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][silent]" value="1" <?php checked(!empty($settings['silent'])); ?>> Silent</label>
-                                                    <label><input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][pin]" value="1" <?php checked(!empty($settings['pin'])); ?>> Pin</label>
-                                                    <label>Auto-delete <input class="dls-writing-desk__input dls-writing-desk__input--mini" type="number" min="0" step="1" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][auto_delete]" value="<?php echo esc_attr((string) absint($settings['auto_delete'] ?? 0)); ?>"> min</label>
-                                                </div>
-                                                <div class="dls-writing-desk__thumb" style="margin-top:12px;">
-                                                    <input id="<?php echo esc_attr($input_id); ?>" type="hidden" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][image_id]" value="<?php echo esc_attr((string) $social_image_id); ?>">
-                                                    <div id="<?php echo esc_attr($preview_id); ?>" class="dls-writing-desk__social-preview">
-                                                        <?php if ($social_image_url !== '') : ?>
-                                                            <img src="<?php echo esc_url($social_image_url); ?>" alt="">
-                                                        <?php else : ?>
-                                                            <span>No custom Telegram image</span>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                    <div class="dls-writing-desk__actions">
-                                                        <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__select-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Choose Image</button>
-                                                        <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
+                        <section class="dls-writing-desk__editor dls-writing-desk__telegram-main">
+                            <div class="dls-writing-desk__story-sheet dls-writing-desk__telegram-composer">
+                                <div class="dls-writing-desk__block">
+                                    <div class="dls-writing-desk__label"><span>Selected Post</span><span><?php echo esc_html(ucfirst((string) $post->post_status)); ?></span></div>
+                                    <h2 style="margin:0;"><?php echo esc_html(get_the_title($post->ID) !== '' ? get_the_title($post->ID) : 'Untitled Draft'); ?></h2>
+                                    <?php if (trim((string) $post->post_excerpt) !== '') : ?>
+                                        <p class="dls-writing-desk__muted"><?php echo esc_html(wp_trim_words((string) $post->post_excerpt, 34)); ?></p>
                                     <?php endif; ?>
                                 </div>
 
-	                                <div class="dls-writing-desk__footer-actions">
-	                                    <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit">Send / Schedule Telegram Broadcast</button>
-	                                </div>
+                                <div class="dls-writing-desk__block">
+                                    <h3>Post Preview</h3>
+                                    <div class="dls-writing-desk__post-preview">
+                                        <h1><?php echo esc_html(get_the_title($post->ID) !== '' ? get_the_title($post->ID) : 'Untitled Draft'); ?></h1>
+                                        <?php if (trim((string) $post->post_excerpt) !== '') : ?>
+                                            <p class="dls-writing-desk__post-preview-lead"><?php echo esc_html((string) $post->post_excerpt); ?></p>
+                                        <?php endif; ?>
+                                        <?php echo wp_kses_post($post_preview_content); ?>
+                                    </div>
+                                </div>
+
+                                <div class="dls-writing-desk__block">
+                                    <h3>Default Telegram Text</h3>
+                                    <textarea class="dls-writing-desk__textarea dls-writing-desk__textarea--telegram-message" readonly><?php echo esc_textarea(dls_writing_desk_telegram_text($post->ID, [])); ?></textarea>
+                                    <p class="dls-writing-desk__muted">Each channel can override this text in the right panel.</p>
+                                </div>
                             </div>
-                        </form>
-                    <?php endif; ?>
-                </section>
+                        </section>
+
+                        <aside class="dls-writing-desk__telegram-rail">
+                            <div class="dls-writing-desk__block">
+                                <h3>Publication time</h3>
+                                <input class="dls-writing-desk__input dls-writing-desk__input--datetime" type="datetime-local" name="dls_writing_desk_telegram_publish_at" value="<?php echo esc_attr($telegram_publish_at_value); ?>">
+                                <p class="dls-writing-desk__muted">Leave empty to send now. Choose a future time to schedule.</p>
+                            </div>
+
+                            <div class="dls-writing-desk__block">
+                                <h3>Post Channels</h3>
+                                <?php if (empty($social_destinations)) : ?>
+                                    <p class="dls-writing-desk__muted">No Telegram channels yet. Add them on the Social Destinations page.</p>
+                                    <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-destinations')); ?>">Open Social Destinations</a>
+                                <?php else : ?>
+                                    <?php foreach ($social_destinations as $destination) : ?>
+                                        <?php
+                                        $key = (string) ($destination['key'] ?? '');
+                                        $settings = is_array($social_settings[$key] ?? null) ? $social_settings[$key] : [];
+                                        $telegram_buttons = dls_writing_desk_sanitize_telegram_buttons($settings['buttons'] ?? [], (string) ($settings['button_text'] ?? ''), (string) ($settings['button_url'] ?? ''));
+                                        $social_image_id = absint($settings['image_id'] ?? 0);
+                                        $social_image_url = $social_image_id > 0 ? (string) wp_get_attachment_image_url($social_image_id, 'medium') : '';
+                                        $preview_id = 'dls-writing-desk-social-preview-' . $key;
+                                        $input_id = 'dls-writing-desk-social-image-' . $key;
+                                        $buttons_list_id = 'dls-writing-desk-telegram-buttons-' . $key;
+                                        $buttons_template_id = 'tmpl-dls-writing-desk-telegram-button-' . $key;
+                                        $telegram_status = is_array($telegram_log[$key] ?? null) ? $telegram_log[$key] : [];
+                                        ?>
+                                        <div class="dls-writing-desk__social-card dls-writing-desk__social-card--telegram">
+                                            <div class="dls-writing-desk__telegram-channel-title">
+                                                <span class="dls-writing-desk__telegram-channel-dot">TG</span>
+                                                <div>
+                                                    <strong><?php echo esc_html((string) $destination['name']); ?></strong><br>
+                                                    <span class="dls-writing-desk__muted"><?php echo esc_html((string) $destination['destination']); ?></span>
+                                                </div>
+                                            </div>
+                                            <?php if (!empty($telegram_status)) : ?>
+                                                <div class="dls-writing-desk__delivery-status dls-writing-desk__delivery-status--<?php echo esc_attr((string) ($telegram_status['status'] ?? '')); ?>">
+                                                    <?php echo esc_html((string) ($telegram_status['message'] ?? '')); ?>
+                                                    <?php if (!empty($telegram_status['message_id'])) : ?>
+                                                        <span>#<?php echo esc_html((string) absint($telegram_status['message_id'])); ?></span>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                            <label class="dls-writing-desk__check" style="margin-bottom:12px;">
+                                                <input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][enabled]" value="1" <?php checked(!empty($settings['enabled'])); ?>>
+                                                <span>Send to this channel</span>
+                                            </label>
+                                            <textarea class="dls-writing-desk__textarea" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][description]" placeholder="Message for this channel. If empty, the default text will be used."><?php echo esc_textarea((string) ($settings['description'] ?? '')); ?></textarea>
+
+                                            <div class="dls-writing-desk__telegram-settings-card" style="margin-top:12px;">
+                                                <label class="dls-writing-desk__telegram-setting-row"><span>Silent notification</span><input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][silent]" value="1" <?php checked(!empty($settings['silent'])); ?>></label>
+                                                <label class="dls-writing-desk__telegram-setting-row"><span>Pin</span><input type="checkbox" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][pin]" value="1" <?php checked(!empty($settings['pin'])); ?>></label>
+                                                <label class="dls-writing-desk__telegram-setting-row"><span>Auto delete, min</span><input class="dls-writing-desk__input dls-writing-desk__input--mini" type="number" min="0" step="1" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][auto_delete]" value="<?php echo esc_attr((string) absint($settings['auto_delete'] ?? 0)); ?>"></label>
+                                            </div>
+
+                                            <div class="dls-writing-desk__field" style="margin-top:12px;">
+                                                <div class="dls-writing-desk__label"><span>Buttons</span><span>Text or link</span></div>
+                                                <div id="<?php echo esc_attr($buttons_list_id); ?>" class="dls-writing-desk__telegram-button-list" data-next-index="<?php echo esc_attr((string) count($telegram_buttons)); ?>">
+                                                    <?php foreach ($telegram_buttons as $button_index => $button) : ?>
+                                                        <div class="dls-writing-desk__telegram-button-row">
+                                                            <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][<?php echo esc_attr((string) $button_index); ?>][text]" value="<?php echo esc_attr((string) ($button['text'] ?? '')); ?>" placeholder="Button text">
+                                                            <input class="dls-writing-desk__input dls-writing-desk__input--small" type="url" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][<?php echo esc_attr((string) $button_index); ?>][url]" value="<?php echo esc_attr((string) ($button['url'] ?? '')); ?>" placeholder="Optional URL">
+                                                            <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-telegram-button" type="button">Remove</button>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                                <script type="text/html" id="<?php echo esc_attr($buttons_template_id); ?>">
+                                                    <div class="dls-writing-desk__telegram-button-row">
+                                                        <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][__index__][text]" value="" placeholder="Button text">
+                                                        <input class="dls-writing-desk__input dls-writing-desk__input--small" type="url" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][buttons][__index__][url]" value="" placeholder="Optional URL">
+                                                        <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-telegram-button" type="button">Remove</button>
+                                                    </div>
+                                                </script>
+                                                <div class="dls-writing-desk__panel-actions" style="margin-top:10px;">
+                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__add-telegram-button" type="button" data-target="#<?php echo esc_attr($buttons_list_id); ?>" data-template="#<?php echo esc_attr($buttons_template_id); ?>">Add Button</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="dls-writing-desk__thumb" style="margin-top:12px;">
+                                                <input id="<?php echo esc_attr($input_id); ?>" type="hidden" name="dls_writing_desk_social[<?php echo esc_attr($key); ?>][image_id]" value="<?php echo esc_attr((string) $social_image_id); ?>">
+                                                <div id="<?php echo esc_attr($preview_id); ?>" class="dls-writing-desk__social-preview">
+                                                    <?php if ($social_image_url !== '') : ?>
+                                                        <img src="<?php echo esc_url($social_image_url); ?>" alt="">
+                                                    <?php else : ?>
+                                                        <span>No custom Telegram image</span>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="dls-writing-desk__actions">
+                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__select-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Attach Photo</button>
+                                                    <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-media" type="button" data-target="#<?php echo esc_attr($input_id); ?>" data-preview="#<?php echo esc_attr($preview_id); ?>" data-placeholder="No custom Telegram image">Remove</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+
+                            <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit">Send / Schedule</button>
+                        </aside>
+                    </form>
+                <?php endif; ?>
             </div>
         </div>
         <?php
