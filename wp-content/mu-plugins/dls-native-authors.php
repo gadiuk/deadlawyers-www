@@ -792,8 +792,6 @@ add_action('admin_menu', function () {
     );
 });
 
-
-
 if (!function_exists('dls_native_authors_is_author_request')) {
     function dls_native_authors_is_author_request() {
         return is_author() || (bool) get_query_var('author_name') || (int) get_query_var('author') > 0;
