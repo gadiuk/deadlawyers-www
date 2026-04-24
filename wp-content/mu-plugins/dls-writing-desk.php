@@ -1597,7 +1597,7 @@ add_action('admin_post_dls_writing_desk_destinations_save', 'dls_writing_desk_sa
 if (!function_exists('dls_writing_desk_hide_admin_notices')) {
     function dls_writing_desk_hide_admin_notices() {
         $page = sanitize_key((string) ($_GET['page'] ?? ''));
-        if (!in_array($page, ['dls-writing-desk', 'dls-writing-desk-destinations'], true)) {
+        if (!in_array($page, ['dls-writing-desk', 'dls-writing-desk-destinations', 'dls-writing-desk-access'], true)) {
             return;
         }
 
@@ -1609,6 +1609,132 @@ if (!function_exists('dls_writing_desk_hide_admin_notices')) {
 }
 add_action('in_admin_header', 'dls_writing_desk_hide_admin_notices', 1);
 
+if (!function_exists('dls_writing_desk_access_elements')) {
+    function dls_writing_desk_access_elements() {
+        return [
+            'topbar_telegram' => 'Telegram Broadcast link',
+            'topbar_social'   => 'Social Destinations link',
+            'topbar_preview'  => 'Preview button',
+            'wp_editor_link'  => 'WordPress Editor link',
+            'publish_box'     => 'Publish / schedule box',
+            'share_draft'     => 'Share draft link',
+            'language'        => 'Language selector',
+            'people'          => 'Author / editor selector',
+            'categories'      => 'Categories',
+            'taxonomies'      => 'Companies, individuals and tags',
+            'social'          => 'Facebook / LinkedIn preparation',
+            'featured_image'  => 'Featured image',
+        ];
+    }
+}
+
+if (!function_exists('dls_writing_desk_access_roles')) {
+    function dls_writing_desk_access_roles() {
+        return [
+            'administrator' => 'Administrators',
+            'editor'        => 'Editors',
+            'author'        => 'Authors',
+            'contributor'   => 'Contributors',
+        ];
+    }
+}
+
+if (!function_exists('dls_writing_desk_default_access_settings')) {
+    function dls_writing_desk_default_access_settings() {
+        $settings = [];
+        $elements = array_keys(dls_writing_desk_access_elements());
+
+        foreach (array_keys(dls_writing_desk_access_roles()) as $role) {
+            $settings[$role] = array_fill_keys($elements, 1);
+        }
+
+        return $settings;
+    }
+}
+
+if (!function_exists('dls_writing_desk_get_access_settings')) {
+    function dls_writing_desk_get_access_settings() {
+        $defaults = dls_writing_desk_default_access_settings();
+        $stored = get_option('dls_writing_desk_access_rights', []);
+        if (!is_array($stored)) {
+            return $defaults;
+        }
+
+        foreach ($defaults as $role => $elements) {
+            foreach ($elements as $element => $enabled) {
+                if (isset($stored[$role]) && is_array($stored[$role]) && array_key_exists($element, $stored[$role])) {
+                    $defaults[$role][$element] = !empty($stored[$role][$element]) ? 1 : 0;
+                }
+            }
+        }
+
+        return $defaults;
+    }
+}
+
+if (!function_exists('dls_writing_desk_current_access_role')) {
+    function dls_writing_desk_current_access_role() {
+        $user = wp_get_current_user();
+        $roles = is_array($user->roles ?? null) ? array_map('sanitize_key', $user->roles) : [];
+
+        foreach (['administrator', 'editor', 'author', 'contributor'] as $role) {
+            if (in_array($role, $roles, true)) {
+                return $role;
+            }
+        }
+
+        if (current_user_can('manage_options')) {
+            return 'administrator';
+        }
+
+        if (current_user_can('edit_others_posts')) {
+            return 'editor';
+        }
+
+        return 'author';
+    }
+}
+
+if (!function_exists('dls_writing_desk_can_show_element')) {
+    function dls_writing_desk_can_show_element($element) {
+        if (current_user_can('manage_options')) {
+            return true;
+        }
+
+        $element = sanitize_key((string) $element);
+        $settings = dls_writing_desk_get_access_settings();
+        $role = dls_writing_desk_current_access_role();
+
+        return !isset($settings[$role][$element]) || !empty($settings[$role][$element]);
+    }
+}
+
+if (!function_exists('dls_writing_desk_save_access_rights')) {
+    function dls_writing_desk_save_access_rights() {
+        if (!current_user_can('manage_options')) {
+            wp_die('You do not have permission to manage access rights.');
+        }
+
+        check_admin_referer('dls_writing_desk_access_save', 'dls_writing_desk_access_nonce');
+
+        $payload = isset($_POST['dls_writing_desk_access']) ? (array) wp_unslash($_POST['dls_writing_desk_access']) : [];
+        $settings = [];
+        foreach (dls_writing_desk_access_roles() as $role => $role_label) {
+            foreach (dls_writing_desk_access_elements() as $element => $element_label) {
+                $settings[$role][$element] = !empty($payload[$role][$element]) ? 1 : 0;
+            }
+        }
+
+        update_option('dls_writing_desk_access_rights', $settings, false);
+        wp_safe_redirect(add_query_arg([
+            'page'        => 'dls-writing-desk-access',
+            'desk_notice' => 'access_saved',
+        ], admin_url('admin.php')));
+        exit;
+    }
+}
+add_action('admin_post_dls_writing_desk_access_save', 'dls_writing_desk_save_access_rights');
+
 if (!function_exists('dls_writing_desk_notice_message')) {
     function dls_writing_desk_notice_message($code) {
         $code = strtolower(trim((string) $code));
@@ -1619,6 +1745,10 @@ if (!function_exists('dls_writing_desk_notice_message')) {
 
         if ($code === 'destinations_saved') {
             return 'Destinations saved.';
+        }
+
+        if ($code === 'access_saved') {
+            return 'Access rights saved.';
         }
 
         if ($code === 'published') {
@@ -1831,6 +1961,15 @@ if (!function_exists('dls_writing_desk_admin_menu')) {
             'dls-writing-desk-destinations',
             'dls_writing_desk_render_destinations_page'
         );
+
+        add_submenu_page(
+            'dls-writing-desk',
+            'Access Rights',
+            'Access Rights',
+            'manage_options',
+            'dls-writing-desk-access',
+            'dls_writing_desk_render_access_page'
+        );
     }
 }
 add_action('admin_menu', 'dls_writing_desk_admin_menu');
@@ -1838,7 +1977,7 @@ add_action('admin_menu', 'dls_writing_desk_admin_menu');
 if (!function_exists('dls_writing_desk_enqueue_assets')) {
     function dls_writing_desk_enqueue_assets($hook) {
         $page = sanitize_key((string) ($_GET['page'] ?? ''));
-        if (!in_array($page, ['dls-writing-desk', 'dls-writing-desk-telegram', 'dls-writing-desk-destinations'], true)) {
+        if (!in_array($page, ['dls-writing-desk', 'dls-writing-desk-telegram', 'dls-writing-desk-destinations', 'dls-writing-desk-access'], true)) {
             return;
         }
 
@@ -1849,7 +1988,8 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
         wp_add_inline_style('dls-writing-desk', '
             body.toplevel_page_dls-writing-desk,
             body.writing-desk_page_dls-writing-desk-telegram,
-            body.writing-desk_page_dls-writing-desk-destinations {
+            body.writing-desk_page_dls-writing-desk-destinations,
+            body.writing-desk_page_dls-writing-desk-access {
                 background:
                     radial-gradient(circle at top left, #f7ebd1 0, #f7ebd1 14%, transparent 40%),
                     linear-gradient(180deg, #f5ecd9 0%, #efe3cd 100%);
@@ -2667,6 +2807,9 @@ if (!function_exists('dls_writing_desk_save_post')) {
 
         $post_id = absint($_POST['dls_writing_desk_post_id'] ?? 0);
         $status_action = strtolower(trim((string) ($_POST['dls_writing_desk_submit'] ?? 'draft')));
+        if (!dls_writing_desk_can_show_element('publish_box') && $status_action === 'publish') {
+            $status_action = 'draft';
+        }
         $requested_status = $status_action === 'publish' ? 'publish' : 'draft';
 
         if ($post_id > 0 && !current_user_can('edit_post', $post_id)) {
@@ -2677,11 +2820,19 @@ if (!function_exists('dls_writing_desk_save_post')) {
         $kicker = sanitize_text_field((string) ($_POST['dls_writing_desk_kicker'] ?? ''));
         $content = dls_writing_desk_normalize_saved_content(wp_unslash($_POST['dls_writing_desk_content'] ?? ''));
         $lead = sanitize_textarea_field((string) ($_POST['dls_writing_desk_lead'] ?? ''));
-        $language = dls_writing_desk_normalize_language($_POST['dls_writing_desk_language'] ?? '');
-        $thumbnail_id = absint($_POST['dls_writing_desk_thumbnail_id'] ?? 0);
-        $categories = array_values(array_filter(array_map('absint', (array) ($_POST['dls_writing_desk_categories'] ?? []))));
+        $language = dls_writing_desk_can_show_element('language')
+            ? dls_writing_desk_normalize_language($_POST['dls_writing_desk_language'] ?? '')
+            : ($post_id > 0 ? dls_writing_desk_get_post_language($post_id) : '');
+        $thumbnail_id = dls_writing_desk_can_show_element('featured_image')
+            ? absint($_POST['dls_writing_desk_thumbnail_id'] ?? 0)
+            : ($post_id > 0 ? absint(get_post_thumbnail_id($post_id)) : 0);
+        $categories = dls_writing_desk_can_show_element('categories')
+            ? array_values(array_filter(array_map('absint', (array) ($_POST['dls_writing_desk_categories'] ?? []))))
+            : ($post_id > 0 ? array_map('intval', (array) wp_get_post_categories($post_id)) : []);
         $new_terms = isset($_POST['dls_writing_desk_new_terms']) ? (array) wp_unslash($_POST['dls_writing_desk_new_terms']) : [];
-        $publish_at_raw = sanitize_text_field((string) ($_POST['dls_writing_desk_publish_at'] ?? ''));
+        $publish_at_raw = dls_writing_desk_can_show_element('publish_box')
+            ? sanitize_text_field((string) ($_POST['dls_writing_desk_publish_at'] ?? ''))
+            : '';
 
         $publish_dt = DateTimeImmutable::createFromFormat('Y-m-d\TH:i', $publish_at_raw, dls_writing_desk_wp_timezone());
         $post_date = current_time('mysql');
@@ -2727,16 +2878,18 @@ if (!function_exists('dls_writing_desk_save_post')) {
         $created_category_ids = dls_writing_desk_create_terms_from_input('category', $new_terms['category'] ?? '', $language);
         wp_set_post_terms($saved_post_id, array_values(array_unique(array_merge($categories, $created_category_ids))), 'category', false);
 
-        foreach (dls_writing_desk_extra_taxonomies() as $taxonomy_item) {
-            $taxonomy = sanitize_key((string) ($taxonomy_item['taxonomy'] ?? ''));
-            if ($taxonomy === '') {
-                continue;
-            }
+        if (dls_writing_desk_can_show_element('taxonomies')) {
+            foreach (dls_writing_desk_extra_taxonomies() as $taxonomy_item) {
+                $taxonomy = sanitize_key((string) ($taxonomy_item['taxonomy'] ?? ''));
+                if ($taxonomy === '') {
+                    continue;
+                }
 
-            $field_name = 'dls_writing_desk_tax_' . str_replace('-', '_', $taxonomy);
-            $term_ids = array_values(array_filter(array_map('absint', (array) ($_POST[$field_name] ?? []))));
-            $created_ids = dls_writing_desk_create_terms_from_input($taxonomy, $new_terms[$taxonomy] ?? '', $language);
-            wp_set_post_terms($saved_post_id, array_values(array_unique(array_merge($term_ids, $created_ids))), $taxonomy, false);
+                $field_name = 'dls_writing_desk_tax_' . str_replace('-', '_', $taxonomy);
+                $term_ids = array_values(array_filter(array_map('absint', (array) ($_POST[$field_name] ?? []))));
+                $created_ids = dls_writing_desk_create_terms_from_input($taxonomy, $new_terms[$taxonomy] ?? '', $language);
+                wp_set_post_terms($saved_post_id, array_values(array_unique(array_merge($term_ids, $created_ids))), $taxonomy, false);
+            }
         }
 
         if ($language !== '') {
@@ -2749,8 +2902,14 @@ if (!function_exists('dls_writing_desk_save_post')) {
             delete_post_thumbnail($saved_post_id);
         }
 
-        $author_value = sanitize_text_field((string) ($_POST['dls_writing_desk_author'] ?? ''));
-        $editor_value = sanitize_text_field((string) ($_POST['dls_writing_desk_editor'] ?? ''));
+        if (dls_writing_desk_can_show_element('people')) {
+            $author_value = sanitize_text_field((string) ($_POST['dls_writing_desk_author'] ?? ''));
+            $editor_value = sanitize_text_field((string) ($_POST['dls_writing_desk_editor'] ?? ''));
+        } else {
+            $selected_people = $post_id > 0 ? dls_writing_desk_get_selected_people($post_id) : ['author' => '', 'editor' => ''];
+            $author_value = (string) ($selected_people['author'] ?? '');
+            $editor_value = (string) ($selected_people['editor'] ?? '');
+        }
 
         if (function_exists('dls_native_authors_save_assignments_for_post')) {
             $selected_items = [];
@@ -2776,26 +2935,28 @@ if (!function_exists('dls_writing_desk_save_post')) {
         }
 
         $configured_destinations = dls_writing_desk_get_social_destinations();
-        $social_payload = isset($_POST['dls_writing_desk_social']) ? (array) wp_unslash($_POST['dls_writing_desk_social']) : [];
         $social_settings = dls_writing_desk_get_post_social_settings($saved_post_id);
-        foreach ($configured_destinations as $destination) {
-            $key = (string) ($destination['key'] ?? '');
-            if ($key === '' || !isset($social_payload[$key]) || !is_array($social_payload[$key])) {
-                continue;
-            }
+        if (dls_writing_desk_can_show_element('social')) {
+            $social_payload = isset($_POST['dls_writing_desk_social']) ? (array) wp_unslash($_POST['dls_writing_desk_social']) : [];
+            foreach ($configured_destinations as $destination) {
+                $key = (string) ($destination['key'] ?? '');
+                if ($key === '' || !isset($social_payload[$key]) || !is_array($social_payload[$key])) {
+                    continue;
+                }
 
-            $row = $social_payload[$key];
-            $social_settings[$key] = [
-                'enabled'     => !empty($row['enabled']) ? 1 : 0,
-                'description' => sanitize_textarea_field((string) ($row['description'] ?? '')),
-                'image_id'    => absint($row['image_id'] ?? 0),
-                'button_text' => sanitize_text_field((string) ($row['button_text'] ?? '')),
-                'button_url'  => esc_url_raw((string) ($row['button_url'] ?? '')),
-                'buttons'     => dls_writing_desk_sanitize_telegram_buttons($row['buttons'] ?? [], (string) ($row['button_text'] ?? ''), (string) ($row['button_url'] ?? '')),
-                'silent'      => !empty($row['silent']) ? 1 : 0,
-                'pin'         => !empty($row['pin']) ? 1 : 0,
-                'auto_delete' => absint($row['auto_delete'] ?? 0),
-            ];
+                $row = $social_payload[$key];
+                $social_settings[$key] = [
+                    'enabled'     => !empty($row['enabled']) ? 1 : 0,
+                    'description' => sanitize_textarea_field((string) ($row['description'] ?? '')),
+                    'image_id'    => absint($row['image_id'] ?? 0),
+                    'button_text' => sanitize_text_field((string) ($row['button_text'] ?? '')),
+                    'button_url'  => esc_url_raw((string) ($row['button_url'] ?? '')),
+                    'buttons'     => dls_writing_desk_sanitize_telegram_buttons($row['buttons'] ?? [], (string) ($row['button_text'] ?? ''), (string) ($row['button_url'] ?? '')),
+                    'silent'      => !empty($row['silent']) ? 1 : 0,
+                    'pin'         => !empty($row['pin']) ? 1 : 0,
+                    'auto_delete' => absint($row['auto_delete'] ?? 0),
+                ];
+            }
         }
         update_post_meta($saved_post_id, '_dls_writing_desk_social_settings', $social_settings);
 
@@ -3009,6 +3170,77 @@ if (!function_exists('dls_writing_desk_render_destinations_page')) {
                     <div class="dls-writing-desk__panel-actions" style="margin-top:16px;">
                         <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__add-destination" type="button">Add Destination</button>
                         <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit">Save Destinations</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <?php
+    }
+}
+
+if (!function_exists('dls_writing_desk_render_access_page')) {
+    function dls_writing_desk_render_access_page() {
+        if (!current_user_can('manage_options')) {
+            return;
+        }
+
+        $settings = dls_writing_desk_get_access_settings();
+        $roles = dls_writing_desk_access_roles();
+        $elements = dls_writing_desk_access_elements();
+        $notice_message = dls_writing_desk_notice_message($_GET['desk_notice'] ?? '');
+        ?>
+        <div class="wrap dls-writing-desk">
+            <div class="dls-writing-desk__admin-card">
+                <div class="dls-writing-desk__admin-head">
+                    <div>
+                        <div class="dls-writing-desk__eyebrow">Dead Lawyers Society / Access Rights</div>
+                        <h1 class="dls-writing-desk__admin-title">Control Writing Desk elements</h1>
+                        <p class="dls-writing-desk__admin-sub">Switch interface elements on or off for each author category. Administrators always keep full access.</p>
+                    </div>
+                    <div class="dls-writing-desk__actions">
+                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk')); ?>">Back to Writing Desk</a>
+                    </div>
+                </div>
+
+                <?php if ($notice_message !== '') : ?>
+                    <div class="notice dls-writing-desk__notice"><p><?php echo esc_html($notice_message); ?></p></div>
+                <?php endif; ?>
+
+                <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+                    <?php wp_nonce_field('dls_writing_desk_access_save', 'dls_writing_desk_access_nonce'); ?>
+                    <input type="hidden" name="action" value="dls_writing_desk_access_save">
+
+                    <table class="dls-writing-desk__admin-table widefat striped">
+                        <thead>
+                            <tr>
+                                <th>Interface Element</th>
+                                <?php foreach ($roles as $role_label) : ?>
+                                    <th><?php echo esc_html($role_label); ?></th>
+                                <?php endforeach; ?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($elements as $element => $element_label) : ?>
+                                <tr>
+                                    <td><strong><?php echo esc_html($element_label); ?></strong></td>
+                                    <?php foreach ($roles as $role => $role_label) : ?>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="dls_writing_desk_access[<?php echo esc_attr($role); ?>][<?php echo esc_attr($element); ?>]" value="1" <?php checked(!empty($settings[$role][$element])); ?> <?php disabled($role === 'administrator'); ?>>
+                                                On
+                                            </label>
+                                            <?php if ($role === 'administrator') : ?>
+                                                <input type="hidden" name="dls_writing_desk_access[<?php echo esc_attr($role); ?>][<?php echo esc_attr($element); ?>]" value="1">
+                                            <?php endif; ?>
+                                        </td>
+                                    <?php endforeach; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+                    <div class="dls-writing-desk__panel-actions" style="margin-top:16px;">
+                        <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit">Save Access Rights</button>
                     </div>
                 </form>
             </div>
@@ -3282,6 +3514,20 @@ if (!function_exists('dls_writing_desk_render_page')) {
         $secondary_social_destinations = array_values(array_filter($social_destinations, static function ($destination) {
             return ($destination['platform'] ?? '') !== 'telegram';
         }));
+        $show = [
+            'topbar_telegram' => dls_writing_desk_can_show_element('topbar_telegram'),
+            'topbar_social'   => dls_writing_desk_can_show_element('topbar_social'),
+            'topbar_preview'  => dls_writing_desk_can_show_element('topbar_preview'),
+            'wp_editor_link'  => dls_writing_desk_can_show_element('wp_editor_link'),
+            'publish_box'     => dls_writing_desk_can_show_element('publish_box'),
+            'share_draft'     => dls_writing_desk_can_show_element('share_draft'),
+            'language'        => dls_writing_desk_can_show_element('language'),
+            'people'          => dls_writing_desk_can_show_element('people'),
+            'categories'      => dls_writing_desk_can_show_element('categories'),
+            'taxonomies'      => dls_writing_desk_can_show_element('taxonomies'),
+            'social'          => dls_writing_desk_can_show_element('social'),
+            'featured_image'  => dls_writing_desk_can_show_element('featured_image'),
+        ];
         ?>
         <div class="wrap dls-writing-desk">
             <div class="dls-writing-desk__topbar">
@@ -3292,14 +3538,23 @@ if (!function_exists('dls_writing_desk_render_page')) {
                 </div>
                 <div class="dls-writing-desk__actions">
                     <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(add_query_arg(['page' => 'dls-writing-desk'], admin_url('admin.php'))); ?>">New Draft</a>
-                    <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-telegram' . ($post instanceof WP_Post ? '&desk_post=' . $post->ID : ''))); ?>">Telegram Broadcast</a>
-                    <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-destinations')); ?>">Social Destinations</a>
-                    <?php if ($view_url !== '') : ?>
-                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url($view_url); ?>" target="_blank" rel="noopener">Preview</a>
-                    <?php else : ?>
-                        <span class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__button--disabled">Preview</span>
+                    <?php if ($show['topbar_telegram']) : ?>
+                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-telegram' . ($post instanceof WP_Post ? '&desk_post=' . $post->ID : ''))); ?>">Telegram Broadcast</a>
                     <?php endif; ?>
-                    <?php if ($post instanceof WP_Post) : ?>
+                    <?php if ($show['topbar_social']) : ?>
+                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-destinations')); ?>">Social Destinations</a>
+                    <?php endif; ?>
+                    <?php if (current_user_can('manage_options')) : ?>
+                        <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url('admin.php?page=dls-writing-desk-access')); ?>">Access Rights</a>
+                    <?php endif; ?>
+                    <?php if ($show['topbar_preview']) : ?>
+                        <?php if ($view_url !== '') : ?>
+                            <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url($view_url); ?>" target="_blank" rel="noopener">Preview</a>
+                        <?php else : ?>
+                            <span class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__button--disabled">Preview</span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php if ($show['wp_editor_link'] && $post instanceof WP_Post) : ?>
                         <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(get_edit_post_link($post->ID, '')); ?>">Open WordPress Editor</a>
                     <?php endif; ?>
                     <a class="dls-writing-desk__button dls-writing-desk__button--soft" href="<?php echo esc_url(admin_url()); ?>">Dashboard</a>
@@ -3383,17 +3638,18 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                 </div>
                             </div>
 
-                            <div class="dls-writing-desk__side">
-                                <div class="dls-writing-desk__block">
-                                    <h2>Publish</h2>
-                                    <div class="dls-writing-desk__muted">This desk stays separate from the normal editor, so rollback stays simple.</div>
+	                            <div class="dls-writing-desk__side">
+	                                <?php if ($show['publish_box']) : ?>
+	                                <div class="dls-writing-desk__block">
+	                                    <h2>Publish</h2>
+	                                    <div class="dls-writing-desk__muted">This desk stays separate from the normal editor, so rollback stays simple.</div>
                                     <div class="dls-writing-desk__field" style="margin-top:14px;">
                                         <div class="dls-writing-desk__label"><span>Publish Date</span><span>Schedule</span></div>
                                         <input class="dls-writing-desk__input dls-writing-desk__input--datetime" type="datetime-local" name="dls_writing_desk_publish_at" value="<?php echo esc_attr($publish_at_value); ?>">
                                         <div class="dls-writing-desk__muted">Choose a future time, then press Publish to schedule it.</div>
                                     </div>
-                                    <?php if ($post instanceof WP_Post && $view_url !== '') : ?>
-                                        <div class="dls-writing-desk__field">
+	                                    <?php if ($show['share_draft'] && $post instanceof WP_Post && $view_url !== '') : ?>
+	                                        <div class="dls-writing-desk__field">
                                             <div class="dls-writing-desk__label"><span>Share Draft Link</span><span>Preview</span></div>
                                             <div class="dls-writing-desk__share-row">
                                                 <input id="dls-writing-desk-share-link" class="dls-writing-desk__input dls-writing-desk__input--small" type="text" readonly value="<?php echo esc_attr($view_url); ?>">
@@ -3404,10 +3660,12 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                     <div class="dls-writing-desk__footer-actions">
                                         <button class="dls-writing-desk__button dls-writing-desk__button--soft" type="submit" name="dls_writing_desk_submit" value="draft">Save Draft</button>
                                         <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit" name="dls_writing_desk_submit" value="publish"><?php echo esc_html($post instanceof WP_Post && $post->post_status === 'publish' ? 'Update Post' : 'Publish'); ?></button>
-                                    </div>
-                                </div>
+	                                    </div>
+	                                </div>
+	                                <?php endif; ?>
 
-                                <div class="dls-writing-desk__block">
+	                                <?php if ($show['language']) : ?>
+	                                <div class="dls-writing-desk__block">
                                     <h3>Language</h3>
                                     <div class="dls-writing-desk__field">
                                         <select id="dls-writing-desk-language" class="dls-writing-desk__select" name="dls_writing_desk_language">
@@ -3415,10 +3673,14 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                                 <option value="<?php echo esc_attr($slug); ?>" <?php selected($current_language, $slug); ?>><?php echo esc_html($label); ?></option>
                                             <?php endforeach; ?>
                                         </select>
-                                    </div>
-                                </div>
+	                                    </div>
+	                                </div>
+	                                <?php else : ?>
+	                                    <input type="hidden" name="dls_writing_desk_language" value="<?php echo esc_attr($current_language); ?>">
+	                                <?php endif; ?>
 
-                                <div class="dls-writing-desk__block">
+	                                <?php if ($show['people']) : ?>
+	                                <div class="dls-writing-desk__block">
                                     <h3>People</h3>
                                     <div class="dls-writing-desk__field">
                                         <div class="dls-writing-desk__label"><span>Author</span><span>Byline</span></div>
@@ -3455,10 +3717,15 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                             <?php endforeach; ?>
                                         </select>
                                         <div class="dls-writing-desk__muted">Editors and administrators are both available here.</div>
-                                    </div>
-                                </div>
+	                                    </div>
+	                                </div>
+	                                <?php else : ?>
+	                                    <input type="hidden" name="dls_writing_desk_author" value="<?php echo esc_attr($selected_people['author']); ?>">
+	                                    <input type="hidden" name="dls_writing_desk_editor" value="<?php echo esc_attr($selected_people['editor']); ?>">
+	                                <?php endif; ?>
 
-                                <div class="dls-writing-desk__block">
+	                                <?php if ($show['categories']) : ?>
+	                                <div class="dls-writing-desk__block">
                                     <h3>Categories</h3>
                                     <input class="dls-writing-desk__input dls-writing-desk__input--search" type="search" data-target="#dls-writing-desk-category-list" placeholder="Filter categories">
                                     <?php if (empty($category_terms)) : ?>
@@ -3484,10 +3751,12 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                     <div class="dls-writing-desk__field" style="margin-top:12px;">
                                         <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_new_terms[category]" placeholder="Add new categories, separated by commas">
                                         <div class="dls-writing-desk__muted">New categories are created in the selected language when you save.</div>
-                                    </div>
-                                </div>
+	                                    </div>
+	                                </div>
+	                                <?php endif; ?>
 
-                                <?php foreach ($extra_taxonomies as $taxonomy_item) : ?>
+	                                <?php if ($show['taxonomies']) : ?>
+	                                <?php foreach ($extra_taxonomies as $taxonomy_item) : ?>
                                     <?php
                                     $taxonomy = sanitize_key((string) ($taxonomy_item['taxonomy'] ?? ''));
                                     $label = (string) ($taxonomy_item['label'] ?? $taxonomy);
@@ -3528,10 +3797,11 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                             <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_new_terms[<?php echo esc_attr($taxonomy); ?>]" placeholder="Add new <?php echo esc_attr(strtolower($label)); ?>, separated by commas">
                                             <div class="dls-writing-desk__muted">New <?php echo esc_html(strtolower($label)); ?> are created in the selected language when you save.</div>
                                         </div>
-                                    </div>
-                                <?php endforeach; ?>
+	                                    </div>
+	                                <?php endforeach; ?>
+	                                <?php endif; ?>
 
-                                <?php if (!empty($secondary_social_destinations)) : ?>
+	                                <?php if ($show['social'] && !empty($secondary_social_destinations)) : ?>
                                     <div class="dls-writing-desk__block">
                                         <h3>Facebook / LinkedIn</h3>
                                         <?php foreach ($secondary_social_destinations as $destination) : ?>
@@ -3567,9 +3837,10 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
-                                <?php endif; ?>
+	                                <?php endif; ?>
 
-                                <div class="dls-writing-desk__block">
+	                                <?php if ($show['featured_image']) : ?>
+	                                <div class="dls-writing-desk__block">
                                     <h3>Featured Image</h3>
                                     <div class="dls-writing-desk__thumb">
                                         <input id="dls-writing-desk-thumbnail-id" type="hidden" name="dls_writing_desk_thumbnail_id" value="<?php echo esc_attr((string) $thumbnail_id); ?>">
@@ -3583,16 +3854,21 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                         <div class="dls-writing-desk__actions">
                                             <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__select-image" type="button">Choose Image</button>
                                             <button class="dls-writing-desk__button dls-writing-desk__button--soft dls-writing-desk__remove-image" type="button">Remove</button>
-                                        </div>
-                                    </div>
+	                                    </div>
+	                                </div>
+	                                <?php else : ?>
+	                                    <input type="hidden" name="dls_writing_desk_thumbnail_id" value="<?php echo esc_attr((string) $thumbnail_id); ?>">
+	                                <?php endif; ?>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="dls-writing-desk__footer-actions">
-                            <button class="dls-writing-desk__button dls-writing-desk__button--soft" type="submit" name="dls_writing_desk_submit" value="draft">Save Draft</button>
-                            <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit" name="dls_writing_desk_submit" value="publish"><?php echo esc_html($post instanceof WP_Post && $post->post_status === 'publish' ? 'Update Post' : ($post instanceof WP_Post && $post->post_status === 'future' ? 'Update Schedule' : 'Publish')); ?></button>
-                        </div>
+	                        <div class="dls-writing-desk__footer-actions">
+	                            <button class="dls-writing-desk__button dls-writing-desk__button--soft" type="submit" name="dls_writing_desk_submit" value="draft">Save Draft</button>
+	                            <?php if ($show['publish_box']) : ?>
+	                                <button class="dls-writing-desk__button dls-writing-desk__button--accent" type="submit" name="dls_writing_desk_submit" value="publish"><?php echo esc_html($post instanceof WP_Post && $post->post_status === 'publish' ? 'Update Post' : ($post instanceof WP_Post && $post->post_status === 'future' ? 'Update Schedule' : 'Publish')); ?></button>
+	                            <?php endif; ?>
+	                        </div>
                     </form>
                 </section>
             </div>
