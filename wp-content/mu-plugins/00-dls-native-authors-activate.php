@@ -188,6 +188,10 @@ add_action('wp_enqueue_scripts', function () {
   color: #111 !important;
   text-decoration: none;
 }
+.ppma-author-pages-author-box-wrap .pp-author-boxes-name *,
+.ppma-author-pages-author-box-wrap .pp-author-boxes-name a * {
+  color: #111 !important;
+}
 .ppma-author-pages-author-box-wrap .pp-author-boxes-description {
   margin: 0;
   color: #111;
