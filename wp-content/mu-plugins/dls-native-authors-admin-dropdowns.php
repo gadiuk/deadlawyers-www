@@ -96,6 +96,13 @@ if (!function_exists('dls_na_ui_detect_guest_author_language')) {
             return '';
         }
 
+        if (function_exists('dls_native_authors_get_guest_author_language')) {
+            $stored = dls_native_authors_get_guest_author_language((int) $term->term_id);
+            if (in_array($stored, ['uk', 'en'], true)) {
+                return $stored;
+            }
+        }
+
         $slug = strtolower((string) $term->slug);
         $name = (string) $term->name;
 
@@ -132,7 +139,7 @@ if (!function_exists('dls_na_ui_filter_options_by_language')) {
 
         foreach ((array) $items as $item) {
             $item_lang = strtolower(trim((string) ($item['lang'] ?? '')));
-            if ($item_lang === $lang) {
+            if ($item_lang === '' || $item_lang === $lang) {
                 $filtered[] = $item;
             }
         }

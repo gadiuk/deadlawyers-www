@@ -1226,6 +1226,30 @@ if (!function_exists('dls_native_authors_normalize_post_role')) {
     }
 }
 
+if (!function_exists('dls_native_authors_normalize_language_code')) {
+    function dls_native_authors_normalize_language_code($lang) {
+        $lang = strtolower(trim((string) $lang));
+
+        return in_array($lang, ['uk', 'en'], true) ? $lang : '';
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_language')) {
+    function dls_native_authors_get_guest_author_language($term_id) {
+        $term_id = absint($term_id);
+        if ($term_id < 1) {
+            return '';
+        }
+
+        $stored = dls_native_authors_normalize_language_code(get_term_meta($term_id, '_dls_guest_author_language', true));
+        if ($stored !== '') {
+            return $stored;
+        }
+
+        return dls_native_authors_normalize_language_code(get_term_meta($term_id, '_dls_author_language', true));
+    }
+}
+
 if (!function_exists('dls_native_authors_get_guest_author_term')) {
     function dls_native_authors_get_guest_author_term($term_id) {
         $term_id = absint($term_id);
@@ -2048,56 +2072,126 @@ add_action('admin_menu', function () {
                 && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['dls_guest_author_create_nonce'])), 'dls_guest_author_create')
             ) {
                 $name = sanitize_text_field((string) ($_POST['dls_guest_author_name'] ?? ''));
+                $lang = dls_native_authors_normalize_language_code($_POST['dls_guest_author_language'] ?? '');
                 $short_bio = sanitize_textarea_field((string) ($_POST['dls_guest_author_short_bio'] ?? ''));
                 $avatar_url = esc_url_raw((string) ($_POST['dls_guest_author_avatar_url'] ?? ''));
                 $avatar_id = absint($_POST['dls_guest_author_avatar_id'] ?? 0);
                 $slug = sanitize_title((string) ($_POST['dls_guest_author_slug'] ?? ''));
+                $create_second = !empty($_POST['dls_guest_author_create_second']);
+                $second_name = sanitize_text_field((string) ($_POST['dls_guest_author_name_second'] ?? ''));
+                $second_lang = dls_native_authors_normalize_language_code($_POST['dls_guest_author_language_second'] ?? '');
+                $second_short_bio = sanitize_textarea_field((string) ($_POST['dls_guest_author_short_bio_second'] ?? ''));
+                $second_slug = sanitize_title((string) ($_POST['dls_guest_author_slug_second'] ?? ''));
 
-                if ($name === '') {
+                $entries = [];
+
+                if ($name !== '') {
+                    $entries[] = [
+                        'name'      => $name,
+                        'lang'      => $lang,
+                        'short_bio' => $short_bio,
+                        'slug'      => $slug,
+                    ];
+                }
+
+                if ($create_second && $second_name !== '') {
+                    $entries[] = [
+                        'name'      => $second_name,
+                        'lang'      => $second_lang,
+                        'short_bio' => $second_short_bio,
+                        'slug'      => $second_slug,
+                    ];
+                }
+
+                if (empty($entries)) {
                     $notices[] = ['type' => 'error', 'message' => 'Guest author name is required.'];
                 } elseif (!taxonomy_exists('author')) {
                     $notices[] = ['type' => 'error', 'message' => 'Author taxonomy is not available.'];
                 } else {
-                    $create_args = [
-                        'description' => $short_bio,
-                    ];
+                    $langs = [];
+                    $invalid_language = false;
 
-                    if ($slug !== '') {
-                        $create_args['slug'] = $slug;
+                    foreach ($entries as $entry) {
+                        if (($entry['lang'] ?? '') === '') {
+                            $invalid_language = true;
+                            break;
+                        }
+
+                        if (isset($langs[$entry['lang']])) {
+                            $invalid_language = true;
+                            break;
+                        }
+
+                        $langs[$entry['lang']] = true;
                     }
 
-                    $created = wp_insert_term($name, 'author', $create_args);
-
-                    if (is_wp_error($created)) {
-                        $notices[] = ['type' => 'error', 'message' => $created->get_error_message()];
+                    if ($invalid_language) {
+                        $notices[] = ['type' => 'error', 'message' => 'Choose different languages for each guest author entry.'];
                     } else {
-                        $term_id = absint($created['term_id'] ?? 0);
+                        $created_labels = [];
 
-                        if ($short_bio !== '') {
-                            update_term_meta($term_id, '_dls_author_short_bio', $short_bio);
-                            update_term_meta($term_id, '_dls_guest_author_short_bio', $short_bio);
-                        }
-
-                        if ($avatar_id > 0) {
-                            update_term_meta($term_id, '_dls_author_avatar_id', $avatar_id);
-                            update_term_meta($term_id, '_dls_guest_author_avatar_id', $avatar_id);
-
-                            $avatar_by_id = wp_get_attachment_image_url($avatar_id, 'thumbnail');
-                            if (!$avatar_by_id) {
-                                $avatar_by_id = wp_get_attachment_url($avatar_id);
+                        foreach ($entries as $entry) {
+                            $entry_slug = (string) ($entry['slug'] ?? '');
+                            if ($entry_slug === '') {
+                                $entry_slug = sanitize_title((string) ($entry['name'] ?? ''));
                             }
 
-                            if (is_string($avatar_by_id) && $avatar_by_id !== '') {
-                                $avatar_url = esc_url_raw($avatar_by_id);
+                            $entry_lang = (string) ($entry['lang'] ?? '');
+                            if ($entry_slug !== '' && $entry_lang !== '' && !preg_match('/(?:^|[-_])' . preg_quote($entry_lang, '/') . '(?:$|[-_0-9])/', $entry_slug)) {
+                                $entry_slug .= '-' . $entry_lang;
                             }
+
+                            $create_args = [
+                                'description' => (string) ($entry['short_bio'] ?? ''),
+                            ];
+
+                            if ($entry_slug !== '') {
+                                $create_args['slug'] = $entry_slug;
+                            }
+
+                            $created = wp_insert_term((string) ($entry['name'] ?? ''), 'author', $create_args);
+
+                            if (is_wp_error($created)) {
+                                $notices[] = ['type' => 'error', 'message' => $created->get_error_message()];
+                                continue;
+                            }
+
+                            $term_id = absint($created['term_id'] ?? 0);
+                            $entry_bio = (string) ($entry['short_bio'] ?? '');
+
+                            update_term_meta($term_id, '_dls_author_language', $entry_lang);
+                            update_term_meta($term_id, '_dls_guest_author_language', $entry_lang);
+
+                            if ($entry_bio !== '') {
+                                update_term_meta($term_id, '_dls_author_short_bio', $entry_bio);
+                                update_term_meta($term_id, '_dls_guest_author_short_bio', $entry_bio);
+                            }
+
+                            if ($avatar_id > 0) {
+                                update_term_meta($term_id, '_dls_author_avatar_id', $avatar_id);
+                                update_term_meta($term_id, '_dls_guest_author_avatar_id', $avatar_id);
+
+                                $avatar_by_id = wp_get_attachment_image_url($avatar_id, 'thumbnail');
+                                if (!$avatar_by_id) {
+                                    $avatar_by_id = wp_get_attachment_url($avatar_id);
+                                }
+
+                                if (is_string($avatar_by_id) && $avatar_by_id !== '') {
+                                    $avatar_url = esc_url_raw($avatar_by_id);
+                                }
+                            }
+
+                            if ($avatar_url !== '') {
+                                update_term_meta($term_id, '_dls_author_avatar_url', $avatar_url);
+                                update_term_meta($term_id, '_dls_guest_author_avatar_url', $avatar_url);
+                            }
+
+                            $created_labels[] = strtoupper($entry_lang) . ': ' . (string) ($entry['name'] ?? '');
                         }
 
-                        if ($avatar_url !== '') {
-                            update_term_meta($term_id, '_dls_author_avatar_url', $avatar_url);
-                            update_term_meta($term_id, '_dls_guest_author_avatar_url', $avatar_url);
+                        if (!empty($created_labels)) {
+                            $notices[] = ['type' => 'success', 'message' => 'Guest author created: ' . implode('; ', $created_labels) . '.'];
                         }
-
-                        $notices[] = ['type' => 'success', 'message' => 'Guest author created.'];
                     }
                 }
             }
@@ -2119,9 +2213,15 @@ add_action('admin_menu', function () {
             wp_nonce_field('dls_guest_author_create', 'dls_guest_author_create_nonce');
             echo '<input type="hidden" name="dls_guest_author_create_action" value="create">';
             echo '<table class="form-table" role="presentation"><tbody>';
-            echo '<tr><th scope="row"><label for="dls-guest-author-name">Name</label></th><td><input id="dls-guest-author-name" type="text" class="regular-text" name="dls_guest_author_name" value=""></td></tr>';
-            echo '<tr><th scope="row"><label for="dls-guest-author-slug">Slug</label></th><td><input id="dls-guest-author-slug" type="text" class="regular-text" name="dls_guest_author_slug" value=""><p class="description">Optional. Leave blank to generate automatically.</p></td></tr>';
-            echo '<tr><th scope="row"><label for="dls-guest-author-short-bio">Short Bio</label></th><td><textarea id="dls-guest-author-short-bio" class="large-text" style="min-height:90px" name="dls_guest_author_short_bio"></textarea></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-language">Primary Language</label></th><td><select id="dls-guest-author-language" name="dls_guest_author_language"><option value="uk">UK</option><option value="en">EN</option></select></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-name">Primary Name</label></th><td><input id="dls-guest-author-name" type="text" class="regular-text" name="dls_guest_author_name" value=""></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-slug">Primary Slug</label></th><td><input id="dls-guest-author-slug" type="text" class="regular-text" name="dls_guest_author_slug" value=""><p class="description">Optional. Language suffix is added automatically when needed.</p></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-short-bio">Primary Short Bio</label></th><td><textarea id="dls-guest-author-short-bio" class="large-text" style="min-height:90px" name="dls_guest_author_short_bio"></textarea></td></tr>';
+            echo '<tr><th scope="row">Second Language</th><td><label><input type="checkbox" name="dls_guest_author_create_second" value="1"> Create second language version at the same time</label></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-language-second">Second Language</label></th><td><select id="dls-guest-author-language-second" name="dls_guest_author_language_second"><option value="en">EN</option><option value="uk">UK</option></select></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-name-second">Second Name</label></th><td><input id="dls-guest-author-name-second" type="text" class="regular-text" name="dls_guest_author_name_second" value=""></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-slug-second">Second Slug</label></th><td><input id="dls-guest-author-slug-second" type="text" class="regular-text" name="dls_guest_author_slug_second" value=""></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-short-bio-second">Second Short Bio</label></th><td><textarea id="dls-guest-author-short-bio-second" class="large-text" style="min-height:90px" name="dls_guest_author_short_bio_second"></textarea></td></tr>';
             echo '<tr><th scope="row">Profile Image</th><td>';
             echo '<input type="hidden" class="dls-author-avatar-id" name="dls_guest_author_avatar_id" value="">';
             echo '<input type="url" class="dls-author-avatar-url regular-text" style="width:100%; max-width:420px; margin-bottom:6px" placeholder="https://..." name="dls_guest_author_avatar_url" value="">';
@@ -2181,6 +2281,7 @@ add_action('admin_menu', function () {
 
                     $term_id = (int) $term->term_id;
                     $short_bio = dls_native_authors_get_guest_author_bio($term_id);
+                    $guest_lang = dls_native_authors_get_guest_author_language($term_id);
                     $avatar_url = (string) get_term_meta($term_id, '_dls_author_avatar_url', true);
                     if ($avatar_url === '') {
                         $avatar_url = (string) get_term_meta($term_id, '_dls_guest_author_avatar_url', true);
@@ -2193,7 +2294,7 @@ add_action('admin_menu', function () {
                     echo '<tr>';
                     echo '<td>' . dls_native_authors_get_guest_author_avatar_html($term_id, 48, 'dls-author-profile-avatar') . '</td>';
                     echo '<td><input type="text" style="width:100%" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][display_name]" value="' . esc_attr($term->name) . '"></td>';
-                    echo '<td><code>guest author</code></td>';
+                    echo '<td><code>guest author' . ($guest_lang !== '' ? ' (' . esc_html(strtoupper($guest_lang)) . ')' : '') . '</code></td>';
                     echo '<td><textarea style="width:100%; min-height:76px" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][short_bio]">' . esc_textarea($short_bio) . '</textarea></td>';
                     echo '<td>';
                     echo '<input type="hidden" class="dls-author-avatar-id" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][avatar_id]" value="' . esc_attr((string) $avatar_id) . '">';
