@@ -1269,7 +1269,7 @@ if (!function_exists('dls_native_authors_is_guest_author_term')) {
             return false;
         }
 
-        return dls_native_authors_extract_user_id_from_legacy_term((int) $term->term_id) < 1;
+        return dls_native_authors_extract_user_id_from_term((int) $term->term_id) < 1;
     }
 }
 
@@ -1294,7 +1294,7 @@ if (!function_exists('dls_native_authors_get_guest_author_terms')) {
         $guest_terms = [];
 
         foreach ($terms as $term) {
-            if (dls_native_authors_is_guest_author_term($term)) {
+            if ($term instanceof WP_Term && dls_native_authors_extract_user_id_from_term((int) $term->term_id) < 1) {
                 $guest_terms[] = $term;
             }
         }

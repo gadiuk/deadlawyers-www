@@ -8,7 +8,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Recovery default: keep the native-author stack off unless explicitly re-enabled in wp-config.php.
+// Keep the native-author stack on for the normal WordPress editor.
+// The Writing Desk is controlled separately.
 if (!defined('DLS_NATIVE_AUTHORS_ACTIVE')) {
-    define('DLS_NATIVE_AUTHORS_ACTIVE', false);
+    define('DLS_NATIVE_AUTHORS_ACTIVE', true);
 }

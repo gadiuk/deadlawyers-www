@@ -167,10 +167,33 @@ if (!function_exists('dls_na_ui_base_users')) {
 
 if (!function_exists('dls_na_ui_base_guest_authors')) {
     function dls_na_ui_base_guest_authors() {
-        if (function_exists('dls_native_authors_get_guest_author_terms')) {
-            $terms = dls_native_authors_get_guest_author_terms();
-            if (is_array($terms)) {
-                return $terms;
+        if (taxonomy_exists('author')) {
+            $terms = get_terms([
+                'taxonomy'   => 'author',
+                'hide_empty' => false,
+                'orderby'    => 'name',
+                'order'      => 'ASC',
+                'number'     => 5000,
+            ]);
+
+            if (is_array($terms) && !is_wp_error($terms)) {
+                $guest_terms = [];
+
+                foreach ($terms as $term) {
+                    if (!($term instanceof WP_Term)) {
+                        continue;
+                    }
+
+                    $user_id = function_exists('dls_native_authors_extract_user_id_from_term')
+                        ? absint(dls_native_authors_extract_user_id_from_term((int) $term->term_id))
+                        : 0;
+
+                    if ($user_id < 1) {
+                        $guest_terms[] = $term;
+                    }
+                }
+
+                return $guest_terms;
             }
         }
 
@@ -246,6 +269,7 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
     function dls_na_ui_dropdown_options($post_id, $mode = 'author', $ensure_value = '') {
         $mode = strtolower(trim((string) $mode));
         $items = [];
+        $seen = [];
 
         foreach ((array) dls_na_ui_base_users() as $user) {
             if (!($user instanceof WP_User)) {
@@ -269,8 +293,14 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
                 $role_badge = ' (editor)';
             }
 
+            $value = dls_na_ui_build_selection_value('user', (int) $user->ID);
+            if ($value === '' || isset($seen[$value])) {
+                continue;
+            }
+
+            $seen[$value] = true;
             $items[] = [
-                'value' => dls_na_ui_build_selection_value('user', (int) $user->ID),
+                'value' => $value,
                 'label' => (string) $user->display_name . $role_badge,
                 'lang'  => dls_na_ui_detect_user_language($user),
                 'sort'  => (string) $user->display_name,
@@ -283,8 +313,14 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
                     continue;
                 }
 
+                $value = dls_na_ui_build_selection_value('guest', (int) $term->term_id);
+                if ($value === '' || isset($seen[$value])) {
+                    continue;
+                }
+
+                $seen[$value] = true;
                 $items[] = [
-                    'value' => dls_na_ui_build_selection_value('guest', (int) $term->term_id),
+                    'value' => $value,
                     'label' => (string) $term->name . ' (guest)',
                     'lang'  => dls_na_ui_detect_guest_author_language($term),
                     'sort'  => (string) $term->name,
@@ -294,6 +330,29 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
 
         $lang = dls_na_ui_detect_post_language($post_id);
         $filtered = dls_na_ui_filter_options_by_language($items, $lang);
+
+        $current_user = wp_get_current_user();
+        if (
+            $current_user instanceof WP_User
+            && $current_user->exists()
+            && dls_na_ui_user_has_role($current_user, $mode === 'editor' ? ['editor', 'administrator'] : ['author', 'editor', 'administrator'])
+        ) {
+            $current_value = dls_na_ui_build_selection_value('user', (int) $current_user->ID);
+            $known_values = array_column($filtered, 'value');
+
+            if ($current_value !== '' && !in_array($current_value, $known_values, true)) {
+                $role_badge = dls_na_ui_user_has_role($current_user, ['administrator'])
+                    ? ' (administrator)'
+                    : (dls_na_ui_user_has_role($current_user, ['editor']) ? ' (editor)' : '');
+
+                $filtered[] = [
+                    'value' => $current_value,
+                    'label' => (string) $current_user->display_name . $role_badge,
+                    'lang'  => '',
+                    'sort'  => (string) $current_user->display_name,
+                ];
+            }
+        }
 
         if ($ensure_value !== '') {
             $known_values = array_column($filtered, 'value');
