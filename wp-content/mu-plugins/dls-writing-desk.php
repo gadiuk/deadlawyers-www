@@ -1693,7 +1693,26 @@ if (!function_exists('dls_writing_desk_normalize_saved_content')) {
 
         $has_paragraphs = preg_match('/<p\b/i', $content) === 1;
         $has_block_editor_markup = function_exists('has_blocks') && has_blocks($content);
-        if ($has_paragraphs || $has_block_editor_markup) {
+        if ($has_paragraphs) {
+            $content = preg_replace_callback('/<p\b([^>]*)>(.*?)<\/p>/is', static function ($matches) {
+                $inner = (string) ($matches[2] ?? '');
+                if (stripos($inner, '<br') === false && strpos($inner, "\n") === false) {
+                    return (string) ($matches[0] ?? '');
+                }
+
+                $parts = preg_split('/(?:<br\s*\/?>\s*)+|\n+/i', $inner);
+                $parts = array_values(array_filter(array_map('trim', (array) $parts)));
+                if (count($parts) < 2) {
+                    return (string) ($matches[0] ?? '');
+                }
+
+                return '<p>' . implode('</p><p>', array_map('wp_kses_post', $parts)) . '</p>';
+            }, $content);
+
+            return wp_kses_post($content);
+        }
+
+        if ($has_block_editor_markup) {
             return wp_kses_post($content);
         }
 
@@ -1776,7 +1795,7 @@ if (!function_exists('dls_writing_desk_frontend_styles')) {
             return;
         }
 
-        echo '<style>.dls-writing-desk-frontend-intro{margin:0 0 1.8em}.dls-writing-desk-frontend-kicker{margin:0 0 .7em;color:#8a6133;font:700 12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}.dls-writing-desk-frontend-lead{margin:0 0 1.4em;font-size:1.25em;line-height:1.7;color:#443225}</style>';
+        echo '<style>.dls-writing-desk-frontend-intro{margin:0 0 1.8em}.dls-writing-desk-frontend-kicker{margin:0 0 .7em;color:#8a6133;font:700 12px/1.2 "Helvetica Neue",Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase}.dls-writing-desk-frontend-lead{margin:0 0 1.4em;font-size:1.25em;line-height:1.7;color:#443225}.single-post .entry-content>p,.single-post .single-content>p,.single-post .wp-block-post-content>p{margin-top:0;margin-bottom:1.45em}.single-post .entry-content>p:last-child,.single-post .single-content>p:last-child,.single-post .wp-block-post-content>p:last-child{margin-bottom:0}</style>';
     }
 }
 add_action('wp_head', 'dls_writing_desk_frontend_styles');
@@ -3346,8 +3365,9 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                                     'teeny'         => false,
                                                     'quicktags'     => false,
                                                     'tinymce'       => [
-                                                        'wp_autoresize_on' => true,
-                                                        'toolbar1'         => 'formatselect,bold,italic,link,blockquote,bullist,numlist,undo,redo,removeformat',
+                                                        'wpautop'           => true,
+                                                        'wp_autoresize_on'  => true,
+                                                        'toolbar1'          => 'formatselect,bold,italic,link,blockquote,bullist,numlist,undo,redo,removeformat',
                                                         'toolbar2'         => '',
                                                         'block_formats'    => 'Paragraph=p;Heading 2=h2;Heading 3=h3;Quote=blockquote',
                                                         'menubar'          => false,
