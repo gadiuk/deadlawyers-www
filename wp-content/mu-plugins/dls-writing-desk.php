@@ -1722,15 +1722,26 @@ if (!function_exists('dls_writing_desk_remove_duplicate_lead')) {
             return $content;
         }
 
-        if (preg_match('/^\s*<p\b[^>]*>(.*?)<\/p>\s*/is', (string) $content, $matches) !== 1) {
+        $lead_text = dls_writing_desk_compare_text($lead);
+        $content = (string) $content;
+        $prefix_pattern = '(?:\s*<!--\s*\/?wp:[\s\S]*?-->\s*)*';
+        $block_pattern = '/^(' . $prefix_pattern . ')<(p|h[1-6]|blockquote|div)\b[^>]*>(.*?)<\/\2>\s*(' . $prefix_pattern . ')/is';
+
+        if (preg_match($block_pattern, $content, $matches) === 1) {
+            if (dls_writing_desk_compare_text($matches[3] ?? '') === $lead_text) {
+                return preg_replace($block_pattern, '', $content, 1);
+            }
+
             return $content;
         }
 
-        if (dls_writing_desk_compare_text($matches[1] ?? '') !== dls_writing_desk_compare_text($lead)) {
-            return $content;
+        $plain_content = dls_writing_desk_compare_text($content);
+        if ($plain_content !== '' && strpos($plain_content, $lead_text) === 0) {
+            $lead_length = strlen((string) $lead);
+            return ltrim(substr($content, $lead_length));
         }
 
-        return preg_replace('/^\s*<p\b[^>]*>.*?<\/p>\s*/is', '', (string) $content, 1);
+        return $content;
     }
 }
 
