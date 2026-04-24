@@ -697,12 +697,12 @@ if (!function_exists('dls_writing_desk_get_hierarchical_terms')) {
 if (!function_exists('dls_writing_desk_extra_taxonomies')) {
     function dls_writing_desk_extra_taxonomies() {
         $candidates = [
-            'companies'   => 'Companies',
-            'company'     => 'Companies',
-            'individuals' => 'Individuals',
-            'individual'  => 'Individuals',
-            'people'      => 'Individuals',
-            'person'      => 'Individuals',
+            'companies'   => 'Галераб',
+            'company'     => 'Галераб',
+            'individuals' => 'Юристи',
+            'individual'  => 'Юристи',
+            'people'      => 'Юристи',
+            'person'      => 'Юристи',
             'post_tag'    => 'Tags',
         ];
 
@@ -1621,7 +1621,8 @@ if (!function_exists('dls_writing_desk_access_elements')) {
             'language'        => 'Language selector',
             'people'          => 'Author / editor selector',
             'categories'      => 'Categories',
-            'taxonomies'      => 'Companies, individuals and tags',
+            'create_categories' => 'Create new categories',
+            'taxonomies'      => 'Галераб, Юристи and tags',
             'social'          => 'Facebook / LinkedIn preparation',
             'featured_image'  => 'Featured image',
         ];
@@ -1646,6 +1647,12 @@ if (!function_exists('dls_writing_desk_default_access_settings')) {
 
         foreach (array_keys(dls_writing_desk_access_roles()) as $role) {
             $settings[$role] = array_fill_keys($elements, 1);
+        }
+
+        foreach (['editor', 'author', 'contributor'] as $role) {
+            if (isset($settings[$role]['create_categories'])) {
+                $settings[$role]['create_categories'] = 0;
+            }
         }
 
         return $settings;
@@ -1930,7 +1937,7 @@ if (!function_exists('dls_writing_desk_category_term_groups')) {
 
         $groups = [];
         $jurisdiction_needles = ['jurisdiction', 'jurisdictions', 'юрисдикц'];
-        $topic_needles = ['topic', 'topics', 'tema', 'тема', 'теми', 'темы'];
+        $topic_needles = ['topic', 'topics', 'theme', 'themes', 'tema', 'teme', 'тема', 'теми', 'темы'];
 
         foreach ($names as $name) {
             $name = dls_writing_desk_lower_text($name);
@@ -1949,6 +1956,117 @@ if (!function_exists('dls_writing_desk_category_term_groups')) {
         }
 
         return array_values(array_unique($groups));
+    }
+}
+
+if (!function_exists('dls_writing_desk_category_name_matches_group')) {
+    function dls_writing_desk_category_name_matches_group($name, $group) {
+        $name = dls_writing_desk_lower_text($name);
+        $group = sanitize_key((string) $group);
+        $needles = [
+            'jurisdiction' => ['jurisdiction', 'jurisdictions', 'юрисдикц'],
+            'topic'        => ['topic', 'topics', 'theme', 'themes', 'tema', 'teme', 'тема', 'теми', 'темы'],
+        ];
+
+        foreach ($needles[$group] ?? [] as $needle) {
+            if ($needle !== '' && strpos($name, $needle) !== false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+
+if (!function_exists('dls_writing_desk_is_category_group_root')) {
+    function dls_writing_desk_is_category_group_root($term, $group) {
+        if (!($term instanceof WP_Term)) {
+            return false;
+        }
+
+        return dls_writing_desk_category_name_matches_group($term->name, $group)
+            || dls_writing_desk_category_name_matches_group($term->slug, $group);
+    }
+}
+
+if (!function_exists('dls_writing_desk_split_category_terms')) {
+    function dls_writing_desk_split_category_terms($category_terms, $include_other = false) {
+        $groups = [
+            'jurisdiction' => [],
+            'topic'        => [],
+            'other'        => [],
+        ];
+
+        foreach ((array) $category_terms as $entry) {
+            $term = $entry['term'] ?? null;
+            if (!($term instanceof WP_Term)) {
+                continue;
+            }
+
+            $term_groups = dls_writing_desk_category_term_groups((int) $term->term_id);
+            if (in_array('jurisdiction', $term_groups, true) && !dls_writing_desk_is_category_group_root($term, 'jurisdiction')) {
+                $groups['jurisdiction'][] = $entry;
+                continue;
+            }
+
+            if (in_array('topic', $term_groups, true) && !dls_writing_desk_is_category_group_root($term, 'topic')) {
+                $groups['topic'][] = $entry;
+                continue;
+            }
+
+            if ($include_other) {
+                $groups['other'][] = $entry;
+            }
+        }
+
+        return $groups;
+    }
+}
+
+if (!function_exists('dls_writing_desk_filter_category_ids_for_role')) {
+    function dls_writing_desk_filter_category_ids_for_role($category_ids, $post_id = 0) {
+        $category_ids = array_values(array_unique(array_filter(array_map('absint', (array) $category_ids))));
+        if (current_user_can('edit_others_posts')) {
+            return $category_ids;
+        }
+
+        $jurisdiction_ids = [];
+        $topic_ids = [];
+        foreach ($category_ids as $term_id) {
+            if (in_array('jurisdiction', dls_writing_desk_category_term_groups($term_id), true)) {
+                $term = get_term($term_id, 'category');
+                if ($term instanceof WP_Term && !dls_writing_desk_is_category_group_root($term, 'jurisdiction')) {
+                    $jurisdiction_ids[] = $term_id;
+                }
+                continue;
+            }
+
+            if (in_array('topic', dls_writing_desk_category_term_groups($term_id), true)) {
+                $term = get_term($term_id, 'category');
+                if ($term instanceof WP_Term && !dls_writing_desk_is_category_group_root($term, 'topic')) {
+                    $topic_ids[] = $term_id;
+                }
+            }
+        }
+
+        $preserved_other = [];
+        if ($post_id > 0) {
+            foreach ((array) wp_get_post_categories($post_id) as $existing_id) {
+                $existing_id = absint($existing_id);
+                $existing_term = get_term($existing_id, 'category');
+                $existing_groups = dls_writing_desk_category_term_groups($existing_id);
+                $is_visible_writer_group = $existing_term instanceof WP_Term
+                    && (
+                        (in_array('jurisdiction', $existing_groups, true) && !dls_writing_desk_is_category_group_root($existing_term, 'jurisdiction'))
+                        || (in_array('topic', $existing_groups, true) && !dls_writing_desk_is_category_group_root($existing_term, 'topic'))
+                    );
+                if ($existing_id > 0 && !$is_visible_writer_group) {
+                    $preserved_other[] = $existing_id;
+                }
+            }
+        }
+
+        return array_values(array_unique(array_merge($jurisdiction_ids, array_slice($topic_ids, 0, 2), $preserved_other)));
     }
 }
 
@@ -2056,13 +2174,13 @@ if (!function_exists('dls_writing_desk_checklist_items')) {
                 'required' => true,
             ],
             'company' => [
-                'label' => 'Company tagged',
+                'label' => 'Галераб tagged',
                 'note' => 'Optional, but useful when the story mentions a company.',
                 'required' => false,
             ],
             'individual' => [
-                'label' => 'Individual tagged',
-                'note' => 'Optional, but useful when the story mentions a person.',
+                'label' => 'Юристи tagged',
+                'note' => 'Optional, but useful when the story mentions a lawyer.',
                 'required' => false,
             ],
             'tags' => [
@@ -2544,6 +2662,38 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 color: #826956;
                 font-size: 12px;
             }
+            .dls-writing-desk__tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin-top: 10px;
+            }
+            .dls-writing-desk__tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                border: 1px solid rgba(36,28,21,0.12);
+                border-radius: 999px;
+                background: #fffaf1;
+                color: #2f251d;
+                padding: 8px 11px;
+                cursor: pointer;
+                font: 700 12px/1.2 "Helvetica Neue", Arial, sans-serif;
+            }
+            .dls-writing-desk__tag input {
+                margin: 0;
+            }
+            .dls-writing-desk__tag:has(input:checked) {
+                background: #2d2117;
+                border-color: #2d2117;
+                color: #fff8f0;
+            }
+            .dls-writing-desk__tag.is-hidden {
+                display: none !important;
+            }
+            .dls-writing-desk__tag--child {
+                border-style: dashed;
+            }
             .dls-writing-desk__publish-checklist {
                 background:
                     radial-gradient(circle at 15% 15%, rgba(175,61,34,0.11), transparent 28%),
@@ -2869,6 +3019,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
         wp_add_inline_script('dls-writing-desk', 'window.DLSWritingDesk = ' . wp_json_encode([
             'homeHost' => strtolower((string) wp_parse_url(home_url('/'), PHP_URL_HOST)),
             'canOverrideChecklist' => current_user_can('manage_options'),
+            'canEditOthersPosts' => current_user_can('edit_others_posts'),
         ]) . ';', 'before');
         wp_add_inline_script('dls-writing-desk', '
             (function ($) {
@@ -3001,7 +3152,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     var language = ($("#dls-writing-desk-language").val() || "").toString().toLowerCase();
                     var query = (list.prevAll(".dls-writing-desk__input--search:first").val() || "").toString().toLowerCase();
 
-                    list.find(".dls-writing-desk__check").each(function () {
+                    list.find(".dls-writing-desk__check, .dls-writing-desk__tag").each(function () {
                         var item = $(this);
                         var itemLanguage = (item.data("lang") || "").toString().toLowerCase();
                         var haystack = (item.data("search") || item.text() || "").toString().toLowerCase();
@@ -3016,7 +3167,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     var language = ($("#dls-writing-desk-language").val() || "").toString().toLowerCase();
                     filterSelect("#dls-writing-desk-author", language);
                     filterSelect("#dls-writing-desk-editor", language);
-                    $(".dls-writing-desk__checklist").each(function () {
+                    $(".dls-writing-desk__checklist, .dls-writing-desk__tag-list").each(function () {
                         filterChecklist(this);
                     });
                 }
@@ -3096,7 +3247,7 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
 
                 function taxonomyHasSelection(group) {
                     var found = false;
-                    $(".dls-writing-desk__checklist[data-checklist-group=\'" + group + "\'] input:checked").each(function () {
+                    $(".dls-writing-desk__checklist[data-checklist-group=\'" + group + "\'] input:checked, .dls-writing-desk__tag-list[data-checklist-group=\'" + group + "\'] input:checked").each(function () {
                         found = true;
                         return false;
                     });
@@ -3130,6 +3281,25 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                     };
 
                     return readers[task] ? readers[task]() : false;
+                }
+
+                function limitTopicCategories(changed) {
+                    if (!!((window.DLSWritingDesk || {}).canEditOthersPosts)) {
+                        return;
+                    }
+
+                    var input = $(changed);
+                    var groups = (input.data("groups") || "").toString().split(/\s+/);
+                    if (groups.indexOf("topic") === -1 || !input.is(":checked")) {
+                        return;
+                    }
+
+                    var checkedTopics = $("input[name=\'dls_writing_desk_categories[]\']:checked").filter(function () {
+                        return (($(this).data("groups") || "").toString().split(/\s+/)).indexOf("topic") !== -1;
+                    });
+                    if (checkedTopics.length > 2) {
+                        input.prop("checked", false);
+                    }
                 }
 
                 function updateChecklist() {
@@ -3237,7 +3407,17 @@ if (!function_exists('dls_writing_desk_enqueue_assets')) {
                 });
 
                 $(document).on("input", "#dls-writing-desk-title, #dls-writing-desk-lead", updateCounts);
-                $(document).on("input change", "#dls-writing-desk-author, #dls-writing-desk-thumbnail-id, input[name=\'dls_writing_desk_categories[]\'], .dls-writing-desk__checklist input, .dls-writing-desk__new-taxonomy, .dls-writing-desk__task input", updateChecklist);
+                $(document).on("change", "input[name=\'dls_writing_desk_categories[]\']", function () {
+                    limitTopicCategories(this);
+                    updateChecklist();
+                });
+                $(document).on("change", ".dls-writing-desk__tag-list[data-taxonomy-list] input", function () {
+                    if ($(this).is(":checked")) {
+                        $(this).closest(".dls-writing-desk__block").find(".dls-writing-desk__new-taxonomy").val("");
+                        filterChecklist($(this).closest(".dls-writing-desk__tag-list"));
+                    }
+                });
+                $(document).on("input change", "#dls-writing-desk-author, #dls-writing-desk-thumbnail-id, .dls-writing-desk__checklist input, .dls-writing-desk__tag-list input, .dls-writing-desk__new-taxonomy, .dls-writing-desk__task input", updateChecklist);
                 $(document).on("change", "#dls-writing-desk-language", applyLanguageFilter);
                 $(document).on("input", ".dls-writing-desk__input--search", function () {
                     var target = $(this).data("target") || "";
@@ -3311,6 +3491,7 @@ if (!function_exists('dls_writing_desk_save_post')) {
         $categories = dls_writing_desk_can_show_element('categories')
             ? array_values(array_filter(array_map('absint', (array) ($_POST['dls_writing_desk_categories'] ?? []))))
             : ($post_id > 0 ? array_map('intval', (array) wp_get_post_categories($post_id)) : []);
+        $categories = dls_writing_desk_filter_category_ids_for_role($categories, $post_id);
         $new_terms = isset($_POST['dls_writing_desk_new_terms']) ? (array) wp_unslash($_POST['dls_writing_desk_new_terms']) : [];
         $publish_at_raw = dls_writing_desk_can_show_element('publish_box')
             ? sanitize_text_field((string) ($_POST['dls_writing_desk_publish_at'] ?? ''))
@@ -3398,7 +3579,9 @@ if (!function_exists('dls_writing_desk_save_post')) {
 
         dls_writing_desk_update_post_kicker($saved_post_id, $kicker);
 
-        $created_category_ids = dls_writing_desk_create_terms_from_input('category', $new_terms['category'] ?? '', $language);
+        $created_category_ids = dls_writing_desk_can_show_element('create_categories')
+            ? dls_writing_desk_create_terms_from_input('category', $new_terms['category'] ?? '', $language)
+            : [];
         wp_set_post_terms($saved_post_id, array_values(array_unique(array_merge($categories, $created_category_ids))), 'category', false);
 
         if (dls_writing_desk_can_show_element('taxonomies')) {
@@ -4015,6 +4198,8 @@ if (!function_exists('dls_writing_desk_render_page')) {
         $selected_categories = $post ? wp_get_post_categories($post->ID) : [];
         $selected_categories = array_map('intval', (array) $selected_categories);
         $category_terms = dls_writing_desk_taxonomy_terms('category');
+        $show_other_categories = current_user_can('edit_others_posts');
+        $category_groups = dls_writing_desk_split_category_terms($category_terms, $show_other_categories);
         $extra_taxonomies = dls_writing_desk_extra_taxonomies();
         $selected_taxonomies = [];
         foreach ($extra_taxonomies as $taxonomy_item) {
@@ -4054,6 +4239,7 @@ if (!function_exists('dls_writing_desk_render_page')) {
             'language'        => dls_writing_desk_can_show_element('language'),
             'people'          => dls_writing_desk_can_show_element('people'),
             'categories'      => dls_writing_desk_can_show_element('categories'),
+            'create_categories' => dls_writing_desk_can_show_element('create_categories'),
             'taxonomies'      => dls_writing_desk_can_show_element('taxonomies'),
             'social'          => dls_writing_desk_can_show_element('social'),
             'featured_image'  => dls_writing_desk_can_show_element('featured_image'),
@@ -4308,35 +4494,81 @@ if (!function_exists('dls_writing_desk_render_page')) {
 	                                <?php endif; ?>
 
 	                                <?php if ($show['categories']) : ?>
-	                                <div class="dls-writing-desk__block">
-                                    <h3>Categories</h3>
-                                    <input class="dls-writing-desk__input dls-writing-desk__input--search" type="search" data-target="#dls-writing-desk-category-list" placeholder="Filter categories">
-                                    <?php if (empty($category_terms)) : ?>
-                                        <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">No categories yet.</p>
-                                    <?php else : ?>
-                                        <div id="dls-writing-desk-category-list" class="dls-writing-desk__checklist" data-taxonomy-list="category">
-                                            <?php foreach ($category_terms as $entry) : ?>
-                                                <?php
-                                                $term = $entry['term'] ?? null;
-                                                $depth = (int) ($entry['depth'] ?? 0);
-                                                $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
-                                                if (!($term instanceof WP_Term)) {
-                                                    continue;
-                                                }
-                                                $category_groups = implode(' ', dls_writing_desk_category_term_groups((int) $term->term_id));
-                                                ?>
-                                                <label class="dls-writing-desk__check<?php echo $depth > 0 ? ' dls-writing-desk__check--child' : ''; ?>" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name)); ?>">
-                                                    <input type="checkbox" name="dls_writing_desk_categories[]" value="<?php echo esc_attr((string) $term->term_id); ?>" data-groups="<?php echo esc_attr($category_groups); ?>" <?php checked(in_array((int) $term->term_id, $selected_categories, true)); ?>>
-                                                    <span><?php echo esc_html($term->name); ?></span>
-                                                </label>
-                                            <?php endforeach; ?>
+                                    <div class="dls-writing-desk__block">
+                                        <h3>Юрисдикція</h3>
+                                        <?php if (empty($category_groups['jurisdiction'])) : ?>
+                                            <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">No jurisdiction categories yet.</p>
+                                        <?php else : ?>
+                                            <div class="dls-writing-desk__tag-list" data-taxonomy-list="category">
+                                                <?php foreach ($category_groups['jurisdiction'] as $entry) : ?>
+                                                    <?php
+                                                    $term = $entry['term'] ?? null;
+                                                    $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
+                                                    if (!($term instanceof WP_Term)) {
+                                                        continue;
+                                                    }
+                                                    ?>
+                                                    <label class="dls-writing-desk__tag" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name)); ?>">
+                                                        <input type="checkbox" name="dls_writing_desk_categories[]" value="<?php echo esc_attr((string) $term->term_id); ?>" data-groups="jurisdiction" <?php checked(in_array((int) $term->term_id, $selected_categories, true)); ?>>
+                                                        <span><?php echo esc_html($term->name); ?></span>
+                                                    </label>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <div class="dls-writing-desk__block">
+                                        <h3>Тема</h3>
+                                        <?php if (empty($category_groups['topic'])) : ?>
+                                            <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">No theme categories yet.</p>
+                                        <?php else : ?>
+                                            <div class="dls-writing-desk__tag-list" data-taxonomy-list="category">
+                                                <?php foreach ($category_groups['topic'] as $entry) : ?>
+                                                    <?php
+                                                    $term = $entry['term'] ?? null;
+                                                    $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
+                                                    if (!($term instanceof WP_Term)) {
+                                                        continue;
+                                                    }
+                                                    ?>
+                                                    <label class="dls-writing-desk__tag" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name)); ?>">
+                                                        <input type="checkbox" name="dls_writing_desk_categories[]" value="<?php echo esc_attr((string) $term->term_id); ?>" data-groups="topic" <?php checked(in_array((int) $term->term_id, $selected_categories, true)); ?>>
+                                                        <span><?php echo esc_html($term->name); ?></span>
+                                                    </label>
+                                                <?php endforeach; ?>
+                                            </div>
+                                            <div class="dls-writing-desk__muted" style="margin-top:10px;">Choose one or two themes.</div>
+                                        <?php endif; ?>
+                                    </div>
+
+                                    <?php if ($show_other_categories && !empty($category_groups['other'])) : ?>
+                                        <div class="dls-writing-desk__block">
+                                            <h3>Other categories</h3>
+                                            <div class="dls-writing-desk__tag-list" data-taxonomy-list="category">
+                                                <?php foreach ($category_groups['other'] as $entry) : ?>
+                                                    <?php
+                                                    $term = $entry['term'] ?? null;
+                                                    $depth = (int) ($entry['depth'] ?? 0);
+                                                    $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
+                                                    if (!($term instanceof WP_Term)) {
+                                                        continue;
+                                                    }
+                                                    ?>
+                                                    <label class="dls-writing-desk__tag<?php echo $depth > 0 ? ' dls-writing-desk__tag--child' : ''; ?>" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name)); ?>">
+                                                        <input type="checkbox" name="dls_writing_desk_categories[]" value="<?php echo esc_attr((string) $term->term_id); ?>" data-groups="" <?php checked(in_array((int) $term->term_id, $selected_categories, true)); ?>>
+                                                        <span><?php echo esc_html($term->name); ?></span>
+                                                    </label>
+                                                <?php endforeach; ?>
+                                            </div>
                                         </div>
                                     <?php endif; ?>
-                                    <div class="dls-writing-desk__field" style="margin-top:12px;">
-                                        <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_new_terms[category]" placeholder="Add new categories, separated by commas">
-                                        <div class="dls-writing-desk__muted">New categories are created in the selected language when you save.</div>
-	                                    </div>
-	                                </div>
+
+                                    <?php if ($show['create_categories']) : ?>
+                                        <div class="dls-writing-desk__block">
+                                            <h3>New category</h3>
+                                            <input class="dls-writing-desk__input dls-writing-desk__input--small" type="text" name="dls_writing_desk_new_terms[category]" placeholder="Admin only: add new categories, separated by commas">
+                                        </div>
+                                    <?php endif; ?>
 	                                <?php endif; ?>
 
 	                                <?php if ($show['taxonomies']) : ?>
@@ -4359,36 +4591,27 @@ if (!function_exists('dls_writing_desk_render_page')) {
                                     ?>
                                     <div class="dls-writing-desk__block">
                                         <h3><?php echo esc_html($label); ?></h3>
-                                        <input class="dls-writing-desk__input dls-writing-desk__input--search" type="search" data-target="#<?php echo esc_attr($list_id); ?>" placeholder="Filter <?php echo esc_attr(strtolower($label)); ?>">
+                                        <input class="dls-writing-desk__input dls-writing-desk__input--search dls-writing-desk__new-taxonomy" data-checklist-group="<?php echo esc_attr($checklist_group); ?>" type="text" data-target="#<?php echo esc_attr($list_id); ?>" name="dls_writing_desk_new_terms[<?php echo esc_attr($taxonomy); ?>]" placeholder="Search or add <?php echo esc_attr(strtolower($label)); ?>">
                                         <?php if (empty($terms)) : ?>
-                                            <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">No <?php echo esc_html(strtolower($label)); ?> yet.</p>
+                                            <p class="dls-writing-desk__muted dls-writing-desk__taxonomy-empty">Type a name above to create it when you save.</p>
                                         <?php else : ?>
-                                            <div id="<?php echo esc_attr($list_id); ?>" class="dls-writing-desk__checklist" data-taxonomy-list="<?php echo esc_attr($taxonomy); ?>" data-checklist-group="<?php echo esc_attr($checklist_group); ?>">
+                                            <div id="<?php echo esc_attr($list_id); ?>" class="dls-writing-desk__tag-list" data-taxonomy-list="<?php echo esc_attr($taxonomy); ?>" data-checklist-group="<?php echo esc_attr($checklist_group); ?>">
                                                 <?php foreach ($terms as $entry) : ?>
                                                     <?php
                                                     $term = $entry['term'] ?? null;
-                                                    $depth = (int) ($entry['depth'] ?? 0);
                                                     $term_lang = strtolower(trim((string) ($entry['lang'] ?? '')));
                                                     if (!($term instanceof WP_Term)) {
                                                         continue;
                                                     }
                                                     ?>
-                                                    <label class="dls-writing-desk__check<?php echo $depth > 0 ? ' dls-writing-desk__check--child' : ''; ?>" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name . ' ' . $term->description)); ?>">
+                                                    <label class="dls-writing-desk__tag" data-lang="<?php echo esc_attr($term_lang); ?>" data-search="<?php echo esc_attr(strtolower($term->name . ' ' . $term->description)); ?>">
                                                         <input type="checkbox" name="<?php echo esc_attr($field_name); ?>[]" value="<?php echo esc_attr((string) $term->term_id); ?>" <?php checked(in_array((int) $term->term_id, $selected_ids, true)); ?>>
-                                                        <span>
-                                                            <?php echo esc_html($term->name); ?>
-                                                            <?php if (!empty($term->description)) : ?>
-                                                                <span class="dls-writing-desk__check-note"><?php echo esc_html(wp_trim_words((string) $term->description, 12)); ?></span>
-                                                            <?php endif; ?>
-                                                        </span>
+                                                        <span><?php echo esc_html($term->name); ?></span>
                                                     </label>
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
-                                        <div class="dls-writing-desk__field" style="margin-top:12px;">
-                                            <input class="dls-writing-desk__input dls-writing-desk__input--small dls-writing-desk__new-taxonomy" data-checklist-group="<?php echo esc_attr($checklist_group); ?>" type="text" name="dls_writing_desk_new_terms[<?php echo esc_attr($taxonomy); ?>]" placeholder="Add new <?php echo esc_attr(strtolower($label)); ?>, separated by commas">
-                                            <div class="dls-writing-desk__muted">New <?php echo esc_html(strtolower($label)); ?> are created in the selected language when you save.</div>
-                                        </div>
+                                        <div class="dls-writing-desk__muted" style="margin-top:10px;">If the name is not found, leave it in the field and it will be created on save.</div>
 	                                    </div>
 	                                <?php endforeach; ?>
 	                                <?php endif; ?>
