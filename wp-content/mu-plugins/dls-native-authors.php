@@ -264,6 +264,29 @@ if (!function_exists('dls_native_authors_render_links')) {
     function dls_native_authors_render_links($post_id, $separator = ', ') {
         $links = [];
 
+        if (function_exists('dls_native_authors_get_post_people_with_roles')) {
+            foreach (dls_native_authors_get_post_people_with_roles($post_id) as $item) {
+                $name = trim((string) ($item['name'] ?? ''));
+                if ($name === '') {
+                    continue;
+                }
+
+                $url = trim((string) ($item['url'] ?? ''));
+                if ($url !== '') {
+                    $links[] = sprintf(
+                        '<a class="url fn n" href="%1$s">%2$s</a>',
+                        esc_url($url),
+                        esc_html($name)
+                    );
+                    continue;
+                }
+
+                $links[] = esc_html($name);
+            }
+
+            return implode($separator, $links);
+        }
+
         foreach (dls_native_authors_get_post_users($post_id) as $user) {
             $links[] = sprintf(
                 '<a class="url fn n" href="%1$s">%2$s</a>',
@@ -279,6 +302,17 @@ if (!function_exists('dls_native_authors_render_links')) {
 if (!function_exists('dls_native_authors_render_plain_names')) {
     function dls_native_authors_render_plain_names($post_id, $separator = ', ') {
         $names = [];
+
+        if (function_exists('dls_native_authors_get_post_people_with_roles')) {
+            foreach (dls_native_authors_get_post_people_with_roles($post_id) as $item) {
+                $name = trim((string) ($item['name'] ?? ''));
+                if ($name !== '') {
+                    $names[] = $name;
+                }
+            }
+
+            return implode($separator, $names);
+        }
 
         foreach (dls_native_authors_get_post_users($post_id) as $user) {
             $names[] = $user->display_name;
@@ -758,6 +792,8 @@ add_action('admin_menu', function () {
     );
 });
 
+
+
 if (!function_exists('dls_native_authors_is_author_request')) {
     function dls_native_authors_is_author_request() {
         return is_author() || (bool) get_query_var('author_name') || (int) get_query_var('author') > 0;
@@ -1182,6 +1218,157 @@ if (!function_exists('dls_native_authors_normalize_post_role')) {
     }
 }
 
+if (!function_exists('dls_native_authors_get_guest_author_term')) {
+    function dls_native_authors_get_guest_author_term($term_id) {
+        $term_id = absint($term_id);
+        if ($term_id < 1 || !taxonomy_exists('author')) {
+            return null;
+        }
+
+        $term = get_term($term_id, 'author');
+
+        return $term instanceof WP_Term ? $term : null;
+    }
+}
+
+if (!function_exists('dls_native_authors_is_guest_author_term')) {
+    function dls_native_authors_is_guest_author_term($term) {
+        if (!($term instanceof WP_Term) || $term->taxonomy !== 'author') {
+            return false;
+        }
+
+        return dls_native_authors_extract_user_id_from_legacy_term((int) $term->term_id) < 1;
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_terms')) {
+    function dls_native_authors_get_guest_author_terms() {
+        if (!taxonomy_exists('author')) {
+            return [];
+        }
+
+        $terms = get_terms([
+            'taxonomy'   => 'author',
+            'hide_empty' => false,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+            'number'     => 5000,
+        ]);
+
+        if (is_wp_error($terms) || !is_array($terms)) {
+            return [];
+        }
+
+        $guest_terms = [];
+
+        foreach ($terms as $term) {
+            if (dls_native_authors_is_guest_author_term($term)) {
+                $guest_terms[] = $term;
+            }
+        }
+
+        return $guest_terms;
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_name')) {
+    function dls_native_authors_get_guest_author_name($term_id) {
+        $term = dls_native_authors_get_guest_author_term($term_id);
+
+        return $term instanceof WP_Term ? trim((string) $term->name) : '';
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_bio')) {
+    function dls_native_authors_get_guest_author_bio($term_id) {
+        $term_id = absint($term_id);
+        if ($term_id < 1) {
+            return '';
+        }
+
+        $custom = trim((string) get_term_meta($term_id, '_dls_author_short_bio', true));
+        if ($custom !== '') {
+            return $custom;
+        }
+
+        $custom = trim((string) get_term_meta($term_id, '_dls_guest_author_short_bio', true));
+        if ($custom !== '') {
+            return $custom;
+        }
+
+        $term = dls_native_authors_get_guest_author_term($term_id);
+
+        return $term instanceof WP_Term ? trim((string) $term->description) : '';
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_avatar_url')) {
+    function dls_native_authors_get_guest_author_avatar_url($term_id, $size = 72) {
+        $term_id = absint($term_id);
+        $size = max(24, absint($size));
+
+        if ($term_id < 1) {
+            return '';
+        }
+
+        $avatar_id = absint(get_term_meta($term_id, '_dls_author_avatar_id', true));
+        if ($avatar_id < 1) {
+            $avatar_id = absint(get_term_meta($term_id, '_dls_guest_author_avatar_id', true));
+        }
+        if ($avatar_id < 1) {
+            $avatar_id = absint(get_term_meta($term_id, 'avatar', true));
+        }
+
+        if ($avatar_id > 0) {
+            $avatar_by_id = wp_get_attachment_image_url($avatar_id, [$size, $size]);
+            if (!$avatar_by_id) {
+                $avatar_by_id = wp_get_attachment_url($avatar_id);
+            }
+
+            if (is_string($avatar_by_id) && $avatar_by_id !== '') {
+                return $avatar_by_id;
+            }
+        }
+
+        $custom = esc_url_raw((string) get_term_meta($term_id, '_dls_author_avatar_url', true));
+        if ($custom !== '') {
+            return $custom;
+        }
+
+        return esc_url_raw((string) get_term_meta($term_id, '_dls_guest_author_avatar_url', true));
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_avatar_html')) {
+    function dls_native_authors_get_guest_author_avatar_html($term_id, $size = 72, $class = 'dls-post-author-card__avatar-img') {
+        $term_id = absint($term_id);
+        $size = max(24, absint($size));
+        $url = dls_native_authors_get_guest_author_avatar_url($term_id, $size);
+
+        if ($url !== '') {
+            return '<img class="' . esc_attr($class) . '" src="' . esc_url($url) . '" alt="" width="' . esc_attr($size) . '" height="' . esc_attr($size) . '" loading="lazy">';
+        }
+
+        $name = dls_native_authors_get_guest_author_name($term_id);
+        $letter = $name !== '' ? mb_strtoupper(mb_substr($name, 0, 1)) : 'A';
+
+        return '<span class="dls-post-author-card__avatar-fallback" aria-hidden="true">' . esc_html($letter) . '</span>';
+    }
+}
+
+if (!function_exists('dls_native_authors_get_guest_author_url')) {
+    function dls_native_authors_get_guest_author_url($term_id) {
+        $term = dls_native_authors_get_guest_author_term($term_id);
+        if (!($term instanceof WP_Term)) {
+            return '';
+        }
+
+        $url = get_term_link($term);
+
+        return is_wp_error($url) ? '' : (string) $url;
+    }
+}
+
 if (!function_exists('dls_native_authors_normalize_assignments')) {
     function dls_native_authors_normalize_assignments($assignments) {
         $normalized = [];
@@ -1196,15 +1383,40 @@ if (!function_exists('dls_native_authors_normalize_assignments')) {
                 continue;
             }
 
+            $author_type = strtolower(trim((string) ($row['author_type'] ?? '')));
+            $term_id = absint($row['term_id'] ?? ($row['guest_term_id'] ?? 0));
             $user_id = absint($row['user_id'] ?? 0);
-            if ($user_id < 1 || !get_userdata($user_id) || isset($seen[$user_id])) {
+
+            if (($author_type === 'guest' || $term_id > 0) && $term_id > 0) {
+                $term = dls_native_authors_get_guest_author_term($term_id);
+                $key = 'guest:' . $term_id;
+
+                if (!($term instanceof WP_Term) || !dls_native_authors_is_guest_author_term($term) || isset($seen[$key])) {
+                    continue;
+                }
+
+                $seen[$key] = true;
+                $normalized[] = [
+                    'author_type' => 'guest',
+                    'user_id'     => 0,
+                    'term_id'     => $term_id,
+                    'post_role'   => dls_native_authors_normalize_post_role($row['post_role'] ?? 'author'),
+                ];
                 continue;
             }
 
-            $seen[$user_id] = true;
+            $key = 'user:' . $user_id;
+
+            if ($user_id < 1 || !get_userdata($user_id) || isset($seen[$key])) {
+                continue;
+            }
+
+            $seen[$key] = true;
             $normalized[] = [
-                'user_id'   => $user_id,
-                'post_role' => dls_native_authors_normalize_post_role($row['post_role'] ?? 'author'),
+                'author_type' => 'user',
+                'user_id'     => $user_id,
+                'term_id'     => 0,
+                'post_role'   => dls_native_authors_normalize_post_role($row['post_role'] ?? 'author'),
             ];
         }
 
@@ -1225,8 +1437,10 @@ if (!function_exists('dls_native_authors_get_post_assignments')) {
         if (empty($assignments)) {
             foreach (dls_native_authors_get_stored_ids($post_id) as $user_id) {
                 $assignments[] = [
-                    'user_id'   => $user_id,
-                    'post_role' => 'author',
+                    'author_type' => 'user',
+                    'user_id'     => $user_id,
+                    'term_id'     => 0,
+                    'post_role'   => 'author',
                 ];
             }
         }
@@ -1235,12 +1449,61 @@ if (!function_exists('dls_native_authors_get_post_assignments')) {
     }
 }
 
+if (!function_exists('dls_native_authors_get_post_people_with_roles')) {
+    function dls_native_authors_get_post_people_with_roles($post_id) {
+        $items = [];
+
+        foreach (dls_native_authors_get_post_assignments($post_id) as $row) {
+            $post_role = dls_native_authors_normalize_post_role($row['post_role'] ?? 'author');
+            $author_type = $row['author_type'] ?? 'user';
+
+            if ($author_type === 'guest') {
+                $term_id = absint($row['term_id'] ?? 0);
+                $term = dls_native_authors_get_guest_author_term($term_id);
+
+                if (!($term instanceof WP_Term) || !dls_native_authors_is_guest_author_term($term)) {
+                    continue;
+                }
+
+                $items[] = [
+                    'author_type' => 'guest',
+                    'term_id'     => $term_id,
+                    'user_id'     => 0,
+                    'term'        => $term,
+                    'name'        => dls_native_authors_get_guest_author_name($term_id),
+                    'url'         => dls_native_authors_get_guest_author_url($term_id),
+                    'post_role'   => $post_role,
+                ];
+                continue;
+            }
+
+            $user_id = absint($row['user_id'] ?? 0);
+            $user = get_userdata($user_id);
+            if (!($user instanceof WP_User)) {
+                continue;
+            }
+
+            $items[] = [
+                'author_type' => 'user',
+                'term_id'     => 0,
+                'user_id'     => $user_id,
+                'user'        => $user,
+                'name'        => (string) $user->display_name,
+                'url'         => (string) get_author_posts_url($user_id),
+                'post_role'   => $post_role,
+            ];
+        }
+
+        return $items;
+    }
+}
+
 if (!function_exists('dls_native_authors_get_post_users_with_roles')) {
     function dls_native_authors_get_post_users_with_roles($post_id) {
         $items = [];
 
-        foreach (dls_native_authors_get_post_assignments($post_id) as $row) {
-            $user = get_userdata((int) ($row['user_id'] ?? 0));
+        foreach (dls_native_authors_get_post_people_with_roles($post_id) as $row) {
+            $user = $row['user'] ?? null;
             if (!($user instanceof WP_User)) {
                 continue;
             }
@@ -1262,19 +1525,58 @@ if (!function_exists('dls_native_authors_save_assignments_for_post')) {
             return;
         }
 
-        $selected_ids = dls_native_authors_sanitize_ids($selected_ids);
         $assignments = [];
+        $user_ids = [];
+        $seen = [];
 
-        foreach ($selected_ids as $user_id) {
-            $role = 'author';
-            if (is_array($role_map) && isset($role_map[$user_id])) {
-                $role = dls_native_authors_normalize_post_role($role_map[$user_id]);
+        foreach ((array) $selected_ids as $item) {
+            if (is_array($item)) {
+                $raw = $item;
+            } else {
+                $raw = [
+                    'author_type' => 'user',
+                    'user_id'     => absint($item),
+                ];
             }
 
-            $assignments[] = [
-                'user_id'   => (int) $user_id,
-                'post_role' => $role,
-            ];
+            if (!is_array($raw)) {
+                continue;
+            }
+
+            $map_key = '';
+            if (($raw['author_type'] ?? '') === 'guest' || !empty($raw['term_id']) || !empty($raw['guest_term_id'])) {
+                $map_key = 'guest:' . absint($raw['term_id'] ?? ($raw['guest_term_id'] ?? 0));
+            } else {
+                $map_key = 'user:' . absint($raw['user_id'] ?? 0);
+            }
+
+            $role = $raw['post_role'] ?? 'author';
+            if (is_array($role_map) && isset($role_map[$map_key])) {
+                $role = $role_map[$map_key];
+            } elseif (is_array($role_map) && isset($role_map[absint($raw['user_id'] ?? 0)])) {
+                $role = $role_map[absint($raw['user_id'] ?? 0)];
+            }
+
+            $normalized = dls_native_authors_normalize_assignments([array_merge($raw, ['post_role' => $role])]);
+            if (empty($normalized)) {
+                continue;
+            }
+
+            $assignment = reset($normalized);
+            $assignment_key = ($assignment['author_type'] === 'guest')
+                ? 'guest:' . (int) $assignment['term_id']
+                : 'user:' . (int) $assignment['user_id'];
+
+            if (isset($seen[$assignment_key])) {
+                continue;
+            }
+
+            $seen[$assignment_key] = true;
+            $assignments[] = $assignment;
+
+            if ($assignment['author_type'] === 'user' && (int) $assignment['user_id'] > 0) {
+                $user_ids[] = (int) $assignment['user_id'];
+            }
         }
 
         if (empty($assignments)) {
@@ -1283,7 +1585,7 @@ if (!function_exists('dls_native_authors_save_assignments_for_post')) {
             update_post_meta($post_id, '_dls_post_author_assignments', $assignments);
         }
 
-        dls_native_authors_store_ids($post_id, $selected_ids);
+        dls_native_authors_store_ids($post_id, dls_native_authors_sanitize_ids($user_ids));
     }
 }
 
@@ -1466,7 +1768,7 @@ if (!function_exists('dls_native_authors_render_post_authors_block')) {
             return '';
         }
 
-        $items = dls_native_authors_get_post_users_with_roles($post_id);
+        $items = dls_native_authors_get_post_people_with_roles($post_id);
         if (empty($items)) {
             return '';
         }
@@ -1490,20 +1792,35 @@ if (!function_exists('dls_native_authors_render_post_authors_block')) {
                     <div class="dls-post-people__list">
                         <?php foreach ($grouped['author'] as $item) : ?>
                             <?php
-                            $user = $item['user'];
-                            if (!($user instanceof WP_User)) {
+                            $is_user = ($item['author_type'] ?? 'user') === 'user';
+                            $name = trim((string) ($item['name'] ?? ''));
+                            if ($name === '') {
                                 continue;
                             }
-                            $user_id = (int) $user->ID;
-                            $bio = dls_native_authors_get_user_short_bio($user_id);
+                            $link = trim((string) ($item['url'] ?? ''));
+                            $bio = $is_user
+                                ? dls_native_authors_get_user_short_bio((int) ($item['user_id'] ?? 0))
+                                : dls_native_authors_get_guest_author_bio((int) ($item['term_id'] ?? 0));
+                            $avatar_html = $is_user
+                                ? dls_native_authors_get_user_avatar_html((int) ($item['user_id'] ?? 0), 84, 'dls-post-person__avatar-img')
+                                : dls_native_authors_get_guest_author_avatar_html((int) ($item['term_id'] ?? 0), 84, 'dls-post-person__avatar-img');
                             ?>
                             <article class="dls-post-person">
-                                <a class="dls-post-person__avatar" href="<?php echo esc_url(get_author_posts_url($user_id)); ?>">
-                                    <?php echo dls_native_authors_get_user_avatar_html($user_id, 84, 'dls-post-person__avatar-img'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                </a>
-                                <a class="dls-post-person__name" href="<?php echo esc_url(get_author_posts_url($user_id)); ?>">
-                                    <?php echo esc_html($user->display_name); ?>
-                                </a>
+                                <?php if ($link !== '') : ?>
+                                    <a class="dls-post-person__avatar" href="<?php echo esc_url($link); ?>">
+                                        <?php echo $avatar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </a>
+                                    <a class="dls-post-person__name" href="<?php echo esc_url($link); ?>">
+                                        <?php echo esc_html($name); ?>
+                                    </a>
+                                <?php else : ?>
+                                    <span class="dls-post-person__avatar">
+                                        <?php echo $avatar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </span>
+                                    <span class="dls-post-person__name">
+                                        <?php echo esc_html($name); ?>
+                                    </span>
+                                <?php endif; ?>
                                 <?php if ($bio !== '') : ?>
                                     <p class="dls-post-person__bio"><?php echo esc_html(wp_trim_words($bio, 32, '…')); ?></p>
                                 <?php endif; ?>
@@ -1519,20 +1836,35 @@ if (!function_exists('dls_native_authors_render_post_authors_block')) {
                     <div class="dls-post-people__list">
                         <?php foreach ($grouped['editor'] as $item) : ?>
                             <?php
-                            $user = $item['user'];
-                            if (!($user instanceof WP_User)) {
+                            $is_user = ($item['author_type'] ?? 'user') === 'user';
+                            $name = trim((string) ($item['name'] ?? ''));
+                            if ($name === '') {
                                 continue;
                             }
-                            $user_id = (int) $user->ID;
-                            $bio = dls_native_authors_get_user_short_bio($user_id);
+                            $link = trim((string) ($item['url'] ?? ''));
+                            $bio = $is_user
+                                ? dls_native_authors_get_user_short_bio((int) ($item['user_id'] ?? 0))
+                                : dls_native_authors_get_guest_author_bio((int) ($item['term_id'] ?? 0));
+                            $avatar_html = $is_user
+                                ? dls_native_authors_get_user_avatar_html((int) ($item['user_id'] ?? 0), 84, 'dls-post-person__avatar-img')
+                                : dls_native_authors_get_guest_author_avatar_html((int) ($item['term_id'] ?? 0), 84, 'dls-post-person__avatar-img');
                             ?>
                             <article class="dls-post-person">
-                                <a class="dls-post-person__avatar" href="<?php echo esc_url(get_author_posts_url($user_id)); ?>">
-                                    <?php echo dls_native_authors_get_user_avatar_html($user_id, 84, 'dls-post-person__avatar-img'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                </a>
-                                <a class="dls-post-person__name" href="<?php echo esc_url(get_author_posts_url($user_id)); ?>">
-                                    <?php echo esc_html($user->display_name); ?>
-                                </a>
+                                <?php if ($link !== '') : ?>
+                                    <a class="dls-post-person__avatar" href="<?php echo esc_url($link); ?>">
+                                        <?php echo $avatar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </a>
+                                    <a class="dls-post-person__name" href="<?php echo esc_url($link); ?>">
+                                        <?php echo esc_html($name); ?>
+                                    </a>
+                                <?php else : ?>
+                                    <span class="dls-post-person__avatar">
+                                        <?php echo $avatar_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </span>
+                                    <span class="dls-post-person__name">
+                                        <?php echo esc_html($name); ?>
+                                    </span>
+                                <?php endif; ?>
                                 <?php if ($bio !== '') : ?>
                                     <p class="dls-post-person__bio"><?php echo esc_html(wp_trim_words($bio, 32, '…')); ?></p>
                                 <?php endif; ?>
@@ -1575,6 +1907,8 @@ add_action('admin_menu', function () {
             if (!current_user_can('edit_users')) {
                 return;
             }
+
+            $notices = [];
 
             if (
                 isset($_POST['dls_author_profiles_action'])
@@ -1631,18 +1965,159 @@ add_action('admin_menu', function () {
                     }
                 }
 
-                echo '<div class="notice notice-success"><p>Author profiles updated.</p></div>';
+                $guest_rows = isset($_POST['dls_guest_author_profiles']) ? (array) wp_unslash($_POST['dls_guest_author_profiles']) : [];
+
+                foreach ($guest_rows as $term_id_raw => $row) {
+                    $term_id = absint($term_id_raw);
+                    $term = dls_native_authors_get_guest_author_term($term_id);
+
+                    if ($term_id < 1 || !($term instanceof WP_Term) || !dls_native_authors_is_guest_author_term($term) || !is_array($row)) {
+                        continue;
+                    }
+
+                    $display_name = sanitize_text_field((string) ($row['display_name'] ?? ''));
+                    $short_bio = sanitize_textarea_field((string) ($row['short_bio'] ?? ''));
+                    $avatar_url = esc_url_raw((string) ($row['avatar_url'] ?? ''));
+                    $avatar_id = absint($row['avatar_id'] ?? 0);
+
+                    if ($display_name !== '' && $display_name !== $term->name) {
+                        wp_update_term($term_id, 'author', ['name' => $display_name]);
+                    }
+
+                    wp_update_term($term_id, 'author', ['description' => $short_bio]);
+
+                    if ($short_bio === '') {
+                        delete_term_meta($term_id, '_dls_author_short_bio');
+                        delete_term_meta($term_id, '_dls_guest_author_short_bio');
+                    } else {
+                        update_term_meta($term_id, '_dls_author_short_bio', $short_bio);
+                        update_term_meta($term_id, '_dls_guest_author_short_bio', $short_bio);
+                    }
+
+                    if ($avatar_id > 0) {
+                        update_term_meta($term_id, '_dls_author_avatar_id', $avatar_id);
+                        update_term_meta($term_id, '_dls_guest_author_avatar_id', $avatar_id);
+
+                        $avatar_by_id = wp_get_attachment_image_url($avatar_id, 'thumbnail');
+                        if (!$avatar_by_id) {
+                            $avatar_by_id = wp_get_attachment_url($avatar_id);
+                        }
+
+                        if (is_string($avatar_by_id) && $avatar_by_id !== '') {
+                            $avatar_url = esc_url_raw($avatar_by_id);
+                        }
+                    } else {
+                        delete_term_meta($term_id, '_dls_author_avatar_id');
+                        delete_term_meta($term_id, '_dls_guest_author_avatar_id');
+                    }
+
+                    if ($avatar_url === '') {
+                        delete_term_meta($term_id, '_dls_author_avatar_url');
+                        delete_term_meta($term_id, '_dls_guest_author_avatar_url');
+                    } else {
+                        update_term_meta($term_id, '_dls_author_avatar_url', $avatar_url);
+                        update_term_meta($term_id, '_dls_guest_author_avatar_url', $avatar_url);
+                    }
+                }
+
+                $notices[] = ['type' => 'success', 'message' => 'Author profiles updated.'];
+            }
+
+            if (
+                isset($_POST['dls_guest_author_create_action'])
+                && $_POST['dls_guest_author_create_action'] === 'create'
+                && isset($_POST['dls_guest_author_create_nonce'])
+                && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['dls_guest_author_create_nonce'])), 'dls_guest_author_create')
+            ) {
+                $name = sanitize_text_field((string) ($_POST['dls_guest_author_name'] ?? ''));
+                $short_bio = sanitize_textarea_field((string) ($_POST['dls_guest_author_short_bio'] ?? ''));
+                $avatar_url = esc_url_raw((string) ($_POST['dls_guest_author_avatar_url'] ?? ''));
+                $avatar_id = absint($_POST['dls_guest_author_avatar_id'] ?? 0);
+                $slug = sanitize_title((string) ($_POST['dls_guest_author_slug'] ?? ''));
+
+                if ($name === '') {
+                    $notices[] = ['type' => 'error', 'message' => 'Guest author name is required.'];
+                } elseif (!taxonomy_exists('author')) {
+                    $notices[] = ['type' => 'error', 'message' => 'Author taxonomy is not available.'];
+                } else {
+                    $create_args = [
+                        'description' => $short_bio,
+                    ];
+
+                    if ($slug !== '') {
+                        $create_args['slug'] = $slug;
+                    }
+
+                    $created = wp_insert_term($name, 'author', $create_args);
+
+                    if (is_wp_error($created)) {
+                        $notices[] = ['type' => 'error', 'message' => $created->get_error_message()];
+                    } else {
+                        $term_id = absint($created['term_id'] ?? 0);
+
+                        if ($short_bio !== '') {
+                            update_term_meta($term_id, '_dls_author_short_bio', $short_bio);
+                            update_term_meta($term_id, '_dls_guest_author_short_bio', $short_bio);
+                        }
+
+                        if ($avatar_id > 0) {
+                            update_term_meta($term_id, '_dls_author_avatar_id', $avatar_id);
+                            update_term_meta($term_id, '_dls_guest_author_avatar_id', $avatar_id);
+
+                            $avatar_by_id = wp_get_attachment_image_url($avatar_id, 'thumbnail');
+                            if (!$avatar_by_id) {
+                                $avatar_by_id = wp_get_attachment_url($avatar_id);
+                            }
+
+                            if (is_string($avatar_by_id) && $avatar_by_id !== '') {
+                                $avatar_url = esc_url_raw($avatar_by_id);
+                            }
+                        }
+
+                        if ($avatar_url !== '') {
+                            update_term_meta($term_id, '_dls_author_avatar_url', $avatar_url);
+                            update_term_meta($term_id, '_dls_guest_author_avatar_url', $avatar_url);
+                        }
+
+                        $notices[] = ['type' => 'success', 'message' => 'Guest author created.'];
+                    }
+                }
             }
 
             $users = dls_native_authors_get_users();
+            $guest_authors = dls_native_authors_get_guest_author_terms();
 
             echo '<div class="wrap">';
             echo '<h1>DLS Author Profiles</h1>';
             echo '<p>Edit short bios and profile images used on post contributor cards.</p>';
+
+            foreach ($notices as $notice) {
+                $type = ($notice['type'] ?? 'success') === 'error' ? 'notice-error' : 'notice-success';
+                echo '<div class="notice ' . esc_attr($type) . '"><p>' . esc_html((string) ($notice['message'] ?? '')) . '</p></div>';
+            }
+
+            echo '<h2>New Guest Author</h2>';
+            echo '<form method="post" style="max-width:860px; margin:0 0 24px">';
+            wp_nonce_field('dls_guest_author_create', 'dls_guest_author_create_nonce');
+            echo '<input type="hidden" name="dls_guest_author_create_action" value="create">';
+            echo '<table class="form-table" role="presentation"><tbody>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-name">Name</label></th><td><input id="dls-guest-author-name" type="text" class="regular-text" name="dls_guest_author_name" value=""></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-slug">Slug</label></th><td><input id="dls-guest-author-slug" type="text" class="regular-text" name="dls_guest_author_slug" value=""><p class="description">Optional. Leave blank to generate automatically.</p></td></tr>';
+            echo '<tr><th scope="row"><label for="dls-guest-author-short-bio">Short Bio</label></th><td><textarea id="dls-guest-author-short-bio" class="large-text" style="min-height:90px" name="dls_guest_author_short_bio"></textarea></td></tr>';
+            echo '<tr><th scope="row">Profile Image</th><td>';
+            echo '<input type="hidden" class="dls-author-avatar-id" name="dls_guest_author_avatar_id" value="">';
+            echo '<input type="url" class="dls-author-avatar-url regular-text" style="width:100%; max-width:420px; margin-bottom:6px" placeholder="https://..." name="dls_guest_author_avatar_url" value="">';
+            echo '<div style="display:flex; gap:6px"><button type="button" class="button dls-author-avatar-select">Select Image</button><button type="button" class="button dls-author-avatar-remove">Remove</button></div>';
+            echo '</td></tr>';
+            echo '</tbody></table>';
+            echo '<p><button class="button button-primary" type="submit">Create Guest Author</button></p>';
+            echo '</form>';
+
             echo '<form method="post">';
             wp_nonce_field('dls_author_profiles_save', 'dls_author_profiles_nonce');
             echo '<input type="hidden" name="dls_author_profiles_action" value="save">';
 
+            echo '<h2>Users</h2>';
             echo '<table class="widefat striped">';
             echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:140px">WP Role</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
             echo '<tbody>';
@@ -1669,6 +2144,46 @@ add_action('admin_menu', function () {
                 echo '<div style="display:flex; gap:6px"><button type="button" class="button dls-author-avatar-select">Select Image</button><button type="button" class="button dls-author-avatar-remove">Remove</button></div>';
                 echo '</td>';
                 echo '</tr>';
+            }
+
+            echo '</tbody></table>';
+
+            echo '<h2 style="margin-top:28px">Guest Authors</h2>';
+            echo '<table class="widefat striped">';
+            echo '<thead><tr><th style="width:80px">Avatar</th><th style="width:220px">Name</th><th style="width:140px">Type</th><th>Short Bio</th><th style="width:360px">Custom Image</th></tr></thead>';
+            echo '<tbody>';
+
+            if (empty($guest_authors)) {
+                echo '<tr><td colspan="5">No guest authors yet.</td></tr>';
+            } else {
+                foreach ($guest_authors as $term) {
+                    if (!($term instanceof WP_Term)) {
+                        continue;
+                    }
+
+                    $term_id = (int) $term->term_id;
+                    $short_bio = dls_native_authors_get_guest_author_bio($term_id);
+                    $avatar_url = (string) get_term_meta($term_id, '_dls_author_avatar_url', true);
+                    if ($avatar_url === '') {
+                        $avatar_url = (string) get_term_meta($term_id, '_dls_guest_author_avatar_url', true);
+                    }
+                    $avatar_id = absint(get_term_meta($term_id, '_dls_author_avatar_id', true));
+                    if ($avatar_id < 1) {
+                        $avatar_id = absint(get_term_meta($term_id, '_dls_guest_author_avatar_id', true));
+                    }
+
+                    echo '<tr>';
+                    echo '<td>' . dls_native_authors_get_guest_author_avatar_html($term_id, 48, 'dls-author-profile-avatar') . '</td>';
+                    echo '<td><input type="text" style="width:100%" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][display_name]" value="' . esc_attr($term->name) . '"></td>';
+                    echo '<td><code>guest author</code></td>';
+                    echo '<td><textarea style="width:100%; min-height:76px" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][short_bio]">' . esc_textarea($short_bio) . '</textarea></td>';
+                    echo '<td>';
+                    echo '<input type="hidden" class="dls-author-avatar-id" name="dls_guest_author_profiles[' . esc_attr($term_id) . '][avatar_id]" value="' . esc_attr((string) $avatar_id) . '">';
+                    echo '<input type="url" class="dls-author-avatar-url" style="width:100%; margin-bottom:6px" placeholder="https://..." name="dls_guest_author_profiles[' . esc_attr($term_id) . '][avatar_url]" value="' . esc_attr($avatar_url) . '">';
+                    echo '<div style="display:flex; gap:6px"><button type="button" class="button dls-author-avatar-select">Select Image</button><button type="button" class="button dls-author-avatar-remove">Remove</button></div>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
             }
 
             echo '</tbody></table>';
