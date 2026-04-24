@@ -65,6 +65,11 @@ if (!function_exists('dls_na_ui_detect_user_language')) {
             return '';
         }
 
+        // Keep admins and senior editors visible regardless of post language.
+        if (user_can($user, 'manage_options') || user_can($user, 'edit_others_posts')) {
+            return '';
+        }
+
         $login = strtolower((string) $user->user_login);
         $display = (string) $user->display_name;
 
@@ -87,6 +92,26 @@ if (!function_exists('dls_na_ui_detect_user_language')) {
         }
 
         return '';
+    }
+}
+
+if (!function_exists('dls_na_ui_user_matches_mode')) {
+    function dls_na_ui_user_matches_mode($user, $mode) {
+        if (!($user instanceof WP_User)) {
+            return false;
+        }
+
+        $mode = strtolower(trim((string) $mode));
+
+        if ($mode === 'editor') {
+            return dls_na_ui_user_has_role($user, ['editor', 'administrator'])
+                || user_can($user, 'edit_others_posts')
+                || user_can($user, 'manage_options');
+        }
+
+        return dls_na_ui_user_has_role($user, ['author', 'editor', 'administrator'])
+            || user_can($user, 'edit_posts')
+            || user_can($user, 'manage_options');
     }
 }
 
@@ -276,14 +301,8 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
                 continue;
             }
 
-            if ($mode === 'editor') {
-                if (!dls_na_ui_user_has_role($user, ['editor', 'administrator'])) {
-                    continue;
-                }
-            } else {
-                if (!dls_na_ui_user_has_role($user, ['author', 'editor', 'administrator'])) {
-                    continue;
-                }
+            if (!dls_na_ui_user_matches_mode($user, $mode)) {
+                continue;
             }
 
             $role_badge = '';
@@ -335,7 +354,7 @@ if (!function_exists('dls_na_ui_dropdown_options')) {
         if (
             $current_user instanceof WP_User
             && $current_user->exists()
-            && dls_na_ui_user_has_role($current_user, $mode === 'editor' ? ['editor', 'administrator'] : ['author', 'editor', 'administrator'])
+            && dls_na_ui_user_matches_mode($current_user, $mode)
         ) {
             $current_value = dls_na_ui_build_selection_value('user', (int) $current_user->ID);
             $known_values = array_column($filtered, 'value');
@@ -430,7 +449,7 @@ if (!function_exists('dls_na_ui_validate_editor_selection')) {
         }
 
         $user = get_userdata((int) ($selection['user_id'] ?? 0));
-        if (!($user instanceof WP_User) || !dls_na_ui_user_has_role($user, ['editor', 'administrator'])) {
+        if (!($user instanceof WP_User) || !dls_na_ui_user_matches_mode($user, 'editor')) {
             return [];
         }
 
