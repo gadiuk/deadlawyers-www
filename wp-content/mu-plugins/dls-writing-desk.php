@@ -1684,6 +1684,28 @@ if (!function_exists('dls_writing_desk_render_frontend_intro')) {
     }
 }
 
+if (!function_exists('dls_writing_desk_normalize_saved_content')) {
+    function dls_writing_desk_normalize_saved_content($content) {
+        $content = trim(str_replace(["\r\n", "\r"], "\n", (string) $content));
+        if ($content === '') {
+            return '';
+        }
+
+        $has_paragraphs = preg_match('/<p\b/i', $content) === 1;
+        $has_block_editor_markup = function_exists('has_blocks') && has_blocks($content);
+        if ($has_paragraphs || $has_block_editor_markup) {
+            return wp_kses_post($content);
+        }
+
+        $has_complex_html = preg_match('/<(ul|ol|table|pre|figure)\b/i', $content) === 1;
+        if (!$has_complex_html && substr_count($content, "\n") > 0 && strpos($content, "\n\n") === false) {
+            $content = preg_replace('/[ \t]*\n[ \t]*/', "\n\n", $content);
+        }
+
+        return wp_kses_post(wpautop($content));
+    }
+}
+
 if (!function_exists('dls_writing_desk_filter_frontend_content')) {
     function dls_writing_desk_filter_frontend_content($content) {
         if (is_admin() || !is_singular('post') || !in_the_loop() || !is_main_query()) {
@@ -1697,11 +1719,7 @@ if (!function_exists('dls_writing_desk_filter_frontend_content')) {
 
         $intro = dls_writing_desk_render_frontend_intro($post_id);
 
-        $has_paragraphs = preg_match('/<p\b/i', (string) $content) === 1;
-        $has_block_editor_markup = function_exists('has_blocks') && has_blocks((string) $content);
-        if (!$has_paragraphs && !$has_block_editor_markup) {
-            $content = wpautop($content);
-        }
+        $content = dls_writing_desk_normalize_saved_content($content);
 
         if ($intro !== '' && strpos((string) $content, 'dls-writing-desk-frontend-intro') === false) {
             $content = $intro . $content;
@@ -2598,7 +2616,7 @@ if (!function_exists('dls_writing_desk_save_post')) {
 
         $title = sanitize_text_field((string) ($_POST['dls_writing_desk_title'] ?? ''));
         $kicker = sanitize_text_field((string) ($_POST['dls_writing_desk_kicker'] ?? ''));
-        $content = wp_kses_post((string) wp_unslash($_POST['dls_writing_desk_content'] ?? ''));
+        $content = dls_writing_desk_normalize_saved_content(wp_unslash($_POST['dls_writing_desk_content'] ?? ''));
         $lead = sanitize_textarea_field((string) ($_POST['dls_writing_desk_lead'] ?? ''));
         $language = dls_writing_desk_normalize_language($_POST['dls_writing_desk_language'] ?? '');
         $thumbnail_id = absint($_POST['dls_writing_desk_thumbnail_id'] ?? 0);
