@@ -1,0 +1,99 @@
+name: Deploy Writing Desk Telegram
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wp-content/mu-plugins/dls-writing-desk-telegram-polish.php'
+      - 'wp-content/mu-plugins/dls-writing-desk-telegram-admin.php'
+      - '.github/workflows/deploy-writing-desk-telegram.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-writing-desk-telegram
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      DEPLOY_PATH: /home/dls0/deadlawyers.org/www
+    steps:
+      - name: Download Telegram Writing Desk files
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php; do
+            curl -fsSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github.raw" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/wp-content/mu-plugins/${file}?ref=${GITHUB_SHA}" \
+              -o "/tmp/${file}"
+            test -s "/tmp/${file}"
+          done
+
+      - name: Setup SSH key and known hosts
+        shell: bash
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          PORT="${DEPLOY_PORT:-22}"
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" | tr -d '\r' > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keygen -y -f ~/.ssh/id_ed25519 >/dev/null
+          touch ~/.ssh/known_hosts
+          ssh-keyscan -p "$PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Upload Telegram Writing Desk files
+        shell: bash
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          set -euo pipefail
+          PORT="${DEPLOY_PORT:-22}"
+          SSH_OPTS=(
+            -p "$PORT"
+            -i ~/.ssh/id_ed25519
+            -o IdentitiesOnly=yes
+            -o IdentityAgent=none
+            -o PreferredAuthentications=publickey
+            -o PubkeyAuthentication=yes
+            -o PasswordAuthentication=no
+            -o KbdInteractiveAuthentication=no
+            -o StrictHostKeyChecking=yes
+          )
+          SCP_OPTS=(
+            -P "$PORT"
+            -i ~/.ssh/id_ed25519
+            -o IdentitiesOnly=yes
+            -o IdentityAgent=none
+            -o PreferredAuthentications=publickey
+            -o PubkeyAuthentication=yes
+            -o PasswordAuthentication=no
+            -o KbdInteractiveAuthentication=no
+            -o StrictHostKeyChecking=yes
+          )
+
+          ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
+
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php; do
+            scp "${SCP_OPTS[@]}" "/tmp/${file}" \
+              "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/${file}"
+          done
+
+          ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "rm -f '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-preview-fix.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-channel-footers.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-center-editor.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-polish.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-admin.php'"
