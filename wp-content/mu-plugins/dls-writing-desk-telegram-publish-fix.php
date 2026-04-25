@@ -87,9 +87,34 @@ if (!function_exists('dls_wd_tpf_fake_response')) {
     }
 }
 
+if (!function_exists('dls_wd_tpf_allowed_html')) {
+    function dls_wd_tpf_allowed_html() {
+        if (function_exists('dls_wd_tp_allowed_telegram_html')) {
+            return dls_wd_tp_allowed_telegram_html();
+        }
+
+        return [
+            'a' => ['href' => true],
+            'b' => [],
+            'strong' => [],
+            'i' => [],
+            'em' => [],
+            'u' => [],
+            'ins' => [],
+            's' => [],
+            'strike' => [],
+            'del' => [],
+            'code' => [],
+            'pre' => ['language' => true],
+            'blockquote' => ['expandable' => true],
+            'tg-spoiler' => [],
+        ];
+    }
+}
+
 if (!function_exists('dls_wd_tpf_normalize_firm_quote')) {
     function dls_wd_tpf_normalize_firm_quote($text) {
-        $text = (string) $text;
+        $text = html_entity_decode((string) $text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
         if (!preg_match('/^\s*Firm Quote\s*\R\s*/iu', $text)) {
             return $text;
         }
@@ -106,18 +131,65 @@ if (!function_exists('dls_wd_tpf_normalize_firm_quote')) {
     }
 }
 
+if (!function_exists('dls_wd_tpf_apply_channel_footer')) {
+    function dls_wd_tpf_apply_channel_footer($post_id, $destination_key, $text) {
+        if ($post_id < 1 || $destination_key === '' || !function_exists('dls_wd_tp_footer_settings') || !function_exists('dls_wd_tp_footer_text')) {
+            return $text;
+        }
+
+        $footer_settings = dls_wd_tp_footer_settings($post_id);
+        if (empty($footer_settings[$destination_key]['custom'])) {
+            return $text;
+        }
+
+        if (function_exists('dls_wd_tp_remove_shared_footer')) {
+            $text = dls_wd_tp_remove_shared_footer($text);
+        }
+
+        $footer = dls_wd_tp_footer_text($footer_settings[$destination_key]['rows'] ?? []);
+        return $footer !== '' ? trim($text . "\n\n" . $footer) : trim($text);
+    }
+}
+
+if (!function_exists('dls_wd_tpf_prepare_body')) {
+    function dls_wd_tpf_prepare_body($body, $post_id, $destination_key) {
+        if (!is_array($body)) {
+            return $body;
+        }
+
+        if ($post_id > 0 && function_exists('dls_writing_desk_telegram_text')) {
+            $default_text = function_exists('dls_writing_desk_get_telegram_default_text')
+                ? dls_writing_desk_get_telegram_default_text($post_id)
+                : (string) ($body['text'] ?? '');
+            $body['text'] = dls_writing_desk_telegram_text($post_id, [
+                'description' => '',
+                'default_text' => $default_text,
+            ]);
+        }
+
+        $body['disable_web_page_preview'] = 'true';
+        $body['link_preview_options'] = wp_json_encode(['is_disabled' => true]);
+        $body['parse_mode'] = 'HTML';
+
+        if (!empty($body['text'])) {
+            $text = dls_wd_tpf_normalize_firm_quote((string) $body['text']);
+            $text = dls_wd_tpf_apply_channel_footer($post_id, $destination_key, $text);
+            $body['text'] = wp_kses($text, dls_wd_tpf_allowed_html());
+        }
+
+        return $body;
+    }
+}
+
 if (!function_exists('dls_wd_tpf_prepare_send_message')) {
     function dls_wd_tpf_prepare_send_message($args, $url) {
         if (!dls_wd_tpf_is_telegram_api($url, 'sendMessage') || empty($args['body']) || !is_array($args['body'])) {
             return $args;
         }
 
-        $args['body']['disable_web_page_preview'] = 'true';
-        $args['body']['link_preview_options'] = wp_json_encode(['is_disabled' => true]);
-
-        if (!empty($args['body']['text'])) {
-            $args['body']['text'] = dls_wd_tpf_normalize_firm_quote((string) $args['body']['text']);
-        }
+        $post_id = dls_wd_tpf_current_post_id();
+        $destination_key = dls_wd_tpf_destination_key_from_chat($args['body']['chat_id'] ?? '');
+        $args['body'] = dls_wd_tpf_prepare_body($args['body'], $post_id, $destination_key);
 
         return $args;
     }
@@ -138,7 +210,7 @@ if (!function_exists('dls_wd_tpf_edit_existing_message')) {
             return $preempt;
         }
 
-        $body = $args['body'];
+        $body = dls_wd_tpf_prepare_body($args['body'], $post_id, $destination_key);
         $body['message_id'] = $message_id;
         unset($body['disable_notification']);
 
