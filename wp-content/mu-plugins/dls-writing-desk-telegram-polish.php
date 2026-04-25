@@ -298,7 +298,7 @@ if (!function_exists('dls_wd_tp_admin_assets')) {
         }
 
         wp_enqueue_script('jquery');
-        wp_register_style('dls-writing-desk-telegram-polish', false, [], '1.0.0');
+        wp_register_style('dls-writing-desk-telegram-polish', false, [], '1.0.1');
         wp_enqueue_style('dls-writing-desk-telegram-polish');
         wp_add_inline_style('dls-writing-desk-telegram-polish', dls_wd_tp_admin_css());
         wp_add_inline_script('jquery', dls_wd_tp_admin_js());
@@ -321,7 +321,8 @@ input[name="dls_writing_desk_title"],
   gap: 6px;
   margin: 0 0 8px;
 }
-.dls-tg-tools button {
+.dls-tg-tools button,
+.dls-social-remove-row {
   border: 1px solid #d7cdc1;
   background: #fffaf3;
   border-radius: 999px;
@@ -333,9 +334,21 @@ input[name="dls_writing_desk_title"],
   padding: 7px 9px;
 }
 .dls-tg-tools button:hover,
-.dls-tg-tools button:focus {
+.dls-tg-tools button:focus,
+.dls-social-remove-row:hover,
+.dls-social-remove-row:focus {
   background: #f3e1c6;
   border-color: #be8d4a;
+}
+.dls-social-remove-row {
+  background: #fff;
+  border-color: #d9b8a7;
+  color: #9a2a16;
+  margin-left: 8px;
+}
+tr.dls-social-row-removed,
+.dls-writing-desk__destination-row.dls-social-row-removed {
+  display: none !important;
 }
 .dls-tg-channel-summary {
   border: 1px solid #e3dbd2;
@@ -432,6 +445,42 @@ if (!function_exists('dls_wd_tp_admin_js')) {
     });
   }
 
+  function destinationRows() {
+    return Array.prototype.slice.call(document.querySelectorAll('[name^="dls_writing_desk_destinations["]')).map(function (input) {
+      return input.closest('tr') || input.closest('.dls-writing-desk__destination-row') || input.parentElement;
+    }).filter(function (row, index, rows) {
+      return row && rows.indexOf(row) === index;
+    });
+  }
+
+  function setupDestinationRemoveButtons() {
+    destinationRows().forEach(function (row) {
+      if (row.querySelector('.dls-social-remove-row')) return;
+      var fields = row.querySelectorAll('input[name^="dls_writing_desk_destinations["], select[name^="dls_writing_desk_destinations["]');
+      if (!fields.length) return;
+      var lastField = fields[fields.length - 1];
+      var button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'dls-social-remove-row';
+      button.textContent = 'Remove';
+      button.addEventListener('click', function () {
+        if (!window.confirm('Remove this social destination? Press Save Destinations after this.')) return;
+        fields.forEach(function (field) {
+          if (field.type === 'checkbox' || field.type === 'radio') {
+            field.checked = false;
+          } else if (field.tagName === 'SELECT') {
+            field.selectedIndex = 0;
+          } else {
+            field.value = '';
+          }
+          field.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+        row.classList.add('dls-social-row-removed');
+      });
+      lastField.insertAdjacentElement('afterend', button);
+    });
+  }
+
   function setupChannelSummary() {
     var cards = Array.prototype.slice.call(document.querySelectorAll('.dls-writing-desk__social-card'));
     if (!cards.length || document.querySelector('.dls-tg-channel-summary')) return;
@@ -455,6 +504,7 @@ if (!function_exists('dls_wd_tp_admin_js')) {
   document.addEventListener('DOMContentLoaded', function () {
     setupTelegramTextareas();
     setupSinglePreviewCheckbox();
+    setupDestinationRemoveButtons();
     setupChannelSummary();
   });
 })();
