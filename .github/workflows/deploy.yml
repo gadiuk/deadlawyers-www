@@ -54,6 +54,15 @@ jobs:
             -o /tmp/dls-writing-desk.php
           test -s /tmp/dls-writing-desk.php
 
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php dls-writing-desk-telegram-publish-fix.php; do
+            curl -fsSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github.raw" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/wp-content/mu-plugins/${file}?ref=${GITHUB_SHA}" \
+              -o "/tmp/${file}"
+            test -s "/tmp/${file}"
+          done
+
           curl -fsSL \
             -H "Authorization: Bearer ${GH_TOKEN}" \
             -H "Accept: application/vnd.github.raw" \
@@ -172,6 +181,21 @@ jobs:
             /tmp/dls-writing-desk.php \
             "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk.php"
 
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php dls-writing-desk-telegram-publish-fix.php; do
+            scp \
+              -P "$PORT" \
+              -i ~/.ssh/id_ed25519 \
+              -o IdentitiesOnly=yes \
+              -o IdentityAgent=none \
+              -o PreferredAuthentications=publickey \
+              -o PubkeyAuthentication=yes \
+              -o PasswordAuthentication=no \
+              -o KbdInteractiveAuthentication=no \
+              -o StrictHostKeyChecking=yes \
+              "/tmp/${file}" \
+              "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/${file}"
+          done
+
           scp \
             -P "$PORT" \
             -i ~/.ssh/id_ed25519 \
@@ -234,4 +258,4 @@ jobs:
             -o PasswordAuthentication=no \
             -o KbdInteractiveAuthentication=no \
             -o StrictHostKeyChecking=yes \
-            "${DEPLOY_USER}@${DEPLOY_HOST}" "test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors-admin-dropdowns.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-user-multi-role-admin.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
+            "${DEPLOY_USER}@${DEPLOY_HOST}" "rm -f '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-preview-fix.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-channel-footers.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-center-editor.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-category-template/template.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-typography-pair.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-polish.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-admin.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-publish-fix.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/00-dls-native-authors-activate.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-native-authors-admin-dropdowns.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-user-multi-role-admin.php' && test ! -f '${DEPLOY_PATH}/wp-content/mu-plugins/zz-dls-category-showcase-single-category-template.php'"
