@@ -141,17 +141,11 @@ if (!function_exists('dls_wd_tga_filter_destination_save')) {
                 continue;
             }
 
-            $platform = sanitize_key((string) ($row['platform'] ?? ''));
             $name = trim((string) ($row['name'] ?? ''));
             $destination = trim((string) ($row['destination'] ?? ''));
             $token = trim((string) ($row['token'] ?? ''));
 
             if ($name === '' && $destination === '' && $token === '') {
-                unset($_POST['dls_writing_desk_destinations'][$index]);
-                continue;
-            }
-
-            if ($platform !== 'telegram') {
                 unset($_POST['dls_writing_desk_destinations'][$index]);
                 continue;
             }
@@ -245,7 +239,7 @@ if (!function_exists('dls_wd_tga_admin_assets')) {
         }
 
         wp_enqueue_script('jquery');
-        wp_register_style('dls-wd-telegram-admin', false, [], '1.0.0');
+        wp_register_style('dls-wd-telegram-admin', false, [], '1.0.1');
         wp_enqueue_style('dls-wd-telegram-admin');
         wp_add_inline_style('dls-wd-telegram-admin', dls_wd_tga_css());
         wp_add_inline_script('jquery', 'window.dlsWdTelegramAdmin = ' . wp_json_encode([
@@ -264,8 +258,18 @@ if (!function_exists('dls_wd_tga_css')) {
     function dls_wd_tga_css() {
         return <<<'CSS'
 .dls-wd-hidden-social-platform,
-.dls-wd-disallowed-channel {
+.dls-wd-disallowed-channel,
+.dls-wd-telegram-destinations-table th:first-child,
+.dls-wd-telegram-destinations-table td:first-child {
   display: none !important;
+}
+.dls-wd-telegram-destinations-table th,
+.dls-wd-telegram-destinations-table td {
+  vertical-align: middle;
+}
+.dls-wd-telegram-destinations-table td:nth-child(5),
+.dls-wd-telegram-destinations-table td:nth-child(6) {
+  white-space: nowrap;
 }
 .dls-wd-telegram-access {
   background: #fffaf3;
@@ -313,19 +317,63 @@ if (!function_exists('dls_wd_tga_js')) {
         return <<<'JS'
 (function () {
   var data = window.dlsWdTelegramAdmin || {};
+  var destinationObserver = null;
+  var forceQueued = false;
+
+  function replaceText(value) {
+    return String(value || '')
+      .replace(/Social Destinations/g, 'Telegram')
+      .replace(/Connect pages and channels/g, 'Telegram channels')
+      .replace(/Add each Facebook page, LinkedIn page, or Telegram channel here\. These connections feed the Writing Desk\./g, 'Add Telegram channels here. These connections feed the Writing Desk.')
+      .replace(/Facebook page, LinkedIn page, or Telegram channel/g, 'Telegram channel')
+      .replace(/Facebook and LinkedIn destinations are hidden and will not be saved\./g, 'Only Telegram channels are available here.')
+      .replace(/Page \/ Channel/g, 'Telegram channel')
+      .replace(/Access Token \/ Bot Token/g, 'Bot token')
+      .replace(/Add Destination/g, 'Add Telegram Channel')
+      .replace(/Save Destinations/g, 'Save Telegram')
+      .replace(/Destinations saved\./g, 'Telegram channels saved.');
+  }
 
   function textReplace(root) {
     if (!root) return;
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
     var node;
     while ((node = walker.nextNode())) {
-      node.nodeValue = node.nodeValue.replace(/Social Destinations/g, 'Telegram');
+      var next = replaceText(node.nodeValue);
+      if (next !== node.nodeValue) node.nodeValue = next;
     }
-    document.title = document.title.replace(/Social Destinations/g, 'Telegram');
+    document.title = replaceText(document.title);
+  }
+
+  function findDestinationsForm() {
+    var actionForm = document.querySelector('form[action*="dls_writing_desk_destinations_save"]');
+    if (actionForm) return actionForm;
+    var platform = document.querySelector('select[name^="dls_writing_desk_destinations["][name$="[platform]"]');
+    return platform ? platform.closest('form') : null;
+  }
+
+  function markDestinationsTable(form) {
+    if (!form) return;
+    var platform = form.querySelector('select[name^="dls_writing_desk_destinations["][name$="[platform]"]');
+    var table = platform ? platform.closest('table') : form.querySelector('table');
+    if (!table) return;
+
+    table.classList.add('dls-wd-telegram-destinations-table');
+    var headings = table.querySelectorAll('thead th, tr:first-child th');
+    var labels = ['', 'Name', 'Telegram channel', 'Bot token', 'Active', 'Preview'];
+    headings.forEach(function (heading, index) {
+      if (labels[index]) heading.textContent = labels[index];
+    });
   }
 
   function forceTelegramDestinations() {
-    document.querySelectorAll('select[name^="dls_writing_desk_destinations["][name$="[platform]"]').forEach(function (select) {
+    var form = findDestinationsForm();
+    if (!form || data.page !== 'dls-writing-desk-destinations') return;
+
+    markDestinationsTable(form);
+    textReplace(form);
+
+    form.querySelectorAll('select[name^="dls_writing_desk_destinations["][name$="[platform]"]').forEach(function (select) {
       select.value = 'telegram';
       Array.prototype.slice.call(select.options).forEach(function (option) {
         if (option.value !== 'telegram') option.remove();
@@ -334,17 +382,54 @@ if (!function_exists('dls_wd_tga_js')) {
       if (cell) cell.classList.add('dls-wd-hidden-social-platform');
     });
 
-    document.querySelectorAll('input[name^="dls_writing_desk_destinations["][name$="[name]"]').forEach(function (input) {
+    form.querySelectorAll('input[name^="dls_writing_desk_destinations["][name$="[platform]"]').forEach(function (input) {
+      input.value = 'telegram';
+    });
+
+    form.querySelectorAll('input[name^="dls_writing_desk_destinations["][name$="[name]"]').forEach(function (input) {
       input.placeholder = 'Telegram channel name';
     });
 
-    var form = document.querySelector('form[action*="dls_writing_desk_destinations_save"], form');
-    if (data.page === 'dls-writing-desk-destinations' && form && !document.querySelector('.dls-wd-telegram-only-note')) {
+    form.querySelectorAll('input[name^="dls_writing_desk_destinations["][name$="[destination]"]').forEach(function (input) {
+      input.placeholder = '@channel or channel id';
+    });
+
+    form.querySelectorAll('input[name^="dls_writing_desk_destinations["][name$="[token]"]').forEach(function (input) {
+      input.placeholder = 'Telegram bot token';
+    });
+
+    if (!document.querySelector('.dls-wd-telegram-only-note')) {
       var note = document.createElement('div');
       note.className = 'dls-wd-telegram-only-note';
-      note.textContent = 'This page is Telegram-only for now. Facebook and LinkedIn destinations are hidden and will not be saved.';
+      note.textContent = 'This page is Telegram-only. Add Telegram channels and bot tokens here.';
       form.insertBefore(note, form.firstChild);
     }
+  }
+
+  function queueForceTelegramDestinations() {
+    if (forceQueued) return;
+    forceQueued = true;
+    window.setTimeout(function () {
+      forceQueued = false;
+      forceTelegramDestinations();
+    }, 0);
+  }
+
+  function watchDestinationRows() {
+    if (data.page !== 'dls-writing-desk-destinations' || destinationObserver) return;
+    var form = findDestinationsForm();
+    if (!form) return;
+
+    destinationObserver = new MutationObserver(queueForceTelegramDestinations);
+    destinationObserver.observe(form, { childList: true, subtree: true });
+
+    form.addEventListener('click', function (event) {
+      var button = event.target.closest('button, a, input[type="button"], input[type="submit"]');
+      if (!button) return;
+      if (/add/i.test(button.textContent || button.value || '')) {
+        window.setTimeout(forceTelegramDestinations, 20);
+      }
+    });
   }
 
   function addAccessSection() {
@@ -405,6 +490,7 @@ if (!function_exists('dls_wd_tga_js')) {
   function init() {
     textReplace(document.body);
     forceTelegramDestinations();
+    watchDestinationRows();
     addAccessSection();
     hideDisallowedChannels();
   }
