@@ -1,20 +1,11 @@
 <?php
 /**
  * Plugin Name: DLS Writing Desk Telegram Polish
- * Description: Adds Telegram formatting helpers, preview-channel guardrails, and default message polish for Writing Desk.
+ * Description: Adds Telegram formatting helpers, destination cleanup, center-editor behavior, and per-channel footers.
  */
 
 if (!defined('ABSPATH')) {
     exit;
-}
-
-if (!function_exists('dls_wd_tp_author_telegram_fallbacks')) {
-    function dls_wd_tp_author_telegram_fallbacks() {
-        return [
-            'admin' => '@gadiuk',
-            'gadiuk' => '@gadiuk',
-        ];
-    }
 }
 
 if (!function_exists('dls_wd_tp_normalize_telegram_username')) {
@@ -38,7 +29,7 @@ if (!function_exists('dls_wd_tp_normalize_telegram_username')) {
 
 if (!function_exists('dls_wd_tp_ensure_author_telegram_map')) {
     function dls_wd_tp_ensure_author_telegram_map() {
-        foreach (dls_wd_tp_author_telegram_fallbacks() as $login => $username) {
+        foreach (['admin' => '@gadiuk', 'gadiuk' => '@gadiuk'] as $login => $username) {
             $user = get_user_by('login', (string) $login);
             $username = dls_wd_tp_normalize_telegram_username($username);
             if (!($user instanceof WP_User) || $username === '') {
@@ -89,30 +80,49 @@ if (!function_exists('dls_wd_tp_default_telegram_text')) {
         $kicker = dls_wd_tp_post_kicker($post_id);
 
         if ($title !== '') {
-            $parts[] = $kicker !== '' ? '[' . $kicker . '] -- ' . $title : $title;
+            $headline = $kicker !== '' ? '[' . $kicker . '] -- ' . $title : $title;
+            $parts[] = '<b>' . esc_html($headline) . '</b>';
         }
 
         $lead = trim((string) get_post_field('post_excerpt', $post_id));
         if ($lead !== '') {
-            $parts[] = $lead;
+            $parts[] = esc_html($lead);
         }
 
         $url = get_permalink($post_id);
         if (is_string($url) && $url !== '') {
-            $parts[] = $url;
+            $parts[] = esc_url($url);
         }
 
         return implode("\n\n", array_filter($parts));
     }
 }
 
-if (!function_exists('dls_wd_tp_existing_default_telegram_text')) {
-    function dls_wd_tp_existing_default_telegram_text($post_id) {
+if (!function_exists('dls_wd_tp_old_default_telegram_text')) {
+    function dls_wd_tp_old_default_telegram_text($post_id) {
         if (function_exists('dls_writing_desk_default_telegram_base_text')) {
-            return (string) dls_writing_desk_default_telegram_base_text($post_id);
+            return trim((string) dls_writing_desk_default_telegram_base_text($post_id));
         }
 
         return '';
+    }
+}
+
+if (!function_exists('dls_wd_tp_is_default_like')) {
+    function dls_wd_tp_is_default_like($post_id, $text) {
+        $text = trim((string) $text);
+        if ($text === '') {
+            return true;
+        }
+
+        $old = dls_wd_tp_old_default_telegram_text($post_id);
+        $new = trim(dls_wd_tp_default_telegram_text($post_id));
+        $plain_text = trim(wp_strip_all_tags($text));
+        $plain_new = trim(wp_strip_all_tags($new));
+
+        return ($old !== '' && $text === $old)
+            || ($new !== '' && $text === $new)
+            || ($plain_new !== '' && $plain_text === $plain_new);
     }
 }
 
@@ -123,16 +133,14 @@ if (!function_exists('dls_wd_tp_refresh_default_telegram_text')) {
             return;
         }
 
-        $new_default = dls_wd_tp_default_telegram_text($post_id);
-        if ($new_default === '') {
+        $default = dls_wd_tp_default_telegram_text($post_id);
+        if ($default === '') {
             return;
         }
 
         $stored = trim((string) get_post_meta($post_id, '_dls_writing_desk_telegram_default_text', true));
-        $old_default = trim(dls_wd_tp_existing_default_telegram_text($post_id));
-
-        if ($stored === '' || ($old_default !== '' && $stored === $old_default)) {
-            update_post_meta($post_id, '_dls_writing_desk_telegram_default_text', $new_default);
+        if (dls_wd_tp_is_default_like($post_id, $stored)) {
+            update_post_meta($post_id, '_dls_writing_desk_telegram_default_text', $default);
         }
     }
 }
@@ -145,26 +153,90 @@ if (!function_exists('dls_wd_tp_admin_init')) {
         }
     }
 }
-add_action('admin_init', 'dls_wd_tp_admin_init', 20);
+add_action('admin_init', 'dls_wd_tp_admin_init', 50);
 
-if (!function_exists('dls_wd_tp_prepare_telegram_post_payload')) {
-    function dls_wd_tp_prepare_telegram_post_payload() {
+if (!function_exists('dls_wd_tp_footer_meta_key')) {
+    function dls_wd_tp_footer_meta_key() {
+        return '_dls_wd_tg_channel_footers';
+    }
+}
+
+if (!function_exists('dls_wd_tp_sanitize_footer_rows')) {
+    function dls_wd_tp_sanitize_footer_rows($rows) {
+        $items = [];
+        foreach ((array) $rows as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+
+            $label = sanitize_text_field((string) ($row['label'] ?? ''));
+            $url = esc_url_raw((string) ($row['url'] ?? ''));
+            if ($label === '') {
+                continue;
+            }
+
+            $items[] = ['label' => $label, 'url' => $url];
+        }
+
+        return $items;
+    }
+}
+
+if (!function_exists('dls_wd_tp_footer_settings')) {
+    function dls_wd_tp_footer_settings($post_id) {
+        $stored = get_post_meta(absint($post_id), dls_wd_tp_footer_meta_key(), true);
+        return is_array($stored) ? $stored : [];
+    }
+}
+
+if (!function_exists('dls_wd_tp_save_telegram_payload')) {
+    function dls_wd_tp_save_telegram_payload() {
         $post_id = absint($_POST['dls_writing_desk_post_id'] ?? 0);
-        if ($post_id < 1) {
+        if ($post_id < 1 || !current_user_can('edit_post', $post_id)) {
             return;
         }
 
         $submitted = isset($_POST['dls_writing_desk_telegram_default_text'])
             ? trim((string) wp_unslash($_POST['dls_writing_desk_telegram_default_text']))
             : '';
-        $old_default = trim(dls_wd_tp_existing_default_telegram_text($post_id));
 
-        if ($submitted === '' || ($old_default !== '' && $submitted === $old_default)) {
+        if (dls_wd_tp_is_default_like($post_id, $submitted)) {
             $_POST['dls_writing_desk_telegram_default_text'] = dls_wd_tp_default_telegram_text($post_id);
+        }
+
+        if (!empty($_POST['dls_writing_desk_social']) && is_array($_POST['dls_writing_desk_social'])) {
+            foreach ($_POST['dls_writing_desk_social'] as $key => $row) {
+                if (is_array($row)) {
+                    $_POST['dls_writing_desk_social'][$key]['description'] = '';
+                }
+            }
+        }
+
+        $payload = isset($_POST['dls_wd_tg_footers']) ? (array) wp_unslash($_POST['dls_wd_tg_footers']) : [];
+        $clean = [];
+        foreach ($payload as $key => $row) {
+            $key = sanitize_key((string) $key);
+            if ($key === '' || !is_array($row)) {
+                continue;
+            }
+
+            $custom = !empty($row['custom']) ? 1 : 0;
+            $rows = dls_wd_tp_sanitize_footer_rows($row['rows'] ?? []);
+            if (!$custom && empty($rows)) {
+                continue;
+            }
+
+            $clean[$key] = ['custom' => $custom, 'rows' => $rows];
+        }
+
+        if (empty($clean)) {
+            delete_post_meta($post_id, dls_wd_tp_footer_meta_key());
+        } else {
+            update_post_meta($post_id, dls_wd_tp_footer_meta_key(), $clean);
         }
     }
 }
-add_action('admin_post_dls_writing_desk_telegram_save', 'dls_wd_tp_prepare_telegram_post_payload', 1);
+add_action('admin_post_dls_writing_desk_telegram_save', 'dls_wd_tp_save_telegram_payload', 0);
 
 if (!function_exists('dls_wd_tp_enforce_single_preview_destination')) {
     function dls_wd_tp_enforce_single_preview_destination() {
@@ -174,25 +246,21 @@ if (!function_exists('dls_wd_tp_enforce_single_preview_destination')) {
 
         $rows = (array) wp_unslash($_POST['dls_writing_desk_destinations']);
         $preview_index = null;
-
         foreach ($rows as $index => $row) {
             if (!is_array($row) || sanitize_key((string) ($row['platform'] ?? '')) !== 'telegram' || empty($row['preview'])) {
                 continue;
             }
 
-            $name = strtolower((string) ($row['name'] ?? ''));
-            if ($preview_index === null || strpos($name, 'preview') !== false || strpos($name, 'прев') !== false) {
+            $name = function_exists('mb_strtolower') ? mb_strtolower((string) ($row['name'] ?? ''), 'UTF-8') : strtolower((string) ($row['name'] ?? ''));
+            $destination = function_exists('mb_strtolower') ? mb_strtolower((string) ($row['destination'] ?? ''), 'UTF-8') : strtolower((string) ($row['destination'] ?? ''));
+            $haystack = $name . ' ' . $destination;
+            if ($preview_index === null || strpos($haystack, 'preview') !== false || strpos($haystack, 'test') !== false || strpos($haystack, 'тест') !== false || strpos($haystack, 'прев') !== false) {
                 $preview_index = $index;
             }
         }
 
         foreach ($_POST['dls_writing_desk_destinations'] as $index => $row) {
-            if (!is_array($row)) {
-                continue;
-            }
-
-            $platform = sanitize_key((string) ($row['platform'] ?? ''));
-            if ($platform !== 'telegram') {
+            if (!is_array($row) || sanitize_key((string) ($row['platform'] ?? '')) !== 'telegram') {
                 continue;
             }
 
@@ -206,49 +274,69 @@ if (!function_exists('dls_wd_tp_enforce_single_preview_destination')) {
 }
 add_action('admin_post_dls_writing_desk_destinations_save', 'dls_wd_tp_enforce_single_preview_destination', 1);
 
-if (!function_exists('dls_wd_tp_tinymce_init')) {
-    function dls_wd_tp_tinymce_init($settings, $editor_id) {
-        if ((string) $editor_id !== 'dls_writing_desk_content') {
-            return $settings;
-        }
-
-        $settings['toolbar1'] = 'formatselect,bold,italic,underline,strikethrough,link,unlink,blockquote,bullist,numlist,outdent,indent,alignleft,aligncenter,alignright,undo,redo,removeformat';
-        $settings['toolbar2'] = 'pastetext,charmap,hr,forecolor,backcolor,code';
-        $settings['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Quote=blockquote;Preformatted=pre';
-        $settings['menubar'] = false;
-
-        return $settings;
+if (!function_exists('dls_wd_tp_set_scheduled_post')) {
+    function dls_wd_tp_set_scheduled_post($post_id) {
+        $GLOBALS['dls_wd_tp_current_post_id'] = absint($post_id);
     }
 }
-add_filter('tiny_mce_before_init', 'dls_wd_tp_tinymce_init', 20, 2);
+add_action('dls_writing_desk_telegram_scheduled_send', 'dls_wd_tp_set_scheduled_post', 1, 1);
 
-if (!function_exists('dls_wd_tp_mce_buttons')) {
-    function dls_wd_tp_mce_buttons($buttons, $editor_id = '') {
-        if ((string) $editor_id !== 'dls_writing_desk_content') {
-            return $buttons;
+if (!function_exists('dls_wd_tp_destination_key_from_chat')) {
+    function dls_wd_tp_destination_key_from_chat($chat_id) {
+        $chat_id = trim((string) $chat_id);
+        if ($chat_id === '' || !function_exists('dls_writing_desk_get_social_destinations')) {
+            return '';
         }
 
-        foreach (['underline', 'strikethrough', 'unlink', 'outdent', 'indent', 'alignleft', 'aligncenter', 'alignright'] as $button) {
-            if (!in_array($button, $buttons, true)) {
-                $buttons[] = $button;
+        foreach ((array) dls_writing_desk_get_social_destinations() as $destination) {
+            if (($destination['platform'] ?? '') === 'telegram' && trim((string) ($destination['destination'] ?? '')) === $chat_id) {
+                return sanitize_key((string) ($destination['key'] ?? ''));
             }
         }
 
-        return $buttons;
+        return '';
     }
 }
-add_filter('mce_buttons', 'dls_wd_tp_mce_buttons', 20, 2);
 
-if (!function_exists('dls_wd_tp_mce_buttons_2')) {
-    function dls_wd_tp_mce_buttons_2($buttons, $editor_id = '') {
-        if ((string) $editor_id !== 'dls_writing_desk_content') {
-            return $buttons;
+if (!function_exists('dls_wd_tp_footer_text')) {
+    function dls_wd_tp_footer_text($rows) {
+        $parts = [];
+        foreach ((array) $rows as $row) {
+            $label = trim((string) ($row['label'] ?? ''));
+            $url = trim((string) ($row['url'] ?? ''));
+            if ($label === '') {
+                continue;
+            }
+
+            $parts[] = $url !== '' ? '<a href="' . esc_url($url) . '">' . esc_html($label) . '</a>' : esc_html($label);
         }
 
-        return array_values(array_unique(array_merge($buttons, ['pastetext', 'charmap', 'hr', 'forecolor', 'backcolor', 'code'])));
+        return implode(' | ', $parts);
     }
 }
-add_filter('mce_buttons_2', 'dls_wd_tp_mce_buttons_2', 20, 2);
+
+if (!function_exists('dls_wd_tp_remove_shared_footer')) {
+    function dls_wd_tp_remove_shared_footer($text) {
+        $text = (string) $text;
+        if (!function_exists('dls_writing_desk_telegram_footer_text')) {
+            return $text;
+        }
+
+        $footer = trim((string) dls_writing_desk_telegram_footer_text());
+        if ($footer === '') {
+            return $text;
+        }
+
+        foreach ([$footer, html_entity_decode($footer, ENT_QUOTES | ENT_HTML5, 'UTF-8')] as $candidate) {
+            $candidate = trim((string) $candidate);
+            if ($candidate !== '' && substr(trim($text), -strlen($candidate)) === $candidate) {
+                return rtrim(substr(trim($text), 0, -strlen($candidate)));
+            }
+        }
+
+        return $text;
+    }
+}
 
 if (!function_exists('dls_wd_tp_allowed_telegram_html')) {
     function dls_wd_tp_allowed_telegram_html() {
@@ -277,34 +365,57 @@ if (!function_exists('dls_wd_tp_filter_telegram_request')) {
             return $args;
         }
 
-        if (empty($args['body']) || !is_array($args['body']) || empty($args['body']['text'])) {
+        if (empty($args['body']) || !is_array($args['body'])) {
             return $args;
         }
 
-        $text = html_entity_decode((string) $args['body']['text'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
-        $args['body']['text'] = wp_kses($text, dls_wd_tp_allowed_telegram_html());
+        $post_id = absint($_POST['dls_writing_desk_post_id'] ?? ($GLOBALS['dls_wd_tp_current_post_id'] ?? ($GLOBALS['dls_wd_tg_cf_current_post_id'] ?? 0)));
+        if ($post_id > 0 && function_exists('dls_writing_desk_telegram_text')) {
+            $default_text = function_exists('dls_writing_desk_get_telegram_default_text') ? dls_writing_desk_get_telegram_default_text($post_id) : dls_wd_tp_default_telegram_text($post_id);
+            $args['body']['text'] = dls_writing_desk_telegram_text($post_id, [
+                'description' => '',
+                'default_text' => $default_text,
+            ]);
+        }
+
+        $destination_key = dls_wd_tp_destination_key_from_chat($args['body']['chat_id'] ?? '');
+        if ($post_id > 0 && $destination_key !== '') {
+            $footer_settings = dls_wd_tp_footer_settings($post_id);
+            if (!empty($footer_settings[$destination_key]['custom'])) {
+                $text = dls_wd_tp_remove_shared_footer((string) ($args['body']['text'] ?? ''));
+                $footer = dls_wd_tp_footer_text($footer_settings[$destination_key]['rows'] ?? []);
+                $args['body']['text'] = $footer !== '' ? trim($text . "\n\n" . $footer) : trim($text);
+            }
+        }
+
+        if (!empty($args['body']['text'])) {
+            $text = html_entity_decode((string) $args['body']['text'], ENT_QUOTES | ENT_HTML5, 'UTF-8');
+            $args['body']['text'] = wp_kses($text, dls_wd_tp_allowed_telegram_html());
+        }
         $args['body']['parse_mode'] = 'HTML';
 
         return $args;
     }
 }
-add_filter('http_request_args', 'dls_wd_tp_filter_telegram_request', 20, 2);
+add_filter('http_request_args', 'dls_wd_tp_filter_telegram_request', 100, 2);
 
 if (!function_exists('dls_wd_tp_admin_assets')) {
-    function dls_wd_tp_admin_assets($hook) {
+    function dls_wd_tp_admin_assets() {
         $page = sanitize_key((string) ($_GET['page'] ?? ''));
         if (!in_array($page, ['dls-writing-desk', 'dls-writing-desk-telegram', 'dls-writing-desk-destinations'], true)) {
             return;
         }
 
+        $post_id = absint($_GET['desk_post'] ?? 0);
         wp_enqueue_script('jquery');
-        wp_register_style('dls-writing-desk-telegram-polish', false, [], '1.0.1');
+        wp_register_style('dls-writing-desk-telegram-polish', false, [], '1.1.0');
         wp_enqueue_style('dls-writing-desk-telegram-polish');
         wp_add_inline_style('dls-writing-desk-telegram-polish', dls_wd_tp_admin_css());
+        wp_add_inline_script('jquery', 'window.dlsWdTgChannelFooters = ' . wp_json_encode(dls_wd_tp_footer_settings($post_id)) . ';', 'before');
         wp_add_inline_script('jquery', dls_wd_tp_admin_js());
     }
 }
-add_action('admin_enqueue_scripts', 'dls_wd_tp_admin_assets', 30);
+add_action('admin_enqueue_scripts', 'dls_wd_tp_admin_assets', 90);
 
 if (!function_exists('dls_wd_tp_admin_css')) {
     function dls_wd_tp_admin_css() {
@@ -316,13 +427,14 @@ input[name="dls_writing_desk_title"],
   color: #000 !important;
 }
 .dls-tg-tools {
-  display: flex;
+  display: flex !important;
   flex-wrap: wrap;
   gap: 6px;
   margin: 0 0 8px;
 }
 .dls-tg-tools button,
-.dls-social-remove-row {
+.dls-social-remove-row,
+.dls-tg-channel-footer button {
   border: 1px solid #d7cdc1;
   background: #fffaf3;
   border-radius: 999px;
@@ -336,19 +448,83 @@ input[name="dls_writing_desk_title"],
 .dls-tg-tools button:hover,
 .dls-tg-tools button:focus,
 .dls-social-remove-row:hover,
-.dls-social-remove-row:focus {
+.dls-social-remove-row:focus,
+.dls-tg-channel-footer button:hover,
+.dls-tg-channel-footer button:focus {
   background: #f3e1c6;
   border-color: #be8d4a;
 }
-.dls-social-remove-row {
-  background: #fff;
-  border-color: #d9b8a7;
-  color: #9a2a16;
+.dls-social-remove-row,
+.dls-tg-channel-footer__remove {
+  background: #fff !important;
+  border-color: #d9b8a7 !important;
+  color: #9a2a16 !important;
   margin-left: 8px;
 }
 tr.dls-social-row-removed,
 .dls-writing-desk__destination-row.dls-social-row-removed {
   display: none !important;
+}
+.dls-writing-desk__social-card textarea[name^="dls_writing_desk_social["][name$="[description]"] {
+  display: none !important;
+}
+.dls-writing-desk__social-card .dls-tg-tools {
+  display: none !important;
+}
+.dls-tg-center-note {
+  background: #fff7e8;
+  border: 1px solid #ead8b8;
+  border-radius: 12px;
+  color: #765d45;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 8px 0 12px;
+  padding: 9px 11px;
+}
+.dls-tg-channel-footer {
+  border-top: 1px solid #eadfce;
+  margin-top: 16px;
+  padding-top: 14px;
+}
+.dls-tg-channel-footer__head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.dls-tg-channel-footer__head strong {
+  color: #211814;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.dls-tg-channel-footer__toggle {
+  align-items: center;
+  display: inline-flex;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.dls-tg-channel-footer__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.dls-tg-channel-footer__row input {
+  border: 1px solid #d9cdbd;
+  border-radius: 10px;
+  min-width: 0;
+  padding: 8px 10px;
+  width: 100%;
+}
+.dls-tg-channel-footer__note,
+.dls-tg-channel-summary {
+  color: #806b58;
+  font-size: 12px;
+  line-height: 1.35;
 }
 .dls-tg-channel-summary {
   border: 1px solid #e3dbd2;
@@ -358,15 +534,13 @@ tr.dls-social-row-removed,
   padding: 14px;
 }
 .dls-tg-channel-summary strong {
+  color: #211814;
   display: block;
   margin-bottom: 8px;
 }
 .dls-tg-channel-summary ul {
   margin: 0;
   padding-left: 18px;
-}
-.dls-tg-channel-summary li {
-  margin: 4px 0;
 }
 CSS;
     }
@@ -376,6 +550,12 @@ if (!function_exists('dls_wd_tp_admin_js')) {
     function dls_wd_tp_admin_js() {
         return <<<'JS'
 (function () {
+  function escapeHtml(value) {
+    return String(value || '').replace(/[&<>"']/g, function (char) {
+      return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[char];
+    });
+  }
+
   function wrapSelection(textarea, before, after, placeholder) {
     if (!textarea) return;
     var start = textarea.selectionStart || 0;
@@ -394,6 +574,9 @@ if (!function_exists('dls_wd_tp_admin_js')) {
   function addTelegramToolbar(textarea) {
     if (!textarea || textarea.dataset.dlsTgToolbar === '1') return;
     textarea.dataset.dlsTgToolbar = '1';
+
+    var previous = textarea.previousElementSibling;
+    if (previous && previous.classList && previous.classList.contains('dls-tg-tools')) return;
 
     var toolbar = document.createElement('div');
     toolbar.className = 'dls-tg-tools';
@@ -431,7 +614,20 @@ if (!function_exists('dls_wd_tp_admin_js')) {
   }
 
   function setupTelegramTextareas() {
-    document.querySelectorAll('textarea[name="dls_writing_desk_telegram_default_text"], textarea[name^="dls_writing_desk_social["][name$="[description]"]').forEach(addTelegramToolbar);
+    var center = document.querySelector('textarea[name="dls_writing_desk_telegram_default_text"]');
+    addTelegramToolbar(center);
+
+    document.querySelectorAll('.dls-writing-desk__social-card textarea[name^="dls_writing_desk_social["][name$="[description]"]').forEach(function (textarea) {
+      textarea.value = '';
+      var previous = textarea.previousElementSibling;
+      if (previous && previous.classList && previous.classList.contains('dls-tg-tools')) previous.remove();
+      if (!textarea.parentNode.querySelector('.dls-tg-center-note')) {
+        var note = document.createElement('div');
+        note.className = 'dls-tg-center-note';
+        note.textContent = 'Post text is edited in the center panel. This channel keeps only delivery controls.';
+        textarea.parentNode.insertBefore(note, textarea);
+      }
+    });
   }
 
   function setupSinglePreviewCheckbox() {
@@ -458,7 +654,6 @@ if (!function_exists('dls_wd_tp_admin_js')) {
       if (row.querySelector('.dls-social-remove-row')) return;
       var fields = row.querySelectorAll('input[name^="dls_writing_desk_destinations["], select[name^="dls_writing_desk_destinations["]');
       if (!fields.length) return;
-      var lastField = fields[fields.length - 1];
       var button = document.createElement('button');
       button.type = 'button';
       button.className = 'dls-social-remove-row';
@@ -466,33 +661,76 @@ if (!function_exists('dls_wd_tp_admin_js')) {
       button.addEventListener('click', function () {
         if (!window.confirm('Remove this social destination? Press Save Destinations after this.')) return;
         fields.forEach(function (field) {
-          if (field.type === 'checkbox' || field.type === 'radio') {
-            field.checked = false;
-          } else if (field.tagName === 'SELECT') {
-            field.selectedIndex = 0;
-          } else {
-            field.value = '';
-          }
+          if (field.type === 'checkbox' || field.type === 'radio') field.checked = false;
+          else if (field.tagName === 'SELECT') field.selectedIndex = 0;
+          else field.value = '';
           field.dispatchEvent(new Event('change', { bubbles: true }));
         });
         row.classList.add('dls-social-row-removed');
       });
-      lastField.insertAdjacentElement('afterend', button);
+      fields[fields.length - 1].insertAdjacentElement('afterend', button);
     });
   }
 
-  function setupChannelSummary() {
-    var cards = Array.prototype.slice.call(document.querySelectorAll('.dls-writing-desk__social-card'));
-    if (!cards.length || document.querySelector('.dls-tg-channel-summary')) return;
+  function channelKey(card) {
+    var input = card.querySelector('input[name^="dls_writing_desk_social["][name$="[enabled]"]');
+    var match = input && input.name ? input.name.match(/^dls_writing_desk_social\[([^\]]+)\]/) : null;
+    return match ? match[1] : '';
+  }
 
+  function footerRowHtml(key, index, row) {
+    row = row || {};
+    return '<div class="dls-tg-channel-footer__row">' +
+      '<input type="text" name="dls_wd_tg_footers[' + key + '][rows][' + index + '][label]" placeholder="Label" value="' + escapeHtml(row.label) + '">' +
+      '<input type="url" name="dls_wd_tg_footers[' + key + '][rows][' + index + '][url]" placeholder="https://..." value="' + escapeHtml(row.url) + '">' +
+      '<button type="button" class="dls-tg-channel-footer__remove">Remove</button>' +
+      '</div>';
+  }
+
+  function setupChannelFooter(card) {
+    if (card.querySelector('.dls-tg-channel-footer')) return;
+    var key = channelKey(card);
+    if (!key) return;
+
+    var stored = (window.dlsWdTgChannelFooters || {})[key] || {};
+    var rows = Array.isArray(stored.rows) ? stored.rows : [];
+    var html = '<div class="dls-tg-channel-footer" data-footer-key="' + key + '">' +
+      '<div class="dls-tg-channel-footer__head"><strong>Footer</strong>' +
+      '<label class="dls-tg-channel-footer__toggle"><input type="checkbox" name="dls_wd_tg_footers[' + key + '][custom]" value="1"' + (stored.custom ? ' checked' : '') + '> Custom</label></div>' +
+      '<div class="dls-tg-channel-footer__rows"></div>' +
+      '<button type="button" class="dls-tg-channel-footer__add">Add footer link</button>' +
+      '<p class="dls-tg-channel-footer__note">Custom off: shared footer. Custom on with no rows: no footer.</p>' +
+      '</div>';
+    card.insertAdjacentHTML('beforeend', html);
+
+    var footer = card.querySelector('.dls-tg-channel-footer[data-footer-key="' + key + '"]');
+    var rowsWrap = footer.querySelector('.dls-tg-channel-footer__rows');
+    rows.forEach(function (row, index) {
+      rowsWrap.insertAdjacentHTML('beforeend', footerRowHtml(key, index, row));
+    });
+
+    footer.querySelector('.dls-tg-channel-footer__add').addEventListener('click', function () {
+      var index = rowsWrap.querySelectorAll('.dls-tg-channel-footer__row').length;
+      rowsWrap.insertAdjacentHTML('beforeend', footerRowHtml(key, index, {}));
+      footer.querySelector('input[name="dls_wd_tg_footers[' + key + '][custom]"]').checked = true;
+    });
+
+    footer.addEventListener('click', function (event) {
+      if (!event.target.classList.contains('dls-tg-channel-footer__remove')) return;
+      event.target.closest('.dls-tg-channel-footer__row').remove();
+      footer.querySelector('input[name="dls_wd_tg_footers[' + key + '][custom]"]').checked = true;
+    });
+  }
+
+  function setupChannelSummary(cards) {
+    if (!cards.length || document.querySelector('.dls-tg-channel-summary')) return;
     var channels = cards.map(function (card) {
       var label = card.querySelector('.dls-writing-desk__label span');
       var enabled = card.querySelector('input[name^="dls_writing_desk_social["][name$="[enabled]"]');
       var name = label ? label.textContent.trim() : '';
       if (!name || !enabled) return '';
-      return '<li>' + name + (enabled.checked ? ' — selected' : '') + '</li>';
+      return '<li>' + escapeHtml(name) + (enabled.checked ? ' — selected' : '') + '</li>';
     }).filter(Boolean);
-
     if (!channels.length) return;
 
     var summary = document.createElement('div');
@@ -501,12 +739,17 @@ if (!function_exists('dls_wd_tp_admin_js')) {
     cards[0].parentNode.insertBefore(summary, cards[0]);
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     setupTelegramTextareas();
     setupSinglePreviewCheckbox();
     setupDestinationRemoveButtons();
-    setupChannelSummary();
-  });
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.dls-writing-desk__social-card'));
+    cards.forEach(setupChannelFooter);
+    setupChannelSummary(cards);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
 JS;
     }
