@@ -7,6 +7,7 @@ on:
     paths:
       - 'wp-content/mu-plugins/dls-writing-desk-telegram-polish.php'
       - 'wp-content/mu-plugins/dls-writing-desk-telegram-admin.php'
+      - 'wp-content/mu-plugins/dls-writing-desk-telegram-publish-fix.php'
       - '.github/workflows/deploy-writing-desk-telegram.yml'
   workflow_dispatch:
 
@@ -30,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php; do
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php dls-writing-desk-telegram-publish-fix.php; do
             curl -fsSL \
               -H "Authorization: Bearer ${GH_TOKEN}" \
               -H "Accept: application/vnd.github.raw" \
@@ -90,10 +91,10 @@ jobs:
           ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" \
             "mkdir -p '${DEPLOY_PATH}/wp-content/mu-plugins'"
 
-          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php; do
+          for file in dls-writing-desk-telegram-polish.php dls-writing-desk-telegram-admin.php dls-writing-desk-telegram-publish-fix.php; do
             scp "${SCP_OPTS[@]}" "/tmp/${file}" \
               "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/wp-content/mu-plugins/${file}"
           done
 
           ssh "${SSH_OPTS[@]}" "${DEPLOY_USER}@${DEPLOY_HOST}" \
-            "rm -f '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-preview-fix.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-channel-footers.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-center-editor.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-polish.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-admin.php'"
+            "rm -f '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-preview-fix.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-channel-footers.php' '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-center-editor.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-polish.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-admin.php' && test -s '${DEPLOY_PATH}/wp-content/mu-plugins/dls-writing-desk-telegram-publish-fix.php'"
